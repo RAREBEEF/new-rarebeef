@@ -1,0 +1,18 @@
+@import "./allSection.scss";
+
+.container {
+  background-color: whitesmoke;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      width: 60vmin;
+    }
+  }
+}

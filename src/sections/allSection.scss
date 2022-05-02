@@ -1,0 +1,17 @@
+@import "../main.scss";
+
+.container {
+  position: relative;
+  scroll-snap-align: center;
+  height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+  }
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+  .content {
+    flex-grow: 1;
+    margin-top: -150px;
+  }
+}

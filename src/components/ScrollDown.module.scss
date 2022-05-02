@@ -1,0 +1,28 @@
+.container {
+  opacity: 1;
+  transition: opacity 1s;
+  z-index: 1;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 10vmin;
+  max-height: 10vmin;
+  display: flex;
+  animation: upDown 2s linear infinite;
+  @keyframes upDown {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  &.disappear {
+    opacity: 0;
+  }
+}
