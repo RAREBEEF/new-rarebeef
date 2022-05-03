@@ -3,4 +3,8 @@ $black: #221718;
 $gray: rgb(179, 179, 179);
 body {
   font-family: Raleway, sans-serif !important;
+  a {
+    color: $black;
+    text-decoration: none;
+  }
 }

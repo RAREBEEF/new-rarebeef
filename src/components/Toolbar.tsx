@@ -6,14 +6,14 @@ import githupIcon from "../images/github-brands.svg";
 import { ToolbarPropType } from "../types";
 import classNames from "classnames";
 const Toolbar: React.FC<ToolbarPropType> = ({
-  AppRef,
+  HomeRef,
   setScrollMod,
   scrollToThreeBeefProgress,
 }): ReactElement => {
   const toTop = useCallback(() => {
-    AppRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    HomeRef.current.scrollTo({ top: 0, behavior: "smooth" });
     setScrollMod(true);
-  }, [AppRef, setScrollMod]);
+  }, [HomeRef, setScrollMod]);
   return (
     <div className={classNames(styles.container)}>
       <a href="https://velog.io/@drrobot409" target={"_blank"} rel="noreferrer">

@@ -13,7 +13,7 @@ import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
 import dragIcon from "../images/compress-solid.svg";
 import scrollIcon from "../images/angle-left-solid.svg";
-import ScrollDown from "../components//ScrollDown";
+import ScrollDown from "../components/ScrollDown";
 import cursorIcon from "../images/arrow-pointer-solid.svg";
 import targetIcon from "../images/bullseye-solid.svg";
 
@@ -29,7 +29,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
   }, [setScrollMod]);
 
   return (
-    <div
+    <section
       className={styles.container}
       style={{ cursor: mouseOver ? "pointer" : scrollMod ? "default" : "grab" }}
     >
@@ -88,7 +88,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
         </Suspense>
       </Canvas>
       <ScrollDown scrollMod={scrollMod} />
-    </div>
+    </section>
   );
 };
 

@@ -12,12 +12,11 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({
   //   console.log(animationStartAt);
   // }, [animationStartAt]);
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <Header
         title={["Meta", "Beef"]}
         classes={["MetaBeef"]}
         animationStartAt={animationStartAt}
-        animationDirection="left"
       />
       <div
         className={styles.content}
@@ -25,13 +24,13 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({
           transform:
             animationStartAt === -1
               ? "none"
-              : `translateX(${-300 + animationStartAt * 3}px)`,
+              : `translateX(${300 - animationStartAt * 3}px)`,
         }}
       >
         <img className={styles.img} src={img} alt="Meta Beef" />
       </div>
       <ScrollDown />
-    </div>
+    </section>
   );
 };
 

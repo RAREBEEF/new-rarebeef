@@ -7,8 +7,10 @@ export interface HeaderPropType {
   animationDirection?: string;
 }
 
+export interface NavPropType {}
+
 export interface ToolbarPropType {
-  AppRef: any;
+  HomeRef: any;
   setScrollMod: Function;
   scrollToThreeBeefProgress: number;
 }
@@ -17,7 +19,7 @@ export interface ScrollDownPropType {
   scrollMod?: boolean;
 }
 
-export interface BeefPropType {}
+export interface FrontPropType {}
 
 export interface ThreeBeefPropType {
   scrollToThreeBeefProgress: number;
