@@ -5,8 +5,9 @@ const calcPageScroll = (
 ): number => {
   if (scrollHeight !== 0) {
     return (
-      ((clientHeight * (page - 1) + (clientHeight * 3) / 10) /
-        ((scrollHeight - clientHeight) * (page - 2))) *
+      // (위에 있는 페이지 총 높이 + 페이지 사이 간격) / 해당 페이지 위치
+      ((clientHeight * (page - 1) + (clientHeight / 10) * (page - 2)) /
+        ((scrollHeight - clientHeight))) *
       100
     );
   }

@@ -3,14 +3,14 @@ import { useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import { Vector3 } from "three";
-import BeefModel from "./BeefModel";
-import PlateModel from "./PlateModel";
+import BeefModel from "../models/BeefModel";
+import PlateModel from "../models/PlateModel";
 import { ThreePropType } from "../types";
 
 const Three: React.FC<ThreePropType> = ({
   setMouseOver,
-  scrollProgress,
-  draggable,
+  scrollToThreeBeefProgress,
+  scrollMod,
 }) => {
   const [beefActive, setBeefActive] = useState<boolean>(false);
   const groupRef = useRef<THREE.Group>(null);
@@ -43,7 +43,11 @@ const Three: React.FC<ThreePropType> = ({
 
   useFrame(() => {
     if (!!groupRef.current) {
-      groupRef.current.position.set(10.2 - scrollProgress / 10, 0, 0);
+      groupRef.current.position.set(
+        10.2 - scrollToThreeBeefProgress / 10,
+        0,
+        0
+      );
     }
   });
 

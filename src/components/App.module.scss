@@ -5,9 +5,18 @@
     height: -webkit-fill-available;
   }
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  // scroll-snap-type: y mandatory;
 
   &.dark {
     background-color: black;
+  }
+
+  .empty {
+    height: 100vh;
+    scroll-snap-align: center;
+    z-index: 999;
+    position: relative;
+    pointer-events: none;
   }
 }

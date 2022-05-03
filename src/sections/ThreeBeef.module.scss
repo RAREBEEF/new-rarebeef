@@ -6,56 +6,81 @@
     position: absolute;
     cursor: pointer;
     z-index: 2;
-    transition: all 1s;
-    color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
     font-size: 20px;
     font-weight: 700;
 
     &.drag-mod {
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
       .drag-mod__icon {
         position: absolute;
+        opacity: 0.3;
+        width: 15vmin;
+        height: 15vmin;
+        top: 7vmin;
+        left: 4.5vmin;
       }
+      color: rgba(40, 40, 40, 0.8);
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 20vw;
-      max-width: 50vh;
+      width: 15vmin;
+      height: 15vmin;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
       margin: auto;
-
-      animation: zoomInOut 2s infinite;
-      @keyframes zoomInOut {
-        0% {
-          transform: scale(1);
+      &:not(:hover) {
+        animation: zoomInOut 2s infinite;
+        @keyframes zoomInOut {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          100% {
+            transform: scale(1);
+          }
         }
-        50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
+      }
+      &:hover {
+        transform: scale(1.1);
+        color: rgba(255, 255, 255, 0.8);
       }
     }
 
     &.scroll-mod {
+      z-index: 100;
+      position: fixed;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 30px;
-      top: 10px;
-      right: 10px;
+      bottom: 27px;
+      right: 80px;
+      // color: rgb(0, 0, 0);
+      color: rgba(40, 40, 40, 0.8);
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      padding: {
+        left: 10px;
+        right: 10px;
+      }
       .scroll-mod__icon {
         height: inherit;
         display: inline;
+        transition: all 0.3s;
       }
-    }
-
-    &:hover {
-      color: rgba(0, 0, 0, 0.6);
+      &:hover {
+        color: rgba(0, 0, 0, 0.3);
+        .scroll-mod__icon {
+          opacity: 0.6;
+        }
+      }
     }
   }
   .canvas {

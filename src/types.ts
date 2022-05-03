@@ -1,22 +1,34 @@
+import { ReactElement, ReactFragment, Ref } from "react";
+
 export interface HeaderPropType {
   title: any;
   classes?: Array<string>;
+  animationStartAt?: number;
+  animationDirection?: string;
+}
+
+export interface ToolbarPropType {
+  AppRef: any;
+  setScrollMod: Function;
+  scrollToThreeBeefProgress: number;
 }
 
 export interface ScrollDownPropType {
-  draggable?: boolean;
+  scrollMod?: boolean;
 }
 
 export interface BeefPropType {}
 
-export interface ThreePropType {
-  setMouseOver: Function;
-  scrollProgress: number;
-  draggable: boolean;
+export interface ThreeBeefPropType {
+  scrollToThreeBeefProgress: number;
+  scrollMod: boolean;
+  setScrollMod: Function;
 }
 
-export interface ThreeBeefPropType {
-  scrollProgress: number;
+export interface ThreePropType {
+  setMouseOver: Function;
+  scrollToThreeBeefProgress: number;
+  scrollMod: boolean;
 }
 
 export interface BeefModelPropType {
@@ -26,4 +38,12 @@ export interface BeefModelPropType {
   setMouseOver: Function;
   setBeefActive: Function;
   beefActive: boolean;
+}
+
+export interface PlaceReviewPropType {
+  animationStartAt: number;
+}
+
+export interface MetaBeefPropType {
+  animationStartAt: number;
 }

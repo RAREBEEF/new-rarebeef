@@ -1,0 +1,34 @@
+.container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  height: fit-content;
+  width: 40px;
+  transition: opacity 0.7s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .icon {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s;
+    &.toTop-icon {
+      height: 0;
+      // opacity: 0;
+      pointer-events: none;
+      &.show {
+        // opacity: 0.5;
+        pointer-events: all;
+        height: 40px;
+      }
+    }
+    &:hover {
+      opacity: 0.3 !important;
+    }
+  }
+  &.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

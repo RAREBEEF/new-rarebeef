@@ -1,15 +1,30 @@
 import classNames from "classnames";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { HeaderPropType } from "../types";
 import styles from "./Header.module.scss";
 
-const Header: React.FC<HeaderPropType> = ({ title, classes }): ReactElement => {
+const Header: React.FC<HeaderPropType> = ({
+  title,
+  classes,
+  animationStartAt = -1,
+  animationDirection = "right",
+}): ReactElement => {
   return (
     <h1
       className={classNames(
         styles.title,
         classes?.map((item: string): string => styles[item])
       )}
+      style={{
+        transform:
+          animationStartAt === -1
+            ? "none"
+            : `translateX(${
+                animationDirection === "right"
+                  ? -300 + animationStartAt * 3
+                  : 300 - animationStartAt * 3
+              }px)`,
+      }}
     >
       {typeof title === "string"
         ? title

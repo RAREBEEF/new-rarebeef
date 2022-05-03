@@ -14,46 +14,54 @@ import classNames from "classnames";
 import dragIcon from "../images/compress-solid.svg";
 import scrollIcon from "../images/angle-left-solid.svg";
 import ScrollDown from "../components//ScrollDown";
+import cursorIcon from "../images/arrow-pointer-solid.svg";
+import targetIcon from "../images/bullseye-solid.svg";
 
 const ThreeBeef: React.FC<ThreeBeefPropType> = ({
-  scrollProgress,
+  scrollToThreeBeefProgress,
+  scrollMod,
+  setScrollMod,
 }): ReactElement => {
   const [mouseOver, setMouseOver] = useState<boolean>(false);
-  const [draggable, setDraggable] = useState<boolean>(false);
 
   const onModChange = useCallback(() => {
-    setDraggable((prev) => !prev);
-  }, []);
+    setScrollMod((prev: boolean): boolean => !prev);
+  }, [setScrollMod]);
 
   return (
     <div
       className={styles.container}
-      style={{ cursor: mouseOver ? "pointer" : draggable ? "grab" : "default" }}
+      style={{ cursor: mouseOver ? "pointer" : scrollMod ? "default" : "grab" }}
     >
-      <Header title={["The", ["Rare Beef"]]} />
-
+      <Header
+        title={["The", ["Rare Beef"]]}
+        animationStartAt={scrollToThreeBeefProgress}
+      />
       <div
         className={classNames(styles["drag-mod"], styles["mod-changer"])}
         onClick={onModChange}
         style={{
-          opacity: draggable ? 0 : 1,
-          pointerEvents: draggable ? "none" : "all",
+          opacity: scrollMod ? 1 : 0,
+          pointerEvents: scrollMod ? "all" : "none",
         }}
       >
-        Click to look around
         <img
-          className={styles["drag-mod__icon"]}
-          src={dragIcon}
+          className={classNames(
+            styles["drag-mod__icon"],
+            styles["drag-mod__icon--cursor"]
+          )}
+          src={cursorIcon}
           alt="Mod change"
         />
+        Click to look around
       </div>
 
       <div
         className={classNames(styles["scroll-mod"], styles["mod-changer"])}
         onClick={onModChange}
         style={{
-          opacity: draggable ? 1 : 0,
-          pointerEvents: draggable ? "all" : "none",
+          opacity: scrollMod ? 0 : 1,
+          pointerEvents: scrollMod ? "none" : "all",
         }}
       >
         <img
@@ -67,19 +75,19 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
       <Canvas
         className={styles.canvas}
         style={{
-          pointerEvents: draggable ? "all" : "none",
+          pointerEvents: scrollMod ? "none" : "all",
         }}
         shadows
       >
         <Suspense>
           <Three
             setMouseOver={setMouseOver}
-            draggable={draggable}
-            scrollProgress={scrollProgress}
+            scrollMod={scrollMod}
+            scrollToThreeBeefProgress={scrollToThreeBeefProgress}
           />
         </Suspense>
       </Canvas>
-      <ScrollDown draggable={draggable} />
+      <ScrollDown scrollMod={scrollMod} />
     </div>
   );
 };
