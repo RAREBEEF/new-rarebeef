@@ -3,6 +3,7 @@ import styles from "./Toolbar.module.scss";
 import upIcon from "../images/circle-chevron-up-solid.svg";
 import velogIcon from "../images/velog.svg";
 import githupIcon from "../images/github-brands.svg";
+import mailIcon from "../images/circle-envelope-regular.svg";
 import { ToolbarPropType } from "../types";
 import classNames from "classnames";
 const Toolbar: React.FC<ToolbarPropType> = ({
@@ -28,6 +29,13 @@ const Toolbar: React.FC<ToolbarPropType> = ({
           className={classNames(styles["github-icon"], styles.icon)}
           src={githupIcon}
           alt="Github"
+        />
+      </a>
+      <a href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io">
+        <img
+          className={classNames(styles["mail-icon"], styles.icon)}
+          src={mailIcon}
+          alt="Send mail"
         />
       </a>
       <img

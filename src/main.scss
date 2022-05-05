@@ -1,6 +1,9 @@
 $pink: #ce979e;
 $black: #221718;
 $gray: rgb(179, 179, 179);
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: Raleway, sans-serif !important;
   a {

@@ -1,0 +1,23 @@
+.button {
+  &.Button__copy {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 30.5px;
+    transition: background-color 0.3s;
+    margin: {
+      right: 10px;
+    }
+    padding: {
+      top: 5px;
+      bottom: 5px;
+      left: 10px;
+      right: 10px;
+    }
+    &:hover {
+      background-color: rgba(230, 230, 230, 0.5);
+    }
+  }
+}

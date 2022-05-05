@@ -1,10 +1,14 @@
-import { ReactElement, ReactFragment, Ref } from "react";
-
 export interface HeaderPropType {
   title: any;
   classes?: Array<string>;
   animationStartAt?: number;
   animationDirection?: string;
+}
+
+export interface ButtonPropType {
+  text: string;
+  onClick?: any;
+  classes?: Array<string>;
 }
 
 export interface NavPropType {}
