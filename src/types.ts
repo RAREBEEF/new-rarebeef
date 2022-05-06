@@ -14,9 +14,9 @@ export interface ButtonPropType {
 export interface NavPropType {}
 
 export interface ToolbarPropType {
-  HomeRef: any;
-  setScrollMod: Function;
-  scrollToThreeBeefProgress: number;
+  HomeRef?: any;
+  ProfileRef?: any;
+  setScrollMod?: Function;
 }
 
 export interface ScrollDownPropType {
@@ -51,5 +51,9 @@ export interface PlaceReviewPropType {
 }
 
 export interface MetaBeefPropType {
+  animationStartAt: number;
+}
+
+export interface CubePropType {
   animationStartAt: number;
 }

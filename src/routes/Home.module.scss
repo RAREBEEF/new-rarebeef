@@ -6,12 +6,16 @@
   }
   overflow-y: scroll;
   overflow-x: hidden;
-  // scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
 
   &.dark {
     background-color: black;
   }
 
+  .stick {
+    position: sticky;
+    top: 0;
+  }
   .empty {
     height: 100vh;
     scroll-snap-align: center;

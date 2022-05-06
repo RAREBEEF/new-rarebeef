@@ -24,12 +24,12 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({
           transform:
             animationStartAt === -1
               ? "none"
-              : `translateX(${300 - animationStartAt * 3}px)`,
+              : `translateX(${200 - animationStartAt * 2}px)`,
         }}
       >
         <img className={styles.img} src={img} alt="Meta Beef" />
       </div>
-      <ScrollDown />
+      {/* <ScrollDown /> */}
     </section>
   );
 };

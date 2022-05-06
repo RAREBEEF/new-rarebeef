@@ -3,7 +3,6 @@
 .container {
   position: relative;
   scroll-snap-align: center;
-  // scroll-margin: 100vh;
   height: 100vh;
   @supports (-webkit-touch-callout: none) {
     height: -webkit-fill-available;

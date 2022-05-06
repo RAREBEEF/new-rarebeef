@@ -1,4 +1,4 @@
-import { ReactElement, useCallback } from "react";
+import { ReactElement, useCallback, useEffect, useState } from "react";
 import styles from "./Toolbar.module.scss";
 import upIcon from "../images/circle-chevron-up-solid.svg";
 import velogIcon from "../images/velog.svg";
@@ -9,12 +9,64 @@ import classNames from "classnames";
 const Toolbar: React.FC<ToolbarPropType> = ({
   HomeRef,
   setScrollMod,
-  scrollToThreeBeefProgress,
+  ProfileRef,
 }): ReactElement => {
+  const [scrollTop, setScrollTop] = useState<number>(0);
+  const [clientHeight, setClientHeight] = useState<number>(0);
+
   const toTop = useCallback(() => {
-    HomeRef.current.scrollTo({ top: 0, behavior: "smooth" });
-    setScrollMod(true);
-  }, [HomeRef, setScrollMod]);
+    if (!!HomeRef?.current) {
+      HomeRef.current.scrollTo({ top: 0, behavior: "smooth" });
+      if (!!setScrollMod) {
+        setScrollMod(true);
+      }
+    } else {
+      ProfileRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [HomeRef, ProfileRef, setScrollMod]);
+
+  const resizeCb = useCallback(() => {
+    const currentHome = HomeRef?.current;
+    const currentProfile = ProfileRef?.current;
+    if (currentHome) {
+      setClientHeight(currentHome.clientHeight);
+    } else if (currentProfile) {
+      setClientHeight(currentProfile.clientHeight);
+    }
+  }, [HomeRef, ProfileRef]);
+
+  const scrollCb = useCallback(() => {
+    const currentHome = HomeRef?.current;
+    const currentProfile = ProfileRef?.current;
+    if (currentHome) {
+      setScrollTop(currentHome.scrollTop);
+    } else if (currentProfile) {
+      setScrollTop(currentProfile.scrollTop);
+    }
+  }, [HomeRef, ProfileRef]);
+
+  useEffect(() => {
+    const currentHome = HomeRef?.current;
+    const currentProfile = ProfileRef?.current;
+
+    scrollCb();
+    resizeCb();
+
+    if (currentHome) {
+      currentHome.addEventListener("scroll", scrollCb);
+    } else if (currentProfile) {
+      currentProfile.addEventListener("scroll", scrollCb);
+    }
+
+    window.addEventListener("resize", resizeCb);
+
+    return () => {
+      window.removeEventListener("resize", resizeCb);
+      currentHome?.removeEventListener("scroll", scrollCb);
+      currentProfile?.removeEventListener("scroll", scrollCb);
+    };
+  }, [HomeRef, ProfileRef, resizeCb, scrollCb]);
+
   return (
     <div className={classNames(styles.container)}>
       <a href="https://velog.io/@drrobot409" target={"_blank"} rel="noreferrer">
@@ -42,7 +94,7 @@ const Toolbar: React.FC<ToolbarPropType> = ({
         className={classNames(
           styles["toTop-icon"],
           styles.icon,
-          scrollToThreeBeefProgress > 50 && styles.show
+          scrollTop > clientHeight / 2 && styles.show
         )}
         src={upIcon}
         alt="To top"

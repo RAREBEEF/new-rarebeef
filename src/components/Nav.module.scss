@@ -1,31 +1,27 @@
 .container {
-  // border: 1px solid black;
-  // position: fixed;
-  width: 100vw;
+  position: fixed;
   height: 50px;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 999;
   display: flex;
   justify-content: flex-end;
-
+  margin: {
+    right: 10px;
+    left: 10px;
+  }
   .item {
     line-height: 50px;
     text-align: center;
     cursor: pointer;
-    // margin: {
-    //   right: 10px;
-    //   left: 10px;
-    // }
+
     padding: {
       right: 15px;
       left: 15px;
       top: 0;
       bottom: 0;
     }
-    margin: {
-      // right: 20px;
-    }
+
     &:hover {
       background-color: rgba(200, 200, 200, 0.3);
     }

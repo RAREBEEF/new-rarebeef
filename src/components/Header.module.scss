@@ -2,11 +2,10 @@
 
 .title {
   cursor: text;
-  margin: {
-  }
+
   padding: {
     left: 5vmin;
-    top: 3vmin;
+    top: 5vmin;
   }
   display: flex;
   flex-wrap: wrap;
@@ -25,5 +24,8 @@
   }
   &.MetaBeef {
     color: #221718;
+  }
+  &.Cube {
+    color: whitesmoke;
   }
 }

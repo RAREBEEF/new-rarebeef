@@ -21,8 +21,8 @@ const Header: React.FC<HeaderPropType> = ({
             ? "none"
             : `translateX(${
                 animationDirection === "right"
-                  ? -300 + animationStartAt * 3
-                  : 300 - animationStartAt * 3
+                  ? -200 + animationStartAt * 2
+                  : 200 - animationStartAt * 2
               }px)`,
       }}
     >

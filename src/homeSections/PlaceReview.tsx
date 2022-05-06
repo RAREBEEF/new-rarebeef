@@ -22,12 +22,12 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({
           transform:
             animationStartAt === -1
               ? "none"
-              : `translateX(${-300 + animationStartAt * 3}px)`,
+              : `translateX(${-200 + animationStartAt * 2}px)`,
         }}
       >
         <img className={styles.img} src={img} alt="Place Review" />
       </div>
-      <ScrollDown />
+      {/* <ScrollDown /> */}
     </section>
   );
 };

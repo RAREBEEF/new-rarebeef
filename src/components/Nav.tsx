@@ -8,6 +8,9 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
       <NavLink to="/" className={styles.item}>
         <li>Home</li>
       </NavLink>
+      <NavLink to="/profile" className={styles.item}>
+        <li>About me</li>
+      </NavLink>
       <NavLink to="/contact" className={styles.item}>
         <li>Contact</li>
       </NavLink>

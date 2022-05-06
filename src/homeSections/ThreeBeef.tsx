@@ -1,21 +1,13 @@
-import {
-  ReactElement,
-  Suspense,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { ReactElement, useCallback, useState } from "react";
 import Header from "../components/Header";
 import styles from "./ThreeBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
 import Three from "../components/Three";
 import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
-import dragIcon from "../images/compress-solid.svg";
 import scrollIcon from "../images/angle-left-solid.svg";
 import ScrollDown from "../components/ScrollDown";
 import cursorIcon from "../images/arrow-pointer-solid.svg";
-import targetIcon from "../images/bullseye-solid.svg";
 
 const ThreeBeef: React.FC<ThreeBeefPropType> = ({
   scrollToThreeBeefProgress,
@@ -35,7 +27,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
     >
       <Header
         title={["The", ["Rare Beef"]]}
-        animationStartAt={scrollToThreeBeefProgress}
+        // animationStartAt={scrollToThreeBeefProgress}
       />
       <div
         className={classNames(styles["drag-mod"], styles["mod-changer"])}
@@ -79,15 +71,13 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
         }}
         shadows
       >
-        <Suspense>
-          <Three
-            setMouseOver={setMouseOver}
-            scrollMod={scrollMod}
-            scrollToThreeBeefProgress={scrollToThreeBeefProgress}
-          />
-        </Suspense>
+        <Three
+          setMouseOver={setMouseOver}
+          scrollMod={scrollMod}
+          scrollToThreeBeefProgress={scrollToThreeBeefProgress}
+        />
       </Canvas>
-      <ScrollDown scrollMod={scrollMod} />
+      {/* <ScrollDown scrollMod={scrollMod} /> */}
     </section>
   );
 };

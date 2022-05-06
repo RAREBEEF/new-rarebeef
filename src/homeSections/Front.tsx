@@ -9,11 +9,9 @@ import Nav from "../components/Nav";
 const Front: React.FC<FrontPropType> = (): ReactElement => {
   return (
     <section className={classNames(styles.container)}>
-      <Nav />
       <div className={styles.content}>
         <img className={styles.logo} src={logo} alt="RARE BEEF" />
       </div>
-      <ScrollDown />
     </section>
   );
 };

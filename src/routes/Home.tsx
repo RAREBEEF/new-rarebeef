@@ -6,8 +6,8 @@ import PlaceReview from "../homeSections/PlaceReview";
 import MetaBeef from "../homeSections/MetaBeef";
 import classNames from "classnames";
 import calcPageScroll from "../tools/calcPageScroll";
-import Background from "../components/Background";
 import Toolbar from "../components/Toolbar";
+import Nav from "../components/Nav";
 
 const Home = () => {
   const HomeRef = useRef<any>(null);
@@ -37,7 +37,6 @@ const Home = () => {
 
   const onScroll = useCallback(
     (e: any) => {
-      e.stopPropagation();
       // 전체 스크롤 진행 정도
       setScrollProgress(
         (HomeRef.current.scrollTop / (scrollHeight - clientHeight)) * 100
@@ -50,22 +49,19 @@ const Home = () => {
     },
     [clientHeight, scrollHeight]
   );
+
   return (
     <div
       ref={HomeRef}
       className={classNames(styles.container)}
-      onScrollCapture={onScroll}
+      onScroll={onScroll}
       onLoad={update}
     >
-      <Toolbar
-        HomeRef={HomeRef}
-        setScrollMod={setScrollMod}
-        scrollToThreeBeefProgress={scrollToThreeBeefProgress}
-      />
-      <Background />
+      <Toolbar HomeRef={HomeRef} setScrollMod={setScrollMod} />
       {/* Empty space for scroll */}
       <div className={styles.empty}></div>
-      {!(scrollToThreeBeefProgress > 100) && <Front />}
+      <Nav />
+      <Front />
       <ThreeBeef
         scrollToThreeBeefProgress={scrollToThreeBeefProgress}
         scrollMod={scrollMod}
