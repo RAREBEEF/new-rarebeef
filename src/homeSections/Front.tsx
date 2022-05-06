@@ -12,6 +12,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       <div className={styles.content}>
         <img className={styles.logo} src={logo} alt="RARE BEEF" />
       </div>
+      <ScrollDown />
     </section>
   );
 };

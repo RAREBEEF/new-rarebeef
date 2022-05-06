@@ -15,35 +15,19 @@ const Toolbar: React.FC<ToolbarPropType> = ({
   const [clientHeight, setClientHeight] = useState<number>(0);
 
   const toTop = useCallback(() => {
-    if (!!HomeRef?.current) {
-      HomeRef.current.scrollTo({ top: 0, behavior: "smooth" });
-      if (!!setScrollMod) {
-        setScrollMod(true);
-      }
-    } else {
-      ProfileRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    if (!!setScrollMod) {
+      setScrollMod(true);
     }
-  }, [HomeRef, ProfileRef, setScrollMod]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [setScrollMod]);
 
   const resizeCb = useCallback(() => {
-    const currentHome = HomeRef?.current;
-    const currentProfile = ProfileRef?.current;
-    if (currentHome) {
-      setClientHeight(currentHome.clientHeight);
-    } else if (currentProfile) {
-      setClientHeight(currentProfile.clientHeight);
-    }
-  }, [HomeRef, ProfileRef]);
+    setClientHeight(window.innerHeight);
+  }, []);
 
   const scrollCb = useCallback(() => {
-    const currentHome = HomeRef?.current;
-    const currentProfile = ProfileRef?.current;
-    if (currentHome) {
-      setScrollTop(currentHome.scrollTop);
-    } else if (currentProfile) {
-      setScrollTop(currentProfile.scrollTop);
-    }
-  }, [HomeRef, ProfileRef]);
+    setScrollTop(window.scrollY);
+  }, []);
 
   useEffect(() => {
     const currentHome = HomeRef?.current;

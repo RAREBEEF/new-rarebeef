@@ -10,7 +10,6 @@ import ScrollDown from "../components/ScrollDown";
 import cursorIcon from "../images/arrow-pointer-solid.svg";
 
 const ThreeBeef: React.FC<ThreeBeefPropType> = ({
-  scrollToThreeBeefProgress,
   scrollMod,
   setScrollMod,
 }): ReactElement => {
@@ -71,11 +70,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
         }}
         shadows
       >
-        <Three
-          setMouseOver={setMouseOver}
-          scrollMod={scrollMod}
-          scrollToThreeBeefProgress={scrollToThreeBeefProgress}
-        />
+        <Three setMouseOver={setMouseOver} scrollMod={scrollMod} />
       </Canvas>
       {/* <ScrollDown scrollMod={scrollMod} /> */}
     </section>

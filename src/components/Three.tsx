@@ -7,11 +7,7 @@ import BeefModel from "../models/BeefModel";
 import PlateModel from "../models/PlateModel";
 import { ThreePropType } from "../types";
 
-const Three: React.FC<ThreePropType> = ({
-  setMouseOver,
-  scrollToThreeBeefProgress,
-  scrollMod,
-}) => {
+const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
   const [beefActive, setBeefActive] = useState<boolean>(false);
   const groupRef = useRef<THREE.Group>(null);
   const beefRef = useRef<THREE.Group>(null);
@@ -40,16 +36,6 @@ const Three: React.FC<ThreePropType> = ({
   //     );
   //   }
   // });
-
-  useFrame(() => {
-    if (!!groupRef.current) {
-      groupRef.current.position.set(
-        10.2 - scrollToThreeBeefProgress / 10,
-        0,
-        0
-      );
-    }
-  });
 
   return (
     <>

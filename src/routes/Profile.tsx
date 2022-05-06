@@ -22,7 +22,6 @@ const Profile = () => {
 
   return (
     <div ref={ProfileRef} className={styles.container}>
-      <Nav />
       <Toolbar ProfileRef={ProfileRef} />
       <div className={styles.content}>
         <h1 className={styles.title}>About me</h1>
