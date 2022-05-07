@@ -31,8 +31,9 @@
   }
 
   .menu {
+    pointer-events: none;
     overflow: hidden;
-    transition: all 0.5s;
+    transition: width 1s;
     width: 0;
     height: 100vh;
     position: absolute;
@@ -41,25 +42,36 @@
     display: flex;
 
     &.show-menu {
-      transition: all 0.5s 0.3s;
       width: 100vw;
+      pointer-events: all;
+      .menu__right-side {
+        // width: 50vw;
+      }
+
       .item {
         transform: rotateX(0);
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
-            transition: transform 0.5s #{0.4 + ($i - 1) * 0.3}s,
-              background-color 0.3s 0s;
+            transition: transform 0.5s #{0.6 + ($i - 1) * 0.3}s,
+              background-color 0.3s 0s, height 0.3s 0s, font-size 0.3s 0s;
           }
         }
       }
     }
 
     .menu__left-side {
-      width: 50vw;
+      flex-grow: 1;
+    }
+
+    .menu__resizer {
+      background-color: black;
+      width: 10px;
+      cursor: ew-resize;
     }
 
     .menu__right-side {
-      width: 50vw;
+      // transition: all 1s;
+      // width: 0;
       backdrop-filter: blur(5px);
       border-left: 2px solid black;
       background-color: rgba(200, 200, 200, 0.3);
@@ -72,6 +84,7 @@
       transform: rotateX(180deg);
       backface-visibility: hidden;
       height: 50px;
+      // width: inherit;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -82,6 +95,11 @@
         bottom: 0;
       }
 
+      &.active {
+        background-color: rgba(200, 200, 200, 0.8);
+        color: white;
+      }
+
       &:first-child {
         margin: {
           top: 60px;
@@ -90,14 +108,13 @@
 
       &:not(&.footer) {
         cursor: pointer;
-        backdrop-filter: brightness(0.9);
-        margin: {
-          bottom: 10px;
-        }
         &:hover {
-          background-color: rgba(200, 200, 200, 0.5);
+          font-size: 20px;
+          height: 60px;
+          background-color: rgba(100, 100, 100, 0.3);
         }
       }
+
       &.footer {
         transform-origin: bottom;
         text-align: center;

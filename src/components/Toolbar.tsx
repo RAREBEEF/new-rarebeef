@@ -6,11 +6,7 @@ import githupIcon from "../images/github-brands.svg";
 import mailIcon from "../images/circle-envelope-regular.svg";
 import { ToolbarPropType } from "../types";
 import classNames from "classnames";
-const Toolbar: React.FC<ToolbarPropType> = ({
-  HomeRef,
-  setScrollMod,
-  ProfileRef,
-}): ReactElement => {
+const Toolbar: React.FC<ToolbarPropType> = ({ setScrollMod }): ReactElement => {
   const [scrollTop, setScrollTop] = useState<number>(0);
   const [clientHeight, setClientHeight] = useState<number>(0);
 
@@ -30,26 +26,17 @@ const Toolbar: React.FC<ToolbarPropType> = ({
   }, []);
 
   useEffect(() => {
-    const currentHome = HomeRef?.current;
-    const currentProfile = ProfileRef?.current;
-
     scrollCb();
     resizeCb();
 
-    if (currentHome) {
-      currentHome.addEventListener("scroll", scrollCb);
-    } else if (currentProfile) {
-      currentProfile.addEventListener("scroll", scrollCb);
-    }
-
+    window.addEventListener("scroll", scrollCb);
     window.addEventListener("resize", resizeCb);
 
     return () => {
+      window.removeEventListener("scroll", scrollCb);
       window.removeEventListener("resize", resizeCb);
-      currentHome?.removeEventListener("scroll", scrollCb);
-      currentProfile?.removeEventListener("scroll", scrollCb);
     };
-  }, [HomeRef, ProfileRef, resizeCb, scrollCb]);
+  }, [resizeCb, scrollCb]);
 
   return (
     <div className={classNames(styles.container)}>

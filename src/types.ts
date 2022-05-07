@@ -12,13 +12,16 @@ export interface ButtonPropType {
 export interface NavPropType {}
 
 export interface ToolbarPropType {
-  HomeRef?: any;
-  ProfileRef?: any;
   setScrollMod?: Function;
 }
 
 export interface ScrollDownPropType {
   scrollMod?: boolean;
+}
+
+export interface HomePropType {
+  scrollMod: boolean;
+  setScrollMod: Function;
 }
 
 export interface FrontPropType {}
