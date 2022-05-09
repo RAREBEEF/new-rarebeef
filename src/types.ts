@@ -4,9 +4,11 @@ export interface HeaderPropType {
 }
 
 export interface ButtonPropType {
-  text: string;
+  text?: string;
   onClick?: any;
   classes?: Array<string>;
+  icon?: string;
+  href?: string;
 }
 
 export interface NavPropType {

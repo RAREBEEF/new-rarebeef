@@ -1,8 +1,10 @@
 import classNames from "classnames";
 import { useCallback, useState } from "react";
 import Button from "../components/Button";
-import Nav from "../components/Nav";
+import copyIcon from "../images/copy-regular.svg";
+import writeIcon from "../images/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
+
 const Contact = () => {
   const [copyAlert, setCopyAlert] = useState<string>("");
   const onCopyClick = useCallback(() => {
@@ -16,6 +18,7 @@ const Contact = () => {
         setCopyAlert("복사 실패");
       });
   }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -27,39 +30,36 @@ const Contact = () => {
             </h2>
             <span className={styles["alert-copy"]}>{copyAlert}</span>
           </div>
-          <Button
-            text="drrobot409@gmail.com"
-            onClick={onCopyClick}
-            classes={["Button__copy"]}
-          />
-          <a
-            href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io"
-            className={styles.link}
-          >
-            메일 작성하기
-          </a>
+          <span className={styles.text}>drrobot409@gmail.com</span>
+          <div className={styles["btn-group"]}>
+            <Button
+              icon={copyIcon}
+              onClick={onCopyClick}
+              classes={["Button__copy"]}
+            />
+            <Button
+              href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io"
+              icon={writeIcon}
+            />
+          </div>
         </section>
         <section className={styles.section}>
           <h2 className={styles.header}>Github</h2>
-          <a
-            href="https://github.com/RAREBEEF"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.link}
-          >
-            https://github.com/RAREBEEF
-          </a>
+          <div className={styles["btn-group"]}>
+            <Button
+              href="https://github.com/RAREBEEF"
+              text="https://github.com/RAREBEEF"
+            />
+          </div>
         </section>
         <section className={styles.section}>
           <h2 className={styles.header}>Blog</h2>
-          <a
-            href="https://velog.io/@drrobot409"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.link}
-          >
-            https://velog.io/@drrobot409
-          </a>
+          <div className={styles["btn-group"]}>
+            <Button
+              href="https://velog.io/@drrobot409"
+              text="https://velog.io/@drrobot409"
+            />
+          </div>
         </section>
       </div>
       <footer className={styles.footer}>

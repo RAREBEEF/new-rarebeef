@@ -1,90 +1,76 @@
-@import "../main.scss";
+@import "./profile&contact.module.scss";
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  overflow-y: scroll;
   .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    flex-grow: 1;
-
-    .title {
-      font-size: 40px;
-      width: 100%;
-      text-align: center;
-      font-weight: 700;
-      margin: {
-        top: 30px;
-        bottom: 50px;
-      }
-    }
-
     .section {
-      padding: 20px;
-      margin: {
-        bottom: 30px;
-      }
-
-      .header-mail-wrapper {
-        display: flex;
-        align-items: center;
-        .header-mail {
-          margin: {
-            bottom: 15px;
-            right: 10px;
-          }
-        }
-        .alert-copy {
-          color: rgba(40, 40, 40, 0.5);
-          margin: {
-            bottom: 15px;
-          }
-        }
-      }
-
-      .header {
+      .sub-header {
         font-size: 20px;
-        font-weight: 500;
         margin: {
-          bottom: 20px;
-        }
-      }
-      .mail {
-        outline: none;
-        border: none;
-        font-size: 16px;
-        margin: {
-          bottom: 10px;
-          right: 10px;
-          left: 0;
-          right: 0;
-        }
-        padding: 0;
-      }
-      .link {
-        border: 1px solid $black;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-        width: fit-content;
-        height: 30px;
-        padding: {
-          top: 5px;
-          bottom: 5px;
           left: 10px;
-          right: 10px;
+          top: 10px;
         }
-        &:hover {
-          background-color: rgba(230, 230, 230, 0.5);
+      }
+
+      .skills__front-end,
+      .skills__design {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 80vw;
+        margin: {
+          left: 10px;
+          bottom: 10px;
+        }
+
+        .skill {
+          position: relative;
+          transition: all 0.2s;
+          margin: 10px;
+          perspective: 500px;
+
+          .skill__icon {
+            cursor: pointer;
+            transition: all 0.5s;
+            transform: rotateY(0);
+            backface-visibility: hidden;
+            height: 100px;
+            margin: 10px;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+          .skill__text {
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 5px;
+            transition: all 0.5s;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: inherit;
+            min-width: fit-content;
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          &.rotate {
+            .skill__icon {
+              transform: rotateY(180deg);
+            }
+            .skill__text {
+              transform: rotateY(0);
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
         }
       }
     }
-  }
-  .footer {
-    height: 30px;
-    text-align: center;
   }
 }
