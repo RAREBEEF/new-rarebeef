@@ -6,7 +6,7 @@ import { CubePropType } from "../types";
 import classNames from "classnames";
 import Header from "../components/Header";
 
-const Cube: React.FC<CubePropType> = ({ animationStartAt }): ReactElement => {
+const Cube: React.FC<CubePropType> = ({}): ReactElement => {
   const [lastX, setLastX] = useState<number>(-25);
   const [lastY, setLastY] = useState<number>(25);
 

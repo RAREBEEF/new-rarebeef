@@ -2,18 +2,25 @@
 
 .title {
   cursor: text;
-
+  margin: {
+    right: 70px;
+  }
   padding: {
     left: 5vmin;
-    top: 5vmin;
+    top: 3vmin;
   }
   display: flex;
   flex-wrap: wrap;
-  z-index: 2;
+  z-index: 1;
   position: relative;
   font-size: 11vh;
   font-weight: 700;
   color: $black;
+
+  &.ThreeBeef {
+    pointer-events: none;
+  }
+
   &.PlaceReview {
     .break0 {
       color: #fffcf2;
@@ -22,9 +29,11 @@
       color: #eb5e28;
     }
   }
+
   &.MetaBeef {
     color: #221718;
   }
+
   &.Cube {
     color: whitesmoke;
   }

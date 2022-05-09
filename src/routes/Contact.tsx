@@ -18,7 +18,6 @@ const Contact = () => {
   }, []);
   return (
     <div className={styles.container}>
-      <Nav />
       <div className={styles.content}>
         <h1 className={styles.title}>Contact</h1>
         <section className={styles.section}>

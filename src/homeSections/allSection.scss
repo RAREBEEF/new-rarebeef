@@ -1,17 +1,16 @@
 @import "../main.scss";
 
 .container {
-  position: relative;
-  scroll-snap-align: center;
+  // z-index: 0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
   height: 100vh;
   @supports (-webkit-touch-callout: none) {
     height: -webkit-fill-available;
   }
-  display: flex;
-  flex-direction: column;
-  &:not(:last-child) {
-    margin-bottom: 10vh;
-  }
+
   .content {
     flex-grow: 1;
     margin-top: -10vh;

@@ -1,17 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
-import { Vector3 } from "three";
 import BeefModel from "../models/BeefModel";
 import PlateModel from "../models/PlateModel";
 import { ThreePropType } from "../types";
 
-const Three: React.FC<ThreePropType> = ({
-  setMouseOver,
-  scrollToThreeBeefProgress,
-  scrollMod,
-}) => {
+const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
   const [beefActive, setBeefActive] = useState<boolean>(false);
   const groupRef = useRef<THREE.Group>(null);
   const beefRef = useRef<THREE.Group>(null);
@@ -25,7 +19,6 @@ const Three: React.FC<ThreePropType> = ({
     currentRef.enableZoom = true;
     currentRef.enablePan = false;
     currentRef.reverseOrbit = false;
-    // currentRef.target.set = ([0, -10, 0]);
   }, []);
 
   // useFrame((state) => {
@@ -40,16 +33,6 @@ const Three: React.FC<ThreePropType> = ({
   //     );
   //   }
   // });
-
-  useFrame(() => {
-    if (!!groupRef.current) {
-      groupRef.current.position.set(
-        10.2 - scrollToThreeBeefProgress / 10,
-        0,
-        0
-      );
-    }
-  });
 
   return (
     <>
@@ -120,6 +103,7 @@ const Three: React.FC<ThreePropType> = ({
             <planeGeometry args={[1000, 1000]} />
             <meshStandardMaterial color="white" />
           </mesh>
+          {/* back */}
           <mesh
             position={[0, 497.7, 500]}
             rotation={[0, angleToRadians(180), 0]}

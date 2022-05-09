@@ -1,29 +1,173 @@
+@import "../main.scss";
+
 .container {
   position: fixed;
-  height: 50px;
   top: 0;
   right: 0;
-  z-index: 999;
+  z-index: 2;
   display: flex;
   justify-content: flex-end;
-  margin: {
-    right: 10px;
-    left: 10px;
-  }
-  .item {
-    line-height: 50px;
-    text-align: center;
-    cursor: pointer;
+  align-items: center;
 
+  .scroll-mod {
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    color: rgba(40, 40, 40, 0.8);
+    color: whitesmoke;
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 5px;
     padding: {
-      right: 15px;
-      left: 15px;
-      top: 0;
-      bottom: 0;
+      left: 10px;
+      right: 10px;
     }
+    .icon--scroll-mod {
+      height: inherit;
+      display: inline;
+      transition: all 0.3s;
+      height: 50%;
+      margin: {
+        right: 5px;
+      }
+    }
+    &:hover {
+      color: rgba(200, 200, 200, 0.8);
+      background-color: rgba(100, 100, 100, 0.8);
+    }
+  }
+
+  .icon--menu {
+    opacity: 0.8;
+    margin: {
+      top: 15px;
+      bottom: 15px;
+      right: 10px;
+      left: 10px;
+    }
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
 
     &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .menu {
+    pointer-events: none;
+    overflow: hidden;
+    transition: width 1s;
+    width: 0;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+
+    .menu__left-side {
+      flex-grow: 1;
+    }
+
+    .menu__resizer {
+      background-color: rgba(33, 23, 24, 0.5);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      width: 10px;
+      cursor: ew-resize;
+      .icon--resize {
+        width: 50%;
+        margin: auto;
+      }
+    }
+
+    .menu__right-side {
+      backdrop-filter: blur(5px);
       background-color: rgba(200, 200, 200, 0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .item {
+      transition: all 0.5s;
+      transform: rotateX(180deg);
+      backface-visibility: hidden;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: {
+        right: 15px;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+      }
+
+      &.active {
+        background-color: rgba(100, 100, 100, 0.3);
+        color: white;
+      }
+
+      &:first-child {
+        margin: {
+          top: 60px;
+        }
+      }
+
+      &:not(.footer) {
+        cursor: pointer;
+        font-weight: 700;
+        &:hover {
+          background-color: rgba(200, 200, 200, 0.3);
+          font-size: 20px;
+          height: 60px;
+        }
+      }
+
+      &.footer {
+        transform-origin: bottom;
+        text-align: center;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        flex-grow: 1;
+        justify-self: flex-end;
+        padding: {
+          bottom: 20px;
+        }
+      }
+    }
+  }
+
+  &.show-menu {
+    .icon--menu {
+      border: 1px solid rgba(0, 0, 0, 0);
+      border-radius: 5px;
+      height: 5px;
+      padding: 3px;
+      background-color: rgb(50, 50, 50);
+      transform: rotate(45deg);
+    }
+    .menu {
+      width: 100vw;
+      pointer-events: all;
+      .item {
+        transform: rotateX(0);
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            transition: transform 0.5s #{0.6 + ($i - 1) * 0.3}s,
+              background-color 0.3s 0s, height 0.3s 0s, font-size 0.3s 0s;
+          }
+        }
+      }
     }
   }
 }
