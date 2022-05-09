@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { HeaderPropType } from "../types";
 import styles from "./Header.module.scss";
 

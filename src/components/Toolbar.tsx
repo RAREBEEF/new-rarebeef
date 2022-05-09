@@ -42,28 +42,28 @@ const Toolbar: React.FC<ToolbarPropType> = ({ setScrollMod }): ReactElement => {
     <div className={classNames(styles.container)}>
       <a href="https://velog.io/@drrobot409" target={"_blank"} rel="noreferrer">
         <img
-          className={classNames(styles["velog-icon"], styles.icon)}
+          className={classNames(styles["icon--velog"], styles.icon)}
           src={velogIcon}
           alt="Velog"
         />
       </a>
       <a href="https://github.com/RAREBEEF" target={"_blank"} rel="noreferrer">
         <img
-          className={classNames(styles["github-icon"], styles.icon)}
+          className={classNames(styles["icon--github"], styles.icon)}
           src={githupIcon}
           alt="Github"
         />
       </a>
       <a href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io">
         <img
-          className={classNames(styles["mail-icon"], styles.icon)}
+          className={classNames(styles["icon--mail"], styles.icon)}
           src={mailIcon}
           alt="Send mail"
         />
       </a>
       <img
         className={classNames(
-          styles["toTop-icon"],
+          styles["icon--to-top"],
           styles.icon,
           scrollTop > clientHeight / 2 && styles.show
         )}

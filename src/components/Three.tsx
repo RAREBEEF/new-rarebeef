@@ -1,8 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
-import { Vector3 } from "three";
 import BeefModel from "../models/BeefModel";
 import PlateModel from "../models/PlateModel";
 import { ThreePropType } from "../types";
@@ -21,7 +19,6 @@ const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
     currentRef.enableZoom = true;
     currentRef.enablePan = false;
     currentRef.reverseOrbit = false;
-    // currentRef.target.set = ([0, -10, 0]);
   }, []);
 
   // useFrame((state) => {
@@ -106,6 +103,7 @@ const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
             <planeGeometry args={[1000, 1000]} />
             <meshStandardMaterial color="white" />
           </mesh>
+          {/* back */}
           <mesh
             position={[0, 497.7, 500]}
             rotation={[0, angleToRadians(180), 0]}

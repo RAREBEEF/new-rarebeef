@@ -11,7 +11,7 @@ const ScrollDown: React.FC<ScrollDownPropType> = ({ scrollMod }) => {
         scrollMod !== undefined && !scrollMod && styles.disappear
       )}
     >
-      <img className={styles.icon} src={icon} alt="Scroll down" />
+      <img className={styles["icon-down"]} src={icon} alt="Scroll down" />
     </div>
   );
 };

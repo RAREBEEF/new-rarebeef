@@ -4,7 +4,6 @@ import logo from "../images/beef.svg";
 import ScrollDown from "../components/ScrollDown";
 import { FrontPropType } from "../types";
 import classNames from "classnames";
-import Nav from "../components/Nav";
 
 const Front: React.FC<FrontPropType> = (): ReactElement => {
   return (

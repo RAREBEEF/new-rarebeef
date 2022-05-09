@@ -4,10 +4,14 @@ import { NavPropType } from "../types";
 import styles from "./Nav.module.scss";
 import menuIcon from "../images/circle-bars.svg";
 import classNames from "classnames";
+import dotsIcon from "../images/ellipsis-vertical-solid.svg";
+import scrollIcon from "../images/angle-left-solid.svg";
+import { ucs2 } from "punycode";
 
-// window 대신 container에 이벤트 등록하기
-
-const Nav: React.FC<NavPropType> = ({}): ReactElement => {
+const Nav: React.FC<NavPropType> = ({
+  scrollMod,
+  setScrollMod,
+}): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [resizing, setResizing] = useState<boolean>(false);
   const [size, setSize] = useState<number>(50);
@@ -24,6 +28,10 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
       window.removeEventListener("resize", update);
     };
   }, []);
+
+  const onModChange = useCallback(() => {
+    setScrollMod(true);
+  }, [setScrollMod])
 
   const onClick = useCallback(() => {
     setShowMenu((prev) => !prev);
@@ -46,7 +54,6 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
   const onMouseUpCb = useCallback(() => {
     setResizing(false);
     window.removeEventListener("mousemove", dragCb);
-    // window.removeEventListener("mouseup", onMouseUpCb);
   }, [dragCb]);
 
   const onResizeStart = useCallback(
@@ -60,20 +67,36 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
   );
 
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(styles.container, showMenu && styles["show-menu"])}
+    >
+      <div
+        className={classNames(styles["scroll-mod"], styles["mod-changer"])}
+        onClick={onModChange}
+        style={{
+          opacity: scrollMod ? 0 : 1,
+          pointerEvents: scrollMod ? "none" : "all",
+        }}
+      >
+        <img
+          className={styles["icon--scroll-mod"]}
+          src={scrollIcon}
+          alt="Back"
+        />
+        &nbsp;Back to scroll mod
+      </div>
       <img
-        className={classNames(
-          styles["menu-icon"],
-          showMenu && styles["show-menu"]
-        )}
+        className={styles["icon--menu"]}
         src={menuIcon}
         alt="menu"
         onClick={onClick}
       />
-      <ul className={classNames(styles.menu, showMenu && styles["show-menu"])}>
+      <div className={styles["menu"]}>
         <div className={styles["menu__left-side"]} onClick={onClick} />
-        <div className={styles["menu__resizer"]} onMouseDown={onResizeStart} />
-        <div
+        <div className={styles["menu__resizer"]} onMouseDown={onResizeStart}>
+          <img className={styles["icon--resize"]} src={dotsIcon} alt="resize" />
+        </div>
+        <ul
           className={styles["menu__right-side"]}
           style={{
             width: showMenu ? `${size}vw` : 0,
@@ -113,8 +136,8 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
           <footer className={classNames(styles.footer, styles.item)}>
             &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
           </footer>
-        </div>
-      </ul>
+        </ul>
+      </div>
     </div>
   );
 };

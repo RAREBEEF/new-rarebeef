@@ -1,12 +1,10 @@
-import { ReactElement, useCallback, useState } from "react";
+import { ReactElement, useCallback, useEffect, useState } from "react";
 import Header from "../components/Header";
 import styles from "./ThreeBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
 import Three from "../components/Three";
 import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
-import scrollIcon from "../images/angle-left-solid.svg";
-import ScrollDown from "../components/ScrollDown";
 import cursorIcon from "../images/arrow-pointer-solid.svg";
 
 const ThreeBeef: React.FC<ThreeBeefPropType> = ({
@@ -14,20 +12,39 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
   setScrollMod,
 }): ReactElement => {
   const [mouseOver, setMouseOver] = useState<boolean>(false);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
 
   const onModChange = useCallback(() => {
-    setScrollMod((prev: boolean): boolean => !prev);
+    setScrollMod(false);
   }, [setScrollMod]);
+
+  const onDragStart = useCallback(() => {
+    if (!scrollMod) {
+      setIsDragging(true);
+    }
+  }, [scrollMod]);
+  const onDragEnd = useCallback(() => {
+    if (!scrollMod) {
+      setIsDragging(false);
+    }
+  }, [scrollMod]);
 
   return (
     <section
       className={styles.container}
-      style={{ cursor: mouseOver ? "pointer" : scrollMod ? "default" : "grab" }}
+      style={{
+        cursor: mouseOver
+          ? "pointer"
+          : scrollMod
+          ? "default"
+          : isDragging
+          ? "grabbing"
+          : "grab",
+      }}
+      onMouseDown={onDragStart}
+      onMouseUp={onDragEnd}
     >
-      <Header
-        title={["The", ["Rare Beef"]]}
-        // animationStartAt={scrollToThreeBeefProgress}
-      />
+      <Header title={["The", ["Rare Beef"]]} classes={["ThreeBeef"]} />
       <div
         className={classNames(styles["drag-mod"], styles["mod-changer"])}
         onClick={onModChange}
@@ -38,29 +55,13 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
       >
         <img
           className={classNames(
-            styles["drag-mod__icon"],
-            styles["drag-mod__icon--cursor"]
+            styles["icon--drag-mod"],
+            styles["icont--drag-mod__cursor"]
           )}
           src={cursorIcon}
           alt="Mod change"
         />
         Click to look around
-      </div>
-
-      <div
-        className={classNames(styles["scroll-mod"], styles["mod-changer"])}
-        onClick={onModChange}
-        style={{
-          opacity: scrollMod ? 0 : 1,
-          pointerEvents: scrollMod ? "none" : "all",
-        }}
-      >
-        <img
-          className={styles["scroll-mod__icon"]}
-          src={scrollIcon}
-          alt="Back"
-        />
-        &nbsp;Back to scroll mod
       </div>
 
       <Canvas
@@ -72,7 +73,6 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
       >
         <Three setMouseOver={setMouseOver} scrollMod={scrollMod} />
       </Canvas>
-      {/* <ScrollDown scrollMod={scrollMod} /> */}
     </section>
   );
 };

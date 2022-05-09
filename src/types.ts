@@ -9,7 +9,10 @@ export interface ButtonPropType {
   classes?: Array<string>;
 }
 
-export interface NavPropType {}
+export interface NavPropType {
+  scrollMod: boolean;
+  setScrollMod: Function;
+}
 
 export interface ToolbarPropType {
   setScrollMod?: Function;
