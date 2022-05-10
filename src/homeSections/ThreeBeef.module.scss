@@ -1,6 +1,18 @@
 @import "./allSection.scss";
 
 .container {
+  height: 300vh;
+  // background-color: rgb(195, 195, 195);
+  background: linear-gradient(
+    90deg,
+    rgb(187, 186, 186),
+    rgb(195, 195, 195),
+    rgb(195, 195, 195)
+  );
+  .sticky-wrapper {
+    position: sticky;
+    top: 0;
+  }
   .drag-mod {
     position: absolute;
     cursor: pointer;
@@ -25,8 +37,7 @@
     align-items: center;
     width: 15vmin;
     height: 15vmin;
-    top: 0;
-    bottom: 0;
+    top: calc(50vh - 7vmin);
     left: 0;
     right: 0;
     margin: auto;
@@ -57,5 +68,12 @@
     top: 0;
     height: 100vh !important;
     width: 100vw !important;
+  }
+
+  .content-one {
+    position: absolute;
+    top: 120vh;
+    left: 10vw;
+    z-index: 1;
   }
 }

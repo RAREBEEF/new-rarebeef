@@ -2,10 +2,15 @@
 
 .container {
   background-color: whitesmoke;
+  height: 300vh;
+  .sticky-wrapper {
+    position: sticky;
+    top: 0;
+  }
   .content {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     .img {
       width: 90vmin;
     }

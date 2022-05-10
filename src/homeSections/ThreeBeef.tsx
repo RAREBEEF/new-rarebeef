@@ -44,35 +44,38 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({
       onMouseDown={onDragStart}
       onMouseUp={onDragEnd}
     >
-      <Header title={["The", ["Rare Beef"]]} classes={["ThreeBeef"]} />
-      <div
-        className={classNames(styles["drag-mod"], styles["mod-changer"])}
-        onClick={onModChange}
-        style={{
-          opacity: scrollMod ? 1 : 0,
-          pointerEvents: scrollMod ? "all" : "none",
-        }}
-      >
-        <img
-          className={classNames(
-            styles["icon--drag-mod"],
-            styles["icont--drag-mod__cursor"]
-          )}
-          src={cursorIcon}
-          alt="Mod change"
-        />
-        Click to look around
-      </div>
+      <div className={styles["sticky-wrapper"]}>
+        <Header title={["The", "Rare Beef"]} classes={["ThreeBeef"]} />
+        <div
+          className={classNames(styles["drag-mod"], styles["mod-changer"])}
+          onClick={onModChange}
+          style={{
+            opacity: scrollMod ? 1 : 0,
+            pointerEvents: scrollMod ? "all" : "none",
+          }}
+        >
+          <img
+            className={classNames(
+              styles["icon--drag-mod"],
+              styles["icont--drag-mod__cursor"]
+            )}
+            src={cursorIcon}
+            alt="Mod change"
+          />
+          Click to look around
+        </div>
 
-      <Canvas
-        className={styles.canvas}
-        style={{
-          pointerEvents: scrollMod ? "none" : "all",
-        }}
-        shadows
-      >
-        <Three setMouseOver={setMouseOver} scrollMod={scrollMod} />
-      </Canvas>
+        <Canvas
+          className={styles.canvas}
+          style={{
+            pointerEvents: scrollMod ? "none" : "all",
+          }}
+          shadows
+        >
+          <Three setMouseOver={setMouseOver} scrollMod={scrollMod} />
+        </Canvas>
+      </div>
+      <section className={styles["content-one"]}>쏼라쏼라</section>
     </section>
   );
 };

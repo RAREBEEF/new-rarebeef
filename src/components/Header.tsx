@@ -14,7 +14,10 @@ const Header: React.FC<HeaderPropType> = ({ title, classes }): ReactElement => {
       {typeof title === "string"
         ? title
         : title.map((title: string, index: number) => (
-            <span key={index} className={styles[`break${index}`]}>
+            <span
+              key={index}
+              className={classNames(styles[`break${index}`], styles.break)}
+            >
               {title}
               &nbsp;
             </span>

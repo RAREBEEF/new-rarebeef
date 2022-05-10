@@ -4,19 +4,17 @@ import angleToRadians from "../tools/angleToRadians";
 import BeefModel from "../models/BeefModel";
 import PlateModel from "../models/PlateModel";
 import { ThreePropType } from "../types";
+import Text from "../models/Text";
 
 const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
   const [beefActive, setBeefActive] = useState<boolean>(false);
-  const groupRef = useRef<THREE.Group>(null);
   const beefRef = useRef<THREE.Group>(null);
-
   const controlRef = useRef<any>(null);
 
   useEffect(() => {
-    console.log(controlRef);
     const currentRef = controlRef.current;
     currentRef.object.position.setY(4);
-    currentRef.enableZoom = true;
+    currentRef.enableZoom = false;
     currentRef.enablePan = false;
     currentRef.reverseOrbit = false;
   }, []);
@@ -36,7 +34,7 @@ const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
 
   return (
     <>
-      <group ref={groupRef}>
+      <group>
         <BeefModel
           refProp={beefRef}
           rotation={[angleToRadians(-90), 0, 0]}

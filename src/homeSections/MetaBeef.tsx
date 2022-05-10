@@ -7,10 +7,11 @@ import { MetaBeefPropType } from "../types";
 const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
   return (
     <section className={styles.container}>
-      <Header title={["Meta", "Beef"]} classes={["MetaBeef"]} />
-      <div className={styles.content}>
+      <div className={styles["sticky-wrapper"]}>
+        <Header title={["Meta", "Beef"]} classes={["MetaBeef"]} />
         <img className={styles.img} src={img} alt="Meta Beef" />
       </div>
+      <div className={styles.content}></div>
     </section>
   );
 };

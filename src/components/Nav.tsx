@@ -14,7 +14,7 @@ const Nav: React.FC<NavPropType> = ({
 }): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [resizing, setResizing] = useState<boolean>(false);
-  const [size, setSize] = useState<number>(50);
+  const [size, setSize] = useState<number>(30);
   const [clientWidth, setClientWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {

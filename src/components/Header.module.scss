@@ -13,10 +13,14 @@
   flex-wrap: wrap;
   z-index: 1;
   position: relative;
+  // position: sticky;
+  top: 0;
   font-size: 11vh;
   font-weight: 700;
   color: $black;
-
+  .break {
+    text-align: start;
+  }
   &.ThreeBeef {
     pointer-events: none;
   }
@@ -32,9 +36,5 @@
 
   &.MetaBeef {
     color: #221718;
-  }
-
-  &.Cube {
-    color: whitesmoke;
   }
 }

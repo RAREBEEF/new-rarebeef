@@ -7,10 +7,11 @@ import { PlaceReviewPropType } from "../types";
 const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
   return (
     <section className={styles.container}>
-      <Header title={["Place", "Review"]} classes={["PlaceReview"]} />
-      <div className={styles.content}>
+      <div className={styles["sticky-wrapper"]}>
+        <Header title={["Place", "Review"]} classes={["PlaceReview"]} />
         <img className={styles.img} src={img} alt="Place Review" />
       </div>
+      <div className={styles.content}></div>
     </section>
   );
 };

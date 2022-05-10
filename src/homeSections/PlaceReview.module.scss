@@ -2,12 +2,7 @@
 
 .container {
   background-color: #403d39;
+  height: 300vh;
   .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .img {
-      width: 90vmin;
-    }
   }
 }
