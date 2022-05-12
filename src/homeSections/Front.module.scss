@@ -8,6 +8,9 @@
     align-items: center;
     .logo {
       width: 40vmin;
+      margin: {
+        top: -10vh;
+      }
     }
   }
 }

@@ -7,16 +7,18 @@ import MetaBeef from "../homeSections/MetaBeef";
 import classNames from "classnames";
 import Toolbar from "../components/Toolbar";
 import { HomePropType } from "../types";
+import Clock from "../homeSections/Clock";
 
-const Home: React.FC<HomePropType> = ({ scrollMod, setScrollMod }) => {
+const Home: React.FC<HomePropType> = ({}) => {
   const HomeRef = useRef<any>(null);
 
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
       <Front />
-      <ThreeBeef scrollMod={scrollMod} setScrollMod={setScrollMod} />
+      <ThreeBeef />
       <PlaceReview />
       <MetaBeef />
+      <Clock />
     </div>
   );
 };

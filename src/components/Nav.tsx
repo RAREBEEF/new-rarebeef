@@ -8,13 +8,10 @@ import dotsIcon from "../images/ellipsis-vertical-solid.svg";
 import scrollIcon from "../images/angle-left-solid.svg";
 import { ucs2 } from "punycode";
 
-const Nav: React.FC<NavPropType> = ({
-  scrollMod,
-  setScrollMod,
-}): ReactElement => {
+const Nav: React.FC<NavPropType> = ({}): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [resizing, setResizing] = useState<boolean>(false);
-  const [size, setSize] = useState<number>(30);
+  const [size, setSize] = useState<number>(50);
   const [clientWidth, setClientWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
@@ -28,10 +25,6 @@ const Nav: React.FC<NavPropType> = ({
       window.removeEventListener("resize", update);
     };
   }, []);
-
-  const onModChange = useCallback(() => {
-    setScrollMod(true);
-  }, [setScrollMod])
 
   const onClick = useCallback(() => {
     setShowMenu((prev) => !prev);
@@ -70,21 +63,6 @@ const Nav: React.FC<NavPropType> = ({
     <div
       className={classNames(styles.container, showMenu && styles["show-menu"])}
     >
-      <div
-        className={classNames(styles["scroll-mod"], styles["mod-changer"])}
-        onClick={onModChange}
-        style={{
-          opacity: scrollMod ? 0 : 1,
-          pointerEvents: scrollMod ? "none" : "all",
-        }}
-      >
-        <img
-          className={styles["icon--scroll-mod"]}
-          src={scrollIcon}
-          alt="Back"
-        />
-        &nbsp;Back to scroll mod
-      </div>
       <img
         className={styles["icon--menu"]}
         src={menuIcon}
@@ -103,6 +81,7 @@ const Nav: React.FC<NavPropType> = ({
             transition: resizing ? "none" : "all 1s",
           }}
         >
+          <h3 className={styles["title__menu"]}>Menu</h3>
           <NavLink
             to="/"
             className={({ isActive }: any): string =>

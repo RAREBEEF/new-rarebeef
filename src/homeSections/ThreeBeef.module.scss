@@ -1,14 +1,13 @@
 @import "./allSection.scss";
 
 .container {
-  height: 300vh;
   // background-color: rgb(195, 195, 195);
-  background: linear-gradient(
-    90deg,
-    rgb(187, 186, 186),
-    rgb(195, 195, 195),
-    rgb(195, 195, 195)
-  );
+  // background: linear-gradient(
+  //   90deg,
+  //   rgb(187, 186, 186),
+  //   rgb(195, 195, 195),
+  //   rgb(195, 195, 195)
+  // );
   .sticky-wrapper {
     position: sticky;
     top: 0;
@@ -61,19 +60,28 @@
     }
   }
 
+  .monitor {
+    position: relative;
+    width: 100vw;
+    .img--monitor {
+      // opacity: 0.5;
+      z-index: 1;
+      width: 100%;
+      position: relative;
+      pointer-events: none;
+    }
+  }
+
   .canvas {
-    // z-index: 1;
+    z-index: 0;
     background-color: white;
     position: absolute !important;
     top: 0;
-    height: 100vh !important;
-    width: 100vw !important;
-  }
-
-  .content-one {
-    position: absolute;
-    top: 120vh;
-    left: 10vw;
-    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 45% !important;
+    width: 50vw !important;
   }
 }

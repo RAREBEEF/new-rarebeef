@@ -1,40 +1,73 @@
 @import "../main.scss";
+@font-face {
+  font-family: "liquid_crystal-font";
+  src: url("../fonts/digital-7\ \(mono\).ttf");
+}
 
-.title {
-  cursor: text;
+.header {
+  width: 100vw;
   margin: {
-    right: 70px;
+    // bottom: 15vh;
   }
   padding: {
     left: 5vmin;
+    right: 90px;
     top: 3vmin;
+    bottom: 3vmin;
   }
-  display: flex;
-  flex-wrap: wrap;
-  z-index: 1;
-  position: relative;
-  // position: sticky;
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  z-index: 2;
+  position: sticky;
   top: 0;
-  font-size: 11vh;
+
   font-weight: 700;
-  color: $black;
-  .break {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+
+  .title {
+    font-size: 8vh;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sub-title {
+    font-size: 8vh;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3vh;
+    margin: {
+      top: 1vh;
+    }
+  }
+
+  .title__break,
+  .sub-title__break {
     text-align: start;
   }
+
+  &.Front {
+    flex-direction: column;
+  }
+
   &.ThreeBeef {
-    pointer-events: none;
   }
 
   &.PlaceReview {
-    .break0 {
+    .title__break0 {
       color: #fffcf2;
     }
-    .break1 {
+    .title__break1 {
       color: #eb5e28;
     }
   }
 
   &.MetaBeef {
-    color: #221718;
+    // color: #221718;
+  }
+  &.Clock {
+    z-index: 2;
   }
 }

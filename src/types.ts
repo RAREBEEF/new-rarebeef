@@ -1,5 +1,6 @@
 export interface HeaderPropType {
   title: any;
+  subTitle?: any;
   classes?: Array<string>;
 }
 
@@ -11,34 +12,20 @@ export interface ButtonPropType {
   href?: string;
 }
 
-export interface NavPropType {
-  scrollMod: boolean;
-  setScrollMod: Function;
-}
+export interface NavPropType {}
 
-export interface ToolbarPropType {
-  setScrollMod?: Function;
-}
+export interface ToolbarPropType {}
 
-export interface ScrollDownPropType {
-  scrollMod?: boolean;
-}
+export interface ScrollDownPropType {}
 
-export interface HomePropType {
-  scrollMod: boolean;
-  setScrollMod: Function;
-}
+export interface HomePropType {}
 
 export interface FrontPropType {}
 
-export interface ThreeBeefPropType {
-  scrollMod: boolean;
-  setScrollMod: Function;
-}
+export interface ThreeBeefPropType {}
 
 export interface ThreePropType {
   setMouseOver: Function;
-  scrollMod: boolean;
 }
 
 export interface BeefModelPropType {

@@ -7,19 +7,14 @@ import Nav from "./Nav";
 import Toolbar from "./Toolbar";
 
 const App = (): ReactElement => {
-  const [scrollMod, setScrollMod] = useState<boolean>(true);
-
   return (
     <Router>
-      <Nav scrollMod={scrollMod} setScrollMod={setScrollMod} />
-      <Toolbar setScrollMod={setScrollMod} />
+      <Nav />
+      <Toolbar />
       <Routes>
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
-        <Route
-          path="/"
-          element={<Home scrollMod={scrollMod} setScrollMod={setScrollMod} />}
-        />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );

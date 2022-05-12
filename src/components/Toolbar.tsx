@@ -6,16 +6,13 @@ import githupIcon from "../images/github-brands.svg";
 import mailIcon from "../images/circle-envelope-regular.svg";
 import { ToolbarPropType } from "../types";
 import classNames from "classnames";
-const Toolbar: React.FC<ToolbarPropType> = ({ setScrollMod }): ReactElement => {
+const Toolbar: React.FC<ToolbarPropType> = ({}): ReactElement => {
   const [scrollTop, setScrollTop] = useState<number>(0);
   const [clientHeight, setClientHeight] = useState<number>(0);
 
   const toTop = useCallback(() => {
-    if (!!setScrollMod) {
-      setScrollMod(true);
-    }
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [setScrollMod]);
+  }, []);
 
   const resizeCb = useCallback(() => {
     setClientHeight(window.innerHeight);

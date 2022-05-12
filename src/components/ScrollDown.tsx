@@ -3,14 +3,9 @@ import icon from "../images/angles-down-solid.svg";
 import { ScrollDownPropType } from "../types";
 import classNames from "classnames";
 
-const ScrollDown: React.FC<ScrollDownPropType> = ({ scrollMod }) => {
+const ScrollDown: React.FC<ScrollDownPropType> = ({}) => {
   return (
-    <div
-      className={classNames(
-        styles.container,
-        scrollMod !== undefined && !scrollMod && styles.disappear
-      )}
-    >
+    <div className={classNames(styles.container)}>
       <img className={styles["icon-down"]} src={icon} alt="Scroll down" />
     </div>
   );

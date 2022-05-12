@@ -2,7 +2,7 @@
 
 .container {
   background-color: whitesmoke;
-  height: 300vh;
+
   .sticky-wrapper {
     position: sticky;
     top: 0;
@@ -11,8 +11,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    .img {
-      width: 90vmin;
-    }
+    // .img--main {
+    //   width: 90vmin;
+    // }
   }
 }

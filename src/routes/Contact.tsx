@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useCallback, useState } from "react";
 import Button from "../components/Button";
+import Header from "../components/Header";
 import copyIcon from "../images/copy-regular.svg";
 import writeIcon from "../images/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
@@ -21,8 +22,9 @@ const Contact = () => {
 
   return (
     <div className={styles.container}>
+      <Header title={["Contact"]} subTitle={["Always welcome"]} />
       <div className={styles.content}>
-        <h1 className={styles.title}>Contact</h1>
+        {/* <h1 className={styles.title}>Contact</h1> */}
         <section className={styles.section}>
           <div className={styles["header-mail-wrapper"]}>
             <h2 className={classNames(styles.header, styles["header-mail"])}>

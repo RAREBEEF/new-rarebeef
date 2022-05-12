@@ -4,9 +4,8 @@ import angleToRadians from "../tools/angleToRadians";
 import BeefModel from "../models/BeefModel";
 import PlateModel from "../models/PlateModel";
 import { ThreePropType } from "../types";
-import Text from "../models/Text";
 
-const Three: React.FC<ThreePropType> = ({ setMouseOver, scrollMod }) => {
+const Three: React.FC<ThreePropType> = ({ setMouseOver }) => {
   const [beefActive, setBeefActive] = useState<boolean>(false);
   const beefRef = useRef<THREE.Group>(null);
   const controlRef = useRef<any>(null);

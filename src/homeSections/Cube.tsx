@@ -96,7 +96,7 @@ const Cube: React.FC<CubePropType> = ({}): ReactElement => {
 
   return (
     <div className={styles.container}>
-      <Header title="Cube" classes={["Cube"]} />
+      <Header title="Cube" subTitle={["without Three.js"]} classes={["Cube"]} />
       <div
         onMouseDown={dragStart}
         // onTouchStart={touchDragStart}

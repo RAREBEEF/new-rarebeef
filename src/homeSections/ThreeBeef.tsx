@@ -6,76 +6,47 @@ import Three from "../components/Three";
 import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
 import cursorIcon from "../images/arrow-pointer-solid.svg";
+import monitorImg from "../images/monitor2.png";
 
-const ThreeBeef: React.FC<ThreeBeefPropType> = ({
-  scrollMod,
-  setScrollMod,
-}): ReactElement => {
+const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
-  const onModChange = useCallback(() => {
-    setScrollMod(false);
-  }, [setScrollMod]);
-
   const onDragStart = useCallback(() => {
-    if (!scrollMod) {
-      setIsDragging(true);
-    }
-  }, [scrollMod]);
+    setIsDragging(true);
+  }, []);
+
   const onDragEnd = useCallback(() => {
-    if (!scrollMod) {
-      setIsDragging(false);
-    }
-  }, [scrollMod]);
+    setIsDragging(false);
+  }, []);
 
   return (
     <section
       className={styles.container}
-      style={{
-        cursor: mouseOver
-          ? "pointer"
-          : scrollMod
-          ? "default"
-          : isDragging
-          ? "grabbing"
-          : "grab",
-      }}
       onMouseDown={onDragStart}
       onMouseUp={onDragEnd}
     >
-      <div className={styles["sticky-wrapper"]}>
-        <Header title={["The", "Rare Beef"]} classes={["ThreeBeef"]} />
-        <div
-          className={classNames(styles["drag-mod"], styles["mod-changer"])}
-          onClick={onModChange}
-          style={{
-            opacity: scrollMod ? 1 : 0,
-            pointerEvents: scrollMod ? "all" : "none",
-          }}
-        >
-          <img
-            className={classNames(
-              styles["icon--drag-mod"],
-              styles["icont--drag-mod__cursor"]
-            )}
-            src={cursorIcon}
-            alt="Mod change"
-          />
-          Click to look around
-        </div>
-
+      <Header
+        title={["3D", "Beef"]}
+        subTitle={["with Three.js"]}
+        classes={["ThreeBeef"]}
+      />
+      <div className={styles.monitor}>
+        <img
+          className={styles["img--monitor"]}
+          src={monitorImg}
+          alt="monitor"
+        />
         <Canvas
           className={styles.canvas}
           style={{
-            pointerEvents: scrollMod ? "none" : "all",
+            cursor: mouseOver ? "pointer" : isDragging ? "grabbing" : "grab",
           }}
           shadows
         >
-          <Three setMouseOver={setMouseOver} scrollMod={scrollMod} />
+          <Three setMouseOver={setMouseOver} />
         </Canvas>
       </div>
-      <section className={styles["content-one"]}>쏼라쏼라</section>
     </section>
   );
 };
