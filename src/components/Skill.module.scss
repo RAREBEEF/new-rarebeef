@@ -1,0 +1,32 @@
+.img--skill {
+  height: 100px;
+  margin: 10px;
+}
+
+.info-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+  top: 10px;
+  left: 5px;
+  width: fit-content;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+
+  .info-text {
+    color: white;
+    padding: {
+      left: 15px;
+      right: 15px;
+    }
+  }
+}

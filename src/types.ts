@@ -18,6 +18,10 @@ export interface ToolbarPropType {}
 
 export interface ScrollDownPropType {}
 
+export interface SkillPropType {
+  skill: string;
+}
+
 export interface HomePropType {}
 
 export interface FrontPropType {}

@@ -81,13 +81,15 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
             transition: resizing ? "none" : "all 1s",
           }}
         >
-          <h3 className={styles["title__menu"]}>Menu</h3>
+          <h3 className={classNames(styles["title__menu"], styles.flip)}>
+            Menu
+          </h3>
           <NavLink
             to="/"
             className={({ isActive }: any): string =>
               isActive
-                ? classNames(styles.active, styles.item)
-                : classNames(styles.deactive, styles.item)
+                ? classNames(styles.active, styles.item, styles.flip)
+                : classNames(styles.deactive, styles.item, styles.flip)
             }
           >
             <li>Home</li>
@@ -96,8 +98,8 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
             to="/profile"
             className={({ isActive }: any): string =>
               isActive
-                ? classNames(styles.active, styles.item)
-                : classNames(styles.deactive, styles.item)
+                ? classNames(styles.active, styles.item, styles.flip)
+                : classNames(styles.deactive, styles.item, styles.flip)
             }
           >
             <li>About me</li>
@@ -106,13 +108,15 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
             to="/contact"
             className={({ isActive }: any): string =>
               isActive
-                ? classNames(styles.active, styles.item)
-                : classNames(styles.deactive, styles.item)
+                ? classNames(styles.active, styles.item, styles.flip)
+                : classNames(styles.deactive, styles.item, styles.flip)
             }
           >
             <li>Contact</li>
           </NavLink>
-          <footer className={classNames(styles.footer, styles.item)}>
+          <footer
+            className={classNames(styles.footer, styles.item, styles.flip)}
+          >
             &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
           </footer>
         </ul>

@@ -1,5 +1,4 @@
 @import "../main.scss";
-// 8vh + 6vmin
 .container {
   position: fixed;
   height: calc(12vh + 6vmin);
@@ -66,13 +65,20 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
+
+      .flip {
+        transition: all 0.5s;
+        backface-visibility: hidden;
+        transform: rotateX(180deg);
+      }
+
       .title__menu {
         color: whitesmoke;
         font: {
           size: 40px;
           weight: 700;
         }
-        height: calc(12vh + 6vmin);
+        height: calc(12vh + 6vmin + 5px);
         line-height: calc(12vh + 6vmin);
         pointer-events: none;
         text-align: center;
@@ -85,15 +91,16 @@
 
     .item {
       color: white;
-      transition: all 0.5s;
-      transform: rotateX(180deg);
-      backface-visibility: hidden;
       height: 50px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      border-radius: 15px;
+      width: 95%;
       margin: {
-        bottom: 1px;
+        bottom: 5px;
+        left: auto;
+        right: auto;
       }
       padding: {
         right: 15px;
@@ -153,9 +160,9 @@
     .menu {
       width: 100vw;
       pointer-events: all;
-      .item {
+      .flip {
         transform: rotateX(0);
-        @for $i from 1 through 4 {
+        @for $i from 1 through 6 {
           &:nth-child(#{$i}) {
             transition: transform
                 1s

@@ -2,45 +2,103 @@
 
 .container {
   background-color: whitesmoke !important;
-  height: 2000px;
-  // z-index: 0;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   position: relative;
-  // position: sticky;
-  // top: 0;
-  // height: 100vh;
-  // @supports (-webkit-touch-callout: none) {
-  //   height: -webkit-fill-available;
-  // }
+
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
   min-height: 100vh;
-  // height: fit-content;
-  // .sticky-wrapper {
-  //   position: sticky;
-  //   top: 0;
-  //   text-align: center;
-  //   .img {
-  //     width: 90vmin;
-  //     margin-top: 10vh;
-  //   }
-  // }
+
   .img--main {
     max-width: 70vw;
-    // max-height: 60vh;
     margin: auto;
     margin: {
       top: 15vh;
     }
   }
+
   .content {
-    // z-index: 1;
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    .box {
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      overflow: hidden;
+      height: fit-content;
+      margin: {
+        top: 160px;
+      }
+
+      &:last-child {
+        margin: {
+          bottom: 160px;
+        }
+      }
+
+      .box__title {
+        font-size: 25px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: whitesmoke;
+        padding: {
+          left: 10px;
+          top: 10px;
+          bottom: 10px;
+        }
+      }
+
+      &.skills {
+        margin: {
+          left: auto;
+          right: auto;
+        }
+        width: fit-content;
+        .skill-icons {
+          display: flex;
+          flex-wrap: wrap;
+          .img--skill {
+            height: 100px;
+            margin: 10px;
+          }
+        }
+      }
+
+      &.description {
+        width: 50%;
+        max-width: 400px;
+        margin: {
+          left: 20%;
+        }
+
+        .description__text {
+          white-space: pre-line;
+          padding: 10px;
+          line-height: 20px;
+        }
+      }
+
+      &.links {
+        width: 50%;
+        max-width: 400px;
+        margin: {
+          right: 20%;
+          left: auto;
+        }
+
+        .links-wrapper {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+        }
+      }
+    }
   }
 
   &:first-child {
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available;
+    }
     height: 100vh;
     .content {
       margin-top: 0;
