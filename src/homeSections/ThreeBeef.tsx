@@ -34,29 +34,41 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
         subTitle={["with Three.js"]}
         classes={["ThreeBeef"]}
       />
-      <div className={styles.monitor}>
-        <img
-          className={styles["img--monitor"]}
-          src={monitorImg}
-          alt="monitor"
-        />
-        <Canvas
-          className={styles.canvas}
-          style={{
-            cursor: mouseOver ? "pointer" : isDragging ? "grabbing" : "grab",
-          }}
-          shadows
-        >
-          <Three setMouseOver={setMouseOver} />
-        </Canvas>
-      </div>
       <div className={styles.content}>
-        <div className={classNames(styles.skills, styles.box)}>
-          <h3 className={styles["box__title"]}>Skills</h3>
-          <div className={styles["skill-icons"]}>
-            <Skill skill="blender" />
-            <Skill skill="three" />
-          </div>
+        <div className={styles.monitor}>
+          <img
+            className={styles["img--monitor"]}
+            src={monitorImg}
+            alt="monitor"
+          />
+          <Canvas
+            className={styles.canvas}
+            style={{
+              cursor: mouseOver ? "pointer" : isDragging ? "grabbing" : "grab",
+            }}
+            shadows
+          >
+            <Three setMouseOver={setMouseOver} />
+          </Canvas>
+        </div>
+        <div className={classNames(styles.summary, styles.box)}>
+          <h3 className={styles["box__title"]}>Project summary</h3>
+          <table className={styles["summary__table"]}>
+            <tbody className={styles["summary__table__tbody"]}>
+              <tr>
+                <td>프로젝트 이름</td>
+                <td>3D Beef</td>
+              </tr>
+              <tr>
+                <td>프로젝트 기간</td>
+                <td>2022.05.03</td>
+              </tr>
+              <tr>
+                <td>개발 인원</td>
+                <td>1명</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div className={classNames(styles.description, styles.box)}>
           <h3 className={styles["box__title"]}>Description</h3>
@@ -66,12 +78,20 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
             }
           </p>
         </div>
+        <div className={classNames(styles.skills, styles.box)}>
+          <h3 className={styles["box__title"]}>Skills</h3>
+          <div className={styles["skill-icons"]}>
+            <Skill skill="blender" />
+            <Skill skill="three" />
+          </div>
+        </div>
         <div className={classNames(styles.links, styles.box)}>
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="모델 제작 과정"
+              text="Blog post"
               href="https://velog.io/@drrobot409/Blender-3D-%EB%A1%9C%EA%B3%A0-%EC%A0%9C%EC%9E%91"
+              classes={["Home__project-link"]}
             />
           </div>
         </div>

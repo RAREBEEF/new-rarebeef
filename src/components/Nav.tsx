@@ -5,8 +5,6 @@ import styles from "./Nav.module.scss";
 import menuIcon from "../images/circle-bars.svg";
 import classNames from "classnames";
 import dotsIcon from "../images/ellipsis-vertical-solid.svg";
-import scrollIcon from "../images/angle-left-solid.svg";
-import { ucs2 } from "punycode";
 
 const Nav: React.FC<NavPropType> = ({}): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -34,11 +32,11 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
     (e: any) => {
       e.preventDefault();
       setSize((prev) =>
-        prev - (e.movementX / clientWidth) * 50 < 0
+        prev - (e.movementX / clientWidth) * 100 < 0
           ? 0
-          : prev - (e.movementX / clientWidth) * 50 > 100
+          : prev - (e.movementX / clientWidth) * 100 > 100
           ? 100
-          : prev - (e.movementX / clientWidth) * 50
+          : prev - (e.movementX / clientWidth) * 100
       );
     },
     [clientWidth]

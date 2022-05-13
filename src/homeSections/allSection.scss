@@ -12,23 +12,27 @@
   }
   min-height: 100vh;
 
-  .img--main {
-    max-width: 70vw;
-    margin: auto;
-    margin: {
-      top: 15vh;
-    }
-  }
-
   .content {
     flex-grow: 1;
+    text-align: center;
+
+    .img--main {
+      max-width: 70vw;
+      max-height: 60vh;
+      margin: {
+        top: 10vh;
+        left: auto;
+        right: auto;
+      }
+    }
+
     .box {
       border: 1px solid rgba(0, 0, 0, 0.8);
       border-radius: 15px;
       overflow: hidden;
       height: fit-content;
       margin: {
-        top: 160px;
+        top: 100px;
       }
 
       &:last-child {
@@ -41,25 +45,34 @@
         font-size: 25px;
         background-color: rgba(0, 0, 0, 0.8);
         color: whitesmoke;
-        padding: {
-          left: 10px;
-          top: 10px;
-          bottom: 10px;
-        }
+        padding: 10px;
       }
 
-      &.skills {
+      &.summary {
+        * {
+          padding: 10px;
+          text-align: center;
+        }
+        tr:not(:last-child) {
+          border-bottom: 1px solid black;
+        }
+        td:first-child {
+          text-align: center;
+          padding: {
+            right: 15px;
+          }
+          border-right: 1px solid black;
+        }
+
         margin: {
           left: auto;
           right: auto;
         }
         width: fit-content;
-        .skill-icons {
-          display: flex;
-          flex-wrap: wrap;
-          .img--skill {
-            height: 100px;
-            margin: 10px;
+        max-width: 90vw;
+        .summary__table {
+          margin: 10px;
+          .summary__table__tbody {
           }
         }
       }
@@ -75,6 +88,24 @@
           white-space: pre-line;
           padding: 10px;
           line-height: 20px;
+        }
+      }
+
+      &.skills {
+        margin: {
+          left: auto;
+          right: auto;
+        }
+        width: fit-content;
+        max-width: 90vw;
+        .skill-icons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          .img--skill {
+            height: 100px;
+            margin: 10px;
+          }
         }
       }
 

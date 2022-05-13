@@ -7,39 +7,35 @@
 .header {
   width: 100vw;
   margin: {
-    // bottom: 15vh;
+    bottom: -1px;
   }
   padding: {
-    left: 5vmin;
+    left: 40px;
     right: 90px;
-    top: 3vmin;
-    bottom: 3vmin;
+    top: 20px;
+    bottom: 20px;
   }
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
   z-index: 2;
   position: sticky;
   top: 0;
-
   font-weight: 700;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 
   .title {
-    font-size: 8vh;
+    font-size: 50px;
     display: flex;
     flex-wrap: wrap;
   }
 
   .sub-title {
-    font-size: 8vh;
     display: flex;
     flex-wrap: wrap;
-    font-size: 3vh;
+    font-size: 30px;
+    font-weight: 500;
     margin: {
-      top: 1vh;
+      top: 10px;
     }
   }
 
@@ -67,6 +63,7 @@
   &.MetaBeef {
     // color: #221718;
   }
+
   &.Clock {
     z-index: 2;
   }

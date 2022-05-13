@@ -9,6 +9,7 @@ import reduxIcon from "../images/skills/redux-brands.svg";
 import threeIcon from "../images/skills/three-brands.svg";
 import aiIcon from "../images/skills/ai-brands.svg";
 import blenderIcon from "../images/skills/blender-brands.svg";
+import firebaseIcon from "../images/skills/firebase-brands.svg";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
@@ -176,6 +177,15 @@ const Profile = () => {
                     className={styles["skill__icon"]}
                     src={threeIcon}
                     alt="Three.js"
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                  />
+                </li>
+                <li className={styles.skill}>
+                  <img
+                    className={styles["skill__icon"]}
+                    src={firebaseIcon}
+                    alt="Firebase"
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                   />

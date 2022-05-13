@@ -3,16 +3,6 @@
 .container {
   background-color: whitesmoke;
 
-  .sticky-wrapper {
-    position: sticky;
-    top: 0;
-  }
   .content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    // .img--main {
-    //   width: 90vmin;
-    // }
   }
 }
