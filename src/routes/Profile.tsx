@@ -10,6 +10,7 @@ import threeIcon from "../images/skills/three-brands.svg";
 import aiIcon from "../images/skills/ai-brands.svg";
 import blenderIcon from "../images/skills/blender-brands.svg";
 import firebaseIcon from "../images/skills/firebase-brands.svg";
+import netlifyIcon from "../images/skills/netlify-brands.svg";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
@@ -39,6 +40,10 @@ const Profile = () => {
           ? date.getFullYear() - 1998
           : date.getFullYear() - 1997;
       setInfoText(`${age}살`);
+    } else if (e.target.id === "first-plan") {
+      setInfoText("기존 프로젝트 모바일 앱으로 이식하기");
+    } else if (e.target.id === "second-plan") {
+      setInfoText("메타버스 대비하기");
     } else if (!!e.target.alt) {
       setInfoText(e.target.alt);
     }
@@ -73,7 +78,11 @@ const Profile = () => {
 
   return (
     <div className={styles.container} onMouseMove={onMouseMove}>
-      <Header title={["About", "me"]} subTitle={["Junior Developer"]} />
+      <Header
+        title={["About", "me"]}
+        subTitle={["Junior Developer"]}
+        classes={["Profile"]}
+      />
       <div
         ref={infoWindowRef}
         className={classNames(
@@ -190,6 +199,15 @@ const Profile = () => {
                     onMouseLeave={onMouseLeave}
                   />
                 </li>
+                <li className={styles.skill}>
+                  <img
+                    className={styles["skill__icon"]}
+                    src={netlifyIcon}
+                    alt="Netlify"
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                  />
+                </li>
               </ul>
             </li>
             <li>
@@ -216,6 +234,27 @@ const Profile = () => {
               </ul>
             </li>
           </ul>
+        </section>
+        <section className={classNames(styles.section, styles.plan)}>
+          <h2 className={styles.header}>Next plan...</h2>
+          <ol>
+            <li
+              id={"first-plan"}
+              className={styles["sub-header"]}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              1. React Native
+            </li>
+            <li
+              id={"second-plan"}
+              className={styles["sub-header"]}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              2. React VR
+            </li>
+          </ol>
         </section>
       </div>
       <footer className={styles.footer}>

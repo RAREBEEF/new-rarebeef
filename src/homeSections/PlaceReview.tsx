@@ -6,6 +6,7 @@ import { PlaceReviewPropType } from "../types";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
+import icon from "../images/place-review-icon.png";
 
 const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
   return (
@@ -47,9 +48,10 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <div className={styles["skill-icons"]}>
+            <Skill skill="html" />
+            <Skill skill="typescript" />
             <Skill skill="react" />
             <Skill skill="redux" />
-            <Skill skill="typescript" />
             <Skill skill="sass" />
             <Skill skill="firebase" />
           </div>
@@ -66,6 +68,12 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
               text="Blog post"
               href="https://velog.io/@drrobot409/%EC%9E%A5%EC%86%8C-%EB%A6%AC%EB%B7%B0-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0"
               classes={["Home__project-link"]}
+            />
+            <Button
+              // text="Web site"
+              icon={icon}
+              href="https://rarebeef.github.io/place-review/"
+              classes={["Home__project-link--website"]}
             />
           </div>
         </div>

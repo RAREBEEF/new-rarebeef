@@ -42,7 +42,10 @@
       }
 
       .box__title {
-        font-size: 25px;
+        font: {
+          size: 25px;
+          weight: 700;
+        }
         background-color: rgba(0, 0, 0, 0.8);
         color: whitesmoke;
         padding: 10px;
@@ -63,17 +66,15 @@
           }
           border-right: 1px solid black;
         }
-
         margin: {
           left: auto;
           right: auto;
         }
         width: fit-content;
         max-width: 90vw;
+
         .summary__table {
           margin: 10px;
-          .summary__table__tbody {
-          }
         }
       }
 
@@ -81,13 +82,14 @@
         width: 50%;
         max-width: 400px;
         margin: {
-          left: 20%;
+          left: auto;
+          right: auto;
         }
 
         .description__text {
           white-space: pre-line;
           padding: 10px;
-          line-height: 20px;
+          line-height: 23px;
         }
       }
 
@@ -113,7 +115,8 @@
         width: 50%;
         max-width: 400px;
         margin: {
-          right: 20%;
+          // right: 20%;
+          right: auto;
           left: auto;
         }
 

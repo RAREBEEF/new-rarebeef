@@ -1,0 +1,38 @@
+.container {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  .modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50vw;
+    height: 50vh;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    .header {
+      padding: {
+        left: 20px;
+        top: 20px;
+      }
+      font: {
+        size: 30px;
+        weight: 700;
+      }
+      .page {
+        font-size: 20px;
+      }
+    }
+    .content {
+      flex-grow: 1;
+    }
+  }
+}

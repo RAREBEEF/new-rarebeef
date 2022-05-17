@@ -10,6 +10,8 @@ import typescript from "../images/skills/ts-brands.svg";
 import javascript from "../images/skills/js-brands.svg";
 import firebase from "../images/skills/firebase-brands.svg";
 import sass from "../images/skills/sass-brands.svg";
+import html from "../images/skills/html5-brands.svg";
+import netlify from "../images/skills/netlify-brands.svg";
 
 const Skill: React.FC<SkillPropType> = ({ skill }) => {
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
@@ -114,6 +116,24 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
           className={styles["img--skill"]}
           src={javascript}
           alt={"JavaScript"}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
+      )}
+      {skill === "html" && (
+        <img
+          className={styles["img--skill"]}
+          src={html}
+          alt={"HTML"}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
+      )}
+      {skill === "netlify" && (
+        <img
+          className={styles["img--skill"]}
+          src={netlify}
+          alt={"Netlify"}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         />

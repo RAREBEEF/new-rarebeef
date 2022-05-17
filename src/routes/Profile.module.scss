@@ -29,6 +29,7 @@
   }
 
   .content {
+    align-self: center;
     margin: {
       top: 5vh;
     }
@@ -60,30 +61,6 @@
             height: 100px;
             margin: 10px;
           }
-
-          // .skill__text {
-          //   border: 1px solid black;
-          //   border-radius: 5px;
-          //   transform: rotateY(180deg) !important;
-          //   backface-visibility: hidden;
-          //   position: absolute;
-          //   top: 0;
-          //   bottom: 0;
-          //   left: 0;
-          //   right: 0;
-          //   margin: auto;
-          //   width: inherit;
-          //   min-width: fit-content;
-          //   height: fit-content;
-          //   display: flex;
-          //   justify-content: center;
-          //   align-items: center;
-          //   box-shadow: 1px 1px 5px gray;
-          //   padding: {
-          //     top: 10px;
-          //     bottom: 10px;
-          //   }
-          // }
         }
       }
     }

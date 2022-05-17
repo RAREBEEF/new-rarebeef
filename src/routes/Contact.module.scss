@@ -1,6 +1,8 @@
 @import "./profile&contact.module.scss";
 .container {
+  
   .content {
+    align-self: center;
     .section {
       .header-mail-wrapper {
         display: flex;

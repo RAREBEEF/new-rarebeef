@@ -1,23 +1,25 @@
 $size: 90vmin;
+@import "./allSection.scss";
+
 @font-face {
   font-family: "liquid_crystal-font";
   src: url("../fonts/digital-7\ \(mono\).ttf");
 }
 
 .container {
-  height: 2000px;
-  // background-color: black;
   background-color: whitesmoke;
 }
 
-.content {
+.clock-wrapper {
   margin: {
     top: 20vh;
+    bottom: 20vh;
   }
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   color: red;
   font: {
     family: "liquid_crystal-font";

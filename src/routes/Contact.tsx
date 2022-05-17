@@ -22,7 +22,11 @@ const Contact = () => {
 
   return (
     <div className={styles.container}>
-      <Header title={["Contact"]} subTitle={["Always welcome"]} />
+      <Header
+        title={["Contact"]}
+        subTitle={["Always welcome"]}
+        classes={["Contact"]}
+      />
       <div className={styles.content}>
         {/* <h1 className={styles.title}>Contact</h1> */}
         <section className={styles.section}>

@@ -78,6 +78,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
             }
           </p>
         </div>
+
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <div className={styles["skill-icons"]}>

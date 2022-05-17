@@ -1,34 +1,33 @@
 import { ReactElement } from "react";
-import styles from "./MetaBeef.module.scss";
+import styles from "./SimpleMemo.module.scss";
 import Header from "../components/Header";
-import img from "../images/meta-beef.png";
-import { MetaBeefPropType } from "../types";
+import img from "../images/simple-memo.png";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
-import icon from "../images/meta-beef-icon.png";
+import icon from "../images/simple-memo-icon.png";
 
-const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
+const SimpleMemo = (): ReactElement => {
   return (
     <section className={styles.container}>
       <Header
-        title={["Meta", "Beef"]}
-        subTitle={["with", "Firebase"]}
-        classes={["MetaBeef"]}
+        title={["Simple", "memo"]}
+        subTitle={["with", "Local storage"]}
+        classes={["SimpleMemo"]}
       />
       <div className={styles.content}>
-        <img className={styles["img--main"]} src={img} alt="Meta Beef" />
+        <img className={styles["img--main"]} src={img} alt="Simple memo" />
         <div className={classNames(styles.summary, styles.box)}>
           <h3 className={styles["box__title"]}>Project summary</h3>
           <table className={styles["summary__table"]}>
             <tbody className={styles["summary__table__tbody"]}>
               <tr>
                 <td>프로젝트 이름</td>
-                <td>Meta Beef</td>
+                <td>Simple memo</td>
               </tr>
               <tr>
                 <td>프로젝트 기간</td>
-                <td>2022.01.26 ~ 02.24</td>
+                <td>2021.11.23 ~ 12.08</td>
               </tr>
               <tr>
                 <td>개발 인원</td>
@@ -41,7 +40,7 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
           <h3 className={styles["box__title"]}>Description</h3>
           <p className={styles["description__text"]}>
             {
-              "사진과 짧은 글을 업로드할 수 있는\n간단한 SNS 웹 애플리케이션입니다.\n처음 Firebase를 사용해 본 프로젝트이며\nFront-Back 간의 통신을\n이해하는데 큰 도움이 된 프로젝트입니다."
+              "로컬스토리지를 활용한 메모 웹 애플리케이션이며\nReact로 구현한 첫번째 프로젝트입니다."
             }
           </p>
         </div>
@@ -52,7 +51,7 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
             <Skill skill="javascript" />
             <Skill skill="react" />
             <Skill skill="sass" />
-            <Skill skill="firebase" />
+            <Skill skill="netlify" />
           </div>
         </div>
         <div className={classNames(styles.links, styles.box)}>
@@ -60,18 +59,18 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
           <div className={styles["links-wrapper"]}>
             <Button
               text="Github Repository"
-              href="https://github.com/RAREBEEF/meta-beef"
+              href="https://github.com/RAREBEEF/Simple-Memo"
               classes={["Home__project-link"]}
             />
             <Button
               text="Blog post"
-              href="https://velog.io/@drrobot409/React-SNS-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0"
+              href="https://velog.io/@drrobot409/%EB%A9%94%EB%AA%A8%EC%9E%A5-%EC%9B%B9-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98"
               classes={["Home__project-link"]}
             />
             <Button
               icon={icon}
-              href="https://rarebeef.github.io/meta-beef"
-              classes={["Home__project-link--website"]}
+              href="https://simplememo.netlify.app/"
+              classes={["Home__project-link"]}
             />
           </div>
         </div>
@@ -80,4 +79,4 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
   );
 };
 
-export default MetaBeef;
+export default SimpleMemo;

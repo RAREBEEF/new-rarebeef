@@ -13,7 +13,7 @@ const Three: React.FC<ThreePropType> = ({ setMouseOver }) => {
   useEffect(() => {
     const currentRef = controlRef.current;
     currentRef.object.position.setY(4);
-    currentRef.enableZoom = false;
+    currentRef.enableZoom = true;
     currentRef.enablePan = false;
     currentRef.reverseOrbit = false;
   }, []);

@@ -5,9 +5,10 @@ import styles from "./Home.module.scss";
 import PlaceReview from "../homeSections/PlaceReview";
 import MetaBeef from "../homeSections/MetaBeef";
 import classNames from "classnames";
-import Toolbar from "../components/Toolbar";
 import { HomePropType } from "../types";
 import Clock from "../homeSections/Clock";
+import BrowserStart from "../homeSections/BrowserStart";
+import SimpleMemo from "../homeSections/SimpleMemo";
 
 const Home: React.FC<HomePropType> = ({}) => {
   const HomeRef = useRef<any>(null);
@@ -18,6 +19,8 @@ const Home: React.FC<HomePropType> = ({}) => {
       <ThreeBeef />
       <PlaceReview />
       <MetaBeef />
+      <BrowserStart />
+      <SimpleMemo />
       <Clock />
     </div>
   );
