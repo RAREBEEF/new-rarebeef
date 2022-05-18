@@ -5,11 +5,22 @@ import styles from "./Tutorial.module.scss";
 import tutorial1 from "../videos/tutorial-1.mp4";
 import tutorial2 from "../videos/tutorial-2.mp4";
 import tutorial3 from "../videos/tutorial-3.mp4";
+import tutorial4 from "../videos/tutorial-4.mp4";
 
 const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const checkRef = useRef<any>(null);
   const videoRef = useRef<any>(null);
+  const checkRef = useRef<any>(null);
+
+  const tutorials = [
+    { video: tutorial1, text: "아래로 스크롤하여 포트폴리오를 확인해보세요." },
+    { video: tutorial2, text: "메뉴를 통해 다른 페이지로 이동해보세요." },
+    { video: tutorial3, text: "원하는 크기로 메뉴를 조절할 수 있습니다." },
+    {
+      video: tutorial4,
+      text: "튜토리얼은 메뉴에서 다시 확인하실 수 있습니다.",
+    },
+  ];
 
   const onPrevClick = useCallback(() => {
     setCurrentPage((prev) => prev - 1);
@@ -41,7 +52,10 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
     <div className={styles.container}>
       <div className={styles.modal}>
         <h1 className={styles["header"]}>
-          Tutorial&nbsp;<span className={styles.page}>({currentPage} / 3)</span>
+          Tutorial&nbsp;
+          <span className={styles.page}>
+            ({currentPage} / {tutorials.length})
+          </span>
         </h1>
 
         <section className={styles.content}>
@@ -53,21 +67,12 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
             muted
           >
             <source
-              src={
-                currentPage === 1
-                  ? tutorial1
-                  : currentPage === 2
-                  ? tutorial2
-                  : tutorial3
-              }
+              src={tutorials[currentPage - 1].video}
               type="video/mp4"
             ></source>
           </video>
           <p className={styles["tutorial--text"]}>
-            {currentPage === 1 &&
-              "아래로 스크롤하여 포트폴리오를 확인해보세요."}
-            {currentPage === 2 && "메뉴를 통해 다른 페이지로 이동해보세요."}
-            {currentPage === 3 && "원하는 크기로 메뉴를 조절할 수 있습니다."}
+            {tutorials[currentPage - 1].text}
           </p>
         </section>
 
@@ -76,11 +81,11 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
             {currentPage !== 1 && (
               <Button text="< Prev" onClick={onPrevClick} />
             )}
-            {currentPage !== 3 && (
+            {currentPage !== tutorials.length && (
               <Button text="Next >" onClick={onNextClick} />
             )}
           </div>
-          {currentPage === 3 && (
+          {currentPage === tutorials.length && (
             <form className={styles.done} onSubmit={onDoneClick}>
               <input id="disable-tuto" type="checkbox" ref={checkRef} />
               <label htmlFor="disable-tuto">다시 보지 않기</label>
