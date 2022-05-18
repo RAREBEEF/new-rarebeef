@@ -1,3 +1,7 @@
+export interface TutorialPropType {
+  setTutorialActive: Function;
+}
+
 export interface HeaderPropType {
   title: any;
   subTitle?: any;
@@ -12,7 +16,9 @@ export interface ButtonPropType {
   href?: string;
 }
 
-export interface NavPropType {}
+export interface NavPropType {
+  setTutorialActive: Function;
+}
 
 export interface ToolbarPropType {}
 

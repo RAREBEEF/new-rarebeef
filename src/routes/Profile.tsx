@@ -41,9 +41,9 @@ const Profile = () => {
           : date.getFullYear() - 1997;
       setInfoText(`${age}살`);
     } else if (e.target.id === "first-plan") {
-      setInfoText("기존 프로젝트 모바일 앱으로 이식하기");
+      setInfoText("제작한 웹 앱을 모바일 앱으로 이식하기");
     } else if (e.target.id === "second-plan") {
-      setInfoText("메타버스 대비하기");
+      setInfoText("메타버스에 대비하기");
     } else if (!!e.target.alt) {
       setInfoText(e.target.alt);
     }

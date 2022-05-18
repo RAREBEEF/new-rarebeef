@@ -6,7 +6,7 @@ import menuIcon from "../images/circle-bars.svg";
 import classNames from "classnames";
 import dotsIcon from "../images/ellipsis-vertical-solid.svg";
 
-const Nav: React.FC<NavPropType> = ({}): ReactElement => {
+const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [resizing, setResizing] = useState<boolean>(false);
   const [size, setSize] = useState<number>(50);
@@ -56,6 +56,10 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
     },
     [dragCb, onMouseUpCb]
   );
+
+  const onTutoClick = useCallback(() => {
+    setTutorialActive(true);
+  }, [setTutorialActive]);
 
   return (
     <div
@@ -112,6 +116,12 @@ const Nav: React.FC<NavPropType> = ({}): ReactElement => {
           >
             <li>Contact</li>
           </NavLink>
+          <li
+            className={classNames(styles.item, styles.flip)}
+            onClick={onTutoClick}
+          >
+            Tutorial
+          </li>
           <footer
             className={classNames(styles.footer, styles.item, styles.flip)}
           >
