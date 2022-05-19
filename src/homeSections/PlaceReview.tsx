@@ -1,4 +1,10 @@
-import { ReactElement } from "react";
+import React, {
+  ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./PlaceReview.module.scss";
 import Header from "../components/Header";
 import img from "../images/place-review.png";
@@ -7,8 +13,44 @@ import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
 import icon from "../images/place-review-icon.png";
+import arrow from "../images/angle-left-solid.svg";
 
 const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
+  const slideContainerRef = useRef<any>(null);
+
+  const onPrevClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!slideContainerRef.current) {
+      return;
+    }
+
+    const currentRef = slideContainerRef.current;
+
+    currentRef.scrollTo({
+      left: currentRef.scrollLeft - currentRef.clientWidth,
+      behavior: "smooth",
+    });
+  }, []);
+
+  const onNextClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!slideContainerRef.current) {
+      return;
+    }
+
+    const currentRef = slideContainerRef.current;
+
+    currentRef.scrollTo({
+      left: currentRef.scrollLeft + currentRef.clientWidth,
+      behavior: "smooth",
+    });
+  }, []);
+
+  const onLoad = useCallback(() => {
+    if (!!slideContainerRef.current)
+      slideContainerRef.current.scrollTo({
+        left: 0,
+      });
+  }, []);
+
   return (
     <section className={styles.container}>
       <Header
@@ -44,6 +86,51 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
               "지도로 위치를 검색하고\n해당 위치에 대한 리뷰를 작성할 수 있는\n장소 리뷰 웹 애플리케이션입니다.\nKakao map api와 Firebase, 그리고 Redux 등\n여러 기술들을 함께 다뤄보고자 시작하게 된 프로젝트입니다."
             }
           </p>
+        </div>
+        <div className={classNames(styles.screenshots, styles.box)}>
+          <h3 className={styles["box__title"]}>Screenshots</h3>
+          <div className={styles["slide__pagination"]}>
+            <img
+              className={styles["slide__arrow"]}
+              src={arrow}
+              alt="Previous screenshot"
+              onClick={onPrevClick}
+            ></img>
+          </div>
+          <div
+            onLoad={onLoad}
+            ref={slideContainerRef}
+            className={styles["slide__container"]}
+          >
+            <img
+              className={styles["slide__item"]}
+              src={img}
+              alt="screenshot1"
+            />
+            <img
+              className={styles["slide__item"]}
+              src={img}
+              alt="screenshot2"
+            />
+            <img
+              className={styles["slide__item"]}
+              src={img}
+              alt="screenshot3"
+            />
+            <img
+              className={styles["slide__item"]}
+              src={img}
+              alt="screenshot4"
+            />
+          </div>
+          <div className={styles["slide__pagination"]}>
+            <img
+              className={styles["slide__arrow"]}
+              src={arrow}
+              alt="Next screenshot"
+              onClick={onNextClick}
+            ></img>
+          </div>
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>

@@ -93,7 +93,6 @@ const Profile = () => {
         <span className={styles["info-text"]}>{infoText}</span>
       </div>
       <div className={styles.content}>
-        {/* <h1 className={styles.title}>About me</h1> */}
         <section
           className={styles.section}
           id="name"
@@ -110,7 +109,7 @@ const Profile = () => {
           onMouseLeave={onMouseLeave}
         >
           <h2 className={styles.header}>Birth date</h2>
-          <span className={styles.text}>98/10/06</span>
+          <span className={styles.text}>1998/10/06</span>
         </section>
         <section className={styles.section}>
           <h2 className={styles.header}>Skills</h2>
