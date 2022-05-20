@@ -7,6 +7,12 @@ import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
 import icon from "../images/meta-beef-icon.png";
+import arrow from "../images/angle-left-solid.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCards, Navigation, Pagination } from "swiper";
+import "swiper/scss";
+import "swiper/scss/pagination";
+import "swiper/scss/effect-cards";
 
 const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
   return (
@@ -17,7 +23,46 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
         classes={["MetaBeef"]}
       />
       <div className={styles.content}>
-        <img className={styles["img--main"]} src={img} alt="Meta Beef" />
+        <div className={classNames(styles.screenshots, styles.box)}>
+          <Swiper
+            className={styles["swiper__container"]}
+            modules={[Navigation, Pagination, Autoplay, EffectCards]}
+            effect="cards"
+            cardsEffect={{ slideShadows: false }}
+            navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
+            slidesPerView={1}
+            grabCursor
+            loop
+            autoplay={{ delay: 3000 }}
+          >
+            <div className={styles["swiper__pagination"]}>
+              <img
+                className={classNames(styles["swiper__arrow"], "nav--prev")}
+                src={arrow}
+                alt="Previous screenshot"
+              />
+            </div>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <div className={styles["swiper__pagination"]}>
+              <img
+                className={classNames(styles["swiper__arrow"], "nav--next")}
+                src={arrow}
+                alt="Next screenshot"
+              />
+            </div>
+          </Swiper>
+        </div>
         <div className={classNames(styles.summary, styles.box)}>
           <h3 className={styles["box__title"]}>Project summary</h3>
           <table className={styles["summary__table"]}>
