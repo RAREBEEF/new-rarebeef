@@ -398,44 +398,43 @@ export default function Clock() {
             </tbody>
           </table>
         </div>
-        <div>
-          <div className={classNames(styles.description, styles.box)}>
-            <h3 className={styles["box__title"]}>Description</h3>
-            <p className={styles["description__text"]}>
-              {
-                "디지털 시계를 구현한 웹사이트로\n평범한 웹사이트의 틀에서 벗어나\n새로운 것을 만들어보기 위해 시작한 프로젝트입니다.\n리퀴드 크리스탈 폰트를 사용한 시계를\n최대한 비슷한 모습으로 구현하고자 노력했습니다."
-              }
-            </p>
+
+        <div className={classNames(styles.description, styles.box)}>
+          <h3 className={styles["box__title"]}>Description</h3>
+          <p className={styles["description__text"]}>
+            {
+              "디지털 시계를 구현한 웹사이트로\n평범한 웹사이트의 틀에서 벗어나\n새로운 것을 만들어보기 위해 시작한 프로젝트입니다.\n리퀴드 크리스탈 폰트를 사용한 시계를\n최대한 비슷한 모습으로 구현하고자 노력했습니다."
+            }
+          </p>
+        </div>
+        <div className={classNames(styles.skills, styles.box)}>
+          <h3 className={styles["box__title"]}>Skills</h3>
+          <div className={styles["skill-icons"]}>
+            <Skill skill="html" />
+            <Skill skill="javascript" />
+            <Skill skill="react" />
+            <Skill skill="sass" />
+            <Skill skill="netlify" />
           </div>
-          <div className={classNames(styles.skills, styles.box)}>
-            <h3 className={styles["box__title"]}>Skills</h3>
-            <div className={styles["skill-icons"]}>
-              <Skill skill="html" />
-              <Skill skill="javascript" />
-              <Skill skill="react" />
-              <Skill skill="sass" />
-              <Skill skill="netlify" />
-            </div>
-          </div>
-          <div className={classNames(styles.links, styles.box)}>
-            <h3 className={styles["box__title"]}>Links</h3>
-            <div className={styles["links-wrapper"]}>
-              <Button
-                text="Github Repository"
-                href="https://github.com/RAREBEEF/Clock"
-                classes={["Home__project-link"]}
-              />
-              <Button
-                text="Blog post"
-                href="https://velog.io/@drrobot409/HTML-CSS-JS-%EB%94%94%EC%A7%80%ED%84%B8-%EC%8B%9C%EA%B3%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-feat.-%EC%95%8C%EB%9E%8C"
-                classes={["Home__project-link"]}
-              />
-              <Button
-                icon={icon}
-                href="https://clockbyrarebeef.netlify.app/"
-                classes={["Home__project-link"]}
-              />
-            </div>
+        </div>
+        <div className={classNames(styles.links, styles.box)}>
+          <h3 className={styles["box__title"]}>Links</h3>
+          <div className={styles["links-wrapper"]}>
+            <Button
+              text="Github Repository"
+              href="https://github.com/RAREBEEF/Clock"
+              classes={["Home__project-link"]}
+            />
+            <Button
+              text="Blog post"
+              href="https://velog.io/@drrobot409/HTML-CSS-JS-%EB%94%94%EC%A7%80%ED%84%B8-%EC%8B%9C%EA%B3%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-feat.-%EC%95%8C%EB%9E%8C"
+              classes={["Home__project-link"]}
+            />
+            <Button
+              icon={icon}
+              href="https://clockbyrarebeef.netlify.app/"
+              classes={["Home__project-link"]}
+            />
           </div>
         </div>
       </div>

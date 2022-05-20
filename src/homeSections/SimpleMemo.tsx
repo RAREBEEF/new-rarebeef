@@ -6,6 +6,11 @@ import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
 import icon from "../images/simple-memo-icon.png";
+import arrow from "../images/angle-left-solid.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const SimpleMemo = (): ReactElement => {
   return (
@@ -16,7 +21,44 @@ const SimpleMemo = (): ReactElement => {
         classes={["SimpleMemo"]}
       />
       <div className={styles.content}>
-        <img className={styles["img--main"]} src={img} alt="Simple memo" />
+        <div className={classNames(styles.screenshots, styles.box)}>
+          <Swiper
+            className={styles["swiper__container"]}
+            modules={[Navigation, Pagination, Autoplay]}
+            navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
+            slidesPerView={1}
+            spaceBetween={80}
+            loop
+            autoplay={{ delay: 3000 }}
+          >
+            <div className={styles["swiper__pagination"]}>
+              <img
+                className={classNames(styles["swiper__arrow"], "nav--prev")}
+                src={arrow}
+                alt="Previous screenshot"
+              />
+            </div>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <div className={styles["swiper__pagination"]}>
+              <img
+                className={classNames(styles["swiper__arrow"], "nav--next")}
+                src={arrow}
+                alt="Next screenshot"
+              />
+            </div>
+          </Swiper>
+        </div>
         <div className={classNames(styles.summary, styles.box)}>
           <h3 className={styles["box__title"]}>Project summary</h3>
           <table className={styles["summary__table"]}>

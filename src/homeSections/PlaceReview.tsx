@@ -1,10 +1,4 @@
-import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { ReactElement } from "react";
 import styles from "./PlaceReview.module.scss";
 import Header from "../components/Header";
 import img from "../images/place-review.png";
@@ -14,43 +8,13 @@ import classNames from "classnames";
 import Button from "../components/Button";
 import icon from "../images/place-review-icon.png";
 import arrow from "../images/angle-left-solid.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
+import "swiper/scss";
+import "swiper/scss/pagination";
+import "swiper/scss/effect-coverflow";
 
 const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
-  const slideContainerRef = useRef<any>(null);
-
-  const onPrevClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!slideContainerRef.current) {
-      return;
-    }
-
-    const currentRef = slideContainerRef.current;
-
-    currentRef.scrollTo({
-      left: currentRef.scrollLeft - currentRef.clientWidth,
-      behavior: "smooth",
-    });
-  }, []);
-
-  const onNextClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!slideContainerRef.current) {
-      return;
-    }
-
-    const currentRef = slideContainerRef.current;
-
-    currentRef.scrollTo({
-      left: currentRef.scrollLeft + currentRef.clientWidth,
-      behavior: "smooth",
-    });
-  }, []);
-
-  const onLoad = useCallback(() => {
-    if (!!slideContainerRef.current)
-      slideContainerRef.current.scrollTo({
-        left: 0,
-      });
-  }, []);
-
   return (
     <section className={styles.container}>
       <Header
@@ -59,7 +23,50 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
         classes={["PlaceReview"]}
       />
       <div className={styles.content}>
-        <img className={styles["img--main"]} src={img} alt="Place Review" />
+        <div className={classNames(styles.screenshots, styles.box)}>
+          <Swiper
+            color="black"
+            className={styles["swiper__container"]}
+            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+            navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
+            slidesPerView={1}
+            effect="coverflow"
+            coverflowEffect={{
+              slideShadows: false,
+            }}
+            spaceBetween={10}
+            loop
+            grabCursor
+            autoplay={{ delay: 3000 }}
+          >
+            <div className={styles["swiper__pagination"]}>
+              <img
+                className={classNames(styles["swiper__arrow"], "nav--prev")}
+                src={arrow}
+                alt="Previous screenshot"
+              />
+            </div>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img} alt="screenshot1" />
+            </SwiperSlide>
+            <div className={styles["swiper__pagination"]}>
+              <img
+                className={classNames(styles["swiper__arrow"], "nav--next")}
+                src={arrow}
+                alt="Next screenshot"
+              />
+            </div>
+          </Swiper>
+        </div>
         <div className={classNames(styles.summary, styles.box)}>
           <h3 className={styles["box__title"]}>Project summary</h3>
           <table className={styles["summary__table"]}>
@@ -87,51 +94,6 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
             }
           </p>
         </div>
-        <div className={classNames(styles.screenshots, styles.box)}>
-          <h3 className={styles["box__title"]}>Screenshots</h3>
-          <div className={styles["slide__pagination"]}>
-            <img
-              className={styles["slide__arrow"]}
-              src={arrow}
-              alt="Previous screenshot"
-              onClick={onPrevClick}
-            ></img>
-          </div>
-          <div
-            onLoad={onLoad}
-            ref={slideContainerRef}
-            className={styles["slide__container"]}
-          >
-            <img
-              className={styles["slide__item"]}
-              src={img}
-              alt="screenshot1"
-            />
-            <img
-              className={styles["slide__item"]}
-              src={img}
-              alt="screenshot2"
-            />
-            <img
-              className={styles["slide__item"]}
-              src={img}
-              alt="screenshot3"
-            />
-            <img
-              className={styles["slide__item"]}
-              src={img}
-              alt="screenshot4"
-            />
-          </div>
-          <div className={styles["slide__pagination"]}>
-            <img
-              className={styles["slide__arrow"]}
-              src={arrow}
-              alt="Next screenshot"
-              onClick={onNextClick}
-            ></img>
-          </div>
-        </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <div className={styles["skill-icons"]}>
@@ -157,7 +119,6 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
               classes={["Home__project-link"]}
             />
             <Button
-              // text="Web site"
               icon={icon}
               href="https://rarebeef.github.io/place-review/"
               classes={["Home__project-link--website"]}
