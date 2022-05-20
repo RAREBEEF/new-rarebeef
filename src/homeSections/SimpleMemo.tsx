@@ -1,7 +1,10 @@
 import { ReactElement } from "react";
 import styles from "./SimpleMemo.module.scss";
 import Header from "../components/Header";
-import img from "../images/simple-memo.png";
+import img1 from "../images/screenshots/simple-memo.png";
+import img2 from "../images/screenshots/simple-memo-memo.png";
+import img3 from "../images/screenshots/simple-memo-write.png";
+import img4 from "../images/screenshots/simple-memo-delete.png";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
@@ -29,7 +32,6 @@ const SimpleMemo = (): ReactElement => {
             slidesPerView={1}
             spaceBetween={80}
             loop
-            autoplay={{ delay: 3000 }}
           >
             <div className={styles["swiper__pagination"]}>
               <img
@@ -39,16 +41,16 @@ const SimpleMemo = (): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img1} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img2} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img3} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img4} alt="screenshot1" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img

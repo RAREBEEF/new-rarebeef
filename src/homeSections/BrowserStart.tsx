@@ -1,17 +1,21 @@
 import { ReactElement } from "react";
 import styles from "./BrowserStart.module.scss";
 import Header from "../components/Header";
-import img from "../images/browser-start.png";
+import img1 from "../images/screenshots/browser-start.png";
+import img2 from "../images/screenshots/browser-start-init.png";
+import img3 from "../images/screenshots/browser-start-setting.png";
+import img4 from "../images/screenshots/browser-start-bookmark.png";
+import img5 from "../images/screenshots/browser-start-theme.png";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
 import icon from "../images/browser-start-icon.png";
 import arrow from "../images/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCreative, Navigation, Pagination } from "swiper";
+import { Autoplay, EffectCards, Navigation, Pagination } from "swiper";
 import "swiper/scss";
 import "swiper/scss/pagination";
-import "swiper/scss/effect-creative";
+import "swiper/scss/effect-cards";
 
 const BrowserStart = (): ReactElement => {
   return (
@@ -25,23 +29,12 @@ const BrowserStart = (): ReactElement => {
         <div className={classNames(styles.screenshots, styles.box)}>
           <Swiper
             className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, Autoplay, EffectCreative]}
-            effect="creative"
+            modules={[Navigation, Pagination, Autoplay, EffectCards]}
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
             slidesPerView={1}
-            loop
             grabCursor
-            autoplay={{ delay: 3000 }}
-            creativeEffect={{
-              prev: {
-                shadow: false,
-                translate: [0, 0, -400],
-              },
-              next: {
-                translate: ["100%", 0, 0],
-              },
-            }}
-            style={{ overflow: "hidden" }}
+            effect="cards"
+            cardsEffect={{ slideShadows: false }}
           >
             <div className={styles["swiper__pagination"]}>
               <img
@@ -51,16 +44,19 @@ const BrowserStart = (): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img1} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img2} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img3} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img4} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img5} alt="screenshot1" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img

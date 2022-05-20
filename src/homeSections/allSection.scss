@@ -42,7 +42,7 @@
 
       &:last-child {
         margin: {
-          bottom: 400px;
+          bottom: 200px;
         }
       }
 
@@ -93,8 +93,10 @@
         .swiper__container {
           max-width: 1000px;
           overflow: visible;
+          display: flex;
           .swiper__item {
             max-width: 1000px;
+            align-self: center;
             img {
               width: 90%;
             }

@@ -1,7 +1,11 @@
 import { ReactElement } from "react";
 import styles from "./MetaBeef.module.scss";
 import Header from "../components/Header";
-import img from "../images/meta-beef.png";
+import img1 from "../images/screenshots/meta-beef.png";
+import img2 from "../images/screenshots/meta-beef-login.png";
+import img3 from "../images/screenshots/meta-beef-profile.png";
+import img4 from "../images/screenshots/meta-beef-posts.png";
+import img5 from "../images/screenshots/meta-beef-mobile.png";
 import { MetaBeefPropType } from "../types";
 import Skill from "../components/Skill";
 import classNames from "classnames";
@@ -9,10 +13,10 @@ import Button from "../components/Button";
 import icon from "../images/meta-beef-icon.png";
 import arrow from "../images/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCards, Navigation, Pagination } from "swiper";
+import { Autoplay, EffectCreative, Navigation, Pagination } from "swiper";
 import "swiper/scss";
 import "swiper/scss/pagination";
-import "swiper/scss/effect-cards";
+import "swiper/scss/effect-creative";
 
 const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
   return (
@@ -26,14 +30,22 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
         <div className={classNames(styles.screenshots, styles.box)}>
           <Swiper
             className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, Autoplay, EffectCards]}
-            effect="cards"
-            cardsEffect={{ slideShadows: false }}
+            modules={[Navigation, Pagination, Autoplay, EffectCreative]}
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
             slidesPerView={1}
             grabCursor
             loop
-            autoplay={{ delay: 3000 }}
+            effect="creative"
+            creativeEffect={{
+              prev: {
+                shadow: false,
+                translate: [0, 0, -400],
+              },
+              next: {
+                translate: ["100%", 0, 0],
+              },
+            }}
+            style={{ overflow: "hidden" }}
           >
             <div className={styles["swiper__pagination"]}>
               <img
@@ -43,16 +55,19 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img1} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img2} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img3} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img} alt="screenshot1" />
+              <img src={img4} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img5} alt="screenshot1" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img

@@ -1,59 +1,10 @@
 @import "./allSection.scss";
 
 .container {
-  .sticky-wrapper {
-    position: sticky;
-    top: 0;
-  }
-  .drag-mod {
-    position: absolute;
-    cursor: pointer;
-    z-index: 1;
-    transition: all 0.3s;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    .icon--drag-mod {
-      position: absolute;
-      opacity: 0.3;
-      width: 15vmin;
-      height: 15vmin;
-      top: 7vmin;
-      left: 4.5vmin;
-    }
-    color: rgba(40, 40, 40, 0.8);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15vmin;
-    height: 15vmin;
-    top: calc(50vh - 7vmin);
-    left: 0;
-    right: 0;
-    margin: auto;
-    &:not(:hover) {
-      animation: zoomInOut 2s infinite;
-      @keyframes zoomInOut {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-    }
-    &:hover {
-      transform: scale(1.1);
-      color: rgba(255, 255, 255, 0.8);
-    }
-  }
-
   .monitor {
+    margin: {
+      top: -100px;
+    }
     position: relative;
     width: 100vw;
     .img--monitor {
