@@ -52,3 +52,15 @@ export interface PlaceReviewPropType {}
 export interface MetaBeefPropType {}
 
 export interface CubePropType {}
+
+export interface GuestBookType {
+  id: string;
+  name: string;
+  pw: string;
+  content: string;
+  createdAt: number;
+}
+
+export interface GuestBookPropType {
+  data: GuestBookType;
+}

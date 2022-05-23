@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Loading from "./components/Loading";
+import "./index.scss";
 
 import reportWebVitals from "./reportWebVitals";
 

@@ -1,0 +1,72 @@
+.container {
+  min-width: 20vw;
+  max-width: 600px;
+  margin: {
+    left: 10px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .top-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 2px;
+      margin: {
+        bottom: 10px;
+      }
+
+      .input--name {
+        font-family: "Gowun Dodum", sans-serif;
+        outline: none;
+        margin: {
+          right: 10px;
+        }
+      }
+      .input--pw {
+        font-family: "Gowun Dodum", sans-serif;
+        outline: none;
+      }
+    }
+
+    .counter {
+      color: rgb(118, 118, 118);
+      text-align: end;
+      margin: {
+        right: 65px;
+        bottom: 10px;
+      }
+    }
+
+    .bottom-wrapper {
+      display: flex;
+      margin: {
+        bottom: 30px;
+      }
+
+      .input--content {
+        font-family: "Gowun Dodum", sans-serif;
+        width: 100%;
+        resize: none;
+        height: 80px;
+        outline: none;
+        margin: {
+          right: 10px;
+        }
+      }
+    }
+  }
+
+  .list {
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    // align-items: center;
+    max-width: 1000px;
+    margin: {
+      right: 65px;
+    }
+    gap: 5px;
+  }
+}

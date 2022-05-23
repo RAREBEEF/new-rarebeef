@@ -1,8 +1,7 @@
-@import "../main.scss";
-
 .button {
+  font-family: "Gowun Dodum", sans-serif;
   background-color: white;
-  border: 1px solid $black;
+  border: 1px solid #221718;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
@@ -21,6 +20,7 @@
     box-shadow: 0px 0px 5px gray;
     transform: scale(1.01);
   }
+
   .icon {
     height: 100%;
     width: auto;
@@ -40,9 +40,40 @@
   &.Home__project-link--website {
     margin: 5px;
     height: fit-content;
-    // border: none;
     padding: 0;
     overflow: hidden;
     height: 50px;
+  }
+
+  &.GuestBook {
+    height: 20px;
+    font-size: 14px;
+    border: none;
+    color: rgb(118, 118, 118);
+    background: none;
+    padding: {
+      top: 2.5px;
+      bottom: 2.5px;
+      left: 5px;
+      right: 5px;
+    }
+    margin: 0;
+  }
+
+  &.CreateAndGetGuestBook {
+    width: 60px;
+    height: auto;
+    padding: none;
+  }
+
+  &.Tutorial {
+    margin: {
+      left: 10px;
+      top: 10px;
+      bottom: 10px;
+    }
+    &:last-child {
+      margin-right: 20px;
+    }
   }
 }

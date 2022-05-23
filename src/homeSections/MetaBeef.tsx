@@ -67,7 +67,11 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
               <img src={img4} alt="screenshot1" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img5} alt="screenshot1" />
+              <img
+                src={img5}
+                alt="screenshot1"
+                style={{ backgroundColor: "whitesmoke" }}
+              />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img

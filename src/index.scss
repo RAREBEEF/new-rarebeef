@@ -1,15 +1,14 @@
-$pink: #ce979e;
-$black: #221718;
-$gray: rgb(179, 179, 179);
 * {
   box-sizing: border-box;
+  // color: #221718;
 }
+
 body {
   // font-family: Raleway, sans-serif !important;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: "Gowun Dodum", sans-serif;
   min-width: 230px;
   a {
-    color: $black;
+    color: #221718;
     text-decoration: none;
   }
 }

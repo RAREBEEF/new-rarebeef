@@ -1,4 +1,3 @@
-@import "../main.scss";
 @font-face {
   font-family: "liquid_crystal-font";
   src: url("../fonts/digital-7\ \(mono\).ttf");
@@ -6,8 +5,7 @@
 
 .header {
   font-family: raleway, sans-serif;
-  // border: 1px solid black;
-  // width: 100vw;
+
   width: fit-content;
   margin: {
     bottom: 100px;
@@ -26,7 +24,6 @@
   font-weight: 700;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.4);
-  // color: black;
   color: whitesmoke;
   border-radius: 0 15px 15px 0;
   .title {
@@ -57,27 +54,10 @@
   &.ThreeBeef {
   }
 
-  // &.PlaceReview {
-  //   .title__break0 {
-  //     color: #fffcf2;
-  //   }
-  //   .title__break1 {
-  //     color: #eb5e28;
-  //   }
-  // }
-
   &.MetaBeef {
-    // color: #221718;
   }
 
   &.Clock {
     z-index: 2;
   }
-
-  // &.Profile,
-  // &.Contact {
-  //   color: whitesmoke;
-  //   backdrop-filter: blur(5px);
-  //   background-color: rgba(0, 0, 0, 0.8);
-  // }
 }

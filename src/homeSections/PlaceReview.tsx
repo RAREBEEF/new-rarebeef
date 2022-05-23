@@ -2,9 +2,10 @@ import React, { ReactElement } from "react";
 import styles from "./PlaceReview.module.scss";
 import Header from "../components/Header";
 import img1 from "../images/screenshots/place-review.png";
-import img2 from "../images/screenshots/place-review-write.png";
-import img3 from "../images/screenshots/place-review-profile.png";
-import img4 from "../images/screenshots/place-review-responsive.png";
+import img2 from "../images/screenshots/place-review-login.png";
+import img3 from "../images/screenshots/place-review-write.png";
+import img4 from "../images/screenshots/place-review-profile.png";
+import img5 from "../images/screenshots/place-review-responsive.png";
 import { PlaceReviewPropType } from "../types";
 import Skill from "../components/Skill";
 import classNames from "classnames";
@@ -59,6 +60,9 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
               <img src={img4} alt="screenshot1" />
+            </SwiperSlide>
+            <SwiperSlide className={styles["swiper__item"]}>
+              <img src={img5} alt="screenshot1" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img

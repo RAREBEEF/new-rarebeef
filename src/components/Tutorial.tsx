@@ -79,17 +79,25 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
         <section className={styles["btn-wrapper"]}>
           <div className={styles["pagination"]}>
             {currentPage !== 1 && (
-              <Button text="< Prev" onClick={onPrevClick} />
+              <Button
+                text="< Prev"
+                onClick={onPrevClick}
+                classes={["Tutorial"]}
+              />
             )}
             {currentPage !== tutorials.length && (
-              <Button text="Next >" onClick={onNextClick} />
+              <Button
+                text="Next >"
+                onClick={onNextClick}
+                classes={["Tutorial"]}
+              />
             )}
           </div>
           {currentPage === tutorials.length && (
             <form className={styles.done} onSubmit={onDoneClick}>
               <input id="disable-tuto" type="checkbox" ref={checkRef} />
               <label htmlFor="disable-tuto">다시 보지 않기</label>
-              <Button text="Done!" />
+              <Button text="Done!" classes={["Tutorial"]} />
             </form>
           )}
         </section>
