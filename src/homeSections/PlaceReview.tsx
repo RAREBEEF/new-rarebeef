@@ -13,7 +13,13 @@ import Button from "../components/Button";
 import icon from "../images/place-review-icon.png";
 import arrow from "../images/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
+import {
+  Autoplay,
+  EffectCoverflow,
+  EffectCreative,
+  Navigation,
+  Pagination,
+} from "swiper";
 import "swiper/scss";
 import "swiper/scss/pagination";
 import "swiper/scss/effect-coverflow";
@@ -29,17 +35,24 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
       <div className={styles.content}>
         <div className={classNames(styles.screenshots, styles.box)}>
           <Swiper
-            color="black"
             className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+            modules={[Navigation, Pagination, Autoplay, EffectCreative]}
+            effect="creative"
+            creativeEffect={{
+              prev: {
+                translate: ["-75%", "57.5%", 0],
+                rotate: [0, 0, -45],
+                origin: "bottom",
+              },
+              next: {
+                translate: ["75%", "57.5%", 0],
+                rotate: [0, 0, 45],
+                origin: "bottom",
+              },
+            }}
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
             slidesPerView={1}
-            effect="coverflow"
-            coverflowEffect={{
-              slideShadows: false,
-            }}
-            spaceBetween={10}
-            loop
+            spaceBetween={80}
             grabCursor
           >
             <div className={styles["swiper__pagination"]}>

@@ -6,11 +6,15 @@ import Profile from "../routes/Profile";
 import Nav from "./Nav";
 import Toolbar from "./Toolbar";
 import Tutorial from "./Tutorial";
+import { getGuestBookThunk } from "../redux/reducer";
+import { useDispatch } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
 
 const App = (): ReactElement => {
   const [tutorialActive, setTutorialActive] = useState<boolean>(() =>
     localStorage.getItem("rarebeef_disableTutorial") === "true" ? false : true
   );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const rootEl = document.getElementById("root");
@@ -26,10 +30,14 @@ const App = (): ReactElement => {
     }
   }, [tutorialActive]);
 
+  useEffect(() => {
+    dispatch<any>(getGuestBookThunk());
+  }, [dispatch]);
+
   return (
     <Router>
       {tutorialActive && <Tutorial setTutorialActive={setTutorialActive} />}
-      <Nav setTutorialActive={setTutorialActive}/>
+      <Nav setTutorialActive={setTutorialActive} />
       <Toolbar />
       <Routes>
         <Route path="/profile" element={<Profile />} />

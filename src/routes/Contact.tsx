@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import { useCallback, useState } from "react";
 import Button from "../components/Button";
-import CreateAndGetGuestBook from "../components/CreateAndGetGuestBook";
+import CreateGuestBook from "../components/CreateGuestBook";
+import GuestBookSection from "../components/GuestBookSection";
 import Header from "../components/Header";
 import copyIcon from "../images/copy-regular.svg";
 import writeIcon from "../images/pen-to-square-regular.svg";
@@ -70,7 +71,7 @@ const Contact = () => {
         </section>
         <section className={styles.section}>
           <h2 className={styles.header}>Guest book</h2>
-          <CreateAndGetGuestBook />
+          <GuestBookSection />
         </section>
       </div>
       <footer className={styles.footer}>

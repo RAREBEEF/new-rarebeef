@@ -11,7 +11,7 @@ import Button from "../components/Button";
 import icon from "../images/simple-memo-icon.png";
 import arrow from "../images/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper";
+import { Autoplay, EffectCoverflow, EffectCreative, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -26,12 +26,18 @@ const SimpleMemo = (): ReactElement => {
       <div className={styles.content}>
         <div className={classNames(styles.screenshots, styles.box)}>
           <Swiper
+            color="black"
             className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
             slidesPerView={1}
-            spaceBetween={80}
+            effect="coverflow"
+            coverflowEffect={{
+              slideShadows: false,
+            }}
+            spaceBetween={10}
             loop
+            grabCursor
           >
             <div className={styles["swiper__pagination"]}>
               <img

@@ -56,17 +56,4 @@
       }
     }
   }
-
-  .list {
-    width: fit-content;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    // align-items: center;
-    max-width: 1000px;
-    margin: {
-      right: 65px;
-    }
-    gap: 5px;
-  }
 }

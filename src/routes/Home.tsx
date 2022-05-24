@@ -9,6 +9,7 @@ import { HomePropType } from "../types";
 import Clock from "../homeSections/Clock";
 import BrowserStart from "../homeSections/BrowserStart";
 import SimpleMemo from "../homeSections/SimpleMemo";
+import GuestBookSection from "../components/GuestBookSection";
 
 const Home: React.FC<HomePropType> = ({}) => {
   const HomeRef = useRef<any>(null);

@@ -1,16 +1,12 @@
-import React, { useCallback, useEffect, useState } from "react";
-import styles from "./CreateAndGetGuestBook.module.scss";
+import React, { useCallback, useState } from "react";
+import styles from "./CreateGuestBook.module.scss";
 import * as FB from "../fb";
-import { GuestBookType } from "../types";
-import GuestBook from "./GuestBook";
 import Button from "./Button";
 
-const CreateAndGetGuestBook = () => {
+const CreateGuestBook = () => {
   const [content, setContent] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [pw, setPw] = useState<string>("");
-
-  const [guestBook, setGuestBook] = useState<Array<GuestBookType>>([]);
 
   const onTextChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -55,31 +51,6 @@ const CreateAndGetGuestBook = () => {
     [content, name, pw]
   );
 
-  useEffect(() => {
-    let unsub: Function;
-
-    const getGuestBook = () => {
-      const q = FB.query(
-        FB.collection(FB.db, "GuestBook"),
-        FB.orderBy("createdAt", "desc")
-      );
-
-      unsub = FB.onSnapshot(q, (querySnapshot) => {
-        let guestBookArr: any = [];
-        querySnapshot.forEach((doc) => {
-          guestBookArr.push({ ...doc.data(), id: doc.id });
-        });
-        setGuestBook(guestBookArr);
-      });
-    };
-
-    getGuestBook();
-
-    return () => {
-      unsub();
-    };
-  }, []);
-
   return (
     <div className={styles.container}>
       <form className={styles["form"]} onSubmit={onUpload}>
@@ -118,13 +89,8 @@ const CreateAndGetGuestBook = () => {
           <Button text="등록" classes={["CreateAndGetGuestBook"]} />
         </div>
       </form>
-      <ul className={styles["list"]}>
-        {guestBook.map((data) => (
-          <GuestBook data={data} key={data.id} />
-        ))}
-      </ul>
     </div>
   );
 };
 
-export default CreateAndGetGuestBook;
+export default CreateGuestBook;

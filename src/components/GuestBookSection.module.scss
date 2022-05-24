@@ -1,0 +1,13 @@
+.list {
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  // min-width: 20vw;
+  max-width: 600px;
+  margin: {
+    // right: 65px;
+    left: 10px;
+  }
+  gap: 5px;
+}

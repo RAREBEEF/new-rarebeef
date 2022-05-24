@@ -1,3 +1,5 @@
+// Props
+
 export interface TutorialPropType {
   setTutorialActive: Function;
 }
@@ -53,14 +55,22 @@ export interface MetaBeefPropType {}
 
 export interface CubePropType {}
 
+export interface GuestBookPropType {
+  data: GuestBookType;
+}
+
+// redux
+export interface ReduxStateType {
+  data: Array<GuestBookType>;
+  error: any;
+  loading: boolean;
+}
+
+// etc
 export interface GuestBookType {
   id: string;
   name: string;
   pw: string;
   content: string;
   createdAt: number;
-}
-
-export interface GuestBookPropType {
-  data: GuestBookType;
 }
