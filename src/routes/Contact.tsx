@@ -1,16 +1,24 @@
 import classNames from "classnames";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Button from "../components/Button";
-import CreateGuestBook from "../components/CreateGuestBook";
 import GuestBookSection from "../components/GuestBookSection";
 import Header from "../components/Header";
-import copyIcon from "../images/copy-regular.svg";
-import writeIcon from "../images/pen-to-square-regular.svg";
+import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
+import { useDispatch } from "react-redux";
+import { setLoadEnd } from "../redux/modules/setStart";
+import { ContactPropType } from "../types";
 
-const Contact = () => {
+const Contact: React.FC<ContactPropType> = ({ setStartAnimationEnd }) => {
+  const dispatch = useDispatch();
   const [copyAlert, setCopyAlert] = useState<string>("");
-  const onCopyClick = useCallback(() => {
+
+  useEffect(() => {
+    dispatch(setLoadEnd());
+    setStartAnimationEnd(true);
+  }, [dispatch, setStartAnimationEnd]);
+
+  const onCopyClick = useCallback((): void => {
     navigator.clipboard
       .writeText("drrobot409@gmail.com")
       .then(() => {
@@ -20,6 +28,8 @@ const Contact = () => {
         console.log(error);
         setCopyAlert("복사 실패");
       });
+
+    return;
   }, []);
 
   return (
@@ -30,7 +40,6 @@ const Contact = () => {
         classes={["Contact"]}
       />
       <div className={styles.content}>
-        {/* <h1 className={styles.title}>Contact</h1> */}
         <section className={styles.section}>
           <div className={styles["header-mail-wrapper"]}>
             <h2 className={classNames(styles.header, styles["header-mail"])}>
@@ -38,13 +47,8 @@ const Contact = () => {
             </h2>
             <span className={styles["alert-copy"]}>{copyAlert}</span>
           </div>
-          <span className={styles.text}>drrobot409@gmail.com</span>
           <div className={styles["btn-group"]}>
-            <Button
-              icon={copyIcon}
-              onClick={onCopyClick}
-              classes={["Button__copy"]}
-            />
+            <Button text="drrobot409@gmail.com" onClick={onCopyClick} />
             <Button
               href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io"
               icon={writeIcon}

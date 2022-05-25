@@ -9,8 +9,8 @@ import img5 from "../images/screenshots/browser-start-theme.png";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
-import icon from "../images/browser-start-icon.png";
-import arrow from "../images/angle-left-solid.svg";
+import logo from "../images/logos/browser-start-icon.png";
+import arrow from "../images/icons/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCards, Navigation, Pagination } from "swiper";
 import "swiper/scss";
@@ -118,7 +118,7 @@ const BrowserStart = (): ReactElement => {
               classes={["Home__project-link"]}
             />
             <Button
-              icon={icon}
+              icon={logo}
               href="https://rarebeef.github.io/new-tab/"
               classes={["Home__project-link"]}
             />

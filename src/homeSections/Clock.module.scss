@@ -31,8 +31,8 @@ $size: 90vmin;
     width: 0px;
     height: 0px;
     margin: auto;
+
     .btn {
-      color: black;
       cursor: pointer;
       position: absolute;
       width: $size / 10;
@@ -44,10 +44,15 @@ $size: 90vmin;
       background-color: rgb(196, 196, 177);
       border-radius: 5px 5px 0 0;
       text-align: center;
-      font-size: $size / 30;
+      color: black;
+      font: {
+        size: $size / 30;
+      }
+
       &.btn--alarm {
         left: calc($size / 25 + $size / 10 + 2vmin);
       }
+
       &.btn--alarm-off {
         pointer-events: none;
         transform: translateY($size / 30);
@@ -55,23 +60,28 @@ $size: 90vmin;
         color: beige;
         margin: auto;
         left: $size / 2;
+
         &.active {
           pointer-events: all;
           transform: translateY(0) !important;
         }
       }
+
       &.btn--prev {
         width: $size / 10;
         left: $size - 30vmin;
       }
+
       &.btn--select {
         width: $size / 10;
         left: $size - 20vmin;
       }
+
       &.btn--next {
         width: $size / 10;
         left: $size - 10vmin;
       }
+
       &.active {
         transform: translateY($size / 30) !important;
         pointer-events: none;
@@ -94,15 +104,16 @@ $size: 90vmin;
       justify-content: space-between;
       align-items: center;
       color: rgb(37, 37, 37);
-      font: {
-        size: $size / 30;
-        weight: 900;
-      }
       padding: {
         top: 1.5vmin;
         left: 2vmin;
         bottom: 2vmin;
       }
+      font: {
+        size: $size / 30;
+        weight: 900;
+      }
+
       .active {
         color: red;
       }
@@ -117,31 +128,39 @@ $size: 90vmin;
       .date {
         z-index: 1;
         align-self: flex-end;
-        font-size: 8vmin;
         padding: {
           top: 3vmin;
           right: 3vmin;
         }
+        font: {
+          size: 8vmin;
+        }
+
         &.alarm {
           color: rgb(37, 37, 37);
           span:nth-child(2) {
             color: red;
           }
         }
+
         &::before {
           content: "ON 8888 / 88 / 88";
           position: absolute;
           color: rgb(37, 37, 37);
           align-self: flex-end;
-          font-size: 8vmin;
           z-index: -1;
+          font: {
+            size: 8vmin;
+          }
         }
 
         .toggle-alarm {
           color: rgb(37, 37, 37);
+
           &.select {
             color: red;
           }
+
           &.active {
             color: green;
           }
@@ -153,8 +172,11 @@ $size: 90vmin;
         justify-content: center;
         align-items: center;
         flex-grow: 1;
-        font-size: 20vmin;
         z-index: 1;
+        font: {
+          size: 20vmin;
+        }
+
         &::before {
           content: "88:88:88";
           position: absolute;
@@ -163,21 +185,25 @@ $size: 90vmin;
           justify-content: center;
           align-items: center;
           flex-grow: 1;
-          font-size: 20vmin;
           z-index: -1;
+          font: {
+            size: 20vmin;
+          }
         }
       }
 
       .alarm__timer {
-        font-family: "liquid_crystal-font";
-        font-size: 20vmin;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-grow: 1;
-        font-size: 20vmin;
         z-index: 1;
         color: rgb(37, 37, 37);
+        font: {
+          family: "liquid_crystal-font";
+          size: 20vmin;
+        }
+
         &::before {
           content: "88:88:88";
           position: absolute;
@@ -186,15 +212,20 @@ $size: 90vmin;
           justify-content: center;
           align-items: center;
           flex-grow: 1;
-          font-size: 20vmin;
           z-index: -1;
+          font: {
+            size: 20vmin;
+          }
         }
+
         &.active {
           color: red;
+
           input {
             opacity: 1;
           }
         }
+
         input {
           opacity: 0;
           pointer-events: none;
@@ -204,9 +235,11 @@ $size: 90vmin;
           outline-color: red;
           width: 18vmin;
           padding: 0;
+
           &::placeholder {
             color: red;
           }
+
           &:focus {
             animation: blink 0.7s linear infinite;
             @keyframes blink {
@@ -218,6 +251,7 @@ $size: 90vmin;
               }
             }
           }
+
           font: {
             family: "liquid_crystal-font";
             size: 20vmin;

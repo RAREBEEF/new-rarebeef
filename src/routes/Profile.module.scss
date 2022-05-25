@@ -1,4 +1,5 @@
 @import "./profile&contact.module.scss";
+
 .container {
   .info-window {
     display: flex;
@@ -33,12 +34,15 @@
     margin: {
       top: 5vh;
     }
+    
     .section {
       .sub-header {
-        font-size: 20px;
         margin: {
           left: 10px;
           top: 10px;
+        }
+        font: {
+          size: 20px;
         }
       }
 

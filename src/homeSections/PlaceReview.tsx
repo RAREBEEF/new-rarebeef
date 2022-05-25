@@ -10,12 +10,11 @@ import { PlaceReviewPropType } from "../types";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
-import icon from "../images/place-review-icon.png";
-import arrow from "../images/angle-left-solid.svg";
+import logo from "../images/logos/place-review-icon.png";
+import arrow from "../images/icons/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Autoplay,
-  EffectCoverflow,
   EffectCreative,
   Navigation,
   Pagination,
@@ -138,7 +137,7 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
               classes={["Home__project-link"]}
             />
             <Button
-              icon={icon}
+              icon={logo}
               href="https://rarebeef.github.io/place-review/"
               classes={["Home__project-link--website"]}
             />

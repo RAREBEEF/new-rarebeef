@@ -1,0 +1,26 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .start {
+    transition: all 0.3s;
+    cursor: pointer;
+    font: {
+      size: 50px;
+      weight: 700;
+    }
+
+    &:hover {
+      text-shadow: 0px 0px 5px white;
+      transform: scale(1.03);
+    }
+  }
+}

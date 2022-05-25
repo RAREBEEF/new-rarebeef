@@ -14,65 +14,115 @@ import netlifyIcon from "../images/skills/netlify-brands.svg";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
+import { useDispatch } from "react-redux";
+import { setLoadEnd } from "../redux/modules/setStart";
+import { ProfilePropType } from "../types";
 
-const Profile = () => {
+const Profile: React.FC<ProfilePropType> = ({ setStartAnimationEnd }) => {
+  const dispatch = useDispatch();
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
   const [infoText, setInfoText] = useState<string>("");
   const infoWindowRef = useRef<any>(null);
 
-  const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const currentRef = infoWindowRef.current;
-    if (!!currentRef) {
+  useEffect(() => {
+    dispatch(setLoadEnd());
+    setStartAnimationEnd(true);
+  }, [dispatch, setStartAnimationEnd]);
+
+  const onMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>): void => {
+      if (!infoWindowRef.current) {
+        return;
+      }
+
+      const currentRef = infoWindowRef.current;
+
       const x = e.clientX;
       const y = e.clientY;
       currentRef.style.transform = `translate(${x}px, ${y}px)`;
-    }
-  }, []);
 
-  const onMouseEnter = useCallback((e: any) => {
+      return;
+    },
+    []
+  );
+
+  const onMouseEnter = useCallback((e: any): void => {
     setShowInfoWindow(true);
+
     if (e.target.id === "name") {
       setInfoText("본명 : 송의영");
-    } else if (e.target.id === "birth-date") {
+
+      return;
+    }
+
+    if (e.target.id === "birth-date") {
       const date = new Date();
       const age =
         date.getMonth() < 10 || (date.getMonth() === 10 && date.getDate() < 6)
           ? date.getFullYear() - 1998
           : date.getFullYear() - 1997;
       setInfoText(`${age}살`);
-    } else if (e.target.id === "first-plan") {
-      setInfoText("제작한 웹 앱을 모바일 앱으로 이식하기");
-    } else if (e.target.id === "second-plan") {
-      setInfoText("메타버스에 대비하기");
-    } else if (!!e.target.alt) {
-      setInfoText(e.target.alt);
+
+      return;
     }
+
+    if (e.target.id === "first-plan") {
+      setInfoText("제작한 웹 앱을 모바일 앱으로 이식하기");
+
+      return;
+    }
+
+    if (e.target.id === "second-plan") {
+      setInfoText("메타버스에 대비하기");
+
+      return;
+    }
+
+    if (!!e.target.alt) {
+      setInfoText(e.target.alt);
+
+      return;
+    }
+
+    return;
   }, []);
 
-  const onMouseLeave = useCallback((e: any) => {
+  const onMouseLeave = useCallback((e: any): void => {
     setShowInfoWindow(false);
     setInfoText("");
+
+    return;
   }, []);
 
-  useEffect(() => {
+  useEffect((): void => {
     const skills = document.querySelectorAll(`.${styles["skill"]}`);
 
-    skills.forEach((skill: any) => {
+    if (!skills) {
+      return;
+    }
+
+    skills.forEach((skill: any): void => {
       skill.addEventListener(
         "mousemove",
-        (e: React.MouseEvent<HTMLUListElement>) => {
+        (e: React.MouseEvent<HTMLUListElement>): void => {
           const position = skill.getBoundingClientRect();
           const x = (e.clientX - position.left - position.width / 2) * 0.3;
           const y = (e.clientY - position.top - position.height / 2) * 0.3;
 
           skill.children[0].style.transform = `translate(${x}px, ${y}px)`;
           skill.children[0].style.transition = `all 0s`;
+
+          return;
         }
       );
       skill.addEventListener("mouseout", () => {
         skill.children[0].style.transform = `translate(0px, 0px)`;
         skill.children[0].style.transition = `all 0.5s`;
+
+        return;
       });
+
+      return;
     });
   }, []);
 

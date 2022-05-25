@@ -6,8 +6,6 @@ import Three from "../components/Three";
 import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
 import monitorImg from "../images/monitor2.png";
-import blenderImg from "../images/skills/blender-brands.svg";
-import threeImg from "../images/skills/three-brands.svg";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
 
@@ -15,12 +13,16 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
-  const onDragStart = useCallback(() => {
+  const onDragStart = useCallback((): void => {
     setIsDragging(true);
+
+    return;
   }, []);
 
-  const onDragEnd = useCallback(() => {
+  const onDragEnd = useCallback((): void => {
     setIsDragging(false);
+
+    return;
   }, []);
 
   return (

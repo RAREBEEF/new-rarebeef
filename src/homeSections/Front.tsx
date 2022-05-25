@@ -1,13 +1,15 @@
 import { ReactElement } from "react";
 import styles from "./Front.module.scss";
-import logo from "../images/beef.svg";
-import shadow from "../images/shadow.svg";
+import logo from "../images/logos/beef.svg";
+import shadow from "../images/logos/shadow.svg";
 import ScrollDown from "../components/ScrollDown";
 import { FrontPropType } from "../types";
 import classNames from "classnames";
 import Header from "../components/Header";
 
-const Front: React.FC<FrontPropType> = (): ReactElement => {
+const Front: React.FC<FrontPropType> = ({
+  startAnimationEnd,
+}): ReactElement => {
   return (
     <section className={classNames(styles.container)}>
       <Header
@@ -19,7 +21,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
         <img className={styles.shadow} src={shadow} alt="Shadow" />
         <img className={styles.logo} src={logo} alt="RARE BEEF" />
       </div>
-      <ScrollDown />
+      <ScrollDown startAnimationEnd={startAnimationEnd} />
     </section>
   );
 };

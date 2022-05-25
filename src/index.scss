@@ -1,14 +1,20 @@
 * {
   box-sizing: border-box;
-  // color: #221718;
 }
 
 body {
-  // font-family: Raleway, sans-serif !important;
-  font-family: "Gowun Dodum", sans-serif;
   min-width: 230px;
+  font: {
+    family: "Gowun Dodum", sans-serif;
+    // family: Raleway, sans-serif !important;
+  }
+
   a {
     color: #221718;
     text-decoration: none;
   }
+}
+
+html {
+  min-width: 230px;
 }

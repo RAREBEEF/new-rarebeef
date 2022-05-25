@@ -4,6 +4,7 @@
   margin: {
     left: 10px;
   }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -17,15 +18,20 @@
       }
 
       .input--name {
-        font-family: "Gowun Dodum", sans-serif;
         outline: none;
         margin: {
           right: 10px;
         }
+        font: {
+          family: "Gowun Dodum", sans-serif;
+        }
       }
+
       .input--pw {
-        font-family: "Gowun Dodum", sans-serif;
         outline: none;
+        font: {
+          family: "Gowun Dodum", sans-serif;
+        }
       }
     }
 
@@ -36,6 +42,9 @@
         right: 65px;
         bottom: 10px;
       }
+      &.over {
+        color: #da4a4a;
+      }
     }
 
     .bottom-wrapper {
@@ -45,13 +54,15 @@
       }
 
       .input--content {
-        font-family: "Gowun Dodum", sans-serif;
         width: 100%;
         resize: none;
         height: 80px;
         outline: none;
         margin: {
           right: 10px;
+        }
+        font: {
+          family: "Gowun Dodum", sans-serif;
         }
       }
     }

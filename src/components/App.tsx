@@ -6,43 +6,87 @@ import Profile from "../routes/Profile";
 import Nav from "./Nav";
 import Toolbar from "./Toolbar";
 import Tutorial from "./Tutorial";
-import { getGuestBookThunk } from "../redux/reducer";
-import { useDispatch } from "react-redux";
-import { ThunkDispatch } from "redux-thunk";
+import { getGuestBookThunk } from "../redux/modules/getGuestBook";
+import { useDispatch, useSelector } from "react-redux";
+import { ReduxStateType, setStartStateType } from "../types";
+import Start from "./Start";
+import Flip from "./Flip";
 
 const App = (): ReactElement => {
-  const [tutorialActive, setTutorialActive] = useState<boolean>(() =>
+  const dispatch = useDispatch();
+  const { start } = useSelector(
+    (state: ReduxStateType): setStartStateType => state.setStart
+  );
+
+  const [tutorialActive, setTutorialActive] = useState<boolean>((): boolean =>
     localStorage.getItem("rarebeef_disableTutorial") === "true" ? false : true
   );
-  const dispatch = useDispatch();
+  const [startAnimationEnd, setStartAnimationEnd] = useState<boolean>(false);
 
-  useEffect(() => {
+  useEffect((): void => {
     const rootEl = document.getElementById("root");
 
     if (!rootEl) {
       return;
-    } else if (!!tutorialActive) {
+    }
+
+    if (!!tutorialActive || !startAnimationEnd) {
       rootEl.style.height = "100vh";
+      rootEl.style.minHeight = "500px";
       rootEl.style.overflow = "hidden";
-    } else if (!tutorialActive) {
+
+      return;
+    }
+
+    if (!tutorialActive) {
       rootEl.style.height = "auto";
       rootEl.style.overflow = "visible";
+
+      return;
     }
-  }, [tutorialActive]);
+
+    return;
+  }, [startAnimationEnd, tutorialActive]);
+
+  useEffect((): void => {
+    dispatch<any>(getGuestBookThunk());
+
+    return;
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch<any>(getGuestBookThunk());
-  }, [dispatch]);
+    if (!start) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setStartAnimationEnd(true);
+    }, 6000);
+
+    return (): void => {
+      clearTimeout(timer);
+    };
+  }, [start]);
 
   return (
     <Router>
+      {!start && <Start />}
       {tutorialActive && <Tutorial setTutorialActive={setTutorialActive} />}
       <Nav setTutorialActive={setTutorialActive} />
       <Toolbar />
       <Routes>
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/profile"
+          element={<Profile setStartAnimationEnd={setStartAnimationEnd} />}
+        />
+        <Route
+          path="/contact"
+          element={<Contact setStartAnimationEnd={setStartAnimationEnd} />}
+        />
+        <Route
+          path="/"
+          element={<Home startAnimationEnd={startAnimationEnd} />}
+        />
       </Routes>
     </Router>
   );

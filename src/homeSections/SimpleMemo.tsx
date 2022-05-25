@@ -8,10 +8,10 @@ import img4 from "../images/screenshots/simple-memo-delete.png";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
-import icon from "../images/simple-memo-icon.png";
-import arrow from "../images/angle-left-solid.svg";
+import logo from "../images/logos/simple-memo-icon.png";
+import arrow from "../images/icons/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, EffectCreative, Navigation, Pagination } from "swiper";
+import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -118,7 +118,7 @@ const SimpleMemo = (): ReactElement => {
               classes={["Home__project-link"]}
             />
             <Button
-              icon={icon}
+              icon={logo}
               href="https://simplememo.netlify.app/"
               classes={["Home__project-link"]}
             />

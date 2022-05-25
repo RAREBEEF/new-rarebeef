@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { ButtonPropType } from "../types";
 import styles from "./Button.module.scss";
+
 const Button: React.FC<ButtonPropType> = ({
   text,
   onClick,

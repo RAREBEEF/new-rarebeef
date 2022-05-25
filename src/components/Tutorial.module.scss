@@ -1,8 +1,12 @@
 .container {
-  position: fixed;
+  position: absolute;
   z-index: 100;
   width: 100vw;
   height: 100vh;
+  min-height: 500px;
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+  }
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
 
@@ -16,10 +20,12 @@
     width: 70vw;
     max-width: 800px;
     height: 50vh;
+    min-height: 450px;
     background-color: whitesmoke;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+
     .header {
       display: flex;
       align-items: center;
@@ -32,11 +38,15 @@
         size: 30px;
         weight: 700;
       }
+
       .page {
-        font-size: 20px;
         white-space: nowrap;
+        font: {
+          size: 20px;
+        }
       }
     }
+
     .content {
       flex-grow: 1;
       display: flex;
@@ -68,6 +78,7 @@
         padding: 10px;
       }
     }
+
     .btn-wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -77,12 +88,14 @@
         top: 10px;
         bottom: 10px;
       }
+
       .pagination {
         flex-grow: 1;
         margin: {
           left: 10px;
         }
       }
+
       .done {
         display: flex;
         justify-content: flex-end;

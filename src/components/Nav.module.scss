@@ -11,15 +11,15 @@
   .icon--menu {
     transform-origin: center;
     opacity: 0.8;
-    margin: {
-      right: 20px;
-    }
     z-index: 1;
     cursor: pointer;
     border-radius: 50%;
     height: 50px;
     width: 50px;
     transition: all 0.3s;
+    margin: {
+      right: 20px;
+    }
 
     &:hover {
       opacity: 0.3;
@@ -32,6 +32,9 @@
     transition: width 1s;
     width: 0;
     height: 100vh;
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available;
+    }
     position: absolute;
     top: 0px;
     right: 0px;
@@ -48,6 +51,7 @@
       align-items: center;
       width: 10px;
       cursor: ew-resize;
+
       .icon--resize {
         width: 50%;
         margin: auto;
@@ -72,16 +76,16 @@
         justify-content: center;
         align-items: center;
         color: rgba(100, 100, 100, 1);
-        font: {
-          size: 40px;
-          weight: 700;
-        }
         height: 135px;
         pointer-events: none;
         text-align: center;
         margin: {
           right: 90px;
           left: 10px;
+        }
+        font: {
+          size: 40px;
+          weight: 700;
         }
       }
     }
@@ -112,11 +116,16 @@
 
       &:not(.footer) {
         cursor: pointer;
-        font-weight: 700;
         background-color: rgba(0, 0, 0, 0.5);
+        font: {
+          weight: 700;
+        }
+
         &:hover {
-          font-size: 20px;
           height: 60px;
+          font: {
+            size: 20px;
+          }
         }
       }
 
@@ -124,7 +133,6 @@
         color: #221718;
         transform-origin: bottom;
         text-align: center;
-        font-size: 14px;
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -132,6 +140,9 @@
         justify-self: flex-end;
         padding: {
           bottom: 20px;
+        }
+        font: {
+          size: 14px;
         }
       }
     }
@@ -161,6 +172,30 @@
                 cubic-bezier(0.34, 2, 0.64, 1),
               background-color 0.3s 0s, height 0.3s 0s, font-size 0.3s 0s;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    height: 100px;
+
+    .icon--menu {
+      height: 40px;
+      width: 40px;
+      margin: {
+        right: 10px;
+      }
+    }
+
+    .menu {
+      .menu__right-side {
+        .title__menu {
+          opacity: 0;
+          height: 105px;
+          font-size: 20px;
         }
       }
     }

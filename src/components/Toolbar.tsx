@@ -1,37 +1,45 @@
 import { ReactElement, useCallback, useEffect, useState } from "react";
 import styles from "./Toolbar.module.scss";
-import upIcon from "../images/circle-chevron-up-solid.svg";
-import velogIcon from "../images/velog.svg";
-import githupIcon from "../images/github-brands.svg";
-import mailIcon from "../images/circle-envelope-regular.svg";
+import upIcon from "../images/icons/circle-chevron-up-solid.svg";
+import velogIcon from "../images/icons/velog.svg";
+import githupIcon from "../images/icons/github-brands.svg";
+import mailIcon from "../images/icons/circle-envelope-regular.svg";
 import { ToolbarPropType } from "../types";
 import classNames from "classnames";
+
 const Toolbar: React.FC<ToolbarPropType> = ({}): ReactElement => {
   const [scrollTop, setScrollTop] = useState<number>(0);
   const [clientHeight, setClientHeight] = useState<number>(0);
 
-  const toTop = useCallback(() => {
+  const toTop = useCallback((): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    return;
   }, []);
 
-  const resizeCb = useCallback(() => {
+  const resizeCb = useCallback((): void => {
     setClientHeight(window.innerHeight);
+
+    return;
   }, []);
 
-  const scrollCb = useCallback(() => {
+  const scrollCb = useCallback((): void => {
     setScrollTop(window.scrollY);
+
+    return;
   }, []);
 
   useEffect(() => {
     scrollCb();
     resizeCb();
-
     window.addEventListener("scroll", scrollCb);
     window.addEventListener("resize", resizeCb);
 
-    return () => {
+    return (): void => {
       window.removeEventListener("scroll", scrollCb);
       window.removeEventListener("resize", resizeCb);
+
+      return;
     };
   }, [resizeCb, scrollCb]);
 

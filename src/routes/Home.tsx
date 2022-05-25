@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import ThreeBeef from "../homeSections/ThreeBeef";
 import Front from "../homeSections/Front";
 import styles from "./Home.module.scss";
@@ -9,14 +9,15 @@ import { HomePropType } from "../types";
 import Clock from "../homeSections/Clock";
 import BrowserStart from "../homeSections/BrowserStart";
 import SimpleMemo from "../homeSections/SimpleMemo";
-import GuestBookSection from "../components/GuestBookSection";
+import Flip from "../components/Flip";
 
-const Home: React.FC<HomePropType> = ({}) => {
+const Home: React.FC<HomePropType> = ({ startAnimationEnd }) => {
   const HomeRef = useRef<any>(null);
 
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
-      <Front />
+      <Front startAnimationEnd={startAnimationEnd} />
+      {!startAnimationEnd && <Flip />}
       <ThreeBeef />
       <PlaceReview />
       <MetaBeef />

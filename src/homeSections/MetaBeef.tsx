@@ -10,8 +10,8 @@ import { MetaBeefPropType } from "../types";
 import Skill from "../components/Skill";
 import classNames from "classnames";
 import Button from "../components/Button";
-import icon from "../images/meta-beef-icon.png";
-import arrow from "../images/angle-left-solid.svg";
+import logo from "../images/logos/meta-beef-icon.png";
+import arrow from "../images/icons/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCreative, Navigation, Pagination } from "swiper";
 import "swiper/scss";
@@ -133,7 +133,7 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
               classes={["Home__project-link"]}
             />
             <Button
-              icon={icon}
+              icon={logo}
               href="https://rarebeef.github.io/meta-beef"
               classes={["Home__project-link--website"]}
             />

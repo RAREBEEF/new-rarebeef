@@ -1,5 +1,6 @@
+//
 // Props
-
+//
 export interface TutorialPropType {
   setTutorialActive: Function;
 }
@@ -24,15 +25,29 @@ export interface NavPropType {
 
 export interface ToolbarPropType {}
 
-export interface ScrollDownPropType {}
+export interface ScrollDownPropType {
+  startAnimationEnd: boolean;
+}
 
 export interface SkillPropType {
   skill: string;
 }
 
-export interface HomePropType {}
+export interface HomePropType {
+  startAnimationEnd: boolean;
+}
 
-export interface FrontPropType {}
+export interface ProfilePropType {
+  setStartAnimationEnd: Function;
+}
+
+export interface ContactPropType {
+  setStartAnimationEnd: Function;
+}
+
+export interface FrontPropType {
+  startAnimationEnd: boolean;
+}
 
 export interface ThreeBeefPropType {}
 
@@ -56,18 +71,49 @@ export interface MetaBeefPropType {}
 export interface CubePropType {}
 
 export interface GuestBookPropType {
-  data: GuestBookType;
+  data: guestBookType;
 }
 
+//
 // redux
+//
 export interface ReduxStateType {
-  data: Array<GuestBookType>;
+  getGuestBook: getGusetBookStateType;
+  setStart: setStartStateType;
+}
+
+export interface getGusetBookStateType {
+  data: Array<guestBookType>;
   error: any;
   loading: boolean;
 }
 
+export interface setStartStateType {
+  start: boolean;
+}
+
+export interface getGuestBookStartType {
+  type: string;
+}
+
+export interface getGuestBookSuccessType {
+  type: string;
+  data: guestBookType;
+}
+
+export interface getGuestBookFailType {
+  type: string;
+  error: any;
+}
+
+export interface setStartType {
+  type: string;
+}
+
+//
 // etc
-export interface GuestBookType {
+//
+export interface guestBookType {
   id: string;
   name: string;
   pw: string;

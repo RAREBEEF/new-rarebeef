@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import styles from "./CreateGuestBook.module.scss";
 import * as FB from "../fb";
 import Button from "./Button";
+import classNames from "classnames";
 
 const CreateGuestBook = () => {
   const [content, setContent] = useState<string>("");
@@ -9,29 +10,39 @@ const CreateGuestBook = () => {
   const [pw, setPw] = useState<string>("");
 
   const onTextChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
       setContent(e.target.value);
+
+      return;
     },
     []
   );
 
-  const onNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  }, []);
+  const onNameChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>): void => {
+      setName(e.target.value);
 
-  const onPwChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setPw(e.target.value);
-  }, []);
+      return;
+    },
+    []
+  );
+
+  const onPwChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>): void => {
+      setPw(e.target.value);
+
+      return;
+    },
+    []
+  );
 
   const onUpload = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>) => {
+    async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
       e.preventDefault();
 
       if (content === "" || name === "" || pw === "") {
         return;
       }
-
-      console.log(content, name, pw);
 
       try {
         await FB.addDoc(FB.collection(FB.db, "GuestBook"), {
@@ -40,13 +51,18 @@ const CreateGuestBook = () => {
           content,
           createdAt: new Date().getTime(),
         });
+
+        setContent("");
+        setName("");
+        setPw("");
+
+        return;
       } catch (error) {
         console.error(error);
-      }
+        window.alert(error);
 
-      setContent("");
-      setName("");
-      setPw("");
+        return;
+      }
     },
     [content, name, pw]
   );
@@ -76,7 +92,14 @@ const CreateGuestBook = () => {
             maxLength={30}
           />
         </div>
-        <div className={styles.counter}>{content.length} / 50</div>
+        <div
+          className={classNames(
+            styles.counter,
+            content.length > 50 && styles.over
+          )}
+        >
+          {content.length} / 50
+        </div>
         <div className={styles["bottom-wrapper"]}>
           <textarea
             className={styles["input--content"]}
@@ -86,7 +109,7 @@ const CreateGuestBook = () => {
             minLength={1}
             maxLength={50}
           />
-          <Button text="등록" classes={["CreateAndGetGuestBook"]} />
+          <Button text="등록" classes={["CreateGuestBook"]} />
         </div>
       </form>
     </div>

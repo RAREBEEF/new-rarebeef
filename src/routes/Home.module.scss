@@ -1,6 +1,24 @@
 .container {
   position: relative;
+  min-height: 100vh;
+  min-width: 230px;
   @supports (-webkit-touch-callout: none) {
-    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
+
+  .guest-book-section {
+    background-color: whitesmoke;
+    position: relative;
+    min-height: 100vh;
+    @supports (-webkit-touch-callout: none) {
+      min-height: -webkit-fill-available;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    div:nth-child(2) {
+      align-self: center;
+    }
   }
 }

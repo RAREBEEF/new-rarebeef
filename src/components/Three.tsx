@@ -10,12 +10,19 @@ const Three: React.FC<ThreePropType> = ({ setMouseOver }) => {
   const beefRef = useRef<THREE.Group>(null);
   const controlRef = useRef<any>(null);
 
-  useEffect(() => {
+  useEffect((): void => {
+    if (!controlRef.current) {
+      return;
+    }
+
     const currentRef = controlRef.current;
+
     currentRef.object.position.setY(4);
     currentRef.enableZoom = true;
     currentRef.enablePan = false;
     currentRef.reverseOrbit = false;
+
+    return;
   }, []);
 
   // useFrame((state) => {

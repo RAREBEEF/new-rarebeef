@@ -1,16 +1,15 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-mixed-operators */
-import React, { useCallback, useRef, useState } from "react";
+import React, { ReactElement, useCallback, useRef, useState } from "react";
 import classNames from "classnames";
 import styles from "./Clock.module.scss";
 import gsap from "gsap";
 import Header from "../components/Header";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
-import icon from "../images/clock-icon.png";
-// import alarmAudioFile from "../audios/alarm-sound.wav";
+import logo from "../images/logos/clock-icon.png";
 
-export default function Clock() {
+const Clock = (): ReactElement => {
   const [vh, setVh] = useState(window.innerHeight * 0.01);
   const [time, setTime] = useState<Array<any>>([
     "00",
@@ -36,6 +35,7 @@ export default function Clock() {
 
   React.useEffect(() => {
     alarmSound.loop = true;
+
     const resize = () => {
       setVh(window.innerHeight * 0.01);
     };
@@ -44,7 +44,7 @@ export default function Clock() {
 
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-    const timeUpdate = setInterval(() => {
+    const timeUpdate = setInterval((): void => {
       const date = new Date();
 
       setTime([
@@ -67,27 +67,38 @@ export default function Clock() {
           alarmSound.play();
         }
       }
+
+      return;
     }, 100);
 
-    return () => {
+    return (): void => {
       clearInterval(timeUpdate);
       window.removeEventListener("resize", resize);
+
+      return;
     };
   });
 
-  const clickAnimation = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    gsap.to(e.target, 0.1, {
-      repeat: 1,
-      yoyo: true,
-      translateY: "10vmin",
-    });
-  }, []);
+  const clickAnimation = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>): void => {
+      gsap.to(e.target, 0.1, {
+        repeat: 1,
+        yoyo: true,
+        translateY: "10vmin",
+      });
+
+      return;
+    },
+    []
+  );
 
   const nextClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: React.MouseEvent<HTMLDivElement>): void => {
       clickAnimation(e);
 
-      alarm.active && setSelect(select === 3 ? 0 : select + 1);
+      if (!!alarm.active) {
+        setSelect(select === 3 ? 0 : select + 1);
+      }
 
       if (
         parseInt(alarm.h) >= 24 ||
@@ -96,15 +107,19 @@ export default function Clock() {
       ) {
         setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
       }
+
+      return;
     },
     [select, alarm.h, alarm.m, alarm.s, alarm.active, clickAnimation]
   );
 
   const prevClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: React.MouseEvent<HTMLDivElement>): void => {
       clickAnimation(e);
 
-      alarm.active && setSelect(select === 0 ? 3 : select - 1);
+      if (!!alarm.active) {
+        setSelect(select === 0 ? 3 : select - 1);
+      }
 
       if (
         parseInt(alarm.h) >= 24 ||
@@ -113,13 +128,16 @@ export default function Clock() {
       ) {
         setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
       }
+
+      return;
     },
     [select, alarm.h, alarm.m, alarm.s, alarm.active, clickAnimation]
   );
 
   const selectClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: React.MouseEvent<HTMLDivElement>): void => {
       clickAnimation(e);
+
       if (select === 3) {
         setAlarm((prevAlarm: any) => ({
           ...prevAlarm,
@@ -131,46 +149,72 @@ export default function Clock() {
         select === 1 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: "" }));
         select === 2 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: "" }));
       }
+
+      return;
     },
     [clickAnimation, select]
   );
 
-  const dateClick = useCallback(() => {
+  const dateClick = useCallback((): void => {
     setShow("date");
+
+    return;
   }, []);
 
-  const alarmClick = useCallback(() => {
+  const alarmClick = useCallback((): void => {
     setShow("alarm");
+
+    return;
   }, []);
 
-  const hourInput = useCallback((e: any) => {
+  const hourInput = useCallback((e: any): void => {
+    if (!e.target.value) {
+      return;
+    }
+
     if (isNaN(parseInt(e.target.value))) {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "" }));
     } else {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: e.target.value }));
     }
+
+    return;
   }, []);
 
-  const minuteInput = useCallback((e: any) => {
+  const minuteInput = useCallback((e: any): void => {
+    if (!e.target.value) {
+      return;
+    }
+
     if (isNaN(parseInt(e.target.value))) {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: "" }));
     } else {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: e.target.value }));
     }
+
+    return;
   }, []);
 
-  const secondInput = useCallback((e: any) => {
+  const secondInput = useCallback((e: any): void => {
+    if (!e.target.value) {
+      return;
+    }
+
     if (isNaN(parseInt(e.target.value))) {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: "" }));
     } else {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: e.target.value }));
     }
+
+    return;
   }, []);
 
-  const stopRinging = useCallback(() => {
+  const stopRinging = useCallback((): void => {
     setAlarm((prevAlarm: any) => ({ ...prevAlarm, ring: false }));
     alarmSound.pause();
     alarmSound.currentTime = 0;
+
+    return;
   }, [alarmSound]);
 
   return (
@@ -385,11 +429,11 @@ export default function Clock() {
             <tbody className={styles["summary__table__tbody"]}>
               <tr>
                 <td>프로젝트 이름</td>
-                <td>Meta Beef</td>
+                <td>Digital Clock</td>
               </tr>
               <tr>
                 <td>프로젝트 기간</td>
-                <td>2022.01.26 ~ 02.24</td>
+                <td>2022.01.09 ~ 01.19</td>
               </tr>
               <tr>
                 <td>개발 인원</td>
@@ -431,7 +475,7 @@ export default function Clock() {
               classes={["Home__project-link"]}
             />
             <Button
-              icon={icon}
+              icon={logo}
               href="https://clockbyrarebeef.netlify.app/"
               classes={["Home__project-link"]}
             />
@@ -440,4 +484,6 @@ export default function Clock() {
       </div>
     </div>
   );
-}
+};
+
+export default Clock;

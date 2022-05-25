@@ -1,21 +1,22 @@
 import CreateGuestBook from "./CreateGuestBook";
 import GuestBook from "./GuestBook";
 import styles from "./GuestBookSection.module.scss";
-import { ReduxStateType } from "../types";
+import { getGusetBookStateType, ReduxStateType } from "../types";
 import { useSelector } from "react-redux";
 
 const GuestBookSection = () => {
-  const { data: guestBook } = useSelector((state: ReduxStateType) => state);
+  const { data: guestBook } = useSelector(
+    (state: ReduxStateType): getGusetBookStateType => state.getGuestBook
+  );
 
   return (
-    <>
+    <div className={styles.container}>
       <CreateGuestBook />
       <ul className={styles["list"]}>
-        {guestBook.map((data) => (
-          <GuestBook data={data} key={data.id} />
-        ))}
+        {guestBook &&
+          guestBook.map((data) => <GuestBook data={data} key={data.id} />)}
       </ul>
-    </>
+    </div>
   );
 };
 
