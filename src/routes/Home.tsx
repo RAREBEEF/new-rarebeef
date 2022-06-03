@@ -9,7 +9,7 @@ import { HomePropType, ReduxStateType, setAnimationStateType } from "../types";
 import Clock from "../homeSections/Clock";
 import BrowserStart from "../homeSections/BrowserStart";
 import SimpleMemo from "../homeSections/SimpleMemo";
-import Flip from "../components/Flip";
+import Flip from "../three/Flip";
 import { useSelector } from "react-redux";
 
 const Home: React.FC<HomePropType> = ({}) => {

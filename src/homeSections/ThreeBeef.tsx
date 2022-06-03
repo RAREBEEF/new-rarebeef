@@ -1,8 +1,8 @@
-import { ReactElement, useCallback, useState } from "react";
+import { ReactElement, useState } from "react";
 import Header from "../components/Header";
 import styles from "./ThreeBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
-import Three from "../components/Three";
+import Beef from "../three/Beef";
 import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
 import monitorImg from "../images/monitor2.png";
@@ -13,17 +13,17 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
-  const onDragStart = useCallback((): void => {
+  const onDragStart = (): void => {
     setIsDragging(true);
 
     return;
-  }, []);
+  };
 
-  const onDragEnd = useCallback((): void => {
+  const onDragEnd = (): void => {
     setIsDragging(false);
 
     return;
-  }, []);
+  };
 
   return (
     <section
@@ -50,7 +50,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
             }}
             shadows
           >
-            <Three setMouseOver={setMouseOver} />
+            <Beef setMouseOver={setMouseOver} />
           </Canvas>
         </div>
         <div className={classNames(styles.summary, styles.box)}>

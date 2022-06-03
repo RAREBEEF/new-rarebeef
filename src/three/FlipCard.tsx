@@ -1,12 +1,9 @@
 import React, { ReactElement, useCallback, useEffect, useRef } from "react";
 import gsap, { Power3, Power1 } from "gsap";
 import angleToRadians from "../tools/angleToRadians";
+import { FlipCardPropType } from "../types";
 
-interface FlipCardPropType {
-  position?: [number, number, number];
-  start: boolean;
-  center?: boolean;
-}
+
 
 const FlipCard: React.FC<FlipCardPropType> = ({
   position = [0, 0, 0],

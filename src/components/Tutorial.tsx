@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { TutorialPropType } from "../types";
 import Button from "./Button";
 import styles from "./Tutorial.module.scss";
@@ -22,31 +22,28 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
     },
   ];
 
-  const onPrevClick = useCallback(() => {
+  const onPrevClick = () => {
     setCurrentPage((prev) => prev - 1);
     videoRef.current.load();
-  }, []);
+  };
 
-  const onNextClick = useCallback(() => {
+  const onNextClick = () => {
     setCurrentPage((prev) => prev + 1);
     videoRef.current.load();
-  }, []);
+  };
 
-  const onDoneClick = useCallback(
-    (e: React.MouseEvent<HTMLFormElement>) => {
-      e.preventDefault();
+  const onDoneClick = (e: React.MouseEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-      if (!!checkRef.current.checked) {
-        console.log("checked");
-        localStorage.setItem("rarebeef_disableTutorial", "true");
-      } else if (!checkRef.current.checked) {
-        console.log("unchecked");
-        localStorage.setItem("rarebeef_disableTutorial", "false");
-      }
-      setTutorialActive(false);
-    },
-    [setTutorialActive]
-  );
+    if (!!checkRef.current.checked) {
+      console.log("checked");
+      localStorage.setItem("rarebeef_disableTutorial", "true");
+    } else if (!checkRef.current.checked) {
+      console.log("unchecked");
+      localStorage.setItem("rarebeef_disableTutorial", "false");
+    }
+    setTutorialActive(false);
+  };
 
   return (
     <div className={styles.container}>

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useCallback } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
@@ -39,7 +39,7 @@ const BeefModel: React.FC<BeefModelPropType> = ({
     // }
   });
 
-  const onBeefClick = useCallback(() => {
+  const onBeefClick = () => {
     setBeefActive((prev: boolean): boolean => {
       if (!prev) {
         gsap.to(refProp.current.position, 1, {
@@ -55,15 +55,15 @@ const BeefModel: React.FC<BeefModelPropType> = ({
 
       return !prev;
     });
-  }, [position, refProp, setBeefActive]);
+  };
 
-  const onPointerEnter = useCallback(() => {
+  const onPointerEnter = () => {
     setMouseOver(true);
-  }, [setMouseOver]);
+  };
 
-  const onPointerLeave = useCallback(() => {
+  const onPointerLeave = () => {
     setMouseOver(false);
-  }, [setMouseOver]);
+  };
 
   return (
     <group

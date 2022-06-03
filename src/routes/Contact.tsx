@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import GuestBookSection from "../components/GuestBookSection";
 import Header from "../components/Header";
@@ -18,7 +18,7 @@ const Contact: React.FC<ContactPropType> = ({}) => {
     dispatch(setAnimationEnd());
   }, [dispatch]);
 
-  const onCopyClick = useCallback((): void => {
+  const onCopyClick = (): void => {
     navigator.clipboard
       .writeText("drrobot409@gmail.com")
       .then(() => {
@@ -30,7 +30,7 @@ const Contact: React.FC<ContactPropType> = ({}) => {
       });
 
     return;
-  }, []);
+  };
 
   return (
     <div className={styles.container}>

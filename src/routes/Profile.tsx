@@ -11,7 +11,7 @@ import aiIcon from "../images/skills/ai-brands.svg";
 import blenderIcon from "../images/skills/blender-brands.svg";
 import firebaseIcon from "../images/skills/firebase-brands.svg";
 import netlifyIcon from "../images/skills/netlify-brands.svg";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
@@ -29,24 +29,21 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
     dispatch(setAnimationEnd());
   }, [dispatch]);
 
-  const onMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>): void => {
-      if (!infoWindowRef.current) {
-        return;
-      }
-
-      const currentRef = infoWindowRef.current;
-
-      const x = e.clientX;
-      const y = e.clientY;
-      currentRef.style.transform = `translate(${x}px, ${y}px)`;
-
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (!infoWindowRef.current) {
       return;
-    },
-    []
-  );
+    }
 
-  const onMouseEnter = useCallback((e: any): void => {
+    const currentRef = infoWindowRef.current;
+
+    const x = e.clientX;
+    const y = e.clientY;
+    currentRef.style.transform = `translate(${x}px, ${y}px)`;
+
+    return;
+  };
+
+  const onMouseEnter = (e: any): void => {
     setShowInfoWindow(true);
 
     if (e.target.id === "name") {
@@ -85,14 +82,14 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
     }
 
     return;
-  }, []);
+  };
 
-  const onMouseLeave = useCallback((e: any): void => {
+  const onMouseLeave = (): void => {
     setShowInfoWindow(false);
     setInfoText("");
 
     return;
-  }, []);
+  };
 
   useEffect((): void => {
     const skills = document.querySelectorAll(`.${styles["skill"]}`);

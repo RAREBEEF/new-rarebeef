@@ -1,6 +1,18 @@
 //
 // Props
 //
+export interface FlipCardPropType {
+  position?: [number, number, number];
+  start: boolean;
+  center?: boolean;
+}
+
+export interface FlipLinePropType {
+  position?: [number, number, number];
+  start: boolean;
+  center?: boolean;
+}
+
 export interface TutorialPropType {
   setTutorialActive: Function;
 }
@@ -41,7 +53,7 @@ export interface FrontPropType {}
 
 export interface ThreeBeefPropType {}
 
-export interface ThreePropType {
+export interface BeefPropType {
   setMouseOver: Function;
 }
 
