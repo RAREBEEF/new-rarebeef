@@ -36,7 +36,6 @@ const SimpleMemo = (): ReactElement => {
               slideShadows: false,
             }}
             spaceBetween={10}
-            loop
             grabCursor
           >
             <div className={styles["swiper__pagination"]}>

@@ -16,7 +16,6 @@ const Beef: React.FC<BeefPropType> = ({ setMouseOver }) => {
     }
 
     const currentRef = controlRef.current;
-
     currentRef.object.position.setY(4);
     currentRef.enableZoom = true;
     currentRef.enablePan = false;

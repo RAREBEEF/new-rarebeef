@@ -13,12 +13,7 @@ import Button from "../components/Button";
 import logo from "../images/logos/place-review-icon.png";
 import arrow from "../images/icons/angle-left-solid.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Autoplay,
-  EffectCreative,
-  Navigation,
-  Pagination,
-} from "swiper";
+import { Navigation, Pagination } from "swiper";
 import "swiper/scss";
 import "swiper/scss/pagination";
 import "swiper/scss/effect-coverflow";
@@ -35,20 +30,8 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
         <div className={classNames(styles.screenshots, styles.box)}>
           <Swiper
             className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, Autoplay, EffectCreative]}
+            modules={[Navigation, Pagination]}
             effect="creative"
-            creativeEffect={{
-              prev: {
-                translate: ["-75%", "57.5%", 0],
-                rotate: [0, 0, -45],
-                origin: "bottom",
-              },
-              next: {
-                translate: ["75%", "57.5%", 0],
-                rotate: [0, 0, 45],
-                origin: "bottom",
-              },
-            }}
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
             slidesPerView={1}
             spaceBetween={80}

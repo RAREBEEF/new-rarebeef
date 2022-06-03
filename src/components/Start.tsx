@@ -13,7 +13,7 @@ const Start = () => {
           dispatch(setAnimationStart());
         }}
       >
-        Start
+        Click
       </span>
     </div>
   );

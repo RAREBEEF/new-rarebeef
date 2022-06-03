@@ -34,7 +34,6 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
             slidesPerView={1}
             grabCursor
-            loop
             effect="creative"
             creativeEffect={{
               prev: {

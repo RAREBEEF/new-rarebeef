@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { TutorialPropType } from "../types";
 import Button from "./Button";
 import styles from "./Tutorial.module.scss";
@@ -13,9 +13,15 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
   const checkRef = useRef<any>(null);
 
   const tutorials = [
-    { video: tutorial1, text: "아래로 스크롤하여 포트폴리오를 확인해보세요." },
+    {
+      video: tutorial1,
+      text: "아래로 스크롤하여 포트폴리오를 확인해보세요.\n(PC 환경에 최적화 되어있습니다.)",
+    },
     { video: tutorial2, text: "메뉴를 통해 다른 페이지로 이동해보세요." },
-    { video: tutorial3, text: "원하는 크기로 메뉴를 조절할 수 있습니다." },
+    {
+      video: tutorial3,
+      text: "원하는 크기로 메뉴를 조절할 수 있습니다. (PC 버전)",
+    },
     {
       video: tutorial4,
       text: "튜토리얼은 메뉴에서 다시 확인하실 수 있습니다.",
@@ -36,14 +42,19 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
     e.preventDefault();
 
     if (!!checkRef.current.checked) {
-      console.log("checked");
       localStorage.setItem("rarebeef_disableTutorial", "true");
-    } else if (!checkRef.current.checked) {
-      console.log("unchecked");
+    } else {
       localStorage.setItem("rarebeef_disableTutorial", "false");
     }
     setTutorialActive(false);
   };
+
+  useEffect(() => {
+    console.log("mount");
+    return () => {
+      console.log("unmount");
+    };
+  }, []);
 
   return (
     <div className={styles.container}>

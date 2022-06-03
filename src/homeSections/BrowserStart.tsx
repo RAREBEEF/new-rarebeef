@@ -22,7 +22,7 @@ const BrowserStart = (): ReactElement => {
     <section className={styles.container}>
       <Header
         title={["Browser", "start", "page"]}
-        subTitle={["with", "Firebase"]}
+        subTitle={["with", "Redux"]}
         classes={["BrowserStart"]}
       />
       <div className={styles.content}>

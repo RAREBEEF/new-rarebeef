@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import ThreeBeef from "../homeSections/ThreeBeef";
 import Front from "../homeSections/Front";
 import styles from "./Home.module.scss";
