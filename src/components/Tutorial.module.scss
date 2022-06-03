@@ -4,6 +4,7 @@
   width: 100vw;
   height: 100vh;
   min-height: 500px;
+  min-width: 230px;
   @supports (-webkit-touch-callout: none) {
     height: -webkit-fill-available;
   }
@@ -21,6 +22,7 @@
     max-width: 800px;
     height: 50vh;
     min-height: 450px;
+    min-width: 200px;
     background-color: whitesmoke;
     border-radius: 15px;
     display: flex;
@@ -90,17 +92,52 @@
       }
 
       .pagination {
+        display: flex;
         flex-grow: 1;
+        gap: 10px;
         margin: {
-          left: 10px;
+          left: 20px;
+          bottom: 10px;
         }
       }
 
       .done {
+        gap: 10px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
+        margin: {
+          right: 20px;
+          bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    .modal {
+      .btn-wrapper {
+        // border: 1px solid skyblue;
+        .pagination {
+          // border: 1px solid red;
+          justify-content: center;
+          flex-grow: 0;
+          margin: {
+            left: 10px;
+            right: 10px;
+          }
+        }
+
+        .done {
+          justify-content: center;
+          margin: {
+            left: 10px;
+            right: 10px;
+          }
+        }
       }
     }
   }

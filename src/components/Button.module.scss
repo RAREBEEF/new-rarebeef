@@ -29,18 +29,13 @@
   }
 
   &.Button__copy {
-    margin: {
-      right: 10px;
-    }
   }
 
   &.Home__project-link {
-    margin: 5px;
     height: 50px;
   }
 
   &.Home__project-link--website {
-    margin: 5px;
     height: fit-content;
     padding: 0;
     overflow: hidden;
@@ -52,7 +47,6 @@
     border: none;
     color: rgb(118, 118, 118);
     background: none;
-    margin: 0;
     padding: {
       top: 2.5px;
       bottom: 2.5px;
@@ -72,13 +66,5 @@
   }
 
   &.Tutorial {
-    margin: {
-      left: 10px;
-      top: 10px;
-      bottom: 10px;
-    }
-    &:last-child {
-      margin-right: 20px;
-    }
   }
 }

@@ -25,29 +25,19 @@ export interface NavPropType {
 
 export interface ToolbarPropType {}
 
-export interface ScrollDownPropType {
-  startAnimationEnd: boolean;
-}
+export interface ScrollDownPropType {}
 
 export interface SkillPropType {
   skill: string;
 }
 
-export interface HomePropType {
-  startAnimationEnd: boolean;
-}
+export interface HomePropType {}
 
-export interface ProfilePropType {
-  setStartAnimationEnd: Function;
-}
+export interface ProfilePropType {}
 
-export interface ContactPropType {
-  setStartAnimationEnd: Function;
-}
+export interface ContactPropType {}
 
-export interface FrontPropType {
-  startAnimationEnd: boolean;
-}
+export interface FrontPropType {}
 
 export interface ThreeBeefPropType {}
 
@@ -79,7 +69,7 @@ export interface GuestBookPropType {
 //
 export interface ReduxStateType {
   getGuestBook: getGusetBookStateType;
-  setStart: setStartStateType;
+  setAnimation: setAnimationStateType;
 }
 
 export interface getGusetBookStateType {
@@ -88,8 +78,9 @@ export interface getGusetBookStateType {
   loading: boolean;
 }
 
-export interface setStartStateType {
-  start: boolean;
+export interface setAnimationStateType {
+  animationStart: boolean;
+  animationEnd: boolean;
 }
 
 export interface getGuestBookStartType {

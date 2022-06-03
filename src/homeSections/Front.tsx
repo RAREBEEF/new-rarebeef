@@ -7,9 +7,7 @@ import { FrontPropType } from "../types";
 import classNames from "classnames";
 import Header from "../components/Header";
 
-const Front: React.FC<FrontPropType> = ({
-  startAnimationEnd,
-}): ReactElement => {
+const Front: React.FC<FrontPropType> = ({}): ReactElement => {
   return (
     <section className={classNames(styles.container)}>
       <Header
@@ -21,7 +19,7 @@ const Front: React.FC<FrontPropType> = ({
         <img className={styles.shadow} src={shadow} alt="Shadow" />
         <img className={styles.logo} src={logo} alt="RARE BEEF" />
       </div>
-      <ScrollDown startAnimationEnd={startAnimationEnd} />
+      <ScrollDown />
     </section>
   );
 };

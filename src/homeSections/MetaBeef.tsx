@@ -105,7 +105,7 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
           <h3 className={styles["box__title"]}>Description</h3>
           <p className={styles["description__text"]}>
             {
-              "사진과 짧은 글을 업로드할 수 있는\n간단한 SNS 웹 애플리케이션입니다.\n처음 Firebase를 사용해 본 프로젝트이며\nFront-Back 간의 통신을\n이해하는데 큰 도움이 된 프로젝트입니다."
+              "사진과 짧은 글을 업로드할 수 있는\n간단한 SNS 웹 애플리케이션입니다.\n처음 Firebase를 사용해 본 프로젝트이며\nFront-Back 간의 통신을\n이해하는데 큰 도움이 된 프로젝트입니다.\n최근 페이지네이션 기능을 추가하는 등\n업데이트를 이어나가고 있습니다."
             }
           </p>
         </div>

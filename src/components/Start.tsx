@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setLoadEnd } from "../redux/modules/setStart";
+import { setAnimationStart } from "../redux/modules/setAnimation";
 import styles from "./Start.module.scss";
 
 const Start = () => {
@@ -10,7 +10,7 @@ const Start = () => {
       <span
         className={styles.start}
         onClick={() => {
-          dispatch(setLoadEnd());
+          dispatch(setAnimationStart());
         }}
       >
         Start

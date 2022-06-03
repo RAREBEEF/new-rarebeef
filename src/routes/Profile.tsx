@@ -15,19 +15,19 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
-import { setLoadEnd } from "../redux/modules/setStart";
+import { setAnimationEnd, setAnimationStart } from "../redux/modules/setAnimation";
 import { ProfilePropType } from "../types";
 
-const Profile: React.FC<ProfilePropType> = ({ setStartAnimationEnd }) => {
+const Profile: React.FC<ProfilePropType> = ({}) => {
   const dispatch = useDispatch();
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
   const [infoText, setInfoText] = useState<string>("");
   const infoWindowRef = useRef<any>(null);
 
   useEffect(() => {
-    dispatch(setLoadEnd());
-    setStartAnimationEnd(true);
-  }, [dispatch, setStartAnimationEnd]);
+    dispatch(setAnimationStart());
+    dispatch(setAnimationEnd());
+  }, [dispatch]);
 
   const onMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>): void => {

@@ -20,7 +20,7 @@ const FlipCard: React.FC<FlipCardPropType> = ({
       return;
     }
 
-    const delay = center ? 0 : Math.random() * 2 + 2;
+    const delay = center ? 0 : Math.random() * 1 + 1;
 
     gsap.to(cardRef.current.rotation, 3, {
       x: angleToRadians(Math.random() * 6000 - 3000),

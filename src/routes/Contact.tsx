@@ -6,17 +6,17 @@ import Header from "../components/Header";
 import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
 import { useDispatch } from "react-redux";
-import { setLoadEnd } from "../redux/modules/setStart";
+import { setAnimationEnd, setAnimationStart } from "../redux/modules/setAnimation";
 import { ContactPropType } from "../types";
 
-const Contact: React.FC<ContactPropType> = ({ setStartAnimationEnd }) => {
+const Contact: React.FC<ContactPropType> = ({}) => {
   const dispatch = useDispatch();
   const [copyAlert, setCopyAlert] = useState<string>("");
 
   useEffect(() => {
-    dispatch(setLoadEnd());
-    setStartAnimationEnd(true);
-  }, [dispatch, setStartAnimationEnd]);
+    dispatch(setAnimationStart());
+    dispatch(setAnimationEnd());
+  }, [dispatch]);
 
   const onCopyClick = useCallback((): void => {
     navigator.clipboard

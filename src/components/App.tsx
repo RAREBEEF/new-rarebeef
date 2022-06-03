@@ -8,20 +8,36 @@ import Toolbar from "./Toolbar";
 import Tutorial from "./Tutorial";
 import { getGuestBookThunk } from "../redux/modules/getGuestBook";
 import { useDispatch, useSelector } from "react-redux";
-import { ReduxStateType, setStartStateType } from "../types";
+import { ReduxStateType, setAnimationStateType } from "../types";
 import Start from "./Start";
-import Flip from "./Flip";
+import { setAnimationEnd } from "../redux/modules/setAnimation";
 
 const App = (): ReactElement => {
   const dispatch = useDispatch();
-  const { start } = useSelector(
-    (state: ReduxStateType): setStartStateType => state.setStart
+  const { animationStart, animationEnd } = useSelector(
+    (state: ReduxStateType): setAnimationStateType => state.setAnimation
   );
 
   const [tutorialActive, setTutorialActive] = useState<boolean>((): boolean =>
     localStorage.getItem("rarebeef_disableTutorial") === "true" ? false : true
   );
-  const [startAnimationEnd, setStartAnimationEnd] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!animationStart) {
+      return;
+    }
+    if (animationEnd) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      dispatch(setAnimationEnd());
+    }, 4500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [animationEnd, dispatch, animationStart]);
 
   useEffect((): void => {
     const rootEl = document.getElementById("root");
@@ -30,7 +46,7 @@ const App = (): ReactElement => {
       return;
     }
 
-    if (!!tutorialActive || !startAnimationEnd) {
+    if (!!tutorialActive || !animationStart) {
       rootEl.style.height = "100vh";
       rootEl.style.minHeight = "500px";
       rootEl.style.overflow = "hidden";
@@ -46,7 +62,7 @@ const App = (): ReactElement => {
     }
 
     return;
-  }, [startAnimationEnd, tutorialActive]);
+  }, [animationStart, tutorialActive]);
 
   useEffect((): void => {
     dispatch<any>(getGuestBookThunk());
@@ -54,39 +70,30 @@ const App = (): ReactElement => {
     return;
   }, [dispatch]);
 
-  useEffect(() => {
-    if (!start) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!start) {
+  //     return;
+  //   }
 
-    const timer = setTimeout(() => {
-      setStartAnimationEnd(true);
-    }, 6000);
+  //   const timer = setTimeout(() => {
+  //     setStartAnimationEnd(true);
+  //   }, 4500);
 
-    return (): void => {
-      clearTimeout(timer);
-    };
-  }, [start]);
+  //   return (): void => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [start]);
 
   return (
     <Router>
-      {!start && <Start />}
+      {!animationStart && <Start />}
       {tutorialActive && <Tutorial setTutorialActive={setTutorialActive} />}
       <Nav setTutorialActive={setTutorialActive} />
       <Toolbar />
       <Routes>
-        <Route
-          path="/profile"
-          element={<Profile setStartAnimationEnd={setStartAnimationEnd} />}
-        />
-        <Route
-          path="/contact"
-          element={<Contact setStartAnimationEnd={setStartAnimationEnd} />}
-        />
-        <Route
-          path="/"
-          element={<Home startAnimationEnd={startAnimationEnd} />}
-        />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
