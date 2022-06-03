@@ -3,9 +3,9 @@ import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import BeefModel from "../models/BeefModel";
 import PlateModel from "../models/PlateModel";
-import { ThreePropType } from "../types";
+import { BeefPropType } from "../types";
 
-const Three: React.FC<ThreePropType> = ({ setMouseOver }) => {
+const Beef: React.FC<BeefPropType> = ({ setMouseOver }) => {
   const [beefActive, setBeefActive] = useState<boolean>(false);
   const beefRef = useRef<THREE.Group>(null);
   const controlRef = useRef<any>(null);
@@ -122,4 +122,4 @@ const Three: React.FC<ThreePropType> = ({ setMouseOver }) => {
   );
 };
 
-export default Three;
+export default Beef;

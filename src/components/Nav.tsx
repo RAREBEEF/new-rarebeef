@@ -28,17 +28,17 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
     };
   }, []);
 
-  const onMenuClick = useCallback((): void => {
+  const onMenuClick = (): void => {
     setShowMenu((prev) => !prev);
 
     return;
-  }, []);
+  };
 
-  const onTutoClick = useCallback((): void => {
+  const onTutoClick = (): void => {
     setTutorialActive(true);
 
     return;
-  }, [setTutorialActive]);
+  };
 
   const mouseDragCb = useCallback(
     (e: any): void => {
@@ -64,72 +64,15 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
     return;
   }, [mouseDragCb]);
 
-  const onResizeClickStart = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>): void => {
-      e.preventDefault();
+  const onResizeClickStart = (e: React.MouseEvent<HTMLDivElement>): void => {
+    e.preventDefault();
 
-      setResizing(true);
-      window.addEventListener("mousemove", mouseDragCb);
-      window.addEventListener("mouseup", onMouseUpCb, { once: true });
+    setResizing(true);
+    window.addEventListener("mousemove", mouseDragCb);
+    window.addEventListener("mouseup", onMouseUpCb, { once: true });
 
-      return;
-    },
-    [mouseDragCb, onMouseUpCb]
-  );
-
-  //
-  //
-  //
-  //
-  //
-
-  // let touchStart: number | null = null;
-
-  // const touchMoveCb = useCallback(
-  //   (e: any): void => {
-  //     if (!touchStart) {
-  //       return;
-  //     }
-
-  //     const touchMove = touchStart - e.touches[0].clientX;
-
-  //     setSize((prev) =>
-  //       prev + (touchMove / clientWidth) * 3 < 0
-  //         ? 0
-  //         : prev + (touchMove / clientWidth) * 3 > 100
-  //         ? 100
-  //         : prev + (touchMove / clientWidth) * 3
-  //     );
-
-  //     return;
-  //   },
-  //   [clientWidth, touchStart]
-  // );
-
-  // const onTouchEndCb = useCallback((): void => {
-  //   setResizing(false);
-  //   window.removeEventListener("drag", touchMoveCb);
-
-  //   return;
-  // }, [touchMoveCb]);
-
-  // const onResizeTouchStart = useCallback(
-  //   (e: React.TouchEvent<HTMLDivElement>): void => {
-  //     touchStart = e.touches[0].clientX;
-  //     setResizing(true);
-
-  //     window.addEventListener("touchmove", touchMoveCb);
-  //     window.addEventListener("touchend", onTouchEndCb, { once: true });
-
-  //     return;
-  //   },
-  //   [onTouchEndCb, touchMoveCb]
-  // );
-
-  //
-  //
-  //
-  //
+    return;
+  };
 
   return (
     <div
@@ -146,7 +89,6 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
         <div
           className={styles["menu__resizer"]}
           onMouseDown={onResizeClickStart}
-          // onTouchStart={onResizeTouchStart}
         >
           <img className={styles["icon--resize"]} src={dotsIcon} alt="resize" />
         </div>
