@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { GuestBookPropType } from "../types";
 import Button from "./Button";
 import styles from "./GuestBook.module.scss";
@@ -8,43 +8,39 @@ import classNames from "classnames";
 const GuestBook: React.FC<GuestBookPropType> = ({ data }) => {
   const [pwCheck, setPwCheck] = useState<string>("");
 
-  const onPwCheckChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>): void => {
-      setPwCheck(e.target.value);
+  const onPwCheckChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setPwCheck(e.target.value);
+
+    return;
+  };
+
+  const onDelete = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+
+    if (pwCheck.length === 0) {
+      window.alert("비밀번호를 입력해주세요.");
 
       return;
-    },
-    []
-  );
+    }
 
-  const onDelete = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-      e.preventDefault();
-
-      if (pwCheck.length === 0) {
-        window.alert("비밀번호를 입력해주세요.");
-
-        return;
-      }
-
-      if (pwCheck !== process.env.REACT_APP_PW && pwCheck !== data.pw) {
-        window.alert("비밀번호가 일치하지 않습니다.");
-
-        return;
-      }
-
-      const ok = window.confirm("삭제하시겠습니까?");
-
-      if (!ok) {
-        return;
-      }
-
-      await FB.deleteDoc(FB.doc(FB.db, "GuestBook", data.id));
+    if (pwCheck !== process.env.REACT_APP_PW && pwCheck !== data.pw) {
+      window.alert("비밀번호가 일치하지 않습니다.");
 
       return;
-    },
-    [data.id, data.pw, pwCheck]
-  );
+    }
+
+    const ok = window.confirm("삭제하시겠습니까?");
+
+    if (!ok) {
+      return;
+    }
+
+    await FB.deleteDoc(FB.doc(FB.db, "GuestBook", data.id));
+
+    return;
+  };
 
   return (
     <li className={styles["container"]}>

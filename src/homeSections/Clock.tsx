@@ -92,82 +92,73 @@ const Clock = (): ReactElement => {
     []
   );
 
-  const nextClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>): void => {
-      clickAnimation(e);
+  const nextClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+    clickAnimation(e);
 
-      if (!!alarm.active) {
-        setSelect(select === 3 ? 0 : select + 1);
-      }
+    if (!!alarm.active) {
+      setSelect(select === 3 ? 0 : select + 1);
+    }
 
-      if (
-        parseInt(alarm.h) >= 24 ||
-        parseInt(alarm.m) >= 60 ||
-        parseInt(alarm.s) >= 60
-      ) {
-        setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
-      }
+    if (
+      parseInt(alarm.h) >= 24 ||
+      parseInt(alarm.m) >= 60 ||
+      parseInt(alarm.s) >= 60
+    ) {
+      setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
+    }
 
-      return;
-    },
-    [select, alarm.h, alarm.m, alarm.s, alarm.active, clickAnimation]
-  );
+    return;
+  };
 
-  const prevClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>): void => {
-      clickAnimation(e);
+  const prevClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+    clickAnimation(e);
 
-      if (!!alarm.active) {
-        setSelect(select === 0 ? 3 : select - 1);
-      }
+    if (!!alarm.active) {
+      setSelect(select === 0 ? 3 : select - 1);
+    }
 
-      if (
-        parseInt(alarm.h) >= 24 ||
-        parseInt(alarm.m) >= 60 ||
-        parseInt(alarm.s) >= 60
-      ) {
-        setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
-      }
+    if (
+      parseInt(alarm.h) >= 24 ||
+      parseInt(alarm.m) >= 60 ||
+      parseInt(alarm.s) >= 60
+    ) {
+      setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
+    }
 
-      return;
-    },
-    [select, alarm.h, alarm.m, alarm.s, alarm.active, clickAnimation]
-  );
+    return;
+  };
 
-  const selectClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>): void => {
-      clickAnimation(e);
+  const selectClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+    clickAnimation(e);
 
-      if (select === 3) {
-        setAlarm((prevAlarm: any) => ({
-          ...prevAlarm,
-          active: !prevAlarm.active,
-        }));
-      } else {
-        focusRef.current.focus();
-        select === 0 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "" }));
-        select === 1 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: "" }));
-        select === 2 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: "" }));
-      }
+    if (select === 3) {
+      setAlarm((prevAlarm: any) => ({
+        ...prevAlarm,
+        active: !prevAlarm.active,
+      }));
+    } else {
+      focusRef.current.focus();
+      select === 0 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "" }));
+      select === 1 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: "" }));
+      select === 2 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: "" }));
+    }
 
-      return;
-    },
-    [clickAnimation, select]
-  );
+    return;
+  };
 
-  const dateClick = useCallback((): void => {
+  const dateClick = (): void => {
     setShow("date");
 
     return;
-  }, []);
+  };
 
-  const alarmClick = useCallback((): void => {
+  const alarmClick = (): void => {
     setShow("alarm");
 
     return;
-  }, []);
+  };
 
-  const hourInput = useCallback((e: any): void => {
+  const hourInput = (e: any): void => {
     if (!e.target.value) {
       return;
     }
@@ -179,9 +170,9 @@ const Clock = (): ReactElement => {
     }
 
     return;
-  }, []);
+  };
 
-  const minuteInput = useCallback((e: any): void => {
+  const minuteInput = (e: any): void => {
     if (!e.target.value) {
       return;
     }
@@ -193,9 +184,9 @@ const Clock = (): ReactElement => {
     }
 
     return;
-  }, []);
+  };
 
-  const secondInput = useCallback((e: any): void => {
+  const secondInput = (e: any): void => {
     if (!e.target.value) {
       return;
     }
@@ -207,15 +198,15 @@ const Clock = (): ReactElement => {
     }
 
     return;
-  }, []);
+  };
 
-  const stopRinging = useCallback((): void => {
+  const stopRinging = (): void => {
     setAlarm((prevAlarm: any) => ({ ...prevAlarm, ring: false }));
     alarmSound.pause();
     alarmSound.currentTime = 0;
 
     return;
-  }, [alarmSound]);
+  };
 
   return (
     <div className={styles["container"]}>

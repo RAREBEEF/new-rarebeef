@@ -11,11 +11,11 @@ const Toolbar: React.FC<ToolbarPropType> = ({}): ReactElement => {
   const [scrollTop, setScrollTop] = useState<number>(0);
   const [clientHeight, setClientHeight] = useState<number>(0);
 
-  const toTop = useCallback((): void => {
+  const toTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     return;
-  }, []);
+  };
 
   const resizeCb = useCallback((): void => {
     setClientHeight(window.innerHeight);

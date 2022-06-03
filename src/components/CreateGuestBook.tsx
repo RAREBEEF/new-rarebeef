@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import styles from "./CreateGuestBook.module.scss";
 import * as FB from "../fb";
 import Button from "./Button";
@@ -9,63 +9,53 @@ const CreateGuestBook = () => {
   const [name, setName] = useState<string>("");
   const [pw, setPw] = useState<string>("");
 
-  const onTextChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
-      setContent(e.target.value);
+  const onTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    setContent(e.target.value);
+
+    return;
+  };
+
+  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setName(e.target.value);
+
+    return;
+  };
+
+  const onPwChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setPw(e.target.value);
+
+    return;
+  };
+
+  const onUpload = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+
+    if (content === "" || name === "" || pw === "") {
+      return;
+    }
+
+    try {
+      await FB.addDoc(FB.collection(FB.db, "GuestBook"), {
+        name,
+        pw,
+        content,
+        createdAt: new Date().getTime(),
+      });
+
+      setContent("");
+      setName("");
+      setPw("");
 
       return;
-    },
-    []
-  );
-
-  const onNameChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>): void => {
-      setName(e.target.value);
+    } catch (error) {
+      console.error(error);
+      window.alert(error);
 
       return;
-    },
-    []
-  );
-
-  const onPwChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>): void => {
-      setPw(e.target.value);
-
-      return;
-    },
-    []
-  );
-
-  const onUpload = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-      e.preventDefault();
-
-      if (content === "" || name === "" || pw === "") {
-        return;
-      }
-
-      try {
-        await FB.addDoc(FB.collection(FB.db, "GuestBook"), {
-          name,
-          pw,
-          content,
-          createdAt: new Date().getTime(),
-        });
-
-        setContent("");
-        setName("");
-        setPw("");
-
-        return;
-      } catch (error) {
-        console.error(error);
-        window.alert(error);
-
-        return;
-      }
-    },
-    [content, name, pw]
-  );
+    }
+  };
 
   return (
     <div className={styles.container}>

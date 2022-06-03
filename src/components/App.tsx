@@ -10,7 +10,7 @@ import { getGuestBookThunk } from "../redux/modules/getGuestBook";
 import { useDispatch, useSelector } from "react-redux";
 import { ReduxStateType, setStartStateType } from "../types";
 import Start from "./Start";
-import Flip from "./Flip";
+import Flip from "../three/Flip";
 
 const App = (): ReactElement => {
   const dispatch = useDispatch();

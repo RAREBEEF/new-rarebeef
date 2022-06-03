@@ -1,6 +1,6 @@
 import { SkillPropType } from "../types";
 import styles from "./Skill.module.scss";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import classNames from "classnames";
 import blender from "../images/skills/blender-brands.svg";
 import three from "../images/skills/three-brands.svg";
@@ -18,7 +18,7 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
   const [infoText, setInfoText] = useState<string>("");
   const infoWindowRef = useRef<any>(null);
 
-  const onMouseEnter = useCallback((e: any): void => {
+  const onMouseEnter = (e: any): void => {
     if (!e.target.alt) {
       return;
     }
@@ -27,31 +27,28 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     setInfoText(e.target.alt);
 
     return;
-  }, []);
+  };
 
-  const onMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>): void => {
-      if (!infoWindowRef.current) {
-        return;
-      }
-
-      const currentRef = infoWindowRef.current;
-
-      const x = e.clientX;
-      const y = e.clientY;
-      currentRef.style.transform = `translate(${x}px, ${y}px)`;
-
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (!infoWindowRef.current) {
       return;
-    },
-    []
-  );
+    }
 
-  const onMouseLeave = useCallback((): void => {
+    const currentRef = infoWindowRef.current;
+
+    const x = e.clientX;
+    const y = e.clientY;
+    currentRef.style.transform = `translate(${x}px, ${y}px)`;
+
+    return;
+  };
+
+  const onMouseLeave = (): void => {
     setShowInfoWindow(false);
     setInfoText("");
 
     return;
-  }, []);
+  };
 
   return (
     <div className={styles.container} onMouseMove={onMouseMove}>

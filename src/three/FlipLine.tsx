@@ -1,11 +1,8 @@
 import { ReactElement } from "react";
+import { FlipLinePropType } from "../types";
 import FlipCard from "./FlipCard";
 
-interface FlipLinePropType {
-  position?: [number, number, number];
-  start: boolean;
-  center?: boolean;
-}
+
 
 const FlipLine: React.FC<FlipLinePropType> = ({
   position = [0, 0, 0],
