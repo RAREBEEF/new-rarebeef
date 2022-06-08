@@ -444,13 +444,13 @@ const Clock = (): ReactElement => {
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
-          <div className={styles["skill-icons"]}>
+          <ul className={styles["skill-icons"]}>
             <Skill skill="html" />
             <Skill skill="javascript" />
             <Skill skill="react" />
             <Skill skill="sass" />
             <Skill skill="netlify" />
-          </div>
+          </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>
           <h3 className={styles["box__title"]}>Links</h3>

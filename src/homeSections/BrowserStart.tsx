@@ -96,13 +96,13 @@ const BrowserStart = (): ReactElement => {
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
-          <div className={styles["skill-icons"]}>
+          <ul className={styles["skill-icons"]}>
             <Skill skill="html" />
             <Skill skill="typescript" />
             <Skill skill="react" />
             <Skill skill="redux" />
             <Skill skill="sass" />
-          </div>
+          </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>
           <h3 className={styles["box__title"]}>Links</h3>

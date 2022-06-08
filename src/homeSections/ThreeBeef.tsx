@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, Suspense } from "react";
 import Header from "../components/Header";
 import styles from "./ThreeBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
@@ -8,10 +8,16 @@ import classNames from "classnames";
 import monitorImg from "../images/monitor2.png";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
+import Loading from "../components/Loading";
 
 const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
+  const [turnOn, setTurnOn] = useState<boolean>(false);
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
+
+  const onTurnOnClick = (): void => {
+    setTurnOn(true);
+  };
 
   const onDragStart = (): void => {
     setIsDragging(true);
@@ -43,15 +49,29 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
             src={monitorImg}
             alt="monitor"
           />
-          <Canvas
-            className={styles.canvas}
-            style={{
-              cursor: mouseOver ? "pointer" : isDragging ? "grabbing" : "grab",
-            }}
-            shadows
-          >
-            <Beef setMouseOver={setMouseOver} />
-          </Canvas>
+          {turnOn ? (
+            <Suspense fallback={<Loading />}>
+              <Canvas
+                className={styles.canvas}
+                style={{
+                  cursor: mouseOver
+                    ? "pointer"
+                    : isDragging
+                    ? "grabbing"
+                    : "grab",
+                }}
+                shadows
+              >
+                <Beef setMouseOver={setMouseOver} />
+              </Canvas>
+            </Suspense>
+          ) : (
+            <div className={styles.off}>
+              <span className={styles["btn--on"]} onClick={onTurnOnClick}>
+                Turn on
+              </span>
+            </div>
+          )}
         </div>
         <div className={classNames(styles.summary, styles.box)}>
           <h3 className={styles["box__title"]}>Project summary</h3>
@@ -83,10 +103,10 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
 
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
-          <div className={styles["skill-icons"]}>
+          <ul className={styles["skill-icons"]}>
             <Skill skill="blender" />
             <Skill skill="three" />
-          </div>
+          </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>
           <h3 className={styles["box__title"]}>Links</h3>

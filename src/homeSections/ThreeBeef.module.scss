@@ -16,7 +16,8 @@
     }
   }
 
-  .canvas {
+  .canvas,
+  .off {
     z-index: 0;
     background-color: white;
     position: absolute !important;
@@ -27,5 +28,17 @@
     margin: auto;
     height: 45% !important;
     width: 70vw !important;
+
+    &.off {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btn--on {
+        color: white;
+        text-align: center;
+        font-size: 30px;
+      }
+    }
   }
 }

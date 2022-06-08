@@ -1,0 +1,21 @@
+.container {
+  z-index: 0;
+  background-color: black;
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 45% !important;
+  width: 70vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .text--loading {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+  }
+}

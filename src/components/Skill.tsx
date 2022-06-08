@@ -1,6 +1,6 @@
 import { SkillPropType } from "../types";
 import styles from "./Skill.module.scss";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import blender from "../images/skills/blender-brands.svg";
 import three from "../images/skills/three-brands.svg";
@@ -12,6 +12,8 @@ import firebase from "../images/skills/firebase-brands.svg";
 import sass from "../images/skills/sass-brands.svg";
 import html from "../images/skills/html5-brands.svg";
 import netlify from "../images/skills/netlify-brands.svg";
+import css from "../images/skills/css3-alt-brands.svg";
+import ai from "../images/skills/ai-brands.svg";
 
 const Skill: React.FC<SkillPropType> = ({ skill }) => {
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
@@ -29,8 +31,8 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     return;
   };
 
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
-    if (!infoWindowRef.current) {
+  const onMouseMove = (e: any): void => {
+    if (!infoWindowRef.current || !showInfoWindow) {
       return;
     }
 
@@ -50,8 +52,58 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     return;
   };
 
+  useEffect(() => {
+    const skills = document.querySelectorAll(`.${styles["img--skill"]}`);
+
+    if (!skills) {
+      return;
+    }
+
+    skills.forEach((skill: any): void => {
+      skill.addEventListener("mousemove", (e: any): void => {
+        const position = skill.getBoundingClientRect();
+        const x = (e.clientX - position.left - position.width / 2) * 0.3;
+        const y = (e.clientY - position.top - position.height / 2) * 0.3;
+
+        skill.style.transform = `translate(${x}px, ${y}px)`;
+        skill.style.transition = `all 0s`;
+
+        return;
+      });
+      skill.addEventListener("mouseout", () => {
+        skill.style.transform = `translate(0px, 0px)`;
+        skill.style.transition = `all 0.5s`;
+
+        return;
+      });
+
+      return;
+    });
+
+    return () => {
+      skills.forEach((skill: any) => {
+        skill.removeEventListener("mousemove", (e: any): void => {
+          const position = skill.getBoundingClientRect();
+          const x = (e.clientX - position.left - position.width / 2) * 0.3;
+          const y = (e.clientY - position.top - position.height / 2) * 0.3;
+
+          skill.style.transform = `translate(${x}px, ${y}px)`;
+          skill.style.transition = `all 0s`;
+
+          return;
+        });
+        skill.removeEventListener("mouseout", () => {
+          skill.style.transform = `translate(0px, 0px)`;
+          skill.style.transition = `all 0.5s`;
+
+          return;
+        });
+      });
+    };
+  }, []);
+
   return (
-    <div className={styles.container} onMouseMove={onMouseMove}>
+    <li className={styles.container} onMouseMove={onMouseMove}>
       <div
         ref={infoWindowRef}
         className={classNames(
@@ -70,7 +122,7 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
           onMouseLeave={onMouseLeave}
         />
       )}
-      {skill === "blender" && (
+      {skill === "three" && (
         <img
           className={styles["img--skill"]}
           src={three}
@@ -151,7 +203,25 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
           onMouseLeave={onMouseLeave}
         />
       )}
-    </div>
+      {skill === "css" && (
+        <img
+          className={styles["img--skill"]}
+          src={css}
+          alt={"CSS"}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
+      )}{" "}
+      {skill === "ai" && (
+        <img
+          className={styles["img--skill"]}
+          src={ai}
+          alt={"Illustrator"}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
+      )}
+    </li>
   );
 };
 

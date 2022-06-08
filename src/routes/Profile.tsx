@@ -15,8 +15,12 @@ import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
-import { setAnimationEnd, setAnimationStart } from "../redux/modules/setAnimation";
+import {
+  setAnimationEnd,
+  setAnimationStart,
+} from "../redux/modules/setAnimation";
 import { ProfilePropType } from "../types";
+import Skill from "../components/Skill";
 
 const Profile: React.FC<ProfilePropType> = ({}) => {
   const dispatch = useDispatch();
@@ -30,7 +34,7 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
   }, [dispatch]);
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
-    if (!infoWindowRef.current) {
+    if (!infoWindowRef.current || !showInfoWindow) {
       return;
     }
 
@@ -75,11 +79,11 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
       return;
     }
 
-    if (!!e.target.alt) {
-      setInfoText(e.target.alt);
+    // if (!!e.target.alt) {
+    //   setInfoText(e.target.alt);
 
-      return;
-    }
+    //   return;
+    // }
 
     return;
   };
@@ -91,37 +95,37 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
     return;
   };
 
-  useEffect((): void => {
-    const skills = document.querySelectorAll(`.${styles["skill"]}`);
+  // useEffect((): void => {
+  //   const skills = document.querySelectorAll(`.${styles["skill"]}`);
 
-    if (!skills) {
-      return;
-    }
+  //   if (!skills) {
+  //     return;
+  //   }
 
-    skills.forEach((skill: any): void => {
-      skill.addEventListener(
-        "mousemove",
-        (e: React.MouseEvent<HTMLUListElement>): void => {
-          const position = skill.getBoundingClientRect();
-          const x = (e.clientX - position.left - position.width / 2) * 0.3;
-          const y = (e.clientY - position.top - position.height / 2) * 0.3;
+  //   skills.forEach((skill: any): void => {
+  //     skill.addEventListener(
+  //       "mousemove",
+  //       (e: React.MouseEvent<HTMLUListElement>): void => {
+  //         const position = skill.getBoundingClientRect();
+  //         const x = (e.clientX - position.left - position.width / 2) * 0.3;
+  //         const y = (e.clientY - position.top - position.height / 2) * 0.3;
 
-          skill.children[0].style.transform = `translate(${x}px, ${y}px)`;
-          skill.children[0].style.transition = `all 0s`;
+  //         skill.children[0].style.transform = `translate(${x}px, ${y}px)`;
+  //         skill.children[0].style.transition = `all 0s`;
 
-          return;
-        }
-      );
-      skill.addEventListener("mouseout", () => {
-        skill.children[0].style.transform = `translate(0px, 0px)`;
-        skill.children[0].style.transition = `all 0.5s`;
+  //         return;
+  //       }
+  //     );
+  //     skill.addEventListener("mouseout", () => {
+  //       skill.children[0].style.transform = `translate(0px, 0px)`;
+  //       skill.children[0].style.transition = `all 0.5s`;
 
-        return;
-      });
+  //       return;
+  //     });
 
-      return;
-    });
-  }, []);
+  //     return;
+  //   });
+  // }, []);
 
   return (
     <div className={styles.container} onMouseMove={onMouseMove}>
@@ -164,119 +168,23 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
             <li>
               <h3 className={styles["sub-header"]}>Front-end</h3>
               <ul className={styles["skills__front-end"]}>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={htmlIcon}
-                    alt="HTML5"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={cssIcon}
-                    alt="CSS3"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={jsIcon}
-                    alt="JavaScript"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={tsIcon}
-                    alt="TypeScript"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={reactIcon}
-                    alt="React"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={sassIcon}
-                    alt="Sass"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={reduxIcon}
-                    alt="Redux"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={threeIcon}
-                    alt="Three.js"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={firebaseIcon}
-                    alt="Firebase"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={netlifyIcon}
-                    alt="Netlify"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
+                <Skill skill="html" />
+                <Skill skill="css" />
+                <Skill skill="javascript" />
+                <Skill skill="typescript" />
+                <Skill skill="react" />
+                <Skill skill="sass" />
+                <Skill skill="redux" />
+                <Skill skill="three" />
+                <Skill skill="firebase" />
+                <Skill skill="netlify" />
               </ul>
             </li>
             <li>
               <h3 className={styles["sub-header"]}>Design</h3>
               <ul className={styles["skills__design"]}>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={aiIcon}
-                    alt="Illustrator"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
-                <li className={styles.skill}>
-                  <img
-                    className={styles["skill__icon"]}
-                    src={blenderIcon}
-                    alt="Blender"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                  />
-                </li>
+                <Skill skill="ai" />
+                <Skill skill="blender" />
               </ul>
             </li>
           </ul>

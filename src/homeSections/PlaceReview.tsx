@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import styles from "./PlaceReview.module.scss";
 import Header from "../components/Header";
 import img1 from "../images/screenshots/place-review.png";
@@ -97,14 +97,14 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
-          <div className={styles["skill-icons"]}>
+          <ul className={styles["skill-icons"]}>
             <Skill skill="html" />
             <Skill skill="typescript" />
             <Skill skill="react" />
             <Skill skill="redux" />
             <Skill skill="sass" />
             <Skill skill="firebase" />
-          </div>
+          </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>
           <h3 className={styles["box__title"]}>Links</h3>

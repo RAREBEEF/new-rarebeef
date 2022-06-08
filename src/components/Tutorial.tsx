@@ -49,13 +49,6 @@ const Tutorial: React.FC<TutorialPropType> = ({ setTutorialActive }) => {
     setTutorialActive(false);
   };
 
-  useEffect(() => {
-    console.log("mount");
-    return () => {
-      console.log("unmount");
-    };
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
