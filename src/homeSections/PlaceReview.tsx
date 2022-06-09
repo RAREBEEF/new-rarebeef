@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react";
+import React, { ReactElement } from "react";
 import styles from "./PlaceReview.module.scss";
 import Header from "../components/Header";
 import img1 from "../images/screenshots/place-review.png";
@@ -91,19 +91,19 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
           <h3 className={styles["box__title"]}>Description</h3>
           <p className={styles["description__text"]}>
             {
-              "지도로 위치를 검색하고\n해당 위치에 대한 리뷰를 작성할 수 있는\n장소 리뷰 웹 애플리케이션입니다.\nKakao map api와 Firebase, 그리고 Redux 등\n여러 기술들을 함께 다뤄보고자 시작하게 된 프로젝트입니다."
+              "장소 리뷰 웹 애플리케이션입니다.\n지도로 위치를 검색하고 해당 위치에 대한 리뷰를 작성할 수 있습니다. Kakao map과 Firebase, 그리고 Redux 등 여러 기술들을 함께 다뤄보고자 시작하게 된 프로젝트입니다."
             }
           </p>
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <ul className={styles["skill-icons"]}>
-            <Skill skill="html" />
-            <Skill skill="typescript" />
-            <Skill skill="react" />
-            <Skill skill="redux" />
-            <Skill skill="sass" />
-            <Skill skill="firebase" />
+            <Skill skill="HTML" />
+            <Skill skill="TypeScript" />
+            <Skill skill="React" />
+            <Skill skill="Redux" />
+            <Skill skill="Sass" />
+            <Skill skill="Firebase" />
           </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>

@@ -129,6 +129,7 @@
         max-width: 400px;
 
         .description__text {
+          word-break: keep-all;
           white-space: pre-line;
           padding: 10px;
           line-height: 23px;

@@ -89,18 +89,18 @@ const SimpleMemo = (): ReactElement => {
           <h3 className={styles["box__title"]}>Description</h3>
           <p className={styles["description__text"]}>
             {
-              "로컬스토리지를 활용한 메모 웹 애플리케이션이며\nReact로 구현한 첫번째 프로젝트입니다."
+              "간단한 메모장 웹 애플리케이션입니다.\nReact와 로컬 스토리지를 활용한 첫번째 프로젝트입니다. 노란 바탕의 메모장을 컨셉으로 잡고 스타일을 꾸며보았습니다."
             }
           </p>
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <ul className={styles["skill-icons"]}>
-            <Skill skill="html" />
-            <Skill skill="javascript" />
-            <Skill skill="react" />
-            <Skill skill="sass" />
-            <Skill skill="netlify" />
+            <Skill skill="HTML" />
+            <Skill skill="JavaScript" />
+            <Skill skill="React" />
+            <Skill skill="Sass" />
+            <Skill skill="Netlify" />
           </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>

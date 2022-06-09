@@ -168,23 +168,23 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
             <li>
               <h3 className={styles["sub-header"]}>Front-end</h3>
               <ul className={styles["skills__front-end"]}>
-                <Skill skill="html" />
-                <Skill skill="css" />
-                <Skill skill="javascript" />
-                <Skill skill="typescript" />
-                <Skill skill="react" />
-                <Skill skill="sass" />
-                <Skill skill="redux" />
-                <Skill skill="three" />
-                <Skill skill="firebase" />
-                <Skill skill="netlify" />
+                <Skill skill="HTML" />
+                <Skill skill="CSS" />
+                <Skill skill="JavaScript" />
+                <Skill skill="TypeScript" />
+                <Skill skill="React" />
+                <Skill skill="Sass" />
+                <Skill skill="Redux" />
+                <Skill skill="Three.js" />
+                <Skill skill="Firebase" />
+                <Skill skill="Netlify" />
               </ul>
             </li>
             <li>
               <h3 className={styles["sub-header"]}>Design</h3>
               <ul className={styles["skills__design"]}>
-                <Skill skill="ai" />
-                <Skill skill="blender" />
+                <Skill skill="Illustrator" />
+                <Skill skill="Blender" />
               </ul>
             </li>
           </ul>

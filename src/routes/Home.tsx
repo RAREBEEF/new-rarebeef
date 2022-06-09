@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ThreeBeef from "../homeSections/ThreeBeef";
 import Front from "../homeSections/Front";
 import styles from "./Home.module.scss";
@@ -9,6 +9,7 @@ import { HomePropType, ReduxStateType, setAnimationStateType } from "../types";
 import Clock from "../homeSections/Clock";
 import BrowserStart from "../homeSections/BrowserStart";
 import SimpleMemo from "../homeSections/SimpleMemo";
+import MemoryTest from "../homeSections/MemoryTest";
 import Flip from "../three/Flip";
 import { useSelector } from "react-redux";
 
@@ -28,6 +29,10 @@ const Home: React.FC<HomePropType> = ({}) => {
       <BrowserStart />
       <SimpleMemo />
       <Clock />
+      <MemoryTest />
+      <footer className={styles.footer}>
+        &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
+      </footer>
     </div>
   );
 };

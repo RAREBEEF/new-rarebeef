@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReduxStateType, setAnimationStateType } from "../types";
 import Start from "./Start";
 import { setAnimationEnd } from "../redux/modules/setAnimation";
-
+import styles from "./App.module.scss";
 const App = (): ReactElement => {
   const dispatch = useDispatch();
   const { animationStart, animationEnd } = useSelector(
@@ -95,6 +95,7 @@ const App = (): ReactElement => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<Home />} />
       </Routes>
+      <div className={styles.fog} />
     </Router>
   );
 };

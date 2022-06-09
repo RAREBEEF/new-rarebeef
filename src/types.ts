@@ -40,7 +40,19 @@ export interface ToolbarPropType {}
 export interface ScrollDownPropType {}
 
 export interface SkillPropType {
-  skill: string;
+  skill:
+    | "HTML"
+    | "CSS"
+    | "JavaScript"
+    | "TypeScript"
+    | "React"
+    | "Sass"
+    | "Redux"
+    | "Three.js"
+    | "Firebase"
+    | "Netlify"
+    | "Illustrator"
+    | "Blender";
 }
 
 export interface HomePropType {}

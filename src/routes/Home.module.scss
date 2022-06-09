@@ -2,23 +2,15 @@
   position: relative;
   min-height: 100vh;
   min-width: 230px;
+  background-color: whitesmoke;
   @supports (-webkit-touch-callout: none) {
     min-height: -webkit-fill-available;
   }
 
-  .guest-book-section {
-    background-color: whitesmoke;
-    position: relative;
-    min-height: 100vh;
-    @supports (-webkit-touch-callout: none) {
-      min-height: -webkit-fill-available;
-    }
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-
-    div:nth-child(2) {
-      align-self: center;
+  .footer {
+    text-align: center;
+    padding: {
+      bottom: 30px;
     }
   }
 }

@@ -72,7 +72,7 @@ const FlipCard: React.FC<FlipCardPropType> = ({
       // onPointerEnter={onPointerEnter}
       // onPointerLeave={onPointerLeave}
     >
-      <boxGeometry args={[1, 1, 0.1]} />
+      <boxGeometry args={[1, 1, 0.3]} />
       <meshStandardMaterial />
     </mesh>
   );

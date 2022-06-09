@@ -90,18 +90,18 @@ const BrowserStart = (): ReactElement => {
           <h3 className={styles["box__title"]}>Description</h3>
           <p className={styles["description__text"]}>
             {
-              "브라우저 시작 페이지입니다.\nRedux를 처음 응용해 본 프로젝트이며\n로컬 스토리지에 저장된 사용자 설정을 Redux를 통해\n앱 전역으로 뿌려주어서 사용하던 테마와 북마크를\n불러올 수 있도록 하였습니다."
+              "나만의 브라우저 시작 페이지를 만들어 보았습니다.\nRedux를 처음 응용해 본 프로젝트이며 로컬 스토리지에 저장된 사용자 설정을 Redux를 통해 앱 전역으로 뿌려주어서 사용하던 테마와 북마크를 불러올 수 있도록 하였습니다."
             }
           </p>
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <ul className={styles["skill-icons"]}>
-            <Skill skill="html" />
-            <Skill skill="typescript" />
-            <Skill skill="react" />
-            <Skill skill="redux" />
-            <Skill skill="sass" />
+            <Skill skill="HTML" />
+            <Skill skill="TypeScript" />
+            <Skill skill="React" />
+            <Skill skill="Redux" />
+            <Skill skill="Sass" />
           </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>

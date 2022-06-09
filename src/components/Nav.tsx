@@ -34,6 +34,10 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
     return;
   };
 
+  const onItemClick = (): void => {
+    window.scrollTo({ top: 0 });
+  };
+
   const onTutoClick = (): void => {
     setTutorialActive(true);
 
@@ -109,6 +113,7 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
                 ? classNames(styles.active, styles.item, styles.flip)
                 : classNames(styles.deactive, styles.item, styles.flip)
             }
+            onClick={onItemClick}
           >
             <li>Home</li>
           </NavLink>
@@ -119,6 +124,7 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
                 ? classNames(styles.active, styles.item, styles.flip)
                 : classNames(styles.deactive, styles.item, styles.flip)
             }
+            onClick={onItemClick}
           >
             <li>About me</li>
           </NavLink>
@@ -129,6 +135,7 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
                 ? classNames(styles.active, styles.item, styles.flip)
                 : classNames(styles.deactive, styles.item, styles.flip)
             }
+            onClick={onItemClick}
           >
             <li>Contact</li>
           </NavLink>

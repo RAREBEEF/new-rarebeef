@@ -438,18 +438,18 @@ const Clock = (): ReactElement => {
           <h3 className={styles["box__title"]}>Description</h3>
           <p className={styles["description__text"]}>
             {
-              "디지털 시계를 구현한 웹사이트로\n평범한 웹사이트의 틀에서 벗어나\n새로운 것을 만들어보기 위해 시작한 프로젝트입니다.\n리퀴드 크리스탈 폰트를 사용한 시계를\n최대한 비슷한 모습으로 구현하고자 노력했습니다."
+              "리액트로 디지털 시계를 만들어 보았습니다.\n평범한 웹사이트의 틀에서 벗어나 새로운 것을 만들어 보기 위해 시작한 프로젝트이며 리퀴드 크리스탈 폰트를 사용한 디지털 시계를 최대한 비슷한 모습으로 구현하고자 노력했습니다."
             }
           </p>
         </div>
         <div className={classNames(styles.skills, styles.box)}>
           <h3 className={styles["box__title"]}>Skills</h3>
           <ul className={styles["skill-icons"]}>
-            <Skill skill="html" />
-            <Skill skill="javascript" />
-            <Skill skill="react" />
-            <Skill skill="sass" />
-            <Skill skill="netlify" />
+            <Skill skill="HTML" />
+            <Skill skill="JavaScript" />
+            <Skill skill="React" />
+            <Skill skill="Sass" />
+            <Skill skill="Netlify" />
           </ul>
         </div>
         <div className={classNames(styles.links, styles.box)}>
