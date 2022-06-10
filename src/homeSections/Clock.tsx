@@ -7,7 +7,8 @@ import gsap from "gsap";
 import Header from "../components/Header";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
-import logo from "../images/logos/clock-icon.png";
+import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 
 const Clock = (): ReactElement => {
   const [vh, setVh] = useState(window.innerHeight * 0.01);
@@ -456,18 +457,13 @@ const Clock = (): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Github Repository"
+              icon={githubIcon}
               href="https://github.com/RAREBEEF/Clock"
               classes={["Home__project-link"]}
             />
             <Button
-              text="Blog post"
+              icon={velogIcon}
               href="https://velog.io/@drrobot409/HTML-CSS-JS-%EB%94%94%EC%A7%80%ED%84%B8-%EC%8B%9C%EA%B3%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-feat.-%EC%95%8C%EB%9E%8C"
-              classes={["Home__project-link"]}
-            />
-            <Button
-              icon={logo}
-              href="https://clockbyrarebeef.netlify.app/"
               classes={["Home__project-link"]}
             />
           </div>

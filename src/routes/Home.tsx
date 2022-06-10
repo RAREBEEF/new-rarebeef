@@ -23,13 +23,13 @@ const Home: React.FC<HomePropType> = ({}) => {
     <div ref={HomeRef} className={classNames(styles.container)}>
       <Front />
       {!animationEnd && <Flip />}
-      <ThreeBeef />
       <PlaceReview />
       <MetaBeef />
       <BrowserStart />
       <SimpleMemo />
-      <Clock />
+      <ThreeBeef />
       <MemoryTest />
+      <Clock />
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
       </footer>

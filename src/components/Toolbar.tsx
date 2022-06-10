@@ -70,7 +70,7 @@ const Toolbar: React.FC<ToolbarPropType> = ({}): ReactElement => {
         className={classNames(
           styles["icon--to-top"],
           styles.icon,
-          scrollTop > clientHeight / 2 && styles.show
+          scrollTop > clientHeight / 2 + 2500 && styles.show
         )}
         src={upIcon}
         alt="To top"

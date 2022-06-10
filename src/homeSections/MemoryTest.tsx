@@ -5,6 +5,8 @@ import classNames from "classnames";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
 import MemoryTestApp from "../components/MemoryTestApp";
+import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 
 const MemoryTest = (): ReactElement => {
   return (
@@ -57,12 +59,12 @@ const MemoryTest = (): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Github Repository"
+              icon={githubIcon}
               href="https://github.com/RAREBEEF/memory-test"
               classes={["Home__project-link"]}
             />
             <Button
-              text="Blog post"
+              icon={velogIcon}
               href="https://velog.io/@drrobot409/React-%EA%B8%B0%EC%96%B5%EB%A0%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84"
               classes={["Home__project-link"]}
             />

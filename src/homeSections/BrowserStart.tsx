@@ -11,6 +11,8 @@ import classNames from "classnames";
 import Button from "../components/Button";
 import logo from "../images/logos/browser-start-icon.png";
 import arrow from "../images/icons/angle-left-solid.svg";
+import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCards, Navigation, Pagination } from "swiper";
 import "swiper/scss";
@@ -44,19 +46,19 @@ const BrowserStart = (): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img1} alt="screenshot1" />
+              <img src={img1} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img2} alt="screenshot1" />
+              <img src={img2} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img3} alt="screenshot1" />
+              <img src={img3} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img4} alt="screenshot1" />
+              <img src={img4} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img5} alt="screenshot1" />
+              <img src={img5} alt="screenshot" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img
@@ -108,12 +110,12 @@ const BrowserStart = (): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Github Repository"
+              icon={githubIcon}
               href="https://github.com/RAREBEEF/new-tab"
               classes={["Home__project-link"]}
             />
             <Button
-              text="Blog post"
+              icon={velogIcon}
               href="https://velog.io/@drrobot409/React-TypeScript-Redux-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%8B%9C%EC%9E%91-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0"
               classes={["Home__project-link"]}
             />

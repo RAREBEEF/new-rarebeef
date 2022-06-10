@@ -95,7 +95,6 @@ const App = (): ReactElement => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<Home />} />
       </Routes>
-      <div className={styles.fog} />
     </Router>
   );
 };

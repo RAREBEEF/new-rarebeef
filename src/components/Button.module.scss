@@ -32,14 +32,17 @@
   }
 
   &.Home__project-link {
-    height: 50px;
-  }
-
-  &.Home__project-link--website {
-    height: fit-content;
     padding: 0;
     overflow: hidden;
     height: 50px;
+    width: 50px;
+    border: none;
+    background: none;
+
+    .icon {
+      height: 50px;
+      width: 50px;
+    }
   }
 
   &.GuestBook {

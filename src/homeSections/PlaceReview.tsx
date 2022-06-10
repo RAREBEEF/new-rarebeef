@@ -12,6 +12,8 @@ import classNames from "classnames";
 import Button from "../components/Button";
 import logo from "../images/logos/place-review-icon.png";
 import arrow from "../images/icons/angle-left-solid.svg";
+import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import "swiper/scss";
@@ -45,19 +47,19 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img1} alt="screenshot1" />
+              <img src={img1} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img2} alt="screenshot1" />
+              <img src={img2} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img3} alt="screenshot1" />
+              <img src={img3} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img4} alt="screenshot1" />
+              <img src={img4} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img5} alt="screenshot1" />
+              <img src={img5} alt="screenshot" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img
@@ -110,19 +112,19 @@ const PlaceReview: React.FC<PlaceReviewPropType> = ({}): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Github Repository"
+              icon={githubIcon}
               href="https://github.com/RAREBEEF/place-review"
               classes={["Home__project-link"]}
             />
             <Button
-              text="Blog post"
+              icon={velogIcon}
               href="https://velog.io/@drrobot409/%EC%9E%A5%EC%86%8C-%EB%A6%AC%EB%B7%B0-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0"
               classes={["Home__project-link"]}
             />
             <Button
               icon={logo}
               href="https://rarebeef.github.io/place-review/"
-              classes={["Home__project-link--website"]}
+              classes={["Home__project-link"]}
             />
           </div>
         </div>

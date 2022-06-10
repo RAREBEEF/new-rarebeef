@@ -13,6 +13,7 @@ import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
 import monitorImg from "../images/monitor2.png";
 import powerIcon from "../images/icons/power-off-solid.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
 import Loading from "../components/Loading";
@@ -46,8 +47,8 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
 
     const windowScrollCb = () => {
       if (
-        window.scrollY === 0 ||
-        window.scrollY > sectionRef.current.clientHeight + window.innerHeight
+        window.scrollY < sectionRef.current.offsetTop - window.innerHeight ||
+        window.scrollY > sectionRef.current.offsetTop + window.innerHeight
       ) {
         setTurnOn(false);
       }
@@ -62,10 +63,10 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
 
   return (
     <section
-      ref={sectionRef}
       className={styles.container}
       onMouseDown={onDragStart}
       onMouseUp={onDragEnd}
+      ref={sectionRef}
     >
       <Header
         title={["3D", "Beef"]}
@@ -141,11 +142,14 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
             <Skill skill="Three.js" />
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.box)}>
-          <h3 className={styles["box__title"]}>Links</h3>
+        <div
+          className={classNames(styles.links, styles.box)}
+          style={{ width: "150px" }}
+        >
+          <h3 className={styles["box__title"]}>Link</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Blog post"
+              icon={velogIcon}
               href="https://velog.io/@drrobot409/Blender-3D-%EB%A1%9C%EA%B3%A0-%EC%A0%9C%EC%9E%91"
               classes={["Home__project-link"]}
             />

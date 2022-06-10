@@ -82,7 +82,9 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
 
         return;
       });
+
       skill.addEventListener("mouseout", () => {
+        skill.style.transform = `translate(0px, 0px)`;
         skill.style.transition = `all 0.5s`;
 
         return;

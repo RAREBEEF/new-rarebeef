@@ -12,6 +12,8 @@ import classNames from "classnames";
 import Button from "../components/Button";
 import logo from "../images/logos/meta-beef-icon.png";
 import arrow from "../images/icons/angle-left-solid.svg";
+import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCreative, Navigation, Pagination } from "swiper";
 import "swiper/scss";
@@ -54,16 +56,16 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img1} alt="screenshot1" />
+              <img src={img1} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img2} alt="screenshot1" />
+              <img src={img2} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img3} alt="screenshot1" />
+              <img src={img3} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img4} alt="screenshot1" />
+              <img src={img4} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
               <img
@@ -122,19 +124,19 @@ const MetaBeef: React.FC<MetaBeefPropType> = ({}): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Github Repository"
+              icon={githubIcon}
               href="https://github.com/RAREBEEF/meta-beef"
               classes={["Home__project-link"]}
             />
             <Button
-              text="Blog post"
+             icon={velogIcon}
               href="https://velog.io/@drrobot409/React-SNS-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0"
               classes={["Home__project-link"]}
             />
             <Button
               icon={logo}
               href="https://rarebeef.github.io/meta-beef"
-              classes={["Home__project-link--website"]}
+              classes={["Home__project-link"]}
             />
           </div>
         </div>

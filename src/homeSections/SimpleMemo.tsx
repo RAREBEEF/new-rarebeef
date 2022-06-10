@@ -10,6 +10,8 @@ import classNames from "classnames";
 import Button from "../components/Button";
 import logo from "../images/logos/simple-memo-icon.png";
 import arrow from "../images/icons/angle-left-solid.svg";
+import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
 import "swiper/css";
@@ -46,16 +48,16 @@ const SimpleMemo = (): ReactElement => {
               />
             </div>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img1} alt="screenshot1" />
+              <img src={img1} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img2} alt="screenshot1" />
+              <img src={img2} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img3} alt="screenshot1" />
+              <img src={img3} alt="screenshot" />
             </SwiperSlide>
             <SwiperSlide className={styles["swiper__item"]}>
-              <img src={img4} alt="screenshot1" />
+              <img src={img4} alt="screenshot" />
             </SwiperSlide>
             <div className={styles["swiper__pagination"]}>
               <img
@@ -107,12 +109,12 @@ const SimpleMemo = (): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>
             <Button
-              text="Github Repository"
+              icon={githubIcon}
               href="https://github.com/RAREBEEF/Simple-Memo"
               classes={["Home__project-link"]}
             />
             <Button
-              text="Blog post"
+              icon={velogIcon}
               href="https://velog.io/@drrobot409/%EB%A9%94%EB%AA%A8%EC%9E%A5-%EC%9B%B9-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98"
               classes={["Home__project-link"]}
             />
