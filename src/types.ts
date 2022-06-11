@@ -1,16 +1,36 @@
 //
 // Props
 //
+
+export interface sectionDataType {
+  name: Array<string>;
+  header: {
+    title: Array<string>;
+    subTitle: Array<string>;
+  };
+  imgs: Array<string>;
+  summary: { name: string; date: string; headCount: number };
+  description: string;
+  skills: Array<skillType>;
+  links: Array<{ icon: string; href: string }>;
+}
+
+export interface SectionPropType {
+  data: sectionDataType;
+}
+
 export interface FlipCardPropType {
   position?: [number, number, number];
-  start: boolean;
-  center?: boolean;
 }
 
 export interface FlipLinePropType {
   position?: [number, number, number];
-  start: boolean;
   center?: boolean;
+  first?: boolean;
+  second?: boolean;
+  third?: boolean;
+  forth?: boolean;
+  fifth?: boolean;
 }
 
 export interface TutorialPropType {
@@ -39,20 +59,36 @@ export interface ToolbarPropType {}
 
 export interface ScrollDownPropType {}
 
+// export const skillType =skillType
+//   "HTML" ||
+//   "CSS" ||
+//   "JavaScript" ||
+//   "TypeScript" ||
+//   "React" ||
+//   "Sass" ||
+//   "Redux" ||
+//   "Three.js" ||
+//   "Firebase" ||
+//   "Netlify" ||
+//   "Illustrator" ||
+//   "Blender";
+
+export type skillType =
+  | "HTML"
+  | "CSS"
+  | "JavaScript"
+  | "TypeScript"
+  | "React"
+  | "Sass"
+  | "Redux"
+  | "Three.js"
+  | "Firebase"
+  | "Netlify"
+  | "Illustrator"
+  | "Blender";
+
 export interface SkillPropType {
-  skill:
-    | "HTML"
-    | "CSS"
-    | "JavaScript"
-    | "TypeScript"
-    | "React"
-    | "Sass"
-    | "Redux"
-    | "Three.js"
-    | "Firebase"
-    | "Netlify"
-    | "Illustrator"
-    | "Blender";
+  skill: skillType;
 }
 
 export interface HomePropType {}
@@ -93,18 +129,12 @@ export interface GuestBookPropType {
 //
 export interface ReduxStateType {
   getGuestBook: getGusetBookStateType;
-  setAnimation: setAnimationStateType;
 }
 
 export interface getGusetBookStateType {
   data: Array<guestBookType>;
   error: any;
   loading: boolean;
-}
-
-export interface setAnimationStateType {
-  animationStart: boolean;
-  animationEnd: boolean;
 }
 
 export interface getGuestBookStartType {

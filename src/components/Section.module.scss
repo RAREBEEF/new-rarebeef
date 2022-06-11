@@ -21,7 +21,10 @@
     align-items: center;
 
     .box {
-      border: 1px solid rgba(0, 0, 0, 0.8);
+      &:not(.screenshots) {
+        background-color: rgba(230, 230, 230, 0.6);
+      }
+      // border: 1px solid rgba(0, 0, 0, 0.8);
       border-radius: 15px;
       overflow: hidden;
       height: fit-content;

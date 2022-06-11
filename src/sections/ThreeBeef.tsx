@@ -142,10 +142,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
             <Skill skill="Three.js" />
           </ul>
         </div>
-        <div
-          className={classNames(styles.links, styles.box)}
-          style={{ width: "150px" }}
-        >
+        <div className={classNames(styles.links, styles.box)}>
           <h3 className={styles["box__title"]}>Link</h3>
           <div className={styles["links-wrapper"]}>
             <Button

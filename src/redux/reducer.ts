@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
 import getGuestBook from "./modules/getGuestBook";
-import setAnimation from "./modules/setAnimation";
 
-const reducer = combineReducers({ getGuestBook, setAnimation });
+const reducer = combineReducers({ getGuestBook });
 
 export default reducer;

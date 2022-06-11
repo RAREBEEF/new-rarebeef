@@ -7,37 +7,15 @@ import Nav from "./Nav";
 import Toolbar from "./Toolbar";
 import Tutorial from "./Tutorial";
 import { getGuestBookThunk } from "../redux/modules/getGuestBook";
-import { useDispatch, useSelector } from "react-redux";
-import { ReduxStateType, setAnimationStateType } from "../types";
+import { useDispatch } from "react-redux";
 import Start from "./Start";
-import { setAnimationEnd } from "../redux/modules/setAnimation";
 import styles from "./App.module.scss";
 const App = (): ReactElement => {
   const dispatch = useDispatch();
-  const { animationStart, animationEnd } = useSelector(
-    (state: ReduxStateType): setAnimationStateType => state.setAnimation
-  );
 
   const [tutorialActive, setTutorialActive] = useState<boolean>((): boolean =>
     localStorage.getItem("rarebeef_disableTutorial") === "true" ? false : true
   );
-
-  useEffect(() => {
-    if (!animationStart) {
-      return;
-    }
-    if (animationEnd) {
-      return;
-    }
-
-    const timer = setTimeout(() => {
-      dispatch(setAnimationEnd());
-    }, 4500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [animationEnd, dispatch, animationStart]);
 
   useEffect((): void => {
     const rootEl = document.getElementById("root");
@@ -46,7 +24,7 @@ const App = (): ReactElement => {
       return;
     }
 
-    if (!!tutorialActive || !animationStart) {
+    if (!!tutorialActive) {
       rootEl.style.height = "100vh";
       rootEl.style.minHeight = "500px";
       rootEl.style.overflow = "hidden";
@@ -62,7 +40,7 @@ const App = (): ReactElement => {
     }
 
     return;
-  }, [animationStart, tutorialActive]);
+  }, [tutorialActive]);
 
   useEffect((): void => {
     dispatch<any>(getGuestBookThunk());
@@ -86,7 +64,6 @@ const App = (): ReactElement => {
 
   return (
     <Router>
-      {!animationStart && <Start />}
       {tutorialActive && <Tutorial setTutorialActive={setTutorialActive} />}
       <Nav setTutorialActive={setTutorialActive} />
       <Toolbar />

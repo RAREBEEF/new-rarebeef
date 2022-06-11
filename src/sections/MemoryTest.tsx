@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import Header from "../components/Header";
-import styles from "./ThreeBeef.module.scss";
+import styles from "./MemoryTest.module.scss";
 import classNames from "classnames";
 import Skill from "../components/Skill";
 import Button from "../components/Button";

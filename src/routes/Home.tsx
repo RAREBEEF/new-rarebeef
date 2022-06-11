@@ -1,32 +1,31 @@
-import React, { useEffect, useRef } from "react";
-import ThreeBeef from "../homeSections/ThreeBeef";
-import Front from "../homeSections/Front";
+import React, { useRef } from "react";
+import ThreeBeef from "../sections/ThreeBeef";
+import Front from "../sections/Front";
 import styles from "./Home.module.scss";
-import PlaceReview from "../homeSections/PlaceReview";
-import MetaBeef from "../homeSections/MetaBeef";
 import classNames from "classnames";
-import { HomePropType, ReduxStateType, setAnimationStateType } from "../types";
-import Clock from "../homeSections/Clock";
-import BrowserStart from "../homeSections/BrowserStart";
-import SimpleMemo from "../homeSections/SimpleMemo";
-import MemoryTest from "../homeSections/MemoryTest";
+import { HomePropType } from "../types";
+import Clock from "../sections/Clock";
+import MemoryTest from "../sections/MemoryTest";
 import Flip from "../three/Flip";
-import { useSelector } from "react-redux";
+import Section from "../components/Section";
+import placeReview from "../sections/placeReview";
+import metaBeef from "../sections/metaBeef";
+import browserStart from "../sections/browserStart";
+import simpleMemo from "../sections/simpleMemo";
+import toDo from "../sections/toDo";
 
 const Home: React.FC<HomePropType> = ({}) => {
   const HomeRef = useRef<any>(null);
-  const { animationEnd } = useSelector(
-    (state: ReduxStateType): setAnimationStateType => state.setAnimation
-  );
 
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
       <Front />
-      {!animationEnd && <Flip />}
-      <PlaceReview />
-      <MetaBeef />
-      <BrowserStart />
-      <SimpleMemo />
+      <Flip />
+      <Section data={placeReview} />
+      <Section data={metaBeef} />
+      <Section data={toDo} />
+      <Section data={browserStart} />
+      <Section data={simpleMemo} />
       <ThreeBeef />
       <MemoryTest />
       <Clock />

@@ -103,9 +103,6 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
             transition: resizing ? "none" : "all 1s",
           }}
         >
-          <h3 className={classNames(styles["title__menu"], styles.flip)}>
-            Menu
-          </h3>
           <NavLink
             to="/"
             className={({ isActive }: any): string =>
@@ -145,11 +142,6 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
           >
             Tutorial
           </li>
-          <footer
-            className={classNames(styles.footer, styles.item, styles.flip)}
-          >
-            &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
-          </footer>
         </ul>
       </div>
     </div>

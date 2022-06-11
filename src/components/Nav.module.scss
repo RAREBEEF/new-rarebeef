@@ -64,29 +64,14 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      padding: {
+        top: 160px;
+      }
 
       .flip {
         transition: all 0.5s;
         backface-visibility: hidden;
         transform: rotateX(180deg);
-      }
-
-      .title__menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: rgba(100, 100, 100, 1);
-        height: 135px;
-        pointer-events: none;
-        text-align: center;
-        margin: {
-          right: 90px;
-          left: 10px;
-        }
-        font: {
-          size: 40px;
-          weight: 700;
-        }
       }
     }
 
@@ -162,7 +147,7 @@
       pointer-events: all;
       .flip {
         transform: rotateX(0);
-        @for $i from 1 through 6 {
+        @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
             transition: transform
                 1s
@@ -192,10 +177,8 @@
 
     .menu {
       .menu__right-side {
-        .title__menu {
-          opacity: 0;
-          height: 105px;
-          font-size: 20px;
+        padding: {
+          top: 100px;
         }
       }
     }

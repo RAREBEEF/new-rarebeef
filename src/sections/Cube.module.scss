@@ -1,4 +1,4 @@
-@import "./allSection.scss";
+@import "../components/Section.module.scss";
 $size: 25vmin;
 
 @mixin face($color: black, $tx: 0px, $ty: 0px, $tz: 0px, $rx: 0deg, $ry: 0deg) {

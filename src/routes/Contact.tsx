@@ -1,22 +1,14 @@
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
 import GuestBookSection from "../components/GuestBookSection";
 import Header from "../components/Header";
 import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
-import { useDispatch } from "react-redux";
-import { setAnimationEnd, setAnimationStart } from "../redux/modules/setAnimation";
 import { ContactPropType } from "../types";
 
 const Contact: React.FC<ContactPropType> = ({}) => {
-  const dispatch = useDispatch();
   const [copyAlert, setCopyAlert] = useState<string>("");
-
-  useEffect(() => {
-    dispatch(setAnimationStart());
-    dispatch(setAnimationEnd());
-  }, [dispatch]);
 
   const onCopyClick = (): void => {
     navigator.clipboard

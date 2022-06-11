@@ -1,37 +1,16 @@
 import styles from "./Profile.module.scss";
-import htmlIcon from "../images/skills/html5-brands.svg";
-import cssIcon from "../images/skills/css3-alt-brands.svg";
-import jsIcon from "../images/skills/js-brands.svg";
-import tsIcon from "../images/skills/ts-brands.svg";
-import reactIcon from "../images/skills/react-brands.svg";
-import sassIcon from "../images/skills/sass-brands.svg";
-import reduxIcon from "../images/skills/redux-brands.svg";
-import threeIcon from "../images/skills/three-brands.svg";
-import aiIcon from "../images/skills/ai-brands.svg";
-import blenderIcon from "../images/skills/blender-brands.svg";
-import firebaseIcon from "../images/skills/firebase-brands.svg";
-import netlifyIcon from "../images/skills/netlify-brands.svg";
 import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
-import {
-  setAnimationEnd,
-  setAnimationStart,
-} from "../redux/modules/setAnimation";
+
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
 
 const Profile: React.FC<ProfilePropType> = ({}) => {
-  const dispatch = useDispatch();
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
   const [infoText, setInfoText] = useState<string>("");
   const infoWindowRef = useRef<any>(null);
-
-  useEffect(() => {
-    dispatch(setAnimationStart());
-    dispatch(setAnimationEnd());
-  }, [dispatch]);
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (!infoWindowRef.current || !showInfoWindow) {
