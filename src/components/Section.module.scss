@@ -22,9 +22,8 @@
 
     .box {
       &:not(.screenshots) {
-        background-color: rgba(230, 230, 230, 0.6);
+        border: 1px solid black;
       }
-      // border: 1px solid rgba(0, 0, 0, 0.8);
       border-radius: 15px;
       overflow: hidden;
       height: fit-content;
@@ -34,17 +33,10 @@
         right: 20px;
       }
 
-      &:last-child {
-        margin: {
-          // bottom: 200px;
-        }
-      }
-
       .box__title {
         background-color: rgba(0, 0, 0, 0.8);
         color: whitesmoke;
         padding: 10px;
-        border-radius: 15px 15px 0 0;
         font: {
           size: 25px;
           weight: 700;
@@ -107,7 +99,6 @@
 
       &.summary {
         width: fit-content;
-        // max-width: 90vw;
 
         * {
           padding: 10px;
@@ -144,7 +135,6 @@
 
       &.skills {
         width: fit-content;
-        overflow: visible;
         .skill-icons {
           display: flex;
           flex-wrap: wrap;
@@ -171,196 +161,75 @@
       }
     }
   }
+
+  &.PlaceReview {
+    .box:not(.screenshots) {
+      border-color: #403d39;
+      color: #403d39;
+      .box__title {
+        color: #fffcf2;
+        background-color: #403d39;
+      }
+    }
+  }
+  &.MetaBeef {
+    .box:not(.screenshots) {
+      border-color: black;
+      color: black;
+      .box__title {
+        color: whitesmoke;
+        background-color: black;
+      }
+    }
+  }
+  &.ReactNative {
+    .box:not(.screenshots) {
+      border-color: #292f36;
+      color: #292f36;
+      .box__title {
+        color: whitesmoke;
+        background-color: #292f36;
+      }
+    }
+  }
+  &.BrowserStart {
+    .box:not(.screenshots) {
+      border-color: rgba(70, 60, 90, 0.8);
+      color: #292f36;
+      .box__title {
+        color: white;
+        background-color: rgba(70, 60, 90, 0.8);
+      }
+    }
+  }
+  &.SimpleMemo {
+    .box:not(.screenshots) {
+      border-color: #463f3a;
+      color: black;
+      .box__title {
+        color: white;
+        background-color: #463f3a;
+      }
+    }
+  }
+  // &.MemoryTest {
+  //   .box:not(.screenshots) {
+  //     border-color: skyblue;
+  //     color: black;
+  //     .box__title {
+  //       color: black;
+  //       background-color: skyblue;
+  //     }
+  //   }
+  // }
+  // &.DigitalClock {
+  //   .box:not(.screenshots) {
+  //     border-color:rgb(100, 19, 19);
+  //     color: black;
+  //     .box__title {
+  //       color: white;
+  //       background-color: rgb(100, 19, 19);
+  //     }
+  //   }
+  // }
 }
-
-// .container {
-//   background-color: whitesmoke;
-//   position: relative;
-//   min-height: 100vh;
-//   min-width: 230px;
-//   @supports (-webkit-touch-callout: none) {
-//     min-height: -webkit-fill-available;
-//   }
-
-//   .content {
-//     text-align: center;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-
-//   &:first-child {
-//     height: 100vh;
-//     @supports (-webkit-touch-callout: none) {
-//       height: -webkit-fill-available;
-//     }
-
-//     .content {
-//       margin-top: 0;
-//     }
-//   }
-
-//   .screen {
-//     position: absolute;
-//     background-color: red;
-//     width: 100%;
-//     height: 100vh;
-//     transform: rotate(180deg);
-//   }
-
-//   .box {
-//     border: 1px solid rgba(0, 0, 0, 0.8);
-//     border-radius: 15px;
-//     overflow: hidden;
-//     height: fit-content;
-//     margin: {
-//       top: 100px;
-//       left: 20px;
-//       right: 20px;
-//     }
-
-//     &:last-child {
-//       margin: {
-//         bottom: 200px;
-//       }
-//     }
-
-//     .box__title {
-//       background-color: rgba(0, 0, 0, 0.8);
-//       color: whitesmoke;
-//       padding: 10px;
-//       font: {
-//         size: 25px;
-//         weight: 700;
-//       }
-//     }
-
-//     &.screenshots {
-//       position: relative;
-//       width: 100vw;
-//       border: none;
-//       overflow: visible;
-
-//       .swiper__pagination {
-//         z-index: 999;
-//         position: absolute;
-//         height: 10vw;
-//         top: 0;
-//         bottom: 0;
-//         margin: {
-//           left: 2vw;
-//           right: 2vw;
-//           top: auto;
-//           bottom: auto;
-//         }
-
-//         .swiper__arrow {
-//           height: 10vw;
-//           cursor: pointer;
-//           transition: opacity 0.3s;
-
-//           &:hover {
-//             opacity: 0.5;
-//           }
-//         }
-
-//         &:last-child {
-//           right: 0;
-
-//           .swiper__arrow {
-//             transform: rotate(180deg);
-//           }
-//         }
-//       }
-
-//       .swiper__container {
-//         overflow: hidden;
-//         display: flex;
-//         width: 100vw;
-
-//         .swiper__item {
-//           align-self: center;
-//           img {
-//             width: 70%;
-//           }
-//         }
-//       }
-//     }
-
-//     &.summary {
-//       width: fit-content;
-//       // max-width: 90vw;
-
-//       * {
-//         padding: 10px;
-//         text-align: center;
-//       }
-
-//       tr:not(:last-child) {
-//         border-bottom: 1px solid #221718;
-//       }
-
-//       td:first-child {
-//         text-align: center;
-//         border-right: 1px solid #221718;
-//         padding: {
-//           right: 15px;
-//         }
-//       }
-
-//       .summary__table {
-//         margin: 10px;
-//       }
-//     }
-
-//     &.description {
-//       max-width: 400px;
-
-//       .description__text {
-//         word-break: keep-all;
-//         white-space: pre-line;
-//         padding: 10px;
-//         line-height: 23px;
-//       }
-//     }
-
-//     &.skills {
-//       width: fit-content;
-//       .skill-icons {
-//         display: flex;
-//         flex-wrap: wrap;
-//         justify-content: center;
-
-//         .img--skill {
-//           height: 100px;
-//           margin: 10px;
-//         }
-//       }
-//     }
-
-//     &.links {
-//       width: fit-content;
-//       max-width: 400px;
-
-//       .links-wrapper {
-//         display: flex;
-//         justify-content: center;
-//         flex-wrap: wrap;
-//         padding: 10px;
-//         gap: 10px;
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 550px) {
-//   .conatiner {
-//     .content {
-//       .screenshots {
-//         .swiper__container {
-//           top: 90px !important;
-//         }
-//       }
-//     }
-//   }
-// }

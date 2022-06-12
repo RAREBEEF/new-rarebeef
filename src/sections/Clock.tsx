@@ -210,7 +210,7 @@ const Clock = (): ReactElement => {
   };
 
   return (
-    <div className={styles["container"]}>
+    <div className={classNames(styles.container, styles.DigitalClock)}>
       <Header
         title={["Digital", "Clock"]}
         subTitle={["with", "alarm"]}

@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import styles from "./Front.module.scss";
 import logo from "../images/logos/beef.svg";
 import ScrollDown from "../components/ScrollDown";
@@ -6,7 +6,7 @@ import { FrontPropType } from "../types";
 import classNames from "classnames";
 
 const Front: React.FC<FrontPropType> = ({}): ReactElement => {
-  const [clipPath, setClipPath] = useState<number>(0);
+  const [scrollDegree, setScrollDegree] = useState<number>(0);
 
   useEffect(() => {
     const windowScrollListner = () => {
@@ -14,7 +14,7 @@ const Front: React.FC<FrontPropType> = ({}): ReactElement => {
         return;
       }
 
-      setClipPath((window.scrollY / (window.innerHeight * 2)) * -100);
+      setScrollDegree((window.scrollY / (window.innerHeight * 2)) * -100);
     };
 
     window.addEventListener("scroll", windowScrollListner);
@@ -32,29 +32,26 @@ const Front: React.FC<FrontPropType> = ({}): ReactElement => {
           <h2
             className={styles["sub-title"]}
             style={{
-              transform: `translateY(${30 + clipPath * 0.3}vmin)`,
+              transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
             }}
           >
             RAREBEEF's
           </h2>
           <img className={classNames(styles.logo)} src={logo} alt="RARE BEEF" />
-          {/* <Header
-            title={["Portfolio"]}
-            subTitle={["by", "RAREBEEF"]}
-            classes={["Front", "fake"]}
-          /> */}
           <h1 className={styles.title}>Portfolio</h1>
         </div>
         <div
           className={styles.real}
           style={{
-            clipPath: `inset(${100 + clipPath}% 0px 0px)`,
+            clipPath: `inset(${
+              scrollDegree <= -100 ? -100 : 100 + scrollDegree
+            }% 0px 0px)`,
           }}
         >
           <h2
             className={styles["sub-title"]}
             style={{
-              transform: `translateY(${30 + clipPath * 0.3}vmin)`,
+              transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
             }}
           >
             RAREBEEF's
@@ -64,18 +61,13 @@ const Front: React.FC<FrontPropType> = ({}): ReactElement => {
             src={logo}
             alt="RARE BEEF"
             style={{
-              transform: `translateY(${20 + clipPath * 0.2}vmin)`,
+              transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
             }}
           />
-          {/* <Header
-            title={["Portfolio"]}
-            subTitle={["by", "RAREBEEF"]}
-            classes={["Front"]}
-          /> */}
           <h1
             className={styles.title}
             style={{
-              transform: `translateY(${10 + clipPath * 0.1}vmin)`,
+              transform: `translateY(${10 + scrollDegree * 0.05}vmin)`,
             }}
           >
             Portfolio
@@ -88,11 +80,4 @@ const Front: React.FC<FrontPropType> = ({}): ReactElement => {
   );
 };
 
-{
-  /* <Header
-          title={["Portfolio"]}
-          subTitle={["by", "RAREBEEF"]}
-          classes={["Front"]}
-        /> */
-}
 export default Front;

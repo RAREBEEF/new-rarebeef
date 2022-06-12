@@ -12,7 +12,7 @@ import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
 import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
-import toDo from "../sections/toDo";
+import toDo from "../sections/reactNative";
 
 const Home: React.FC<HomePropType> = ({}) => {
   const HomeRef = useRef<any>(null);
@@ -22,13 +22,13 @@ const Home: React.FC<HomePropType> = ({}) => {
       <Front />
       <Flip />
       <Section data={placeReview} />
+      <MemoryTest />
       <Section data={metaBeef} />
+      <Clock />
       <Section data={toDo} />
+      <ThreeBeef />
       <Section data={browserStart} />
       <Section data={simpleMemo} />
-      <ThreeBeef />
-      <MemoryTest />
-      <Clock />
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
       </footer>

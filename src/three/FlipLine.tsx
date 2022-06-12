@@ -18,15 +18,15 @@ const FlipLine: React.FC<FlipLinePropType> = ({
       <FlipCard position={[-7, 0, 0]} />
       {!first && <FlipCard position={[-6, 0, 0]} />}
       <FlipCard position={[-5, 0, 0]} />
-      {!first && !second && <FlipCard position={[-4, 0, 0]} />}
+      {!first && !second && !third && !forth && !fifth && (
+        <FlipCard position={[-4, 0, 0]} />
+      )}
       {!first && <FlipCard position={[-3, 0, 0]} />}
       <FlipCard position={[-2, 0, 0]} />
-      {!first && !second && !third && !forth && !fifth && (
-        <FlipCard position={[-1, 0, 0]} />
-      )}
-      {!first && !second && <FlipCard />}
+      {!first && !second && <FlipCard position={[-1, 0, 0]} />}
+      {!first && <FlipCard />}
       {!first && !second && !third && <FlipCard position={[1, 0, 0]} />}
-      <FlipCard position={[2, 0, 0]} />
+      {!first && <FlipCard position={[2, 0, 0]} />}
       {!first && <FlipCard position={[3, 0, 0]} />}
       {!first && !second && <FlipCard position={[4, 0, 0]} />}
       <FlipCard position={[5, 0, 0]} />

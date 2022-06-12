@@ -10,7 +10,7 @@ import velogIcon from "../images/icons/velog-square.svg";
 
 const MemoryTest = (): ReactElement => {
   return (
-    <section className={styles.container}>
+    <section className={classNames(styles.container, styles.MemoryTest)}>
       <Header
         title={["Memory", "Test"]}
         subTitle={["Mini game"]}

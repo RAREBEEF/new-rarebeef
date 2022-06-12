@@ -58,7 +58,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
     <section
       className={classNames(
         styles.container,
-        data.name?.map((item: string): string => styles[item])
+        data.name.map((item: string): string => styles[item])
       )}
     >
       <Header
