@@ -1,7 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import styles from "./Front.module.scss";
 import logo from "../images/logos/beef.svg";
-import ScrollDown from "../components/ScrollDown";
 import { FrontPropType } from "../types";
 import classNames from "classnames";
 
@@ -72,8 +71,6 @@ const Front: React.FC<FrontPropType> = ({}): ReactElement => {
           >
             Portfolio
           </h1>
-
-          <ScrollDown />
         </div>
       </div>
     </section>

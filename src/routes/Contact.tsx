@@ -44,6 +44,7 @@ const Contact: React.FC<ContactPropType> = ({}) => {
             <Button
               href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io"
               icon={writeIcon}
+              classes={["Contact__send-mail"]}
             />
           </div>
         </section>

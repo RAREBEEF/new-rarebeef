@@ -8,6 +8,7 @@
   background-color: white;
   border: 1px solid #888888;
   border-radius: 5px;
+  color: #221718;
   padding: {
     top: 5px;
     bottom: 5px;
@@ -28,7 +29,8 @@
     width: auto;
   }
 
-  &.Button__copy {
+  &.Contact__send-mail {
+    width: 40px;
   }
 
   &.Home__project-link {
@@ -66,8 +68,5 @@
     height: auto;
     padding: none;
     white-space: nowrap;
-  }
-
-  &.Tutorial {
   }
 }

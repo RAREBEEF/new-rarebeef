@@ -11,11 +11,12 @@ const data: sectionDataType = {
     title: ["ToDo", "&", "Weather", "App"],
     subTitle: ["with", "React", "Native"],
   },
+  // FIXME: img3 todo랑 weather 같이 있는걸로 변경하기
   imgs: [img1, img2, img3],
   summary: { name: "ToDo & Wheater", date: "2022.05.30 ~ 06.03", headCount: 1 },
   description:
-    "ToDo 및 날씨 모바일 어플리케이션입니다.\n각각 별개의 앱으로 개발하였으며 React Native와 Expo를 통해 프로젝트를 진행하였습니다. Drag & Drop, Progress bar, geoLocation, weather api 등의 기능을 구현하였습니다.",
-  skills: ["JavaScript", "React"],
+    "ToDo 및 날씨 모바일 어플리케이션입니다.\n각각 별개의 앱이며 React Native와 Expo를 통해 프로젝트를 진행하였습니다. Drag & Drop, Progress bar, geoLocation, weather api 등의 기능을 구현하였습니다.",
+  skills: ["JavaScript", "React Native"],
   links: [
     { icon: githubIcon, href: "https://github.com/RAREBEEF/Todo-app" },
     {

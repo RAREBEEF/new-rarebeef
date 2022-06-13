@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import { NavPropType } from "../types";
 import styles from "./Nav.module.scss";
 import menuIcon from "../images/icons/circle-bars.svg";
+import closeIcon from "../images/icons/xmark-solid.svg";
 import classNames from "classnames";
 import dotsIcon from "../images/icons/ellipsis-vertical-solid.svg";
 
-const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
+const Nav: React.FC<NavPropType> = (): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [resizing, setResizing] = useState<boolean>(false);
   const [size, setSize] = useState<number>(50);
@@ -36,12 +37,6 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
 
   const onItemClick = (): void => {
     window.scrollTo({ top: 0 });
-  };
-
-  const onTutoClick = (): void => {
-    setTutorialActive(true);
-
-    return;
   };
 
   const mouseDragCb = useCallback(
@@ -86,6 +81,12 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
         className={styles["icon--menu"]}
         src={menuIcon}
         alt="menu"
+        onClick={onMenuClick}
+      />
+      <img
+        className={styles["icon--menu-close"]}
+        src={closeIcon}
+        alt="close menu"
         onClick={onMenuClick}
       />
       <div className={styles["menu"]}>
@@ -136,12 +137,6 @@ const Nav: React.FC<NavPropType> = ({ setTutorialActive }): ReactElement => {
           >
             <li>Contact</li>
           </NavLink>
-          <li
-            className={classNames(styles.item, styles.flip)}
-            onClick={onTutoClick}
-          >
-            Tutorial
-          </li>
         </ul>
       </div>
     </div>

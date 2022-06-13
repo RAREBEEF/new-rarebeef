@@ -1,22 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-
 .container {
   background-color: whitesmoke;
-  // height: 100vh;
-  // width: 100vw;
-  @supports (-webkit-touch-callout: none) {
-    height: -webkit-fill-available;
-  }
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
   margin: {
-    top: 150px;
-    bottom: 150px;
+    top: 100px;
   }
 
   .header {

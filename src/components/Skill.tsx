@@ -5,6 +5,7 @@ import classNames from "classnames";
 import Blender from "../images/skills/blender-brands.svg";
 import Three from "../images/skills/three-brands.svg";
 import react from "../images/skills/react-brands.svg";
+import reactNative from "../images/skills/react-native-brands.svg";
 import Redux from "../images/skills/redux-brands.svg";
 import TypeScript from "../images/skills/ts-brands.svg";
 import JavaScript from "../images/skills/js-brands.svg";
@@ -22,6 +23,7 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
   const srcs = {
     "Three.js": Three,
     React: react,
+    "React Native": reactNative,
     Redux,
     Blender,
     TypeScript,

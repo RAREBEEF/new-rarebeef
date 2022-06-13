@@ -2,6 +2,12 @@
 // Props
 //
 
+export interface ProgressiveLogoPropType {
+  preLoad: string;
+  original: string;
+  alt: string;
+}
+
 export interface sectionDataType {
   name: Array<string>;
   header: {
@@ -51,27 +57,11 @@ export interface ButtonPropType {
   href?: string;
 }
 
-export interface NavPropType {
-  setTutorialActive: Function;
-}
+export interface NavPropType {}
 
 export interface ToolbarPropType {}
 
 export interface ScrollDownPropType {}
-
-// export const skillType =skillType
-//   "HTML" ||
-//   "CSS" ||
-//   "JavaScript" ||
-//   "TypeScript" ||
-//   "React" ||
-//   "Sass" ||
-//   "Redux" ||
-//   "Three.js" ||
-//   "Firebase" ||
-//   "Netlify" ||
-//   "Illustrator" ||
-//   "Blender";
 
 export type skillType =
   | "HTML"
@@ -79,6 +69,7 @@ export type skillType =
   | "JavaScript"
   | "TypeScript"
   | "React"
+  | "React Native"
   | "Sass"
   | "Redux"
   | "Three.js"

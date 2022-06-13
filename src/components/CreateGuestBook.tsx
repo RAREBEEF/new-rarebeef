@@ -81,26 +81,24 @@ const CreateGuestBook = () => {
             minLength={6}
             maxLength={30}
           />
+          <div
+            className={classNames(
+              styles.counter,
+              content.length > 50 && styles.over
+            )}
+          >
+            {content.length} / 50
+          </div>
         </div>
-        <div
-          className={classNames(
-            styles.counter,
-            content.length > 50 && styles.over
-          )}
-        >
-          {content.length} / 50
-        </div>
-        <div className={styles["bottom-wrapper"]}>
-          <textarea
-            className={styles["input--content"]}
-            value={content}
-            onChange={onTextChange}
-            placeholder="내용 (1~50 글자)"
-            minLength={1}
-            maxLength={50}
-          />
-          <Button text="등록" classes={["CreateGuestBook"]} />
-        </div>
+        <textarea
+          className={styles["input--content"]}
+          value={content}
+          onChange={onTextChange}
+          placeholder="내용 (1~50 글자)"
+          minLength={1}
+          maxLength={50}
+        />
+        <Button text="등록" classes={["CreateGuestBook"]} />
       </form>
     </div>
   );

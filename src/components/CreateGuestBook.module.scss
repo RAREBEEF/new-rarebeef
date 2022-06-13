@@ -17,18 +17,12 @@
         bottom: 10px;
       }
 
-      .input--name {
+      .input--name,
+      .input--pw {
         outline: none;
         margin: {
           right: 10px;
         }
-        font: {
-          family: "Gowun Dodum", sans-serif;
-        }
-      }
-
-      .input--pw {
-        outline: none;
         font: {
           family: "Gowun Dodum", sans-serif;
         }
@@ -38,33 +32,40 @@
     .counter {
       color: rgb(118, 118, 118);
       text-align: end;
+      align-self: flex-end;
       margin: {
-        right: 65px;
-        bottom: 10px;
+        top: 5px;
+        left: auto;
+        right: 5px;
       }
+      // margin: {
+      //   right: 65px;
+      //   bottom: 10px;
+      // }
       &.over {
         color: #da4a4a;
       }
     }
 
-    .bottom-wrapper {
-      display: flex;
-      margin: {
-        bottom: 30px;
-      }
+    // .bottom-wrapper {
+    //   display: flex;
+    //   margin: {
+    //     bottom: 30px;
+    //   }
 
-      .input--content {
-        width: 100%;
-        resize: none;
-        height: 80px;
-        outline: none;
-        margin: {
-          right: 10px;
-        }
-        font: {
-          family: "Gowun Dodum", sans-serif;
-        }
+    .input--content {
+      width: 100%;
+      resize: none;
+      height: 80px;
+      outline: none;
+      margin: {
+        right: 10px;
+        bottom: 10px;
       }
+      font: {
+        family: "Gowun Dodum", sans-serif;
+      }
+      // }
     }
   }
 }

@@ -45,18 +45,18 @@ const Toolbar: React.FC<ToolbarPropType> = ({}): ReactElement => {
 
   return (
     <div className={classNames(styles.container)}>
-      <a href="https://velog.io/@drrobot409" target={"_blank"} rel="noreferrer">
-        <img
-          className={classNames(styles["icon--velog"], styles.icon)}
-          src={velogIcon}
-          alt="Velog"
-        />
-      </a>
       <a href="https://github.com/RAREBEEF" target={"_blank"} rel="noreferrer">
         <img
           className={classNames(styles["icon--github"], styles.icon)}
           src={githupIcon}
           alt="Github"
+        />
+      </a>
+      <a href="https://velog.io/@drrobot409" target={"_blank"} rel="noreferrer">
+        <img
+          className={classNames(styles["icon--velog"], styles.icon)}
+          src={velogIcon}
+          alt="Velog"
         />
       </a>
       <a href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io">

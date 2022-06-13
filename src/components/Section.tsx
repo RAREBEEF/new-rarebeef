@@ -111,7 +111,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
                 <td>{data.summary.date}</td>
               </tr>
               <tr>
-                <td>개발 인원</td>
+                <td>인원</td>
                 <td>{data.summary.headCount}명</td>
               </tr>
             </tbody>
