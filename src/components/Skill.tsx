@@ -44,6 +44,20 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     setShowInfoWindow(true);
   };
 
+  const onTouch = (e: any): void => {
+    if (!e.target.alt) {
+      return;
+    }
+
+    setShowInfoWindow(true);
+
+    const currentRef = infoWindowRef.current;
+
+    const x = e.clientX;
+    const y = e.clientY;
+    currentRef.style.transform = `translate(${x}px, ${y}px)`;
+  };
+
   const onMouseMove = (e: any): void => {
     if (!infoWindowRef.current || !showInfoWindow) {
       return;
@@ -103,16 +117,21 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
 
   return (
     <li className={styles.container} onMouseMove={onMouseMove}>
-      {showInfoWindow && (
-        <div ref={infoWindowRef} className={classNames(styles["info-window"])}>
-          <span className={styles["info-text"]}>{skill}</span>
-        </div>
-      )}
+      <div
+        ref={infoWindowRef}
+        className={classNames(
+          styles["info-window"],
+          showInfoWindow && styles.show
+        )}
+      >
+        <span className={styles["info-text"]}>{skill}</span>
+      </div>
       <img
         className={styles["img--skill"]}
         src={srcs[skill]}
         alt={skill}
         onMouseEnter={onMouseEnter}
+        onTouchStart={onTouch}
         onMouseLeave={onMouseLeave}
       />
     </li>
