@@ -1,0 +1,10 @@
+@import "../components/Section.module.scss";
+
+.canvas {
+  pointer-events: none;
+  height: 90vh !important;
+  width: 100vw !important;
+  margin: {
+    bottom: -10vh;
+  }
+}

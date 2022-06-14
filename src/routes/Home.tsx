@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import ThreeBeef from "../sections/ThreeBeef";
+import ReactNative from "../sections/ReactNative";
 import Front from "../sections/Front";
 import styles from "./Home.module.scss";
 import classNames from "classnames";
@@ -12,7 +13,7 @@ import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
 import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
-import toDo from "../sections/reactNative";
+// import toDo from "../sections/reactNative";
 
 const Home: React.FC<HomePropType> = () => {
   const HomeRef = useRef<any>(null);
@@ -25,7 +26,8 @@ const Home: React.FC<HomePropType> = () => {
       <MemoryTest />
       <Section data={metaBeef} />
       <Clock />
-      <Section data={toDo} />
+      {/* <Section data={toDo} /> */}
+      <ReactNative />
       <ThreeBeef />
       <Section data={browserStart} />
       <Section data={simpleMemo} />
