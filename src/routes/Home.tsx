@@ -14,7 +14,7 @@ import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
 import toDo from "../sections/reactNative";
 
-const Home: React.FC<HomePropType> = ({}) => {
+const Home: React.FC<HomePropType> = () => {
   const HomeRef = useRef<any>(null);
 
   return (

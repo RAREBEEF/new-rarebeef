@@ -4,10 +4,8 @@
 }
 
 .header {
-  // &:not(.Front) {
-    z-index: 2;
-    position: sticky;
-  // }
+  z-index: 2;
+  position: sticky;
   top: 15px;
   left: 0;
   color: whitesmoke;
@@ -25,7 +23,7 @@
     bottom: 20px;
   }
   font: {
-    family: raleway, sans-serif;
+    family: 'raleway', sans-serif;
     weight: 700;
   }
 

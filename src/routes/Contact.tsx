@@ -7,7 +7,7 @@ import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
 import { ContactPropType } from "../types";
 
-const Contact: React.FC<ContactPropType> = ({}) => {
+const Contact: React.FC<ContactPropType> = () => {
   const [copyAlert, setCopyAlert] = useState<string>("");
 
   const onCopyClick = (): void => {

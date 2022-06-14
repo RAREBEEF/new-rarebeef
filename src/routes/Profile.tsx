@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
 
-const Profile: React.FC<ProfilePropType> = ({}) => {
+const Profile: React.FC<ProfilePropType> = () => {
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
   const [infoText, setInfoText] = useState<string>("");
   const infoWindowRef = useRef<any>(null);

@@ -18,7 +18,7 @@ import Skill from "../components/Skill";
 import Button from "../components/Button";
 import Loading from "../components/Loading";
 
-const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
+const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
   const sectionRef = useRef<any>(null);
   const [turnOn, setTurnOn] = useState<boolean>(false);
   const [mouseOver, setMouseOver] = useState<boolean>(false);

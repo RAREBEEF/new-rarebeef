@@ -4,7 +4,7 @@ import logo from "../images/logos/beef.svg";
 import { FrontPropType } from "../types";
 import classNames from "classnames";
 
-const Front: React.FC<FrontPropType> = ({}): ReactElement => {
+const Front: React.FC<FrontPropType> = (): ReactElement => {
   const [scrollDegree, setScrollDegree] = useState<number>(0);
 
   useEffect(() => {

@@ -51,7 +51,7 @@ export const getGuestBookThunk = (): Function => {
         FB.orderBy("createdAt", "desc")
       );
 
-      const unsub = FB.onSnapshot(q, (querySnapshot) => {
+      FB.onSnapshot(q, (querySnapshot) => {
         let guestBookArr: any = [];
 
         querySnapshot.forEach((doc) => {
