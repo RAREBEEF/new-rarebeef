@@ -97,6 +97,12 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
       });
     });
 
+    const windowScrollListner = (): void => {
+      setShowInfoWindow(false);
+    };
+
+    window.addEventListener("scroll", windowScrollListner);
+
     return () => {
       skills.forEach((skill: any) => {
         skill.removeEventListener("mousemove", (e: any): void => {
@@ -112,6 +118,8 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
           skill.style.transition = `all 0.5s`;
         });
       });
+
+      window.removeEventListener("scroll", windowScrollListner);
     };
   }, []);
 
