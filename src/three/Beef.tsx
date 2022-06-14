@@ -21,7 +21,6 @@ const Beef: React.FC<BeefPropType> = ({ setMouseOver }) => {
     currentRef.enablePan = false;
     currentRef.reverseOrbit = false;
 
-    return;
   }, []);
 
   // useFrame((state) => {

@@ -14,32 +14,26 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
   const [clientWidth, setClientWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
-    const update = (): void => {
+    const windowResizeListner = (): void => {
       setClientWidth(window.innerWidth);
-
-      return;
     };
 
-    window.addEventListener("resize", update);
+    window.addEventListener("resize", windowResizeListner);
 
     return (): void => {
-      window.removeEventListener("resize", update);
-
-      return;
+      window.removeEventListener("resize", windowResizeListner);
     };
   }, []);
 
   const onMenuClick = (): void => {
     setShowMenu((prev) => !prev);
-
-    return;
   };
 
   const onItemClick = (): void => {
     window.scrollTo({ top: 0 });
   };
 
-  const mouseDragCb = useCallback(
+  const windowMouseMoveListner = useCallback(
     (e: any): void => {
       e.preventDefault();
 
@@ -50,27 +44,21 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
           ? 100
           : prev - (e.movementX / clientWidth) * 100
       );
-
-      return;
     },
     [clientWidth]
   );
 
-  const onMouseUpCb = useCallback((): void => {
+  const windowMouseUpListner = useCallback((): void => {
     setResizing(false);
-    window.removeEventListener("mousemove", mouseDragCb);
-
-    return;
-  }, [mouseDragCb]);
+    window.removeEventListener("mousemove", windowMouseMoveListner);
+  }, [windowMouseMoveListner]);
 
   const onResizeClickStart = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.preventDefault();
 
     setResizing(true);
-    window.addEventListener("mousemove", mouseDragCb);
-    window.addEventListener("mouseup", onMouseUpCb, { once: true });
-
-    return;
+    window.addEventListener("mousemove", windowMouseMoveListner);
+    window.addEventListener("mouseup", windowMouseUpListner, { once: true });
   };
 
   return (

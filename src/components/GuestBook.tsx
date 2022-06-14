@@ -10,8 +10,6 @@ const GuestBook: React.FC<GuestBookPropType> = ({ data }) => {
 
   const onPwCheckChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setPwCheck(e.target.value);
-
-    return;
   };
 
   const onDelete = async (
@@ -38,8 +36,6 @@ const GuestBook: React.FC<GuestBookPropType> = ({ data }) => {
     }
 
     await FB.deleteDoc(FB.doc(FB.db, "GuestBook", data.id));
-
-    return;
   };
 
   return (

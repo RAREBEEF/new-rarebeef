@@ -12,8 +12,6 @@ const App = (): ReactElement => {
 
   useEffect((): void => {
     dispatch<any>(getGuestBookThunk());
-
-    return;
   }, [dispatch]);
 
   return (

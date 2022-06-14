@@ -37,11 +37,11 @@ const Clock = (): ReactElement => {
   React.useEffect(() => {
     alarmSound.loop = true;
 
-    const resize = () => {
+    const windowResizeListner = () => {
       setVh(window.innerHeight * 0.01);
     };
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", windowResizeListner);
 
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
@@ -68,15 +68,11 @@ const Clock = (): ReactElement => {
           alarmSound.play();
         }
       }
-
-      return;
     }, 100);
 
     return (): void => {
       clearInterval(timeUpdate);
-      window.removeEventListener("resize", resize);
-
-      return;
+      window.removeEventListener("resize", windowResizeListner);
     };
   });
 
@@ -87,8 +83,6 @@ const Clock = (): ReactElement => {
         yoyo: true,
         translateY: "10vmin",
       });
-
-      return;
     },
     []
   );
@@ -107,8 +101,6 @@ const Clock = (): ReactElement => {
     ) {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
     }
-
-    return;
   };
 
   const prevClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -125,8 +117,6 @@ const Clock = (): ReactElement => {
     ) {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "", m: "", s: "" }));
     }
-
-    return;
   };
 
   const selectClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -143,20 +133,14 @@ const Clock = (): ReactElement => {
       select === 1 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: "" }));
       select === 2 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: "" }));
     }
-
-    return;
   };
 
   const dateClick = (): void => {
     setShow("date");
-
-    return;
   };
 
   const alarmClick = (): void => {
     setShow("alarm");
-
-    return;
   };
 
   const hourInput = (e: any): void => {
@@ -169,8 +153,6 @@ const Clock = (): ReactElement => {
     } else {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: e.target.value }));
     }
-
-    return;
   };
 
   const minuteInput = (e: any): void => {
@@ -183,8 +165,6 @@ const Clock = (): ReactElement => {
     } else {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: e.target.value }));
     }
-
-    return;
   };
 
   const secondInput = (e: any): void => {
@@ -197,16 +177,12 @@ const Clock = (): ReactElement => {
     } else {
       setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: e.target.value }));
     }
-
-    return;
   };
 
   const stopRinging = (): void => {
     setAlarm((prevAlarm: any) => ({ ...prevAlarm, ring: false }));
     alarmSound.pause();
     alarmSound.currentTime = 0;
-
-    return;
   };
 
   return (

@@ -147,6 +147,7 @@
       }
     }
     .menu {
+      will-change: width;
       width: 100vw;
       pointer-events: all;
       .flip {

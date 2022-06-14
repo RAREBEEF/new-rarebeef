@@ -1,8 +1,7 @@
 import img1 from "../images/screenshots/browser-start.png";
 import img2 from "../images/screenshots/browser-start-init.png";
-import img3 from "../images/screenshots/browser-start-setting.png";
-import img4 from "../images/screenshots/browser-start-bookmark.png";
-import img5 from "../images/screenshots/browser-start-theme.png";
+import img3 from "../images/screenshots/browser-start-bookmark.png";
+import img4 from "../images/screenshots/browser-start-theme.png";
 import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
 import logo from "../images/logos/browser-start-icon.png";
@@ -14,7 +13,7 @@ const data: sectionDataType = {
     title: ["Browser", "start", "page"],
     subTitle: ["with", "Redux"],
   },
-  imgs: [img1, img2, img3, img4, img5],
+  imgs: [img1, img2, img3, img4],
   summary: {
     name: "Browser start page",
     date: "2022.03.09 ~ 03.14",

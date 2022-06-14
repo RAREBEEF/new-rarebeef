@@ -1,8 +1,7 @@
 import styles from "./Profile.module.scss";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
-import { useDispatch } from "react-redux";
 
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
@@ -22,8 +21,6 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
     const x = e.clientX;
     const y = e.clientY;
     currentRef.style.transform = `translate(${x}px, ${y}px)`;
-
-    return;
   };
 
   const onMouseEnter = (e: any): void => {
@@ -63,15 +60,11 @@ const Profile: React.FC<ProfilePropType> = ({}) => {
 
     //   return;
     // }
-
-    return;
   };
 
   const onMouseLeave = (): void => {
     setShowInfoWindow(false);
     setInfoText("");
-
-    return;
   };
 
   // useEffect((): void => {

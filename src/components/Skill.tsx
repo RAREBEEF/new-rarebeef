@@ -42,8 +42,6 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     }
 
     setShowInfoWindow(true);
-
-    return;
   };
 
   const onMouseMove = (e: any): void => {
@@ -56,14 +54,10 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     const x = e.clientX;
     const y = e.clientY;
     currentRef.style.transform = `translate(${x}px, ${y}px)`;
-
-    return;
   };
 
   const onMouseLeave = (): void => {
     setShowInfoWindow(false);
-
-    return;
   };
 
   useEffect(() => {
@@ -81,18 +75,12 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
 
         skill.style.transform = `translate(${x}px, ${y}px)`;
         skill.style.transition = `all 0s`;
-
-        return;
       });
 
       skill.addEventListener("mouseout", () => {
         skill.style.transform = `translate(0px, 0px)`;
         skill.style.transition = `all 0.5s`;
-
-        return;
       });
-
-      return;
     });
 
     return () => {
@@ -104,13 +92,10 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
 
           skill.style.transform = `translate(${x}px, ${y}px)`;
           skill.style.transition = `all 0s`;
-
-          return;
         });
+
         skill.removeEventListener("mouseout", () => {
           skill.style.transition = `all 0.5s`;
-
-          return;
         });
       });
     };

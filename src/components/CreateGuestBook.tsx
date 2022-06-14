@@ -11,20 +11,14 @@ const CreateGuestBook = () => {
 
   const onTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setContent(e.target.value);
-
-    return;
   };
 
   const onNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setName(e.target.value);
-
-    return;
   };
 
   const onPwChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setPw(e.target.value);
-
-    return;
   };
 
   const onUpload = async (
@@ -47,13 +41,9 @@ const CreateGuestBook = () => {
       setContent("");
       setName("");
       setPw("");
-
-      return;
     } catch (error) {
       console.error(error);
       window.alert(error);
-
-      return;
     }
   };
 

@@ -1,7 +1,6 @@
 import img1 from "../images/screenshots/simple-memo.png";
 import img2 from "../images/screenshots/simple-memo-memo.png";
 import img3 from "../images/screenshots/simple-memo-write.png";
-import img4 from "../images/screenshots/simple-memo-delete.png";
 import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
 import logo from "../images/logos/simple-memo-icon.png";
@@ -13,7 +12,7 @@ const data: sectionDataType = {
     title: ["Simple", "memo"],
     subTitle: ["with", "Local", "storage"],
   },
-  imgs: [img1, img2, img3, img4],
+  imgs: [img1, img2, img3],
   summary: {
     name: "Simple memo",
     date: "2021.11.23 ~ 12.08",

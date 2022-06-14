@@ -1,8 +1,7 @@
 import img1 from "../images/screenshots/place-review.png";
-import img2 from "../images/screenshots/place-review-login.png";
-import img3 from "../images/screenshots/place-review-write.png";
-import img4 from "../images/screenshots/place-review-profile.png";
-import img5 from "../images/screenshots/place-review-responsive.png";
+import img2 from "../images/screenshots/place-review-write.png";
+import img3 from "../images/screenshots/place-review-login.png";
+import img4 from "../images/screenshots/place-review-responsive.png";
 import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
 import logo from "../images/logos/place-review-icon.png";
@@ -14,7 +13,7 @@ const data: sectionDataType = {
     title: ["Place", "Review"],
     subTitle: ["with", "Kakao Map"],
   },
-  imgs: [img1, img2, img3, img4, img5],
+  imgs: [img1, img2, img3, img4],
   summary: { name: "Place Review", date: "2022.03.15 ~ 04.08", headCount: 1 },
   description:
     "장소 리뷰 웹 애플리케이션입니다.\n지도로 위치를 검색하고 해당 위치에 대한 리뷰를 작성할 수 있습니다. Kakao map과 Firebase, 그리고 Redux 등 여러 기술들을 함께 다뤄보고자 시작하게 된 프로젝트입니다.",

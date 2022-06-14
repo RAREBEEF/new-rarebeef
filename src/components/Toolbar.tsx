@@ -13,35 +13,27 @@ const Toolbar: React.FC<ToolbarPropType> = ({}): ReactElement => {
 
   const toTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    return;
   };
 
-  const resizeCb = useCallback((): void => {
+  const windowResizeListner = useCallback((): void => {
     setClientHeight(window.innerHeight);
-
-    return;
   }, []);
 
-  const scrollCb = useCallback((): void => {
+  const windowScrollListner = useCallback((): void => {
     setScrollTop(window.scrollY);
-
-    return;
   }, []);
 
   useEffect(() => {
-    scrollCb();
-    resizeCb();
-    window.addEventListener("scroll", scrollCb);
-    window.addEventListener("resize", resizeCb);
+    windowScrollListner();
+    windowResizeListner();
+    window.addEventListener("scroll", windowScrollListner);
+    window.addEventListener("resize", windowResizeListner);
 
     return (): void => {
-      window.removeEventListener("scroll", scrollCb);
-      window.removeEventListener("resize", resizeCb);
-
-      return;
+      window.removeEventListener("scroll", windowScrollListner);
+      window.removeEventListener("resize", windowResizeListner);
     };
-  }, [resizeCb, scrollCb]);
+  }, [windowResizeListner, windowScrollListner]);
 
   return (
     <div className={classNames(styles.container)}>

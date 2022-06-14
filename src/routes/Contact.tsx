@@ -20,8 +20,6 @@ const Contact: React.FC<ContactPropType> = ({}) => {
         console.log(error);
         setCopyAlert("복사 실패");
       });
-
-    return;
   };
 
   return (

@@ -11,7 +11,7 @@ import { Canvas } from "@react-three/fiber";
 import Beef from "../three/Beef";
 import { ThreeBeefPropType } from "../types";
 import classNames from "classnames";
-import monitorImg from "../images/monitor2.png";
+import monitorImg from "../images/monitor.png";
 import powerIcon from "../images/icons/power-off-solid.svg";
 import velogIcon from "../images/icons/velog-square.svg";
 import Skill from "../components/Skill";
@@ -30,14 +30,10 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
 
   const onDragStart = (): void => {
     setIsDragging(true);
-
-    return;
   };
 
   const onDragEnd = (): void => {
     setIsDragging(false);
-
-    return;
   };
 
   useEffect(() => {
@@ -45,7 +41,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
       return;
     }
 
-    const windowScrollCb = () => {
+    const windowScrollListner = () => {
       if (
         window.scrollY < sectionRef.current.offsetTop - window.innerHeight ||
         window.scrollY > sectionRef.current.offsetTop + window.innerHeight
@@ -54,10 +50,10 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = ({}): ReactElement => {
       }
     };
 
-    window.addEventListener("scroll", windowScrollCb);
+    window.addEventListener("scroll", windowScrollListner);
 
     return () => {
-      window.removeEventListener("scroll", windowScrollCb);
+      window.removeEventListener("scroll", windowScrollListner);
     };
   }, []);
 
