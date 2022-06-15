@@ -1,19 +1,50 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import styles from "./Front.module.scss";
 import logo from "../images/logos/beef.svg";
 import { FrontPropType } from "../types";
 import classNames from "classnames";
+import gsap from "gsap";
 
 const Front: React.FC<FrontPropType> = (): ReactElement => {
-  const [scrollDegree, setScrollDegree] = useState<number>(0);
+  const clipPathRef = useRef<any>(null);
+  const fakeSubTitleRef = useRef<any>(null);
+  const realSubTitleRef = useRef<any>(null);
+  const realTitleRef = useRef<any>(null);
+  const realLogoRef = useRef<any>(null);
 
   useEffect(() => {
     const windowScrollListner = () => {
-      if (window.scrollY / (window.innerHeight * 2) > 1.5) {
+      if (
+        !clipPathRef.current ||
+        !fakeSubTitleRef.current ||
+        !realSubTitleRef.current ||
+        !realLogoRef.current ||
+        !realTitleRef.current ||
+        window.scrollY / (window.innerHeight * 2) > 1.5
+      ) {
         return;
       }
 
-      setScrollDegree((window.scrollY / (window.innerHeight * 2)) * -100);
+      let scrollDegree = (window.scrollY / (window.innerHeight * 2)) * -100;
+
+      gsap.to(clipPathRef.current, 0.3, {
+        clipPath: `inset(${
+          scrollDegree <= -100 ? -100 : 100 + scrollDegree
+        }% 0px 0px)`,
+      });
+
+      gsap.to(fakeSubTitleRef.current, 0.3, {
+        transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
+      });
+      gsap.to(realSubTitleRef.current, 0.3, {
+        transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
+      });
+      gsap.to(realLogoRef.current, 0.3, {
+        transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
+      });
+      gsap.to(realTitleRef.current, 0.3, {
+        transform: `translateY(${10 + scrollDegree * 0.05}vmin)`,
+      });
     };
 
     window.addEventListener("scroll", windowScrollListner);
@@ -29,10 +60,9 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       <div className={styles.content}>
         <div className={styles.fake}>
           <h2
+            ref={fakeSubTitleRef}
             className={styles["sub-title"]}
-            style={{
-              transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
-            }}
+            style={{ transform: `translateY(25vmin)` }}
           >
             RAREBEEF's
           </h2>
@@ -40,35 +70,20 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
           <h1 className={styles.title}>Portfolio</h1>
         </div>
         <div
+          ref={clipPathRef}
           className={styles.real}
-          style={{
-            clipPath: `inset(${
-              scrollDegree <= -100 ? -100 : 100 + scrollDegree
-            }% 0px 0px)`,
-          }}
+          style={{ clipPath: "inset(100% 0px 0px)" }}
         >
-          <h2
-            className={styles["sub-title"]}
-            style={{
-              transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
-            }}
-          >
+          <h2 ref={realSubTitleRef} className={styles["sub-title"]}>
             RAREBEEF's
           </h2>
           <img
+            ref={realLogoRef}
             className={styles.logo}
             src={logo}
             alt="RARE BEEF"
-            style={{
-              transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
-            }}
           />
-          <h1
-            className={styles.title}
-            style={{
-              transform: `translateY(${10 + scrollDegree * 0.05}vmin)`,
-            }}
-          >
+          <h1 ref={realTitleRef} className={styles.title}>
             Portfolio
           </h1>
         </div>

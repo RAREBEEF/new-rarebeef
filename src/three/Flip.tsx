@@ -8,7 +8,7 @@ const Flip = (): ReactElement => {
       id="flip-canvas"
       style={{
         // backgroundColor: "black",
-        width: "100vw",
+        maxWidth: "100vw",
         height: "100vh",
         minHeight: "1000px",
         margin: "auto",

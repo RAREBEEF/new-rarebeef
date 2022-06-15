@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import ToDoModel from "../models/ToDoModel";
@@ -27,23 +27,23 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
       if (
         !sectionRef.current ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 5 -
+          (window.innerHeight * 6 -
             sectionRef.current.childNodes[1].clientHeight) >=
           0 ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 5 -
+          (window.innerHeight * 6 -
             sectionRef.current.childNodes[1].clientHeight) <=
           -1.5
       ) {
         return;
       }
-      
+
       gsap.to(groupRef.current.rotation, 0.3, {
         y: angleToRadians(
-          -180 -
-            180 *
+          -45 -
+            360 *
               (sectionRef.current.getBoundingClientRect().top /
-                (window.innerHeight * 5 -
+                (window.innerHeight * 6 -
                   sectionRef.current.childNodes[1].clientHeight))
         ),
       });
@@ -58,7 +58,7 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
 
   return (
     <>
-      <group ref={groupRef} rotation={[0, angleToRadians(-180), 0]}>
+      <group ref={groupRef} rotation={[0, angleToRadians(-45), 0]}>
         <ToDoModel
           rotation={[angleToRadians(90), 0, 0]}
           scale={0.02}
