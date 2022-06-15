@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import ToDoModel from "../models/ToDoModel";
 import WeatherModel from "../models/WeatherModel";
@@ -20,6 +20,9 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
     currentRef.enablePan = false;
     currentRef.enableRotate = false;
     currentRef.reverseOrbit = false;
+    currentRef.object.position.z = 0;
+    currentRef.object.position.x = -5;
+    currentRef.object.position.y = -1;
   }, []);
 
   useEffect(() => {
@@ -38,15 +41,58 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
         return;
       }
 
-      gsap.to(groupRef.current.rotation, 0.3, {
-        y: angleToRadians(
-          -45 -
-            360 *
-              (sectionRef.current.getBoundingClientRect().top /
-                (window.innerHeight * 6 -
-                  sectionRef.current.childNodes[1].clientHeight))
-        ),
-      });
+      let scrollDegree =
+        (sectionRef.current.getBoundingClientRect().top /
+          (window.innerHeight * 6 -
+            sectionRef.current.childNodes[1].clientHeight)) *
+        -1;
+
+      if (scrollDegree >= 0 && scrollDegree < 0.2) {
+        scrollDegree *= 5;
+
+        gsap.to(controlRef.current.object.position, 0.3, {
+          x: -5 + 5 * scrollDegree,
+          y: -1,
+          z: 0 + 3 * scrollDegree,
+          ease: "linear",
+        });
+      } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
+        scrollDegree = (scrollDegree - 0.2) * 5;
+
+        gsap.to(controlRef.current.object.position, 0.3, {
+          x: 0 + 5 * scrollDegree,
+          y: -1,
+          z: 3 - 3 * scrollDegree,
+          ease: "linear",
+        });
+      } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
+        scrollDegree = (scrollDegree - 0.4) * 5;
+
+        gsap.to(controlRef.current.object.position, 0.3, {
+          x: 5 - 5 * scrollDegree,
+          y: -1,
+          z: 0 - 1 * scrollDegree,
+          ease: "linear",
+        });
+      } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
+        scrollDegree = (scrollDegree - 0.6) * 5;
+
+        gsap.to(controlRef.current.object.position, 0.3, {
+          x: 0,
+          y: -1 - 5.5 * scrollDegree,
+          z: -1,
+          ease: "linear",
+        });
+      } else if (scrollDegree >= 0.8 && scrollDegree <= 1.05) {
+        scrollDegree = (scrollDegree - 0.8) * 5;
+
+        gsap.to(controlRef.current.object.position, 0.3, {
+          x: 0 - 5 * scrollDegree,
+          y: -6.5 + 6 * scrollDegree,
+          z: -1 + 6 * scrollDegree,
+          ease: "linear",
+        });
+      }
     };
 
     window.addEventListener("scroll", windowScrollListner);
@@ -58,22 +104,38 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
 
   return (
     <>
-      <group ref={groupRef} rotation={[0, angleToRadians(-45), 0]}>
+      <group
+        ref={groupRef}
+        // rotation={[0, angleToRadians(-45), 0]}
+        // rotation={[0, angleToRadians(45), 0]}
+        // rotation={[0, 0, 0]}
+        // position={[0, -1, 0]}
+      >
         <ToDoModel
           rotation={[angleToRadians(90), 0, 0]}
-          scale={0.02}
-          position={[-1.1, 0.3, 0]}
+          // scale={0.02}
+          scale={0.03}
+          // position={[-1.1, 0.3, 0]}
+          position={[0, 0, 0.5]}
         />
         <WeatherModel
-          rotation={[angleToRadians(90), 0, 0]}
-          scale={0.02}
-          position={[1.1, -0.3, 0]}
+          rotation={[angleToRadians(90), 0, angleToRadians(180)]}
+          scale={0.03}
+          // position={[1.1, -0.3, 0]}
+          position={[0, -2, -0.5]}
         />
         <OrbitControls ref={controlRef} />
-        <spotLight
+        {/* <PerspectiveCamera  /> */}
+        {/* <spotLight
           args={["#fff", 1, 80, angleToRadians(100), 0.4]}
           position={[0, 0, -10]}
-        />
+        /> */}
+        {/* <spotLight
+          args={["#fff", 1, 80, angleToRadians(200), 0]}
+          position={[0, 5, 0]}
+        /> */}
+        <pointLight args={["#fff", 2]} position={[0, 0, -10]} />
+        <pointLight args={["#fff", 2]} position={[0, 0, 10]} />
       </group>
     </>
   );

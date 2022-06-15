@@ -9,6 +9,7 @@ import Skill from "../components/Skill";
 import Button from "../components/Button";
 import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
+// import audio from "../audios/alarm-sound.wav";
 
 const Clock = (): ReactElement => {
   const [vh, setVh] = useState(window.innerHeight * 0.01);
@@ -30,12 +31,14 @@ const Clock = (): ReactElement => {
     active: false,
     ring: false,
   });
-  const [alarmSound] = useState<any>(new Audio("../audios/alarm-sound.wav"));
+  // const [alarmSound] = useState<any>(
+  //   <audio src={require("../audios/alarm-sound.wav")} />
+  // );
 
   const focusRef = useRef<any>(null);
 
   React.useEffect(() => {
-    alarmSound.loop = true;
+    // alarmSound.loop = true;
 
     const windowResizeListner = () => {
       setVh(window.innerHeight * 0.01);
@@ -65,7 +68,7 @@ const Clock = (): ReactElement => {
           (alarm.s == time[2] || (alarm.s == "" && time[2] == "00"))
         ) {
           setAlarm((prevAlarm: any) => ({ ...prevAlarm, ring: true }));
-          alarmSound.play();
+          // alarmSound.play();
         }
       }
     }, 100);
@@ -181,8 +184,8 @@ const Clock = (): ReactElement => {
 
   const stopRinging = (): void => {
     setAlarm((prevAlarm: any) => ({ ...prevAlarm, ring: false }));
-    alarmSound.pause();
-    alarmSound.currentTime = 0;
+    // alarmSound.pause();
+    // alarmSound.currentTime = 0;
   };
 
   return (

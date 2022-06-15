@@ -20,7 +20,7 @@ const Home: React.FC<HomePropType> = () => {
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
       <Front />
-      <Flip />
+      {/* <Flip /> */}
       <Section data={placeReview} />
       <ReactNative />
       <Section data={metaBeef} />
