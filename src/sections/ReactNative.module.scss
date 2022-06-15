@@ -1,5 +1,14 @@
 @import "../components/Section.module.scss";
 
+.container {
+  height: 500vh;
+  display: block;
+}
+.content {
+  position: sticky;
+  top: 0;
+}
+
 .canvas {
   pointer-events: none;
   height: 90vh !important;

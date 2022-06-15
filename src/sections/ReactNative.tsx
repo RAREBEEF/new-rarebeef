@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, Suspense, useRef } from "react";
+import React, { ReactElement, Suspense, useRef } from "react";
 import Header from "../components/Header";
 import styles from "./ReactNative.module.scss";
 import { Canvas } from "@react-three/fiber";
@@ -13,24 +13,9 @@ import Phones from "../three/Phones";
 
 const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
   const sectionRef = useRef<any>(null);
-  const [mouseOver, setMouseOver] = useState<boolean>(false);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-
-  const onDragStart = (): void => {
-    setIsDragging(true);
-  };
-
-  const onDragEnd = (): void => {
-    setIsDragging(false);
-  };
 
   return (
-    <section
-      className={styles.container}
-      onMouseDown={onDragStart}
-      onMouseUp={onDragEnd}
-      ref={sectionRef}
-    >
+    <section className={styles.container} ref={sectionRef}>
       <Header
         title={["ToDo", "&", "Weather", "App"]}
         subTitle={["with", "React", "Native"]}
@@ -38,14 +23,8 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
       />
       <div className={styles.content}>
         <Suspense fallback={<Loading />}>
-          <Canvas
-            className={styles.canvas}
-            style={{
-              cursor: mouseOver ? "pointer" : isDragging ? "grabbing" : "grab",
-            }}
-            shadows
-          >
-            <Phones setMouseOver={setMouseOver} />
+          <Canvas className={styles.canvas} shadows>
+            <Phones sectionRef={sectionRef} />
           </Canvas>
         </Suspense>
         <div className={classNames(styles.summary, styles.box)}>

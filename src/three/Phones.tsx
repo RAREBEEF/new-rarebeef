@@ -1,12 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import ToDoModel from "../models/ToDoModel";
-import { BeefPropType } from "../types";
 import WeatherModel from "../models/WeatherModel";
+import { PhonesPropType } from "../types";
+import gsap from "gsap";
 
-const Phones: React.FC<BeefPropType> = ({ setMouseOver }) => {
+const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
   const controlRef = useRef<any>(null);
+  const groupRef = useRef<any>(null);
 
   useEffect((): void => {
     if (!controlRef.current) {
@@ -14,19 +16,49 @@ const Phones: React.FC<BeefPropType> = ({ setMouseOver }) => {
     }
 
     const currentRef = controlRef.current;
-    // currentRef.object.position.setY(4);
     currentRef.enableZoom = false;
     currentRef.enablePan = false;
     currentRef.enableRotate = false;
     currentRef.reverseOrbit = false;
-    currentRef.autoRotate = true;
-    currentRef.autoRotateSpeed = 4;
-    console.log(currentRef);
   }, []);
+
+  useEffect(() => {
+    const windowScrollListner = () => {
+      if (
+        !sectionRef.current ||
+        sectionRef.current.getBoundingClientRect().top /
+          (window.innerHeight * 5 -
+            sectionRef.current.childNodes[1].clientHeight) >=
+          0 ||
+        sectionRef.current.getBoundingClientRect().top /
+          (window.innerHeight * 5 -
+            sectionRef.current.childNodes[1].clientHeight) <=
+          -1.5
+      ) {
+        return;
+      }
+      
+      gsap.to(groupRef.current.rotation, 0.3, {
+        y: angleToRadians(
+          -180 -
+            180 *
+              (sectionRef.current.getBoundingClientRect().top /
+                (window.innerHeight * 5 -
+                  sectionRef.current.childNodes[1].clientHeight))
+        ),
+      });
+    };
+
+    window.addEventListener("scroll", windowScrollListner);
+
+    return () => {
+      window.removeEventListener("scroll", windowScrollListner);
+    };
+  }, [sectionRef]);
 
   return (
     <>
-      <group>
+      <group ref={groupRef} rotation={[0, angleToRadians(-180), 0]}>
         <ToDoModel
           rotation={[angleToRadians(90), 0, 0]}
           scale={0.02}

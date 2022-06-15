@@ -25,6 +25,10 @@ export interface SectionPropType {
   data: sectionDataType;
 }
 
+export interface PhonesPropType {
+  sectionRef: any;
+}
+
 export interface FlipCardPropType {
   position?: [number, number, number];
 }
