@@ -7,7 +7,6 @@ import classNames from "classnames";
 import { HomePropType } from "../types";
 import Clock from "../sections/Clock";
 import MemoryTest from "../sections/MemoryTest";
-import Flip from "../three/Flip";
 import Section from "../components/Section";
 import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
@@ -20,7 +19,7 @@ const Home: React.FC<HomePropType> = () => {
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
       <Front />
-      {/* <Flip /> */}
+      <div className={styles.contour} />
       <Section data={placeReview} />
       <ReactNative />
       <Section data={metaBeef} />

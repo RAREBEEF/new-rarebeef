@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef } from "react";
 import styles from "./Front.module.scss";
 import logo from "../images/logos/beef.svg";
 import { FrontPropType } from "../types";

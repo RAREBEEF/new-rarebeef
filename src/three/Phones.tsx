@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useEffect, useRef } from "react";
+import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import ToDoModel from "../models/ToDoModel";
 import WeatherModel from "../models/WeatherModel";
