@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import GuestBookSection from "../components/GuestBookSection";
 import Header from "../components/Header";
@@ -7,8 +7,12 @@ import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
 import { ContactPropType } from "../types";
 
-const Contact: React.FC<ContactPropType> = () => {
+const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
   const [copyAlert, setCopyAlert] = useState<string>("");
+
+  useEffect(() => {
+    setTitle("Contact RAREBEEF");
+  }, [setTitle]);
 
   const onCopyClick = (): void => {
     navigator.clipboard
@@ -26,7 +30,7 @@ const Contact: React.FC<ContactPropType> = () => {
     <div className={styles.container}>
       <Header
         title={["Contact"]}
-        subTitle={["Always welcome"]}
+        subTitle={["Welcome feedback"]}
         classes={["Contact"]}
       />
       <div className={styles.content}>
@@ -40,7 +44,7 @@ const Contact: React.FC<ContactPropType> = () => {
           <div className={styles["btn-group"]}>
             <Button text="drrobot409@gmail.com" onClick={onCopyClick} />
             <Button
-              href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef.github.io"
+              href="mailto:drrobot409@gmail.com?body=-&nbsp;Send from rarebeef's portfolio."
               icon={writeIcon}
               classes={["Contact__send-mail"]}
             />

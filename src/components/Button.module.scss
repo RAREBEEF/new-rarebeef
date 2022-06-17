@@ -64,12 +64,10 @@
   }
 
   &.CreateGuestBook {
-    width: 60px;
+    flex-shrink: 0;
+    flex-basis: 55px;
     height: auto;
     padding: none;
     white-space: nowrap;
-    margin: {
-      bottom: 10px;
-    }
   }
 }

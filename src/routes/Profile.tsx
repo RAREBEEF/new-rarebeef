@@ -6,13 +6,15 @@ import Header from "../components/Header";
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
 
-const Profile: React.FC<ProfilePropType> = () => {
+const Profile: React.FC<ProfilePropType> = ({ setTitle }) => {
   // const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
   const [age, setAge] = useState<number>(0);
   // const [infoText, setInfoText] = useState<string>("");
   // const infoWindowRef = useRef<any>(null);
 
   useEffect(() => {
+    setTitle("About RAREBEEF");
+
     const date = new Date();
     setAge(
       date.getMonth() < 10 || (date.getMonth() === 10 && date.getDate() < 6)
@@ -29,7 +31,7 @@ const Profile: React.FC<ProfilePropType> = () => {
     // return () => {
     //   window.removeEventListener("scroll", windowScrollListner);
     // };
-  }, []);
+  }, [setTitle]);
 
   // const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
   //   if (!infoWindowRef.current || !showInfoWindow) {
@@ -150,7 +152,9 @@ const Profile: React.FC<ProfilePropType> = () => {
           // onTouchStart={onTouch}
         >
           <h2 className={styles.header}>Birth date</h2>
-          <span className={styles.text}>1998/10/06&nbsp;&nbsp;[{age}살]</span>
+          <span className={styles.text}>
+            1998년 10월 6일&nbsp;&nbsp;[{age}살]
+          </span>
         </section>
         <section className={styles.section}>
           <h2 className={styles.header}>Skills</h2>
@@ -180,7 +184,7 @@ const Profile: React.FC<ProfilePropType> = () => {
           </ul>
         </section>
         <section className={classNames(styles.section, styles.plan)}>
-          <h2 className={styles.header}>Next plan...</h2>
+          <h2 className={styles.header}>Future plans</h2>
           <ol>
             <li
               id={"first-plan"}

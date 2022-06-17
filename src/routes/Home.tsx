@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ThreeBeef from "../sections/ThreeBeef";
 import ReactNative from "../sections/ReactNative";
 import Front from "../sections/Front";
@@ -13,8 +13,12 @@ import metaBeef from "../sections/metaBeef";
 import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
 
-const Home: React.FC<HomePropType> = () => {
+const Home: React.FC<HomePropType> = ({ setTitle }) => {
   const HomeRef = useRef<any>(null);
+
+  useEffect(() => {
+    setTitle("RAREBEEF's portfolio");
+  }, [setTitle]);
 
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
