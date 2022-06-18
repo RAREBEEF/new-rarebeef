@@ -52,6 +52,9 @@
     .bottom-wrapper {
       position: relative;
       display: flex;
+      margin: {
+        bottom: 20px;
+      }
 
       .input--content {
         flex-grow: 1;
