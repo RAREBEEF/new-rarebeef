@@ -21,7 +21,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
         subTitle={["with", "React", "Native"]}
         classes={["ReactNative"]}
       />
-      <div className={styles.content}>
+      <main className={styles.content}>
         <Suspense fallback={<Loading />}>
           <Canvas className={styles.canvas} shadows>
             <Phones sectionRef={sectionRef} />
@@ -79,7 +79,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
             />
           </div>
         </div>
-      </div>
+      </main>
     </section>
   );
 };

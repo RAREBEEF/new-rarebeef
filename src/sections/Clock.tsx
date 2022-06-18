@@ -195,7 +195,7 @@ const Clock = (): ReactElement => {
         subTitle={["with", "alarm"]}
         classes={["Clock"]}
       />
-      <div className={styles.content}>
+      <main className={styles.content}>
         <div
           className={classNames(styles["clock-wrapper"])}
           // style={{ height: "calc(var(--vh, 1vh) * 100)" }}
@@ -447,7 +447,7 @@ const Clock = (): ReactElement => {
             />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

@@ -141,7 +141,7 @@ const Profile: React.FC<ProfilePropType> = ({ setTitle }) => {
           // onMouseLeave={onMouseLeave}
           // onTouchStart={onTouch}
         >
-          <h2 className={styles.header}>Name</h2>
+          <h4 className={styles.header}>Name</h4>
           <span className={styles.text}>소고기는레어</span>
         </section>
         <section
@@ -151,16 +151,16 @@ const Profile: React.FC<ProfilePropType> = ({ setTitle }) => {
           // onMouseLeave={onMouseLeave}
           // onTouchStart={onTouch}
         >
-          <h2 className={styles.header}>Birth date</h2>
+          <h4 className={styles.header}>Birth date</h4>
           <span className={styles.text}>
             1998년 10월 6일&nbsp;&nbsp;[{age}살]
           </span>
         </section>
         <section className={styles.section}>
-          <h2 className={styles.header}>Skills</h2>
+          <h4 className={styles.header}>Skills</h4>
           <ul>
             <li>
-              <h3 className={styles["sub-header"]}>Front-end</h3>
+              <h5 className={styles["sub-header"]}>Front-end</h5>
               <ul className={styles["skills__front-end"]}>
                 <Skill skill="HTML" />
                 <Skill skill="CSS" />
@@ -175,7 +175,7 @@ const Profile: React.FC<ProfilePropType> = ({ setTitle }) => {
               </ul>
             </li>
             <li>
-              <h3 className={styles["sub-header"]}>Design</h3>
+              <h5 className={styles["sub-header"]}>Design</h5>
               <ul className={styles["skills__design"]}>
                 <Skill skill="Illustrator" />
                 <Skill skill="Blender" />
@@ -184,7 +184,7 @@ const Profile: React.FC<ProfilePropType> = ({ setTitle }) => {
           </ul>
         </section>
         <section className={classNames(styles.section, styles.plan)}>
-          <h2 className={styles.header}>Future plans</h2>
+          <h4 className={styles.header}>Future plans</h4>
           <ol>
             <li
               id={"first-plan"}

@@ -36,9 +36,9 @@ const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
       <div className={styles.content}>
         <section className={styles.section}>
           <div className={styles["header-mail-wrapper"]}>
-            <h2 className={classNames(styles.header, styles["header-mail"])}>
+            <h4 className={classNames(styles.header, styles["header-mail"])}>
               Mail
-            </h2>
+            </h4>
             <span className={styles["alert-copy"]}>{copyAlert}</span>
           </div>
           <div className={styles["btn-group"]}>
@@ -51,7 +51,7 @@ const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
           </div>
         </section>
         <section className={styles.section}>
-          <h2 className={styles.header}>Github</h2>
+          <h4 className={styles.header}>Github</h4>
           <div className={styles["btn-group"]}>
             <Button
               href="https://github.com/RAREBEEF"
@@ -60,7 +60,7 @@ const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
           </div>
         </section>
         <section className={styles.section}>
-          <h2 className={styles.header}>Blog</h2>
+          <h4 className={styles.header}>Blog</h4>
           <div className={styles["btn-group"]}>
             <Button
               href="https://velog.io/@drrobot409"
@@ -69,7 +69,7 @@ const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
           </div>
         </section>
         <section className={styles.section}>
-          <h2 className={styles.header}>Guest book</h2>
+          <h4 className={styles.header}>Guest book</h4>
           <GuestBookSection />
         </section>
       </div>

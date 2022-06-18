@@ -57,26 +57,26 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
   return (
     <section className={classNames(styles.container)}>
       <div className={styles.bg} />
-      <div className={styles.content}>
+      <main className={styles.content}>
         <div className={styles.fake}>
-          <h2
+          <h1
             ref={fakeSubTitleRef}
             className={styles["sub-title"]}
             style={{ transform: `translateY(25vmin)` }}
           >
             RAREBEEF's
-          </h2>
+          </h1>
           <img className={classNames(styles.logo)} src={logo} alt="RARE BEEF" />
           <h1 className={styles.title}>Portfolio</h1>
         </div>
-        <div
+        <hgroup
           ref={clipPathRef}
           className={styles.real}
           style={{ clipPath: "inset(100% 0px 0px)" }}
         >
-          <h2 ref={realSubTitleRef} className={styles["sub-title"]}>
+          <h1 ref={realSubTitleRef} className={styles["sub-title"]}>
             RAREBEEF's
-          </h2>
+          </h1>
           <img
             ref={realLogoRef}
             className={styles.logo}
@@ -86,8 +86,8 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
           <h1 ref={realTitleRef} className={styles.title}>
             Portfolio
           </h1>
-        </div>
-      </div>
+        </hgroup>
+      </main>
     </section>
   );
 };

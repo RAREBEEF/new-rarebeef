@@ -16,7 +16,7 @@ const MemoryTest = (): ReactElement => {
         subTitle={["Mini game"]}
         classes={["MemoryTest"]}
       />
-      <div className={styles.content}>
+      <main className={styles.content}>
         <MemoryTestApp />
         <div className={classNames(styles.summary, styles.box)}>
           <h3 className={styles["box__title"]}>Project summary</h3>
@@ -70,7 +70,7 @@ const MemoryTest = (): ReactElement => {
             />
           </div>
         </div>
-      </div>
+      </main>
     </section>
   );
 };

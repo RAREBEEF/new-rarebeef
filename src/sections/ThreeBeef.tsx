@@ -69,7 +69,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
         subTitle={["with Three.js"]}
         classes={["ThreeBeef"]}
       />
-      <div className={styles.content}>
+      <main className={styles.content}>
         <div className={styles.monitor}>
           <img
             className={styles["img--monitor"]}
@@ -148,7 +148,7 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
             />
           </div>
         </div>
-      </div>
+      </main>
     </section>
   );
 };

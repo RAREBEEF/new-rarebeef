@@ -9,13 +9,13 @@ const Header: React.FC<HeaderPropType> = ({
   classes,
 }): ReactElement => {
   return (
-    <div
+    <hgroup
       className={classNames(
         styles.header,
         classes?.map((item: string): string => styles[item])
       )}
     >
-      <h1 className={styles["title"]}>
+      <h2 className={styles["title"]}>
         {typeof title === "string"
           ? title
           : title.map((title: string, index: number) => (
@@ -30,9 +30,9 @@ const Header: React.FC<HeaderPropType> = ({
                 &nbsp;
               </span>
             ))}
-      </h1>
+      </h2>
       {subTitle && (
-        <h2 className={styles["sub-title"]}>
+        <h3 className={styles["sub-title"]}>
           {typeof subTitle === "string"
             ? subTitle
             : subTitle.map((title: string, index: number) => (
@@ -47,9 +47,9 @@ const Header: React.FC<HeaderPropType> = ({
                   &nbsp;
                 </span>
               ))}
-        </h2>
+        </h3>
       )}
-    </div>
+    </hgroup>
   );
 };
 

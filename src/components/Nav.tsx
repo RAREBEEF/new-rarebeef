@@ -62,7 +62,7 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
   };
 
   return (
-    <div
+    <nav
       className={classNames(styles.container, showMenu && styles["show-menu"])}
     >
       <img
@@ -127,7 +127,7 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
           </NavLink>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 

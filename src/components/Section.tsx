@@ -66,7 +66,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         subTitle={data.header.subTitle}
         classes={data.name}
       />
-      <div className={styles.content}>
+      <main className={styles.content}>
         <div className={classNames(styles.screenshots, styles.box)}>
           <Swiper
             color="black"
@@ -129,7 +129,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
           <h3 className={styles["box__title"]}>Links</h3>
           <div className={styles["links-wrapper"]}>{linkGeneroator()}</div>
         </div>
-      </div>
+      </main>
     </section>
   );
 };
