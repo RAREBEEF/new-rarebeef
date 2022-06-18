@@ -332,7 +332,6 @@ function MemoryTestApp() {
     setCardEls(document.querySelectorAll(".MemoryTest__card"));
   }, [difficulty]);
 
-
   // 카드 반짝반짝 효과
   useEffect(() => {
     if (!start && cardEls.length !== 0) {
@@ -418,61 +417,62 @@ function MemoryTestApp() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.round}>Round {displayRound}</div>
-        <div className={styles.level}>
-          {displayRound >= 25
-            ? "Expert"
-            : displayRound >= 13
-            ? "Hard"
-            : displayRound >= 5
-            ? "Normal"
-            : "Easy"}
-        </div>
-      </div>
-
-      <div className={styles.content}>
-        {(!start || isFail || gameClear) && (
-          <div className={styles.start}>
-            {(isFail || gameClear) && (
-              <div className={styles["result"]}>
-                {gameClear && (
-                  <div className={styles["clear"]}>Congratulation!</div>
-                )}
-                <div className={styles["score__text"]}>Score</div>
-                <div className={styles["score__round"]}>{round}</div>
-              </div>
-            )}
-            <span
-              className={styles["start__text"]}
-              style={{ fontSize: gameClear || isFail ? "5vmin" : "20vmin" }}
-              onClick={() => {
-                animations.forEach((el) => {
-                  el.kill();
-                });
-                if (isFail || gameClear) {
-                  restart();
-                } else {
-                  setStart(true);
-                }
-              }}
-            >
-              {isFail || gameClear ? "Restart" : "Start"}
-            </span>
+      <main className={styles.wrapper}>
+        <div className={styles.header}>
+          <div className={styles.round}>Round {displayRound}</div>
+          <div className={styles.level}>
+            {displayRound >= 25
+              ? "Expert"
+              : displayRound >= 13
+              ? "Hard"
+              : displayRound >= 5
+              ? "Normal"
+              : "Easy"}
           </div>
-        )}
-        <div className={styles.status}>
-          {isFail
-            ? ""
-            : isSuccess
-            ? round !== 5 && round !== 13 && round !== 25
-              ? "Success"
-              : "Level up"
-            : start &&
-              (countdown === 0 ? "Click!" : countdown !== 4 && countdown)}
         </div>
-        <div className={styles.board}>{rowsGenerator()}</div>
-      </div>
+        <div className={styles.content}>
+          {(!start || isFail || gameClear) && (
+            <div className={styles.start}>
+              {(isFail || gameClear) && (
+                <div className={styles["result"]}>
+                  {gameClear && (
+                    <div className={styles["clear"]}>Congratulation!</div>
+                  )}
+                  <div className={styles["score__text"]}>Score</div>
+                  <div className={styles["score__round"]}>{round}</div>
+                </div>
+              )}
+              <span
+                className={styles["start__text"]}
+                style={{ fontSize: gameClear || isFail ? "5vmin" : "20vmin" }}
+                onClick={() => {
+                  animations.forEach((el) => {
+                    el.kill();
+                  });
+                  if (isFail || gameClear) {
+                    restart();
+                  } else {
+                    setStart(true);
+                  }
+                }}
+              >
+                {isFail || gameClear ? "Restart" : "Start"}
+              </span>
+            </div>
+          )}
+          <div className={styles.status}>
+            {isFail
+              ? ""
+              : isSuccess
+              ? round !== 5 && round !== 13 && round !== 25
+                ? "Success"
+                : "Level up"
+              : start &&
+                (countdown === 0 ? "Click!" : countdown !== 4 && countdown)}
+          </div>
+          <div className={styles.board}>{rowsGenerator()}</div>
+        </div>
+      </main>
     </div>
   );
 }

@@ -78,24 +78,27 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             coverflowEffect={{
               slideShadows: false,
             }}
-            spaceBetween={10}
+            spaceBetween={20}
             grabCursor
           >
-            <div className={styles["swiper__pagination"]}>
-              <img
-                className={classNames(styles["swiper__arrow"], "nav--prev")}
-                src={arrow}
-                alt="Previous screenshot"
-              />
+            <div className={styles["swiper__pagination-wrapper"]}>
+              <div className={styles["swiper__pagination"]}>
+                <img
+                  className={classNames(styles["swiper__arrow"], "nav--prev")}
+                  src={arrow}
+                  alt="Previous screenshot"
+                />
+              </div>
+              <div className={styles["swiper__pagination"]}>
+                <img
+                  className={classNames(styles["swiper__arrow"], "nav--next")}
+                  src={arrow}
+                  alt="Next screenshot"
+                />
+              </div>
             </div>
+
             {swiperGeneroator()}
-            <div className={styles["swiper__pagination"]}>
-              <img
-                className={classNames(styles["swiper__arrow"], "nav--next")}
-                src={arrow}
-                alt="Next screenshot"
-              />
-            </div>
           </Swiper>
         </div>
         <div className={classNames(styles.summary, styles.box)}>

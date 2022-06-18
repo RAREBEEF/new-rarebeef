@@ -25,9 +25,10 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
         return;
       }
 
-      let scrollDegree = (window.scrollY / (window.innerHeight * 2)) * -100;
+      // Y스크롤 / (continaer 요소 높이(200vh) - sticky 요소 높이(100vh))
+      let scrollDegree = (window.scrollY / window.innerHeight) * -100;
 
-      gsap.to(clipPathRef.current, 0.3, {
+      gsap.to(clipPathRef.current, 0.1, {
         clipPath: `inset(${
           scrollDegree <= -100 ? -100 : 100 + scrollDegree
         }% 0px 0px)`,

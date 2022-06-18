@@ -49,50 +49,54 @@
         border: none;
         overflow: hidden;
 
-        .swiper__pagination {
-          z-index: 999;
+        .swiper__pagination-wrapper {
           position: absolute;
-          height: 10vw;
+          width: 100vw;
+          max-width: 1200px;
+          height: 50px;
           top: 0;
           bottom: 0;
-          margin: {
-            // left: 2vw;
-            // right: 2vw;
-            top: auto;
-            bottom: auto;
-          }
+          left: 0;
+          right: 0;
+          margin: auto;
+          display: flex;
+          justify-content: space-between;
 
-          .swiper__arrow {
-            height: 10vw;
-            cursor: pointer;
-            transition: opacity 0.3s;
-
-            &:hover {
-              opacity: 0.5;
-            }
-          }
-
-          &:last-child {
-            right: 0;
+          .swiper__pagination {
+            z-index: 999;
+            height: 50px;
+            width: 7.5vw;
+            display: flex;
+            justify-content: center;
 
             .swiper__arrow {
-              transform: rotate(180deg);
+              cursor: pointer;
+              transition: opacity 0.3s;
+
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+
+            &:last-child {
+              .swiper__arrow {
+                transform: rotate(180deg);
+              }
             }
           }
         }
 
         .swiper__container {
-          width: 90vw;
-          max-width: 1000px;
+          width: 100vw;
           overflow: visible;
           display: flex;
 
           .swiper__item {
-            max-width: 1000px;
             align-self: center;
 
             img {
               width: 90%;
+              max-width: 1000px;
             }
           }
         }
