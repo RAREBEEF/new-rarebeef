@@ -35,16 +35,16 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       });
 
       gsap.to(fakeSubTitleRef.current, 0.3, {
-        transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
-      });
-      gsap.to(realSubTitleRef.current, 0.3, {
-        transform: `translateY(${25 + scrollDegree * 0.3}vmin)`,
-      });
-      gsap.to(realLogoRef.current, 0.3, {
         transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
       });
+      gsap.to(realSubTitleRef.current, 0.3, {
+        transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
+      });
+      gsap.to(realLogoRef.current, 0.3, {
+        transform: `translateY(${15 + scrollDegree * 0.15}vmin)`,
+      });
       gsap.to(realTitleRef.current, 0.3, {
-        transform: `translateY(${10 + scrollDegree * 0.05}vmin)`,
+        transform: `translateY(${5 + scrollDegree * 0.05}vmin)`,
       });
     };
 
@@ -63,7 +63,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
           <h1
             ref={fakeSubTitleRef}
             className={styles["sub-title"]}
-            style={{ transform: `translateY(25vmin)` }}
+            style={{ transform: `translateY(20vmin)` }}
           >
             RAREBEEF's
           </h1>
