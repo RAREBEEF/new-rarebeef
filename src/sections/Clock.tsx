@@ -394,37 +394,63 @@ const Clock = (): ReactElement => {
             </div>
           </div>
         </div>
-        <div className={classNames(styles.summary, styles.box)}>
-          <h3 className={styles["box__title"]}>Project summary</h3>
-          <table className={styles["summary__table"]}>
-            <tbody className={styles["summary__table__tbody"]}>
-              <tr>
-                <td>프로젝트 이름</td>
-                <td>Digital Clock</td>
-              </tr>
-              <tr>
-                <td>프로젝트 기간</td>
-                <td>2022.01.09 ~ 01.19</td>
-              </tr>
-              <tr>
-                <td>개발 인원</td>
-                <td>1명</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className={classNames(styles.summary, styles.section)}>
+          <h3 className={styles["section__title"]}>Project summary</h3>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              Digital Clock
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              2022.01.09 ~ 01.19
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              1명
+            </p>
+          </div>
         </div>
-
-        <div className={classNames(styles.description, styles.box)}>
-          <h3 className={styles["box__title"]}>Description</h3>
-          <p className={styles["description__text"]}>
+        <div className={classNames(styles.description, styles.section)}>
+          <h3 className={styles["section__title"]}>Description</h3>
+          <p
+            className={classNames(
+              styles["description__text"],
+              styles["section__content"]
+            )}
+          >
             {
               "리액트로 디지털 시계를 만들어 보았습니다.\n평범한 웹사이트의 틀에서 벗어나 새로운 것을 만들어 보기 위해 시작한 프로젝트이며 리퀴드 크리스탈 폰트를 사용한 디지털 시계를 최대한 비슷한 모습으로 구현하고자 노력했습니다."
             }
           </p>
         </div>
-        <div className={classNames(styles.skills, styles.box)}>
-          <h3 className={styles["box__title"]}>Skills</h3>
-          <ul className={styles["skill-icons"]}>
+        <div className={classNames(styles.skills, styles.section)}>
+          <h3 className={styles["section__title"]}>Skills</h3>
+          <ul
+            className={classNames(
+              styles["skill-icons"],
+              styles["section__content"]
+            )}
+          >
             <Skill skill="HTML" />
             <Skill skill="JavaScript" />
             <Skill skill="React" />
@@ -432,9 +458,14 @@ const Clock = (): ReactElement => {
             <Skill skill="Netlify" />
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.box)}>
-          <h3 className={styles["box__title"]}>Links</h3>
-          <div className={styles["links-wrapper"]}>
+        <div className={classNames(styles.links, styles.section)}>
+          <h3 className={styles["section__title"]}>Links</h3>
+          <div
+            className={classNames(
+              styles["links-wrapper"],
+              styles["section__content"]
+            )}
+          >
             <Button
               icon={githubIcon}
               href="https://github.com/RAREBEEF/Clock"

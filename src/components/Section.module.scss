@@ -20,217 +20,222 @@
     flex-direction: column;
     align-items: center;
 
-    .box {
-      &:not(.screenshots) {
-        border: 1px solid #221718;
-      }
-      border-radius: 15px;
+    .screenshots {
+      position: relative;
+      max-width: 100vw;
+      min-width: 200px;
+      border: none;
       overflow: hidden;
-      height: fit-content;
       margin: {
         top: 100px;
-        left: 20px;
-        right: 20px;
       }
 
-      .box__title {
-        background-color: rgba(0, 0, 0, 0.8);
-        color: whitesmoke;
-        padding: 10px;
+      .swiper__pagination-wrapper {
+        position: absolute;
+        width: 95vw;
+        max-width: 1200px;
+        min-width: 180px;
+        height: 50px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        .swiper__pagination {
+          z-index: 999;
+          width: 7.5vw;
+          display: flex;
+          justify-content: center;
+
+          .swiper__arrow {
+            cursor: pointer;
+            transition: opacity 0.3s;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+
+          &:last-child {
+            .swiper__arrow {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      .swiper__container {
+        max-width: calc(100vw - 20px);
+        min-width: 200px;
+        overflow: visible;
+        display: flex;
+
+        .swiper__item {
+          align-self: center;
+          img {
+            width: 90%;
+            max-width: 1000px;
+          }
+        }
+      }
+    }
+
+    .section {
+      height: fit-content;
+      width: 80vw;
+      max-width: 900px;
+      min-width: 200px;
+      text-align: start;
+      margin: {
+        top: 100px;
+        left: 10px;
+        right: 10px;
+      }
+
+      .section__title {
+        margin: {
+          bottom: 25px;
+        }
         font: {
-          size: 25px;
+          size: 35px;
           weight: 700;
         }
       }
 
-      &.screenshots {
-        position: relative;
-        max-width: 100vw;
-        border: none;
-        overflow: hidden;
-
-        .swiper__pagination-wrapper {
-          position: absolute;
-          width: 100vw;
-          max-width: 1200px;
-          height: 50px;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          margin: auto;
-          display: flex;
-          justify-content: space-between;
-
-          .swiper__pagination {
-            z-index: 999;
-            height: 50px;
-            width: 7.5vw;
-            display: flex;
-            justify-content: center;
-
-            .swiper__arrow {
-              cursor: pointer;
-              transition: opacity 0.3s;
-
-              &:hover {
-                opacity: 0.5;
-              }
-            }
-
-            &:last-child {
-              .swiper__arrow {
-                transform: rotate(180deg);
-              }
-            }
-          }
+      .section__content {
+        margin: {
+          left: 20px;
         }
-
-        .swiper__container {
-          max-width: calc(100vw - 20px);
-          overflow: visible;
-          display: flex;
-
-          .swiper__item {
-            align-self: center;
-            img {
-              width: 90%;
-              max-width: 1000px;
-            }
-          }
+        font: {
+          size: 18px;
         }
       }
 
       &.summary {
-        width: fit-content;
-
-        * {
-          padding: 10px;
-          text-align: center;
+        .summary-wrapper {
+          &:not(:last-child) {
+            margin: {
+              bottom: 35px;
+            }
+          }
         }
-
-        tr:not(:last-child) {
-          border-bottom: 1px solid #221718;
-        }
-
-        td:first-child {
-          text-align: center;
-          border-right: 1px solid #221718;
-          padding: {
-            right: 15px;
+        .summary__sub-title {
+          margin: {
+            bottom: 15px;
+            left: 20px;
+          }
+          font: {
+            size: 21px;
+            weight: 700;
           }
         }
 
-        .summary__table {
-          margin: 10px;
+        .summary__text {
+          margin: {
+            left: 30px;
+          }
         }
       }
 
       &.description {
-        max-width: 400px;
-
         .description__text {
           word-break: keep-all;
           white-space: pre-line;
-          padding: 10px;
-          line-height: 23px;
+          line-height: 27px;
         }
       }
 
       &.skills {
-        width: fit-content;
         .skill-icons {
           display: flex;
           flex-wrap: wrap;
-          justify-content: center;
-
-          .img--skill {
-            height: 100px;
-            margin: 10px;
+          margin: {
+            left: 0;
+            right: 0;
+            top: -20px;
+            bottom: 0;
           }
         }
       }
 
       &.links {
-        width: fit-content;
-        max-width: 400px;
         min-width: 200px;
         .links-wrapper {
           display: flex;
-          justify-content: space-evenly;
           flex-wrap: wrap;
-          padding: 10px;
           gap: 10px;
         }
       }
     }
   }
 
-  &.PlaceReview {
-    .box:not(.screenshots) {
-      border-color: #403d39;
-      color: #403d39;
-      .box__title {
-        color: #fffcf2;
-        background-color: #403d39;
-      }
-    }
-  }
-  &.MetaBeef {
-    .box:not(.screenshots) {
-      border-color: #221718;
-      color: #221718;
-      .box__title {
-        color: whitesmoke;
-        background-color: #221718;
-      }
-    }
-  }
-  &.ReactNative {
-    .box:not(.screenshots) {
-      border-color: #292f36;
-      color: #292f36;
-      .box__title {
-        color: whitesmoke;
-        background-color: #292f36;
-      }
-    }
-  }
-  &.BrowserStart {
-    .box:not(.screenshots) {
-      border-color: rgba(20, 10, 40, 0.8);
-      color: #292f36;
-      .box__title {
-        color: white;
-        background-color: rgba(20, 10, 40, 0.8);
-      }
-    }
-  }
-  &.SimpleMemo {
-    .box:not(.screenshots) {
-      border-color: #463f3a;
-      color: #221718;
-      .box__title {
-        color: white;
-        background-color: #463f3a;
-      }
-    }
-  }
+  // &.PlaceReview {
+  //   .section:not(.screenshots) {
+  //     border-color: #403d39;
+  //     color: #403d39;
+  //     .section__title {
+  //       color: #fffcf2;
+  //       background-color: #403d39;
+  //     }
+  //   }
+  // }
+  // &.MetaBeef {
+  //   .section:not(.screenshots) {
+  //     border-color: #221718;
+  //     color: #221718;
+  //     .section__title {
+  //       color: whitesmoke;
+  //       background-color: #221718;
+  //     }
+  //   }
+  // }
+  // &.ReactNative {
+  //   .section:not(.screenshots) {
+  //     border-color: #292f36;
+  //     color: #292f36;
+  //     .section__title {
+  //       color: whitesmoke;
+  //       background-color: #292f36;
+  //     }
+  //   }
+  // }
+  // &.BrowserStart {
+  //   .section:not(.screenshots) {
+  //     border-color: rgba(20, 10, 40, 0.8);
+  //     color: #292f36;
+  //     .section__title {
+  //       color: white;
+  //       background-color: rgba(20, 10, 40, 0.8);
+  //     }
+  //   }
+  // }
+  // &.SimpleMemo {
+  //   .section:not(.screenshots) {
+  //     border-color: #463f3a;
+  //     color: #221718;
+  //     .section__title {
+  //       color: white;
+  //       background-color: #463f3a;
+  //     }
+  //   }
+  // }
   // &.MemoryTest {
-  //   .box:not(.screenshots) {
+  //   .section:not(.screenshots) {
   //     border-color: skyblue;
   //     color: #221718;
-  //     .box__title {
+  //     .section__title {
   //       color: #221718;
   //       background-color: skyblue;
   //     }
   //   }
   // }
   // &.DigitalClock {
-  //   .box:not(.screenshots) {
+  //   .section:not(.screenshots) {
   //     border-color:rgb(100, 19, 19);
   //     color: #221718;
-  //     .box__title {
+  //     .section__title {
   //       color: white;
   //       background-color: rgb(100, 19, 19);
   //     }

@@ -103,44 +103,77 @@ const ThreeBeef: React.FC<ThreeBeefPropType> = (): ReactElement => {
             </div>
           )}
         </div>
-        <div className={classNames(styles.summary, styles.box)}>
-          <h3 className={styles["box__title"]}>Project summary</h3>
-          <table className={styles["summary__table"]}>
-            <tbody className={styles["summary__table__tbody"]}>
-              <tr>
-                <td>프로젝트 이름</td>
-                <td>3D Beef</td>
-              </tr>
-              <tr>
-                <td>프로젝트 기간</td>
-                <td>2022.05.03</td>
-              </tr>
-              <tr>
-                <td>개발 인원</td>
-                <td>1명</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <div className={classNames(styles.summary, styles.section)}>
+          <h3 className={styles["section__title"]}>Project summary</h3>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              3D Beef
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              2022.05.03
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              1명
+            </p>
+          </div>
         </div>
-        <div className={classNames(styles.description, styles.box)}>
-          <h3 className={styles["box__title"]}>Description</h3>
-          <p className={styles["description__text"]}>
+        <div className={classNames(styles.description, styles.section)}>
+          <h3 className={styles["section__title"]}>Description</h3>
+          <p
+            className={classNames(
+              styles["description__text"],
+              styles["section__content"]
+            )}
+          >
             {
               "소고기와 접시의 3D 모델은 블렌더로 제작하였습니다. 제작한 모델은 Three.js를 통해 브라우저로 불러와서 렌더링하였으며 조명과 배경 등은 Three.js의 자체 기능으로 구현하였습니다."
             }
           </p>
         </div>
 
-        <div className={classNames(styles.skills, styles.box)}>
-          <h3 className={styles["box__title"]}>Skills</h3>
-          <ul className={styles["skill-icons"]}>
+        <div className={classNames(styles.skills, styles.section)}>
+          <h3 className={styles["section__title"]}>Skills</h3>
+          <ul
+            className={classNames(
+              styles["skill-icons"],
+              styles["section__content"]
+            )}
+          >
             <Skill skill="Blender" />
             <Skill skill="Three.js" />
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.box)}>
-          <h3 className={styles["box__title"]}>Link</h3>
-          <div className={styles["links-wrapper"]}>
+        <div className={classNames(styles.links, styles.section)}>
+          <h3 className={styles["section__title"]}>Link</h3>
+          <div
+            className={classNames(
+              styles["links-wrapper"],
+              styles["section__content"]
+            )}
+          >
             <Button
               icon={velogIcon}
               href="https://velog.io/@drrobot409/Blender-3D-%EB%A1%9C%EA%B3%A0-%EC%A0%9C%EC%9E%91"
