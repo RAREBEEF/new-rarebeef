@@ -87,13 +87,12 @@
         }
 
         .swiper__container {
-          width: 100vw;
+          max-width: calc(100vw - 20px);
           overflow: visible;
           display: flex;
 
           .swiper__item {
             align-self: center;
-
             img {
               width: 90%;
               max-width: 1000px;
