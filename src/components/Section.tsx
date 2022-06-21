@@ -67,7 +67,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         classes={data.name}
       />
       <main className={styles.content}>
-        <div className={classNames(styles.screenshots, styles.box)}>
+        <div className={styles.screenshots}>
           <Swiper
             color="black"
             className={styles["swiper__container"]}
@@ -97,40 +97,77 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
                 />
               </div>
             </div>
-
             {swiperGeneroator()}
           </Swiper>
         </div>
-        <div className={classNames(styles.summary, styles.box)}>
-          <h3 className={styles["box__title"]}>Project summary</h3>
-          <table className={styles["summary__table"]}>
-            <tbody className={styles["summary__table__tbody"]}>
-              <tr>
-                <td>프로젝트 이름</td>
-                <td>{data.summary.name}</td>
-              </tr>
-              <tr>
-                <td>프로젝트 기간</td>
-                <td>{data.summary.date}</td>
-              </tr>
-              <tr>
-                <td>개발 인원</td>
-                <td>{data.summary.headCount}명</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className={classNames(styles.summary, styles.section)}>
+          <h3 className={styles["section__title"]}>Project summary</h3>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              {data.summary.name}
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              {data.summary.date}
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              {data.summary.headCount}명
+            </p>
+          </div>
         </div>
-        <div className={classNames(styles.description, styles.box)}>
-          <h3 className={styles["box__title"]}>Description</h3>
-          <p className={styles["description__text"]}>{data.description}</p>
+        <div className={classNames(styles.description, styles.section)}>
+          <h3 className={styles["section__title"]}>Description</h3>
+          <p
+            className={classNames(
+              styles["description__text"],
+              styles["section__content"]
+            )}
+          >
+            {data.description}
+          </p>
         </div>
-        <div className={classNames(styles.skills, styles.box)}>
-          <h3 className={styles["box__title"]}>Skills</h3>
-          <ul className={styles["skill-icons"]}>{skillGeneroator()}</ul>
+        <div className={classNames(styles.skills, styles.section)}>
+          <h3 className={styles["section__title"]}>Skills</h3>
+          <ul
+            className={classNames(
+              styles["skill-icons"],
+              styles["section__content"]
+            )}
+          >
+            {skillGeneroator()}
+          </ul>
         </div>
-        <div className={classNames(styles.links, styles.box)}>
-          <h3 className={styles["box__title"]}>Links</h3>
-          <div className={styles["links-wrapper"]}>{linkGeneroator()}</div>
+        <div className={classNames(styles.links, styles.section)}>
+          <h3 className={styles["section__title"]}>Links</h3>
+          <div
+            className={classNames(
+              styles["links-wrapper"],
+              styles["section__content"]
+            )}
+          >
+            {linkGeneroator()}
+          </div>
         </div>
       </main>
     </section>

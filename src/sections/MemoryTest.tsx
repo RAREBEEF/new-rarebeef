@@ -18,46 +18,78 @@ const MemoryTest = (): ReactElement => {
       />
       <main className={styles.content}>
         <MemoryTestApp />
-        <div className={classNames(styles.summary, styles.box)}>
-          <h3 className={styles["box__title"]}>Project summary</h3>
-          <table className={styles["summary__table"]}>
-            <tbody className={styles["summary__table__tbody"]}>
-              <tr>
-                <td>프로젝트 이름</td>
-                <td>Memory test</td>
-              </tr>
-              <tr>
-                <td>프로젝트 기간</td>
-                <td>2022.06.04 ~ 06.07</td>
-              </tr>
-              <tr>
-                <td>개발 인원</td>
-                <td>1명</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className={classNames(styles.summary, styles.section)}>
+          <h3 className={styles["section__title"]}>Project summary</h3>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              Memory test
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              2022.06.04 ~ 06.07
+            </p>
+          </div>
+          <div className={styles["summary-wrapper"]}>
+            <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
+            <p
+              className={classNames(
+                styles["section__content"],
+                styles["summary__text"]
+              )}
+            >
+              1명
+            </p>
+          </div>
         </div>
-        <div className={classNames(styles.description, styles.box)}>
-          <h3 className={styles["box__title"]}>Description</h3>
-          <p className={styles["description__text"]}>
+        <div className={classNames(styles.description, styles.section)}>
+          <h3 className={styles["section__title"]}>Description</h3>
+          <p
+            className={classNames(
+              styles["description__text"],
+              styles["section__content"]
+            )}
+          >
             {
               "브라우저에서 플레이 가능한 간단한 미니게임입니다.\n총 50라운드까지 준비되어 있으며 라운드를 거듭할수록 난이도가 증가하도록 만들었습니다."
             }
           </p>
         </div>
 
-        <div className={classNames(styles.skills, styles.box)}>
-          <h3 className={styles["box__title"]}>Skills</h3>
-          <ul className={styles["skill-icons"]}>
+        <div className={classNames(styles.skills, styles.section)}>
+          <h3 className={styles["section__title"]}>Skills</h3>
+          <ul
+            className={classNames(
+              styles["skill-icons"],
+              styles["section__content"]
+            )}
+          >
             <Skill skill="HTML" />
             <Skill skill="TypeScript" />
             <Skill skill="React" />
             <Skill skill="Sass" />
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.box)}>
-          <h3 className={styles["box__title"]}>Links</h3>
-          <div className={styles["links-wrapper"]}>
+        <div className={classNames(styles.links, styles.section)}>
+          <h3 className={styles["section__title"]}>Links</h3>
+          <div
+            className={classNames(
+              styles["links-wrapper"],
+              styles["section__content"]
+            )}
+          >
             <Button
               icon={githubIcon}
               href="https://github.com/RAREBEEF/memory-test"
