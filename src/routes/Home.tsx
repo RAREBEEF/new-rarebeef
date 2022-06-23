@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ThreeBeef from "../sections/ThreeBeef";
+// import ThreeBeef from "../sections/ThreeBeef";
 import ReactNative from "../sections/ReactNative";
 import Front from "../sections/Front";
 import styles from "./Home.module.scss";
@@ -10,7 +10,7 @@ import MemoryTest from "../sections/MemoryTest";
 import Section from "../components/Section";
 import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
-import browserStart from "../sections/browserStart";
+// import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
 
 const Home: React.FC<HomePropType> = ({ setTitle }) => {
@@ -29,8 +29,8 @@ const Home: React.FC<HomePropType> = ({ setTitle }) => {
       <Section data={metaBeef} />
       <MemoryTest />
       <Section data={simpleMemo} />
-      <ThreeBeef />
-      <Section data={browserStart} />
+      {/* <ThreeBeef /> */}
+      {/* <Section data={browserStart} /> */}
       <Clock />
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.

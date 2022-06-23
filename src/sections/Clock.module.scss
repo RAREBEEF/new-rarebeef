@@ -7,11 +7,11 @@ $size: 90vmin;
 }
 
 .clock-wrapper {
-  // margin: {
-  //   top: 20vh;
-  //   bottom: 20vh;
-  // }
-  height: 100vh;
+  margin: {
+    top: 20vh;
+    bottom: 10vh;
+  }
+  // height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;

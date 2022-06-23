@@ -58,21 +58,12 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
 
   useEffect(() => {
     const windowScrollListner = () => {
-      if (
-        !screenshotsRef.current ||
-        screenshotsRef.current.getBoundingClientRect().top -
-          window.innerHeight >
-          100 ||
-        screenshotsRef.current.getBoundingClientRect().top -
-          window.innerHeight <
-          -100
-      ) {
+      if (!screenshotsRef.current) {
         return;
       }
 
       let scrollDegree =
-        screenshotsRef.current.getBoundingClientRect().top -
-        window.innerHeight;
+        screenshotsRef.current.getBoundingClientRect().top - window.innerHeight;
 
       if (
         scrollDegree < 0 &&
@@ -111,8 +102,12 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
           <Swiper
             color="black"
             className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, EffectCoverflow]}
+            modules={[Navigation, Pagination, EffectCoverflow, Pagination]}
             navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
+            pagination={{
+              clickable: true,
+              type: "bullets",
+            }}
             slidesPerView={1}
             effect="coverflow"
             coverflowEffect={{
@@ -120,16 +115,17 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             }}
             spaceBetween={20}
             grabCursor
+            loop={true}
           >
-            <div className={styles["swiper__pagination-wrapper"]}>
-              <div className={styles["swiper__pagination"]}>
+            <div className={styles["swiper__navigation-wrapper"]}>
+              <div className={styles["swiper__navigation"]}>
                 <img
                   className={classNames(styles["swiper__arrow"], "nav--prev")}
                   src={arrow}
                   alt="Previous screenshot"
                 />
               </div>
-              <div className={styles["swiper__pagination"]}>
+              <div className={styles["swiper__navigation"]}>
                 <img
                   className={classNames(styles["swiper__arrow"], "nav--next")}
                   src={arrow}
