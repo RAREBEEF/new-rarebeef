@@ -41,6 +41,9 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
         return;
       }
 
+      // (뷰포트 상단 기준 section top의 y 위치) / (600vh - sticy요소(content) 높이)
+      // fixed 시작 시점이 0,
+      // fixed가 해제될 때 100이 된다.
       let scrollDegree =
         (sectionRef.current.getBoundingClientRect().top /
           (window.innerHeight * 6 -

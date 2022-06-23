@@ -17,7 +17,7 @@ const Home: React.FC<HomePropType> = ({ setTitle }) => {
   const HomeRef = useRef<any>(null);
 
   useEffect(() => {
-    setTitle("RAREBEEF's portfolio");
+    setTitle("RAREBEEF's Portfolio");
   }, [setTitle]);
 
   return (

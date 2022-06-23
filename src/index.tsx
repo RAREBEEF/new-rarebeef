@@ -6,9 +6,17 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const rootEl = document.getElementById("root");
+const root = ReactDOM.createRoot(rootEl as HTMLElement);
+
+setTimeout(() => {
+  if (!rootEl) {
+    return;
+  }
+
+  rootEl.style.height = "auto";
+  rootEl.style.overflow = "visible";
+}, 1000);
 
 root.render(
   <React.StrictMode>

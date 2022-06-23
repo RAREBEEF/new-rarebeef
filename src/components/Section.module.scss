@@ -21,6 +21,13 @@
     align-items: center;
 
     .screenshots {
+      opacity: 0;
+      transform: translateY(20vh);
+      transition: all 1s;
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
       position: relative;
       max-width: 100vw;
       min-width: 200px;

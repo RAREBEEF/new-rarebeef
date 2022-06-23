@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useRef } from "react";
 import styles from "./Section.module.scss";
 import Header from "./Header";
 import Skill from "./Skill";
@@ -13,6 +13,8 @@ import "swiper/scss/effect-coverflow";
 import { SectionPropType } from "../types";
 
 const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
+  const screenshotsRef = useRef<any>(null);
+
   const swiperGeneroator = (): Array<any> => {
     const swiperReturn: Array<any> = [];
 
@@ -54,6 +56,44 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
     return linkReturn;
   };
 
+  useEffect(() => {
+    const windowScrollListner = () => {
+      if (
+        !screenshotsRef.current ||
+        screenshotsRef.current.getBoundingClientRect().top -
+          window.innerHeight >
+          100 ||
+        screenshotsRef.current.getBoundingClientRect().top -
+          window.innerHeight <
+          -100
+      ) {
+        return;
+      }
+
+      let scrollDegree =
+        screenshotsRef.current.getBoundingClientRect().top -
+        window.innerHeight;
+
+      if (
+        scrollDegree < 0 &&
+        !screenshotsRef.current.classList.contains(styles.active)
+      ) {
+        screenshotsRef.current.classList.add(styles.active);
+      } else if (
+        scrollDegree > 0 &&
+        screenshotsRef.current.classList.contains(styles.active)
+      ) {
+        screenshotsRef.current.classList.remove(styles.active);
+      }
+    };
+
+    window.addEventListener("scroll", windowScrollListner);
+
+    return () => {
+      window.removeEventListener("scroll", windowScrollListner);
+    };
+  }, []);
+
   return (
     <section
       className={classNames(
@@ -67,7 +107,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         classes={data.name}
       />
       <main className={styles.content}>
-        <div className={styles.screenshots}>
+        <div className={styles.screenshots} ref={screenshotsRef}>
           <Swiper
             color="black"
             className={styles["swiper__container"]}
@@ -100,7 +140,13 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             {swiperGeneroator()}
           </Swiper>
         </div>
-        <div className={classNames(styles.summary, styles.section)}>
+        <div
+          className={classNames(
+            styles.summary,
+            styles.section,
+            "scroll-fade-in"
+          )}
+        >
           <h3 className={styles["section__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
             <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
@@ -136,7 +182,13 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             </p>
           </div>
         </div>
-        <div className={classNames(styles.description, styles.section)}>
+        <div
+          className={classNames(
+            styles.description,
+            styles.section,
+            "scroll-fade-in"
+          )}
+        >
           <h3 className={styles["section__title"]}>Description</h3>
           <p
             className={classNames(
@@ -147,7 +199,13 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             {data.description}
           </p>
         </div>
-        <div className={classNames(styles.skills, styles.section)}>
+        <div
+          className={classNames(
+            styles.skills,
+            styles.section,
+            "scroll-fade-in"
+          )}
+        >
           <h3 className={styles["section__title"]}>Skills</h3>
           <ul
             className={classNames(
@@ -158,7 +216,9 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             {skillGeneroator()}
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.section)}>
+        <div
+          className={classNames(styles.links, styles.section, "scroll-fade-in")}
+        >
           <h3 className={styles["section__title"]}>Links</h3>
           <div
             className={classNames(
