@@ -93,7 +93,7 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
 
       skill.addEventListener("mouseout", () => {
         skill.style.transform = `translate(0px, 0px)`;
-        skill.style.transition = `all 0.5s`;
+        skill.style.transition = `all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6)`;
       });
     });
 
@@ -115,7 +115,7 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
         });
 
         skill.removeEventListener("mouseout", () => {
-          skill.style.transition = `all 0.5s`;
+          skill.style.transition = `all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);`;
         });
       });
 
