@@ -3,8 +3,6 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
-import { BeefModelPropType } from "../types";
-import gsap from "gsap";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,14 +21,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-const BeefModel: React.FC<BeefModelPropType> = ({
-  refProp,
-  position = [0, -0.1, 0],
-  rotation = [0, 0, 0],
-  setBeefActive,
-  beefActive,
-  setMouseOver,
-}) => {
+const BeefModel = () => {
   const { nodes, materials } = useGLTF("/models/beef.glb") as GLTFResult;
 
   useFrame(() => {
@@ -39,40 +30,8 @@ const BeefModel: React.FC<BeefModelPropType> = ({
     // }
   });
 
-  const onBeefClick = () => {
-    setBeefActive((prev: boolean): boolean => {
-      if (!prev) {
-        gsap.to(refProp.current.position, 1, {
-          ease: "Power2.easeInOut",
-          y: 1,
-        });
-      } else if (!!prev) {
-        gsap.to(refProp.current.position, 1, {
-          ease: "Power2.easeInOut",
-          y: position[1],
-        });
-      }
-
-      return !prev;
-    });
-  };
-
-  const onPointerEnter = () => {
-    setMouseOver(true);
-  };
-
-  const onPointerLeave = () => {
-    setMouseOver(false);
-  };
-
   return (
-    <group
-      ref={refProp}
-      dispose={null}
-      scale={1}
-      position={position}
-      rotation={rotation}
-    >
+    <group dispose={null} scale={1}>
       <mesh
         geometry={nodes.겉면001.geometry}
         material={materials.겉면}
@@ -119,9 +78,6 @@ const BeefModel: React.FC<BeefModelPropType> = ({
         position={[-0.35, 0.04, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[11.58, 1, 14.34]}
-        onClick={onBeefClick}
-        onPointerEnter={onPointerEnter}
-        onPointerLeave={onPointerLeave}
         castShadow
       />
     </group>

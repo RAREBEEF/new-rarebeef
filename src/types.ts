@@ -28,6 +28,10 @@ export interface SectionPropType {
 export interface PhonesPropType {
   sectionRef: any;
 }
+export interface BeefPropType {
+  sectionRef: any;
+  setShowText: Function;
+}
 
 export interface FlipCardPropType {
   position?: [number, number, number];
@@ -99,21 +103,6 @@ export interface ContactPropType {
 }
 
 export interface FrontPropType {}
-
-export interface ThreeBeefPropType {}
-
-export interface BeefPropType {
-  setMouseOver: Function;
-}
-
-export interface BeefModelPropType {
-  refProp: any;
-  position?: [number, number, number];
-  rotation?: [number, number, number];
-  setMouseOver: Function;
-  setBeefActive: Function;
-  beefActive: boolean;
-}
 
 export interface PlaceReviewPropType {}
 

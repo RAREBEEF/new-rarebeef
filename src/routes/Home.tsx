@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-// import ThreeBeef from "../sections/ThreeBeef";
 import ReactNative from "../sections/ReactNative";
 import Front from "../sections/Front";
 import styles from "./Home.module.scss";
@@ -12,6 +11,7 @@ import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
 // import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
+import RareBeef from "../sections/RareBeef";
 
 const Home: React.FC<HomePropType> = ({ setTitle }) => {
   const HomeRef = useRef<any>(null);
@@ -24,12 +24,12 @@ const Home: React.FC<HomePropType> = ({ setTitle }) => {
     <div ref={HomeRef} className={classNames(styles.container)}>
       <Front />
       <div className={styles.contour} />
+      <RareBeef />
       <Section data={placeReview} />
       <ReactNative />
       <Section data={metaBeef} />
       <MemoryTest />
       <Section data={simpleMemo} />
-      {/* <ThreeBeef /> */}
       {/* <Section data={browserStart} /> */}
       <Clock />
       <footer className={styles.footer}>
