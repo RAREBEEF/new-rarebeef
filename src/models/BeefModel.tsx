@@ -3,6 +3,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
+import { BeefModelPropType } from "../types";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -21,7 +22,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-const BeefModel = () => {
+const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
   const { nodes, materials } = useGLTF("/models/beef.glb") as GLTFResult;
 
   useFrame(() => {
@@ -31,7 +32,7 @@ const BeefModel = () => {
   });
 
   return (
-    <group dispose={null} scale={1}>
+    <group ref={beefRef} dispose={null} scale={1}>
       <mesh
         geometry={nodes.겉면001.geometry}
         material={materials.겉면}

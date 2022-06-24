@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import styles from "./RareBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
 import classNames from "classnames";
-import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
 import Skill from "../components/Skill";
 import Button from "../components/Button";
@@ -21,13 +20,13 @@ const RareBeef = (): ReactElement => {
         classes={["RareBeef"]}
       />
       <main className={styles.content}>
-        {/* <div className={styles["main-content"]}> */}
-
-        <Suspense fallback={<Loading />}>
-          <Canvas className={styles.canvas} shadows>
-            <Beef sectionRef={sectionRef} setShowText={setShowText} />
-          </Canvas>
-        </Suspense>
+        <div className={styles["canvas-wrapper"]}>
+          <Suspense fallback={<Loading />}>
+            <Canvas className={styles.canvas} shadows>
+              <Beef sectionRef={sectionRef} setShowText={setShowText} />
+            </Canvas>
+          </Suspense>
+        </div>
         <p className={classNames(styles["main-text"], showText && styles.show)}>
           "소고기는레어(RAREBEEF)" 는 꽤 오래 전부터 애용하던 닉네임이었습니다.
           사용하기 시작한 시점은 저 자신도 기억하지 못하기 때문에 당시에 왜
@@ -38,7 +37,6 @@ const RareBeef = (): ReactElement => {
           모델 제작, 진행한 프로젝트들에서 심볼의 역할을 수행하며 현재까지 저의
           곁을 지키고 있습니다.
         </p>
-        {/* </div> */}
         <div className={classNames(styles.summary, styles.section)}>
           <h3 className={styles["section__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>

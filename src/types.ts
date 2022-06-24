@@ -1,6 +1,13 @@
 //
 // Props
 //
+export interface BeefModelPropType {
+  beefRef: any;
+}
+
+export interface PlateModelPropType {
+  plateRef: any;
+}
 
 export interface ProgressiveLogoPropType {
   preLoad: string;
@@ -28,6 +35,7 @@ export interface SectionPropType {
 export interface PhonesPropType {
   sectionRef: any;
 }
+
 export interface BeefPropType {
   sectionRef: any;
   setShowText: Function;
