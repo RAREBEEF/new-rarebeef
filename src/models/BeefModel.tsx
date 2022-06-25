@@ -32,7 +32,7 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
   });
 
   return (
-    <group ref={beefRef} dispose={null} scale={1}>
+    <group ref={beefRef} dispose={null} scale={1} position={[0.2, 0, 0]}>
       <mesh
         geometry={nodes.겉면001.geometry}
         material={materials.겉면}

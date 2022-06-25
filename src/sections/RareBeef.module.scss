@@ -10,10 +10,11 @@
 }
 
 .main-text {
+  display: flex;
+  pointer-events: none;
   opacity: 0;
   transition: opacity 1s;
   z-index: 1;
-  display: flex;
   align-items: center;
   position: absolute;
   height: 100vh;
@@ -31,12 +32,14 @@
   }
   &.show {
     opacity: 1;
+    pointer-events: all;
   }
 }
+
 .canvas {
   pointer-events: none;
   height: 100vh !important;
-  width: 100vw !important;
+  width: calc(100vw - 15px) !important;
   margin: {
     bottom: -10vh;
   }
