@@ -1,21 +1,30 @@
 .container {
   z-index: 0;
-  background-color: black;
-  position: absolute !important;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  background-color: whitesmoke;
   margin: auto;
-  height: 45% !important;
-  width: 70vw !important;
+  height: 100vh !important;
+  width: 100% !important;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .text--loading {
-    color: white;
-    text-align: center;
-    font-size: 30px;
+  .icon--loading {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 10vmin;
+    height: 10vmin;
+    pointer-events: none;
+    animation: rotate 1s linear infinite;
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   }
 }

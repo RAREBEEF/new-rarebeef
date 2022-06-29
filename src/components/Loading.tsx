@@ -1,9 +1,14 @@
 import styles from "./Loading.module.scss";
+import loadingIcon from "../images/icons/loading.svg";
 
 const Loading = () => {
   return (
     <div className={styles.container}>
-      <div className={styles["text--loading"]}>Now loading...</div>
+      <img
+        className={styles["icon--loading"]}
+        src={loadingIcon}
+        alt="Loading..."
+      />
     </div>
   );
 };
