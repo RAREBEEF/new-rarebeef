@@ -19,7 +19,7 @@ const data: sectionDataType = {
     headCount: 1,
   },
   description:
-    "간단한 메모장 웹 애플리케이션입니다.\nReact와 로컬 스토리지를 활용한 첫번째 프로젝트입니다. 노란 바탕의 메모장을 컨셉으로 잡고 스타일을 꾸며보았습니다.",
+    "메모장 웹 애플리케이션입니다.\n로컬 스토리지를 활용하였으며 리액트로 진행한 첫 번째 프로젝트입니다. 흔히 볼 수 있는 노란 바탕에 빨간 줄이 그어진 메모장을 컨셉으로 잡고 개발하였습니다.",
   skills: ["HTML", "JavaScript", "React", "Sass", "Netlify"],
   links: [
     { icon: githubIcon, href: "https://github.com/RAREBEEF/Simple-Memo" },

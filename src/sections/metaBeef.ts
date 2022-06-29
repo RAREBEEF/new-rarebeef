@@ -15,7 +15,7 @@ const data: sectionDataType = {
   imgs: [img1, img2, img3],
   summary: { name: "Meta Beef", date: "2022.01.26 ~ 02.24", headCount: 1 },
   description:
-    "장소 리뷰 웹 애플리케이션입니다.\n지도로 위치를 검색하고 해당 위치에 대한 리뷰를 작성할 수 있습니다. Kakao map과 Firebase, 그리고 Redux 등 여러 기술들을 함께 다뤄보고자 시작하게 된 프로젝트입니다.",
+    "간단한 SNS 웹 애플리케이션입니다.\n사진과 짧은 글을 업로드하고 좋아요를 남기는 등 다른 유저와의 커뮤니케이션이 가능합니다. Firebase를 활용한 첫 프로젝트이며 프론트엔드 독학을 진행하던 저에게 Front-Back 간의 통신을 이해하는데 큰 도움을 준 프로젝트입니다.",
   skills: ["HTML", "JavaScript", "React", "Sass", "Firebase"],
   links: [
     { icon: githubIcon, href: "https://github.com/RAREBEEF/meta-beef" },

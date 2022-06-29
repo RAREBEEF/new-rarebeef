@@ -1,10 +1,10 @@
 import CreateGuestBook from "./CreateGuestBook";
 import GuestBook from "./GuestBook";
-import styles from "./GuestBookSection.module.scss";
+import styles from "./GuestBookWrapper.module.scss";
 import { getGusetBookStateType, ReduxStateType } from "../types";
 import { useSelector } from "react-redux";
 
-const GuestBookSection = () => {
+const GuestBookWrapper = () => {
   const { data: guestBook } = useSelector(
     (state: ReduxStateType): getGusetBookStateType => state.getGuestBook
   );
@@ -20,4 +20,4 @@ const GuestBookSection = () => {
   );
 };
 
-export default GuestBookSection;
+export default GuestBookWrapper;

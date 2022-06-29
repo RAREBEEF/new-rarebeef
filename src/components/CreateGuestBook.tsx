@@ -43,7 +43,9 @@ const CreateGuestBook = () => {
       setPw("");
     } catch (error) {
       console.error(error);
-      window.alert(error);
+      window.alert(
+        `방명록 업로드에 실패하였습니다.\n다음에 다시 시도해 주세요.`
+      );
     }
   };
 

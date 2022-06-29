@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 import Button from "../components/Button";
-import GuestBookSection from "../components/GuestBookSection";
+import GuestBookWrapper from "../components/GuestBookWrapper";
 import Header from "../components/Header";
 import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
@@ -21,7 +21,7 @@ const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
         setCopyAlert("복사됨");
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setCopyAlert("복사 실패");
       });
   };
@@ -70,7 +70,7 @@ const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
         </section>
         <section className={styles.section}>
           <h4 className={styles.header}>Guest book</h4>
-          <GuestBookSection />
+          <GuestBookWrapper />
         </section>
       </div>
       <footer className={styles.footer}>

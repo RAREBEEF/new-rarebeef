@@ -28,14 +28,7 @@ const RareBeef = (): ReactElement => {
           </Suspense>
         </div>
         <p className={classNames(styles["main-text"], showText && styles.show)}>
-          "소고기는레어(RAREBEEF)" 는 꽤 오래 전부터 애용하던 닉네임이었습니다.
-          사용하기 시작한 시점은 저 자신도 기억하지 못하기 때문에 당시에 왜
-          이러한 작명을 하였는가에 대한 의문은 아마 영영 해소할 수 없을지도
-          모릅니다. 그만큼 오랜 기간 사용해오며 많은 애착을 갖게 되었기 때문에
-          그 의미는 알 수 없어도 저를 가장 잘 나타낼 수 있는 닉네임이라 생각하여
-          지금까지 사용해오게 되었습니다. 개발 공부를 시작한 후에도 2D 로고와 3D
-          모델 제작, 진행한 프로젝트들에서 심볼의 역할을 수행하며 현재까지 저의
-          곁을 지키고 있습니다.
+          {`"소고기는레어(RAREBEEF)" 는 제가 오래전부터 애용해 온 닉네임입니다. 사용하기 시작한 때는 기억나지 않기 때문에 왜 이러한 작명을 하였는가에 대한 의문은 아마 영영 해소할 수 없을지도 모릅니다. 하지만 오랜 기간을 함께했고 그만큼 많은 애착을 갖게 되었기 때문에 저를 가장 잘 나타낼 수 있는 닉네임이라고 생각합니다. 개발 독학을 시작한 후에도 2D 로고와 3D 모델 제작, 개인 프로젝트에서 심볼의 역할을 수행하며 현재까지 저의 곁을 지키고 있습니다.`}
         </p>
         <div className={classNames(styles.summary, styles.section)}>
           <h3 className={styles["section__title"]}>Project summary</h3>
@@ -73,19 +66,6 @@ const RareBeef = (): ReactElement => {
             </p>
           </div>
         </div>
-        {/* <div className={classNames(styles.description, styles.section)}>
-          <h3 className={styles["section__title"]}>Description</h3>
-          <p
-            className={classNames(
-              styles["description__text"],
-              styles["section__content"]
-            )}
-          >
-            {
-              "ToDo 및 날씨 모바일 어플리케이션입니다.\n각각 별개의 앱이며 React Native와 Expo를 통해 프로젝트를 진행하였습니다. Drag & Drop, Progress bar, geoLocation, weather api 등의 기능을 구현하였습니다. 또한 Three.js를 이용하여 앱의 구동 모습을 3D로 구현해 보았습니다."
-            }
-          </p>
-        </div> */}
         <div className={classNames(styles.skills, styles.section)}>
           <h3 className={styles["section__title"]}>Skills</h3>
           <ul

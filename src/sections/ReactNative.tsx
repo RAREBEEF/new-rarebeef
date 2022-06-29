@@ -71,7 +71,7 @@ const ReactNative = (): ReactElement => {
             )}
           >
             {
-              "ToDo 및 날씨 모바일 어플리케이션입니다.\n각각 별개의 앱이며 React Native와 Expo를 통해 프로젝트를 진행하였습니다. Drag & Drop, Progress bar, geoLocation, weather api 등의 기능을 구현하였습니다. 또한 Three.js를 이용하여 앱의 구동 모습을 3D로 구현해 보았습니다."
+              "ToDo와 날씨 모바일 애플리케이션입니다.\nReact Native와 Expo를 통해 프로젝트를 진행하였습니다. ToDo 앱에는 Drag & Drop, Progress bar 등의 기능을 구현하였고 날씨 앱에는 geoLocation, weather api 등의 기능을 구현하였습니다. 앱을 배포하지 않았기에 3D 모델과 Three.js로 앱의 구동 모습을 대신 표현해 보았습니다."
             }
           </p>
         </div>

@@ -16,7 +16,7 @@ const data: sectionDataType = {
   imgs: [img1, img2, img3, img4],
   summary: { name: "Place Review", date: "2022.03.15 ~ 04.08", headCount: 1 },
   description:
-    "장소 리뷰 웹 애플리케이션입니다.\n지도로 위치를 검색하고 해당 위치에 대한 리뷰를 작성할 수 있습니다. Kakao map과 Firebase, 그리고 Redux 등 여러 기술들을 함께 다뤄보고자 시작하게 된 프로젝트입니다.",
+    "카카오맵을 이용한 장소 리뷰 웹 애플리케이션입니다.\n지도로 위치를 검색하고 해당 위치에 대한 리뷰를 작성할 수 있습니다. Kakao map과 Firebase, 그리고 Redux 등 여러 기술들을 한데 모아서 다뤄보고자 진행하게 된 프로젝트입니다.",
   skills: ["HTML", "TypeScript", "React", "Redux", "Sass", "Firebase"],
   links: [
     { icon: githubIcon, href: "https://github.com/RAREBEEF/place-review" },
