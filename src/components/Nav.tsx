@@ -1,5 +1,5 @@
 import React, { ReactElement, useCallback, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { NavPropType } from "../types";
 import styles from "./Nav.module.scss";
 import menuIcon from "../images/icons/circle-bars.svg";
@@ -12,6 +12,18 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
   const [resizing, setResizing] = useState<boolean>(false);
   const [size, setSize] = useState<number>(35);
   const [clientWidth, setClientWidth] = useState<number>(window.innerWidth);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      location.pathname !== "/" &&
+      location.pathname !== "/contact" &&
+      location.pathname !== "/profile"
+    ) {
+      navigate("/", { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   useEffect(() => {
     const windowResizeListner = (): void => {
