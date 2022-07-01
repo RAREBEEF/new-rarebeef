@@ -38,7 +38,7 @@ export interface PhonesPropType {
 
 export interface BeefPropType {
   sectionRef: any;
-  setShowText: Function;
+  setText: Function;
 }
 
 export interface FlipCardPropType {

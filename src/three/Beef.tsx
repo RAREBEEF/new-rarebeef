@@ -6,7 +6,7 @@ import gsap from "gsap";
 import angleToRadians from "../tools/angleToRadians";
 import PlateModel from "../models/PlateModel";
 
-const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
+const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
   const controlRef = useRef<any>(null);
   const groupRef = useRef<any>(null);
   const beefRef = useRef<any>(null);
@@ -42,11 +42,11 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
       if (
         !sectionRef.current ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 6 -
+          (window.innerHeight * 10 -
             sectionRef.current.childNodes[1].clientHeight) >=
           0 ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 6 -
+          (window.innerHeight * 10 -
             sectionRef.current.childNodes[1].clientHeight) <=
           -1.5
       ) {
@@ -58,17 +58,34 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
       const beef = beefRef.current;
       const light = lightRef.current;
 
-      // (뷰포트 상단 기준 section top의 y 위치) / (600vh - sticy요소(content) 높이)
+      // (뷰포트 상단 기준 section top의 y 위치) / (1000vh - sticy요소(content) 높이)
       // fixed 시작 시점이 0,
       // fixed가 해제될 때 100이 된다.
       let scrollDegree =
         (setcion.getBoundingClientRect().top /
-          (window.innerHeight * 6 - setcion.childNodes[1].clientHeight)) *
+          (window.innerHeight * 10 - setcion.childNodes[1].clientHeight)) *
         -1;
+
+      if (
+        (scrollDegree >= 0 && scrollDegree < 0.1) ||
+        (scrollDegree >= 0.2 && scrollDegree < 0.3) ||
+        (scrollDegree >= 0.4 && scrollDegree < 0.5) ||
+        (scrollDegree >= 0.6 && scrollDegree < 0.7) ||
+        (scrollDegree >= 0.8 && scrollDegree < 1.05)
+      ) {
+        setText(0);
+      } else if (scrollDegree >= 0.1 && scrollDegree < 0.2) {
+        setText(1);
+      } else if (scrollDegree >= 0.3 && scrollDegree < 0.4) {
+        setText(2);
+      } else if (scrollDegree >= 0.5 && scrollDegree < 0.6) {
+        setText(3);
+      } else if (scrollDegree >= 0.7 && scrollDegree < 0.8) {
+        setText(4);
+      }
 
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
         scrollDegree *= 5;
-        setShowText(false);
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
@@ -88,7 +105,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
         });
       } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
         scrollDegree = (scrollDegree - 0.2) * 5;
-        setShowText(false);
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
@@ -108,7 +124,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
         });
       } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
         scrollDegree = (scrollDegree - 0.4) * 5;
-        setShowText(false);
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
@@ -128,7 +143,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
         });
       } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
         scrollDegree = (scrollDegree - 0.6) * 5;
-        setShowText(true);
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
@@ -148,7 +162,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
         });
       } else if (scrollDegree >= 0.8 && scrollDegree <= 1) {
         scrollDegree = (scrollDegree - 0.8) * 5;
-        setShowText(false);
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
@@ -174,47 +187,21 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setShowText }) => {
     return () => {
       window.removeEventListener("scroll", windowScrollListner);
     };
-  }, [sectionRef, setShowText]);
+  }, [sectionRef, setText]);
 
   return (
     <>
-      <group
-        ref={groupRef}
-        // rotation={[0, angleToRadians(-45), 0]}
-        // rotation={[0, angleToRadians(45), 0]}
-        // rotation={[0, 0, 0]}
-        // position={[0, -1, 0]}
-      >
-        {/* <ToDoModel
-          rotation={[angleToRadians(90), 0, 0]}
-          // scale={0.02}
-          scale={0.03}
-          // position={[-1.1, 0.3, 0]}
-          position={[0, 0, 0.5]}
-        />
-        <WeatherModel
-          rotation={[angleToRadians(90), 0, angleToRadians(180)]}
-          scale={0.03}
-          // position={[1.1, -0.3, 0]}
-          position={[0, -2, -0.5]}
-        /> */}
+      <group ref={groupRef}>
         <BeefModel beefRef={beefRef} />
         <PlateModel plateRef={plateRef} />
         <OrbitControls ref={controlRef} />
 
-        {/* <PerspectiveCamera  /> */}
-        {/* <spotLight
-          args={["#fff", 1, 80, angleToRadians(100), 0.4]}
-          position={[0, 0, -10]}
-        /> */}
         <spotLight
           args={["#fff", 0.8, 0, angleToRadians(50), 0.5, 0]}
           position={[0, 10, 0]}
           ref={lightRef}
           castShadow
         />
-        {/* <pointLight args={["#fff", 2]} position={[0, 0, -10]} /> */}
-        {/* <pointLight args={["#fff", 2]} position={[0, 0, 10]} /> */}
         <ambientLight args={["#fff", 0.2]} />
       </group>
     </>

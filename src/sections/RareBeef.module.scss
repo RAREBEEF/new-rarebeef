@@ -1,7 +1,7 @@
 @import "../components/Section.module.scss";
 
 .container {
-  height: 600vh;
+  height: 1000vh;
   display: block;
 }
 .content {
@@ -14,7 +14,7 @@
   display: flex;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   z-index: 1;
   align-items: center;
   position: absolute;
@@ -25,8 +25,8 @@
   backdrop-filter: blur(5px);
   background-color: rgba(245, 245, 245, 0.5);
   padding: {
-    left: 15vw;
-    right: 15vw;
+    left: 5vw;
+    right: 5vw;
   }
   font: {
     size: 16px;
