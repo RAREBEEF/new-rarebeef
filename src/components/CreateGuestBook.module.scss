@@ -5,6 +5,11 @@
     left: 10px;
   }
 
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -16,16 +21,18 @@
       }
 
       .top__input-wrapper {
+        max-width: calc(100% - 65px);
         display: flex;
         flex-grow: 1;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 5px;
         margin: {
           right: 10px;
         }
 
         .input--name,
         .input--pw {
+          max-width: 100%;
           flex-grow: 1;
           outline: none;
           border: 1px solid #888888;
@@ -36,6 +43,7 @@
             top: 3px;
             bottom: 3px;
           }
+
           font: {
             family: "Gowun Dodum", sans-serif;
             size: 16px;
@@ -87,76 +95,3 @@
     }
   }
 }
-
-// .container {
-//   min-width: 230px;
-//   max-width: 600px;
-//   margin: {
-//     left: 10px;
-//   }
-
-//   .form {
-//     display: flex;
-//     flex-direction: column;
-
-//     .top-wrapper {
-//       display: flex;
-//       flex-wrap: wrap;
-//       row-gap: 2px;
-//       margin: {
-//         bottom: 10px;
-//         left: 0;
-//       }
-
-//       .input--name,
-//       .input--pw {
-//         outline: none;
-//         border: 1px solid #888888;
-//         border-radius: 5px;
-//         margin: {
-//           right: 10px;
-//           left: 0;
-//         }
-//         padding: 3px;
-//         font: {
-//           family: "Gowun Dodum", sans-serif;
-//         }
-//       }
-//       .counter {
-//         width: 55px;
-//         color: rgb(118, 118, 118);
-//         text-align: center;
-//         align-self: flex-end;
-//         margin: {
-//           top: 5px;
-//           left: auto;
-//           // right: 5px;
-//         }
-//         &.over {
-//           color: #da4a4a;
-//         }
-//       }
-//     }
-
-//     .bottom-wrapper {
-//       display: flex;
-//       .input--content {
-//         width: 100%;
-//         resize: none;
-//         height: 80px;
-//         outline: none;
-//         border: 1px solid #888888;
-//         border-radius: 5px;
-//         padding: 5px;
-//         margin: {
-//           right: 10px;
-//           bottom: 10px;
-//           left: 0;
-//         }
-//         font: {
-//           family: "Gowun Dodum", sans-serif;
-//         }
-//       }
-//     }
-//   }
-// }

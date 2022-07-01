@@ -32,7 +32,7 @@ const App = (): ReactElement => {
       <Routes>
         <Route path="/profile" element={<Profile setTitle={setTitle} />} />
         <Route path="/contact" element={<Contact setTitle={setTitle} />} />
-        <Route path="/*" element={<Home setTitle={setTitle} />} />
+        <Route path="/" element={<Home setTitle={setTitle} />} />
       </Routes>
     </Router>
   );
