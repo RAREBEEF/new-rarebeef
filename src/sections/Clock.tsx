@@ -24,6 +24,7 @@ const Clock = (): ReactElement => {
   ]);
   const [show, setShow] = useState<"alarm" | "date">("date");
   const [select, setSelect] = useState<number>(3);
+  const [isFocus, setIsFocus] = useState<boolean>(false);
   const [alarm, setAlarm] = useState<any>({
     h: "",
     m: "",
@@ -130,11 +131,15 @@ const Clock = (): ReactElement => {
         ...prevAlarm,
         active: !prevAlarm.active,
       }));
-    } else {
+    } else if (!isFocus) {
+      setIsFocus(true);
       focusRef.current.focus();
       select === 0 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, h: "" }));
       select === 1 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, m: "" }));
       select === 2 && setAlarm((prevAlarm: any) => ({ ...prevAlarm, s: "" }));
+    } else {
+      setIsFocus(false);
+      focusRef.current.blur();
     }
   };
 
@@ -214,7 +219,7 @@ const Clock = (): ReactElement => {
               )}
               onClick={dateClick}
             >
-              Time
+              Clock
             </div>
             <div
               className={classNames(
