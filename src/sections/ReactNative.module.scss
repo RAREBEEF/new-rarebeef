@@ -5,6 +5,7 @@
   display: block;
 }
 .content {
+  overflow: hidden;
   position: sticky;
   top: 0;
 }
@@ -12,7 +13,7 @@
 .canvas {
   pointer-events: none;
   height: 100vh !important;
-  max-width: 100vw !important;
+  width: 100vw !important;
   margin: {
     bottom: -10vh;
   }
