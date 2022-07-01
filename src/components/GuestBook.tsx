@@ -40,38 +40,44 @@ const GuestBook: React.FC<GuestBookPropType> = ({ data }) => {
 
   return (
     <li className={styles["container"]}>
-      <div className={classNames(styles.text, styles.content)}>
+      <main className={classNames(styles.text, styles.content)}>
         {data.content}
+      </main>
+      <div className={styles["bottom-wrapper"]}>
+        <div className={styles["info"]}>
+          <div className={classNames(styles.text, styles.name)}>
+            {data.name}
+          </div>
+          <div className={classNames(styles.text, styles.date)}>{`${new Date(
+            data.createdAt
+          ).getFullYear()}/${
+            new Date(data.createdAt).getMonth() < 10 ? "0" : ""
+          }${new Date(data.createdAt).getMonth()}/${
+            new Date(data.createdAt).getDate() < 10 ? "0" : ""
+          }${new Date(data.createdAt).getDate()} ${
+            new Date(data.createdAt).getHours() < 10 ? "0" : ""
+          }${new Date(data.createdAt).getHours()}:${
+            new Date(data.createdAt).getMinutes() < 10 ? "0" : ""
+          }${new Date(data.createdAt).getMinutes()}`}</div>
+        </div>
+        <form className={styles.form} onSubmit={onDelete}>
+          <input
+            hidden
+            type="text"
+            autoComplete="username"
+            defaultValue={data.name}
+          />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            autoComplete="current-password"
+            value={pwCheck}
+            onChange={onPwCheckChange}
+            className={styles["input--check-pw"]}
+          />
+          <Button text="삭제" classes={["GuestBook"]} />
+        </form>
       </div>
-      <div className={classNames(styles.text, styles.name)}>{data.name}</div>
-      <div className={classNames(styles.text, styles.date)}>{`${new Date(
-        data.createdAt
-      ).getFullYear()}/${
-        new Date(data.createdAt).getMonth() < 10 ? "0" : ""
-      }${new Date(data.createdAt).getMonth()}/${
-        new Date(data.createdAt).getDate() < 10 ? "0" : ""
-      }${new Date(data.createdAt).getDate()} ${
-        new Date(data.createdAt).getHours() < 10 ? "0" : ""
-      }${new Date(data.createdAt).getHours()}:${
-        new Date(data.createdAt).getMinutes() < 10 ? "0" : ""
-      }${new Date(data.createdAt).getMinutes()}`}</div>
-      <form className={styles.form} onSubmit={onDelete}>
-        <input
-          hidden
-          type="text"
-          autoComplete="username"
-          defaultValue={data.name}
-        ></input>
-        <input
-          type="password"
-          placeholder="비밀번호"
-          autoComplete="current-password"
-          value={pwCheck}
-          onChange={onPwCheckChange}
-          className={styles["input--check-pw"]}
-        />
-        <Button text="삭제" classes={["GuestBook"]} />
-      </form>
     </li>
   );
 };

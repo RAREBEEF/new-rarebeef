@@ -10,7 +10,7 @@ import dotsIcon from "../images/icons/ellipsis-vertical-solid.svg";
 const Nav: React.FC<NavPropType> = (): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [resizing, setResizing] = useState<boolean>(false);
-  const [size, setSize] = useState<number>(35);
+  const [size, setSize] = useState<number>(45);
   const [clientWidth, setClientWidth] = useState<number>(window.innerWidth);
   const location = useLocation();
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 .container {
   min-width: 20vw;
   .list {
-    width: fit-content;
+    flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
