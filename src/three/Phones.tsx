@@ -30,23 +30,23 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
       if (
         !sectionRef.current ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 6 -
+          (window.innerHeight * 8 -
             sectionRef.current.childNodes[1].clientHeight) >=
           0 ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 6 -
+          (window.innerHeight * 8 -
             sectionRef.current.childNodes[1].clientHeight) <=
           -1.5
       ) {
         return;
       }
 
-      // (뷰포트 상단 기준 section top의 y 위치) / (600vh - sticy요소(content) 높이)
+      // (뷰포트 상단 기준 section top의 y 위치) / (800vh - sticy요소(content) 높이)
       // fixed 시작 시점이 0,
       // fixed가 해제될 때 100이 된다.
       let scrollDegree =
         (sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 6 -
+          (window.innerHeight * 8 -
             sectionRef.current.childNodes[1].clientHeight)) *
         -1;
 

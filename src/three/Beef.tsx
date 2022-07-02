@@ -151,7 +151,7 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
-          y: 5 - 4 * scrollDegree,
+          y: 5 - 2.5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(light.position, 0.3, {
@@ -170,7 +170,7 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
-          y: 1 - 1 * scrollDegree,
+          y: 2.5 - 2.5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(light.position, 0.3, {

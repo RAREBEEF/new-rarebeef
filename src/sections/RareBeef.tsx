@@ -31,12 +31,12 @@ const RareBeef = (): ReactElement => {
         <p
           className={classNames(styles["main-text"], text === 1 && styles.show)}
         >
-          "RAREBEEF(소고기는레어)" 는 제가 오래전부터 사용해 온 닉네임입니다.
+          RAREBEEF는 제가 오래전부터 사용해 온 닉네임 "소고기는레어"에서 비롯되었습니다.
         </p>
         <p
           className={classNames(styles["main-text"], text === 2 && styles.show)}
         >
-          사용하기 시작한 시점은 기억나지 않기에 왜 이러한 작명을 하였는가에
+          이러한 닉네임을 사용하기 시작한 시점은 기억나지 않기에 왜 이러한 작명을 하였는가에
           대한 의문은 아마 영영 해소할 수 없을지도 모릅니다.
         </p>
         <p
