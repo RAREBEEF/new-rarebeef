@@ -31,22 +31,17 @@ const RareBeef = (): ReactElement => {
         <p
           className={classNames(styles["main-text"], text === 1 && styles.show)}
         >
-          RAREBEEF는 제가 오래전부터 사용해 온 닉네임 "소고기는레어"에서 비롯되었습니다.
+          RAREBEEF는 제가 오래전부터 사용해 온 닉네임 "소고기는레어"에서
+          비롯되었습니다.
         </p>
         <p
           className={classNames(styles["main-text"], text === 2 && styles.show)}
         >
-          이러한 닉네임을 사용하기 시작한 시점은 기억나지 않기에 왜 이러한 작명을 하였는가에
-          대한 의문은 아마 영영 해소할 수 없을지도 모릅니다.
+          오래된 만큼 그 의미는 정확히 기억나지 않지만 많은 애착과 유대감을 쌓게
+          되었고 서로를 가장 잘 나타낼 수 있다고 생각합니다.
         </p>
         <p
           className={classNames(styles["main-text"], text === 3 && styles.show)}
-        >
-          하지만 오랜 기간을 함께했고 그만큼 많은 애착을 갖게 되었기 때문에 저를
-          가장 잘 나타낼 수 있는 닉네임이라고 생각합니다.
-        </p>
-        <p
-          className={classNames(styles["main-text"], text === 4 && styles.show)}
         >
           개발 독학을 시작한 후에도 2D 로고와 3D 모델 제작, 개인 프로젝트에서
           심볼의 역할을 수행하며 현재까지 저의 곁을 지키고 있습니다.

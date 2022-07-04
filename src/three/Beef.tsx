@@ -67,21 +67,19 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         -1;
 
       if (
-        (scrollDegree >= 0 && scrollDegree < 0.1) ||
-        (scrollDegree >= 0.2 && scrollDegree < 0.3) ||
-        (scrollDegree >= 0.4 && scrollDegree < 0.5) ||
+        (scrollDegree >= 0 && scrollDegree < 0.15) ||
+        (scrollDegree >= 0.3 && scrollDegree < 0.45) ||
+        (scrollDegree >= 0.6 && scrollDegree < 0.75) ||
         (scrollDegree >= 0.6 && scrollDegree < 0.7) ||
-        (scrollDegree >= 0.8 && scrollDegree < 1.05)
+        (scrollDegree >= 0.9 && scrollDegree < 1.05)
       ) {
         setText(0);
-      } else if (scrollDegree >= 0.1 && scrollDegree < 0.2) {
+      } else if (scrollDegree >= 0.15 && scrollDegree < 0.3) {
         setText(1);
-      } else if (scrollDegree >= 0.3 && scrollDegree < 0.4) {
+      } else if (scrollDegree >= 0.45 && scrollDegree < 0.6) {
         setText(2);
-      } else if (scrollDegree >= 0.5 && scrollDegree < 0.6) {
+      } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
         setText(3);
-      } else if (scrollDegree >= 0.7 && scrollDegree < 0.8) {
-        setText(4);
       }
 
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
