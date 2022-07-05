@@ -28,11 +28,13 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       // Y스크롤 / (continaer 요소 높이(200vh) - sticky 요소 높이(100vh))
       let scrollDegree = (window.scrollY / window.innerHeight) * -100;
 
-      gsap.to(clipPathRef.current, 0.1, {
-        clipPath: `inset(${
-          scrollDegree <= -100 ? -100 : 100 + scrollDegree
-        }% 0px 0px)`,
-      });
+      if (scrollDegree <= -100) {
+        clipPathRef.current.style.clipPath = "inset(-100% 0px 0px)";
+      } else {
+        gsap.to(clipPathRef.current, 0.1, {
+          clipPath: `inset(${100 + scrollDegree}% 0px 0px)`,
+        });
+      }
 
       gsap.to(fakeSubTitleRef.current, 0.3, {
         transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
