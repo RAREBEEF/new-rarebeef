@@ -137,8 +137,8 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
           args={["#fff", 1, 80, angleToRadians(200), 0]}
           position={[0, 5, 0]}
         /> */}
-        <pointLight args={["#fff", 2]} position={[0, 0, -10]} />
-        <pointLight args={["#fff", 2]} position={[0, 0, 10]} />
+        <pointLight args={["#fff", 3]} position={[0, 0, -10]} />
+        <pointLight args={["#fff", 3]} position={[0, 0, 10]} />
       </group>
     </>
   );

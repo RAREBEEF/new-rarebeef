@@ -26,6 +26,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       }
 
       // Y스크롤 / (continaer 요소 높이(200vh) - sticky 요소 높이(100vh))
+      // = Y스크롤 / 100vh
       let scrollDegree = (window.scrollY / window.innerHeight) * -100;
 
       if (scrollDegree <= -100) {

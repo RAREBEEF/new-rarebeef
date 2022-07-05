@@ -3,8 +3,8 @@ import Header from "../components/Header";
 import styles from "./RareBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
 import classNames from "classnames";
-import velogIcon from "../images/icons/velog-square.svg";
-import Skill from "../components/Skill";
+// import velogIcon from "../images/icons/velog-square.svg";
+// import Skill from "../components/Skill";
 import Button from "../components/Button";
 import Loading from "../components/Loading";
 import Beef from "../three/Beef";
@@ -16,7 +16,7 @@ const RareBeef = (): ReactElement => {
   return (
     <section className={styles.container} ref={sectionRef}>
       <Header
-        title={["Why", "Rare", "Beef", "?"]}
+        title={["Why", "rare", "beef", "?"]}
         subTitle={["Origin", "of", "rarebeef"]}
         classes={["RareBeef"]}
       />
@@ -46,7 +46,7 @@ const RareBeef = (): ReactElement => {
           개발 독학을 시작한 후에도 2D 로고와 3D 모델 제작, 개인 프로젝트에서
           심볼의 역할을 수행하며 현재까지 저의 곁을 지키고 있습니다.
         </p>
-        <div className={classNames(styles.summary, styles.section)}>
+        {/* <div className={classNames(styles.summary, styles.section)}>
           <h3 className={styles["section__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
             <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
@@ -108,12 +108,12 @@ const RareBeef = (): ReactElement => {
               classes={["Home__project-link"]}
             />
           </div>
-        </div>
+        </div> */}
         <div className={classNames(styles.donwload, styles.section)}>
-          <h3 className={styles["section__title"]}>Wallpaper</h3>
+          <h3 className={styles["section__title"]}>Download wallpaper</h3>
           <div className={styles["section__content"]}>
             <Button
-              text="Download (Google drive)"
+              text="Google drive (7.2MB)"
               href="https://drive.google.com/file/d/1sfBqd8BRLTbYAK3rcXpflO4fBj0hIRj5/view?usp=sharing"
             />
           </div>
