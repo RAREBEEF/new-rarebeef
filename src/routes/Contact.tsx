@@ -6,9 +6,11 @@ import Header from "../components/Header";
 import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
 import { ContactPropType } from "../types";
+import useTitle from "../hooks/useTitle";
 
-const Contact: React.FC<ContactPropType> = ({ setTitle }) => {
+const Contact: React.FC<ContactPropType> = () => {
   const [copyAlert, setCopyAlert] = useState<string>("");
+  const setTitle = useTitle();
 
   useEffect(() => {
     setTitle("Contact RAREBEEF");

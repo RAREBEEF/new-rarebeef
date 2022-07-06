@@ -98,17 +98,11 @@ export interface SkillPropType {
   skill: skillType;
 }
 
-export interface HomePropType {
-  setTitle: Function;
-}
+export interface HomePropType {}
 
-export interface ProfilePropType {
-  setTitle: Function;
-}
+export interface ProfilePropType {}
 
-export interface ContactPropType {
-  setTitle: Function;
-}
+export interface ContactPropType {}
 
 export interface FrontPropType {}
 

@@ -9,12 +9,13 @@ import MemoryTest from "../sections/MemoryTest";
 import Section from "../components/Section";
 import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
-// import browserStart from "../sections/browserStart";
 import simpleMemo from "../sections/simpleMemo";
 import RareBeef from "../sections/RareBeef";
+import useTitle from "../hooks/useTitle";
 
-const Home: React.FC<HomePropType> = ({ setTitle }) => {
+const Home: React.FC<HomePropType> = () => {
   const HomeRef = useRef<any>(null);
+  const setTitle = useTitle();
 
   useEffect(() => {
     setTitle("RAREBEEF's Portfolio");
@@ -30,7 +31,6 @@ const Home: React.FC<HomePropType> = ({ setTitle }) => {
       <Section data={metaBeef} />
       <MemoryTest />
       <Section data={simpleMemo} />
-      {/* <Section data={browserStart} /> */}
       <Clock />
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.

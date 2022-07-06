@@ -4,14 +4,17 @@ import classNames from "classnames";
 import Header from "../components/Header";
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
+import useTitle from "../hooks/useTitle";
 
-const Profile: React.FC<ProfilePropType> = ({ setTitle }) => {
+const Profile: React.FC<ProfilePropType> = () => {
   const [age, setAge] = useState<number>(0);
+  const setTitle = useTitle();
 
   useEffect(() => {
+    const date = new Date();
+
     setTitle("About RAREBEEF");
 
-    const date = new Date();
     setAge(
       date.getMonth() < 10 || (date.getMonth() === 10 && date.getDate() < 6)
         ? date.getFullYear() - 1998
