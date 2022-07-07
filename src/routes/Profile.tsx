@@ -72,10 +72,10 @@ const Profile: React.FC<ProfilePropType> = () => {
           <h4 className={styles.header}>Future plans</h4>
           <ol>
             <li id={"first-plan"} className={styles["sub-header"]}>
-              1. React Native
+              1. React VR
             </li>
             <li id={"second-plan"} className={styles["sub-header"]}>
-              2. React VR
+              2. Progressive Web App
             </li>
           </ol>
         </section>
