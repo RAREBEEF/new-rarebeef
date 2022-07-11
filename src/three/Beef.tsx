@@ -88,6 +88,14 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         setText(5);
       } else if (scrollDegree >= 0.96) {
         setText(6);
+      } else if (scrollDegree >= 1) {
+        setText(6);
+        gsap.to(group.position, 0.3, {
+          x: 3.5,
+          y: 0,
+          z: 0,
+          ease: "linear",
+        });
       }
 
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
