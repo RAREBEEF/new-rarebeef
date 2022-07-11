@@ -14,7 +14,7 @@ const RareBeef = (): ReactElement => {
   return (
     <section className={styles.container} ref={sectionRef}>
       <Header
-        title={["Why", "RAREBEEF", "?"]}
+        title={["Why", "RAREBEEF?"]}
         subTitle={["Origin", "of", "RAREBEEF"]}
         classes={["RareBeef"]}
       />
@@ -35,14 +35,14 @@ const RareBeef = (): ReactElement => {
         <p
           className={classNames(styles["main-text"], text === 2 && styles.show)}
         >
-          깊은 뜻을 담고 있는 것은 아니지만 오랜 기간 동안 많은 정이 들었고 또
+          깊은 뜻을 담고 있는 것은 아니지만 오랜 기간 많은 정이 들었고, 또
           심볼로 사용하기 좋은 닉네임이라는 생각이 들었습니다.
         </p>
         <p
           className={classNames(styles["main-text"], text === 3 && styles.show)}
         >
           따라서 이제는 닉네임을 넘어 2D 로고와 3D 모델을 제작하는 등 심볼로서의
-          역할을 부여하고 사용 중입니다.
+          역할을 부여하고 사용 중에 있습니다.
         </p>
         <div className={classNames(styles.donwload, styles.card)}>
           <h3 className={styles["card__title"]}>Download wallpaper</h3>

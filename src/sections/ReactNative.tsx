@@ -29,7 +29,7 @@ const ReactNative = (): ReactElement => {
         <div className={classNames(styles.summary, styles.card)}>
           <h3 className={styles["card__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
-            <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
+            <h4 className={styles["summary__sub-title"]}>프로젝트명</h4>
             <p
               className={classNames(
                 styles["card__content"],
@@ -40,7 +40,7 @@ const ReactNative = (): ReactElement => {
             </p>
           </div>
           <div className={styles["summary-wrapper"]}>
-            <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
+            <h4 className={styles["summary__sub-title"]}>개발 기간</h4>
             <p
               className={classNames(
                 styles["card__content"],

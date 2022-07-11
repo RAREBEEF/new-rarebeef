@@ -127,36 +127,44 @@
       }
 
       .card__content {
-        line-height: 35px;
         margin: {
           left: 20px;
         }
         font: {
-          size: 18px;
+          size: 16px;
         }
       }
 
       &.summary {
+        .card__title {
+          margin: {
+            bottom: 35px;
+          }
+        }
+
         .summary-wrapper {
           &:not(:last-child) {
             margin: {
-              bottom: 35px;
+              bottom: 25px;
             }
           }
         }
+
         .summary__sub-title {
           margin: {
-            bottom: 15px;
+            bottom: 5px;
             left: 20px;
           }
           font: {
-            size: 21px;
+            size: 20px;
             weight: 700;
           }
         }
 
         .summary__text {
           margin: {
+            top: 15px;
+            bottom: 10px;
             left: 30px;
           }
         }
@@ -164,6 +172,7 @@
 
       &.description {
         .description__text {
+          line-height: 35px;
           word-break: keep-all;
           white-space: pre-line;
         }

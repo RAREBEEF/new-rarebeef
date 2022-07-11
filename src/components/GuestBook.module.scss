@@ -9,6 +9,7 @@
     width: fit-content;
 
     &.content {
+      line-height: 23px;
       margin: {
         top: 3px;
         bottom: 14px;
@@ -35,7 +36,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     column-gap: 15px;
-    row-gap: 5px;
+    row-gap: 10px;
   }
 
   .info {
