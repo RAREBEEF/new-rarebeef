@@ -4,26 +4,24 @@ import classNames from "classnames";
 import Header from "../components/Header";
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
-import useTitle from "../hooks/useTitle";
+import AboutHelmet from "../helmets/\bAboutHelmet";
 
-const Profile: React.FC<ProfilePropType> = () => {
+const About: React.FC<ProfilePropType> = () => {
   const [age, setAge] = useState<number>(0);
-  const setTitle = useTitle();
 
   useEffect(() => {
     const date = new Date();
-
-    setTitle("About RAREBEEF");
 
     setAge(
       date.getMonth() < 10 || (date.getMonth() === 10 && date.getDate() < 6)
         ? date.getFullYear() - 1998
         : date.getFullYear() - 1997
     );
-  }, [setTitle]);
+  }, []);
 
   return (
     <div className={styles.container}>
+      <AboutHelmet />
       <Header
         title={["About", "me"]}
         subTitle={["Junior Developer"]}
@@ -33,12 +31,14 @@ const Profile: React.FC<ProfilePropType> = () => {
       <div className={styles.content}>
         <section className={styles.section} id="name">
           <h4 className={styles.header}>Name</h4>
-          <span className={styles.text}>소고기는레어</span>
+          <span className={styles.text}>
+            소고기는레어&nbsp;&nbsp;(본명 : 송의영)
+          </span>
         </section>
         <section className={styles.section} id="birth-date">
           <h4 className={styles.header}>Birth date</h4>
           <span className={styles.text}>
-            1998년 10월 6일&nbsp;&nbsp;[{age}살]
+            1998년 10월 6일&nbsp;&nbsp;({age}살)
           </span>
         </section>
         <section className={styles.section}>
@@ -87,4 +87,4 @@ const Profile: React.FC<ProfilePropType> = () => {
   );
 };
 
-export default Profile;
+export default About;

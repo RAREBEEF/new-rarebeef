@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import ReactNative from "../sections/ReactNative";
 import Front from "../sections/Front";
 import styles from "./Home.module.scss";
@@ -11,18 +11,14 @@ import placeReview from "../sections/placeReview";
 import metaBeef from "../sections/metaBeef";
 import simpleMemo from "../sections/simpleMemo";
 import RareBeef from "../sections/RareBeef";
-import useTitle from "../hooks/useTitle";
+import HomeHelmet from "../helmets/HomeHelmet";
 
 const Home: React.FC<HomePropType> = () => {
   const HomeRef = useRef<any>(null);
-  const setTitle = useTitle();
-
-  useEffect(() => {
-    setTitle("RAREBEEF's Portfolio");
-  }, [setTitle]);
 
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
+      <HomeHelmet />
       <Front />
       <div className={styles.contour} />
       <RareBeef />

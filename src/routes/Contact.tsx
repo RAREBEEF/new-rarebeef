@@ -1,20 +1,15 @@
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
 import GuestBookWrapper from "../components/GuestBookWrapper";
 import Header from "../components/Header";
 import writeIcon from "../images/icons/pen-to-square-regular.svg";
 import styles from "./Contact.module.scss";
 import { ContactPropType } from "../types";
-import useTitle from "../hooks/useTitle";
+import ContactHelmet from "../helmets/ContactHelmet";
 
 const Contact: React.FC<ContactPropType> = () => {
   const [copyAlert, setCopyAlert] = useState<string>("");
-  const setTitle = useTitle();
-
-  useEffect(() => {
-    setTitle("Contact RAREBEEF");
-  }, [setTitle]);
 
   const onCopyClick = (): void => {
     navigator.clipboard
@@ -30,6 +25,7 @@ const Contact: React.FC<ContactPropType> = () => {
 
   return (
     <div className={styles.container}>
+      <ContactHelmet />
       <Header
         title={["Contact"]}
         subTitle={["Welcome feedback"]}
