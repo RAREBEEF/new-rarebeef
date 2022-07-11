@@ -4,7 +4,7 @@ import classNames from "classnames";
 import Header from "../components/Header";
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
-import AboutHelmet from "../helmets/\bAboutHelmet";
+import AboutHelmet from "../helmets/AboutHelmet";
 
 const About: React.FC<ProfilePropType> = () => {
   const [age, setAge] = useState<number>(0);

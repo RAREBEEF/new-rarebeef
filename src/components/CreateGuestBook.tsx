@@ -3,6 +3,7 @@ import styles from "./CreateGuestBook.module.scss";
 import * as FB from "../fb";
 import Button from "./Button";
 import classNames from "classnames";
+import axios from "axios";
 
 const CreateGuestBook = () => {
   const [content, setContent] = useState<string>("");
@@ -31,11 +32,17 @@ const CreateGuestBook = () => {
     }
 
     try {
+      const {
+        data: { ip },
+      } = await axios.get("https://api.ipify.org?format=json");
+
       await FB.addDoc(FB.collection(FB.db, "GuestBook"), {
         name,
         pw,
         content,
         createdAt: new Date().getTime(),
+        ip: ip || "unknown",
+        displayIp: ip.replace(/\.[0-9]{1,}\.[0-9]{1,}$/i, "") || "unknown",
       });
 
       setContent("");

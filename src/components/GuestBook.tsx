@@ -46,13 +46,13 @@ const GuestBook: React.FC<GuestBookPropType> = ({ data }) => {
       <div className={styles["bottom-wrapper"]}>
         <div className={styles["info"]}>
           <div className={classNames(styles.text, styles.name)}>
-            {data.name}
+            {data.name} ({data.displayIp})
           </div>
           <div className={classNames(styles.text, styles.date)}>{`${new Date(
             data.createdAt
           ).getFullYear()}/${
-            new Date(data.createdAt).getMonth() < 10 ? "0" : ""
-          }${new Date(data.createdAt).getMonth()}/${
+            new Date(data.createdAt).getMonth() < 9 ? "0" : ""
+          }${new Date(data.createdAt).getMonth() + 1}/${
             new Date(data.createdAt).getDate() < 10 ? "0" : ""
           }${new Date(data.createdAt).getDate()} ${
             new Date(data.createdAt).getHours() < 10 ? "0" : ""

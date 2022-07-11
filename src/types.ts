@@ -156,4 +156,6 @@ export interface guestBookType {
   pw: string;
   content: string;
   createdAt: number;
+  displayIp: string;
+  ip: string;
 }
