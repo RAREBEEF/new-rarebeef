@@ -19,7 +19,7 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
     if (
       location.pathname !== "/" &&
       location.pathname !== "/contact" &&
-      location.pathname !== "/profile"
+      location.pathname !== "/about"
     ) {
       navigate("/", { replace: true });
     }
@@ -116,7 +116,7 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
             <li>Home</li>
           </NavLink>
           <NavLink
-            to="/profile"
+            to="/about"
             className={({ isActive }: any): string =>
               isActive
                 ? classNames(styles.active, styles.item, styles.flip)

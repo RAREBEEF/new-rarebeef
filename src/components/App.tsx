@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../routes/Home";
 import Contact from "../routes/Contact";
-import Profile from "../routes/Profile";
+import About from "../routes/About";
 import Nav from "./Nav";
 import Toolbar from "./Toolbar";
 import { getGuestBookThunk } from "../redux/modules/getGuestBook";
@@ -20,7 +20,7 @@ const App = (): ReactElement => {
       <Nav />
       <Toolbar />
       <Routes>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<Home />} />
       </Routes>
