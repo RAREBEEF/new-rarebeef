@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import React from "react";
 import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 import { GLTF } from "three-stdlib";
 import { BeefModelPropType } from "../types";
 
@@ -25,15 +24,43 @@ type GLTFResult = GLTF & {
 const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
   const { nodes, materials } = useGLTF("/models/beef.glb") as GLTFResult;
 
-  useFrame(() => {
-    // if (beefActive && refProp.current.position.y < -0.1) {
-    //   refProp.current?.translateZ(0.05);
-    // }
-  });
+  const onBeefClick = () => {
+    const win = window.open(
+      "https://drive.google.com/file/d/1sfBqd8BRLTbYAK3rcXpflO4fBj0hIRj5/view?usp=sharing",
+      "_blank"
+    );
+
+    if (!win) {
+      return;
+    }
+
+    win.focus();
+  };
+  const onPointerEnter = () => {
+    const bodyEl = document.querySelector("body");
+
+    if (!bodyEl) {
+      return;
+    }
+
+    bodyEl.style.cursor = "pointer";
+  };
+  const onPointerLeave = () => {
+    const bodyEl = document.querySelector("body");
+
+    if (!bodyEl) {
+      return;
+    }
+
+    bodyEl.style.cursor = "default";
+  };
 
   return (
     <group ref={beefRef} dispose={null} scale={1} position={[0.2, 0, 0]}>
       <mesh
+        onClick={onBeefClick}
+        onPointerEnter={onPointerEnter}
+        onPointerLeave={onPointerLeave}
         geometry={nodes.겉면001.geometry}
         material={materials.겉면}
         position={[-0.35, 0.05, 0]}

@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import styles from "./RareBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
 import classNames from "classnames";
-import Button from "../components/Button";
 import Loading from "../components/Loading";
 import Beef from "../three/Beef";
 
@@ -44,15 +43,23 @@ const RareBeef = (): ReactElement => {
           따라서 이제는 닉네임을 넘어 2D 로고와 3D 모델을 제작하는 등 심볼로서의
           역할을 부여하고 사용 중에 있습니다.
         </p>
-        <div className={classNames(styles.donwload, styles.card)}>
-          <h3 className={styles["card__title"]}>Download wallpaper</h3>
-          <div className={styles["card__content"]}>
-            <Button
-              text="Google drive (7.2MB)"
-              href="https://drive.google.com/file/d/1sfBqd8BRLTbYAK3rcXpflO4fBj0hIRj5/view?usp=sharing"
-            />
-          </div>
-        </div>
+        <hgroup className={styles["header-group"]}>
+          <h1
+            className={classNames(styles["header"], text === 4 && styles.show)}
+          >
+            THE
+          </h1>
+          <h1
+            className={classNames(styles["header"], text === 4 && styles.show)}
+          >
+            RARE
+          </h1>
+          <h1
+            className={classNames(styles["header"], text === 4 && styles.show)}
+          >
+            BEEF
+          </h1>
+        </hgroup>
       </main>
     </section>
   );

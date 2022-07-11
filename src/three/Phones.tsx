@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 import angleToRadians from "../tools/angleToRadians";
 import ToDoModel from "../models/ToDoModel";
@@ -7,6 +7,9 @@ import { PhonesPropType } from "../types";
 import gsap from "gsap";
 
 const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
+  const [scale, setScale] = useState<number>(
+    ((window.innerWidth - 300) / 1200) * 0.3 + 0.7
+  );
   const controlRef = useRef<any>(null);
   const groupRef = useRef<any>(null);
 
@@ -100,8 +103,21 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
 
     window.addEventListener("scroll", windowScrollListner);
 
+    const windowResizeListner = () => {
+      setScale(
+        window.innerWidth < 300
+          ? 0.7
+          : window.innerWidth > 1500
+          ? 1
+          : ((window.innerWidth - 300) / 1200) * 0.3 + 0.7
+      );
+    };
+
+    window.addEventListener("resize", windowResizeListner);
+
     return () => {
       window.removeEventListener("scroll", windowScrollListner);
+      window.removeEventListener("resize", windowResizeListner);
     };
   }, [sectionRef]);
 
@@ -109,6 +125,7 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
     <>
       <group
         ref={groupRef}
+        scale={scale}
         // rotation={[0, angleToRadians(-45), 0]}
         // rotation={[0, angleToRadians(45), 0]}
         // rotation={[0, 0, 0]}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import BeefModel from "../models/BeefModel";
 import { BeefPropType } from "../types";
@@ -7,9 +7,6 @@ import angleToRadians from "../tools/angleToRadians";
 import PlateModel from "../models/PlateModel";
 
 const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
-  const [scale, setScale] = useState<number>(
-    ((window.innerWidth - 300) / 1200) * 0.3 + 0.7
-  );
   const controlRef = useRef<any>(null);
   const groupRef = useRef<any>(null);
   const beefRef = useRef<any>(null);
@@ -34,8 +31,8 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
     control.enableRotate = false;
     control.reverseOrbit = false;
     control.object.position.x = 0;
-    control.object.position.y = 10;
-    control.object.position.z = 20;
+    control.object.position.y = 20;
+    control.object.position.z = 0;
     beef.rotation.x = angleToRadians(-90);
     beef.position.y = 30;
   }, []);
@@ -45,11 +42,11 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       if (
         !sectionRef.current ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 8 -
+          (window.innerHeight * 10 -
             sectionRef.current.childNodes[1].clientHeight) >=
           0 ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 8 -
+          (window.innerHeight * 10 -
             sectionRef.current.childNodes[1].clientHeight) <=
           -1.5
       ) {
@@ -60,20 +57,20 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       const control = controlRef.current;
       const beef = beefRef.current;
       const light = lightRef.current;
-      const group = groupRef.current;
 
-      // (뷰포트 상단 기준 section top의 y 위치) / (800vh - sticy요소(content) 높이)
+      // (뷰포트 상단 기준 section top의 y 위치) / (1000vh - sticy요소(content) 높이)
       // fixed 시작 시점이 0,
       // fixed가 해제될 때 100이 된다.
       let scrollDegree =
         (setcion.getBoundingClientRect().top /
-          (window.innerHeight * 8 - setcion.childNodes[1].clientHeight)) *
+          (window.innerHeight * 10 - setcion.childNodes[1].clientHeight)) *
         -1;
 
       if (
         (scrollDegree >= 0 && scrollDegree < 0.15) ||
         (scrollDegree >= 0.3 && scrollDegree < 0.45) ||
-        (scrollDegree >= 0.6 && scrollDegree < 0.75)
+        (scrollDegree >= 0.6 && scrollDegree < 0.75) ||
+        (scrollDegree >= 0.9 && scrollDegree < 1.05)
       ) {
         setText(0);
       } else if (scrollDegree >= 0.15 && scrollDegree < 0.3) {
@@ -82,20 +79,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         setText(2);
       } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
         setText(3);
-      } else if (scrollDegree >= 0.9) {
-        setText(4);
-      }
-
-      if (scrollDegree >= 0.9) {
-        gsap.to(group.position, 0.7, {
-          x: 3.5,
-          ease: "linear",
-        });
-      } else {
-        gsap.to(group.position, 0.7, {
-          x: 0,
-          ease: "linear",
-        });
       }
 
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
@@ -103,8 +86,8 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
-          y: 10,
-          z: 20 - 5 * scrollDegree,
+          y: 20 - 10 * scrollDegree,
+          z: 0,
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
@@ -114,7 +97,7 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         gsap.to(light.position, 0.3, {
           x: 0,
           y: 10,
-          z: -4,
+          z: 0,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
@@ -122,18 +105,18 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
-          y: 10,
-          z: 15 - 5 * scrollDegree,
+          y: 10 - 3 * scrollDegree,
+          z: 0,
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
-          y: 30 - 20 * scrollDegree,
+          y: 30 - 10 * scrollDegree,
           ease: "linear",
         });
         gsap.to(light.position, 0.3, {
           x: 0,
           y: 10,
-          z: -4,
+          z: 0,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
@@ -141,18 +124,18 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
-          y: 10 - 2 * scrollDegree,
-          z: 10 - 5 * scrollDegree,
+          y: 7 - 1 * scrollDegree,
+          z: 0 + 4 * scrollDegree,
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
-          y: 10 - 5 * scrollDegree,
+          y: 20 - 15 * scrollDegree,
           ease: "linear",
         });
         gsap.to(light.position, 0.3, {
           x: 0,
           y: 10,
-          z: -4,
+          z: 0 - 4 * scrollDegree,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
@@ -160,12 +143,12 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
-          y: 8 - 4 * scrollDegree,
-          z: 5 - 5 * scrollDegree,
+          y: 6 - 1 * scrollDegree,
+          z: 4 + 2 * scrollDegree,
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
-          y: 5 - 5 * scrollDegree,
+          y: 5 - 2.5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(light.position, 0.3, {
@@ -179,18 +162,18 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
         gsap.to(control.object.position, 0.3, {
           x: 0,
-          y: 4,
-          z: 0,
+          y: 5 - 1 * scrollDegree,
+          z: 6 + 1 * scrollDegree,
           ease: "linear",
         });
         gsap.to(beef.position, 0.3, {
-          y: 0,
+          y: 2.5 - 2.5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(light.position, 0.3, {
-          x: 0,
-          y: 10,
-          z: -7,
+          x: 0 + 1.5 * scrollDegree,
+          y: 10 - 7 * scrollDegree,
+          z: -7 + 4 * scrollDegree,
           ease: "linear",
         });
       }
@@ -198,38 +181,24 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
     window.addEventListener("scroll", windowScrollListner);
 
-    const windowResizeListner = () => {
-      setScale(
-        window.innerWidth < 300
-          ? 0.7
-          : window.innerWidth > 1500
-          ? 1
-          : ((window.innerWidth - 300) / 1200) * 0.3 + 0.7
-      );
-    };
-
-    window.addEventListener("resize", windowResizeListner);
-
     return () => {
       window.removeEventListener("scroll", windowScrollListner);
-      window.removeEventListener("resize", windowResizeListner);
     };
   }, [sectionRef, setText]);
 
   return (
     <>
-      <group scale={scale}>
-        <group ref={groupRef}>
-          <BeefModel beefRef={beefRef} />
-          <PlateModel plateRef={plateRef} />
-          <spotLight
-            args={["#fff", 0.8, 0, angleToRadians(50), 0.5, 0]}
-            position={[0, 10, 0]}
-            ref={lightRef}
-            castShadow
-          />
-        </group>
+      <group ref={groupRef}>
+        <BeefModel beefRef={beefRef} />
+        <PlateModel plateRef={plateRef} />
         <OrbitControls ref={controlRef} />
+
+        <spotLight
+          args={["#fff", 0.8, 0, angleToRadians(50), 0.5, 0]}
+          position={[0, 10, 0]}
+          ref={lightRef}
+          castShadow
+        />
         <ambientLight args={["#fff", 0.2]} />
       </group>
     </>
