@@ -139,16 +139,16 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         <div
           className={classNames(
             styles.summary,
-            styles.section,
+            styles.card,
             "scroll-fade-in"
           )}
         >
-          <h3 className={styles["section__title"]}>Project summary</h3>
+          <h3 className={styles["card__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
             <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -159,7 +159,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -170,7 +170,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
             <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -181,15 +181,15 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         <div
           className={classNames(
             styles.description,
-            styles.section,
+            styles.card,
             "scroll-fade-in"
           )}
         >
-          <h3 className={styles["section__title"]}>Description</h3>
+          <h3 className={styles["card__title"]}>Description</h3>
           <p
             className={classNames(
               styles["description__text"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             {data.description}
@@ -198,28 +198,28 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         <div
           className={classNames(
             styles.skills,
-            styles.section,
+            styles.card,
             "scroll-fade-in"
           )}
         >
-          <h3 className={styles["section__title"]}>Skills</h3>
+          <h3 className={styles["card__title"]}>Skills</h3>
           <ul
             className={classNames(
               styles["skill-icons"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             {skillGeneroator()}
           </ul>
         </div>
         <div
-          className={classNames(styles.links, styles.section, "scroll-fade-in")}
+          className={classNames(styles.links, styles.card, "scroll-fade-in")}
         >
-          <h3 className={styles["section__title"]}>Links</h3>
+          <h3 className={styles["card__title"]}>Links</h3>
           <div
             className={classNames(
               styles["links-wrapper"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             {linkGeneroator()}

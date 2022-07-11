@@ -18,9 +18,11 @@
   transition: opacity 0.5s;
   z-index: 1;
   align-items: center;
+  justify-content: center;
   position: absolute;
   height: 100vh;
   max-width: 100vw;
+  width: 100%;
   line-height: 30px;
   word-break: keep-all;
   backdrop-filter: blur(5px);

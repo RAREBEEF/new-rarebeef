@@ -96,7 +96,7 @@
       }
     }
 
-    .section {
+    .card {
       background-color: rgba(200, 200, 200, 0.2);
       padding: {
         left: 20px;
@@ -116,7 +116,7 @@
         right: 10px;
       }
 
-      .section__title {
+      .card__title {
         margin: {
           bottom: 25px;
         }
@@ -126,7 +126,8 @@
         }
       }
 
-      .section__content {
+      .card__content {
+        line-height: 35px;
         margin: {
           left: 20px;
         }
@@ -165,12 +166,11 @@
         .description__text {
           word-break: keep-all;
           white-space: pre-line;
-          line-height: 35px;
         }
       }
 
       &.skills {
-        .section__title {
+        .card__title {
           margin: {
             bottom: 40px;
           }

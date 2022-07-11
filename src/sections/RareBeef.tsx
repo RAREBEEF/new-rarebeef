@@ -37,22 +37,22 @@ const RareBeef = (): ReactElement => {
         <p
           className={classNames(styles["main-text"], text === 2 && styles.show)}
         >
-          오래된 만큼 그 의미는 정확히 기억나지 않지만 많은 애착과 유대감을 쌓게
-          되었고 서로를 가장 잘 나타낼 수 있다고 생각합니다.
+          뭔가 깊은 뜻을 담고 있는 것은 아니지만 많은 정이 들었고 또 심볼로
+          사용하기 좋은 닉네임이라고 생각하여
         </p>
         <p
           className={classNames(styles["main-text"], text === 3 && styles.show)}
         >
-          개발 독학을 시작한 후에도 2D 로고와 3D 모델 제작, 개인 프로젝트에서
-          심볼의 역할을 수행하며 현재까지 저의 곁을 지키고 있습니다.
+          닉네임을 넘어 2D 로고와 3D 모델을 제작하는 등 심볼로서의 역할을 부여하고 사용
+          중입니다.
         </p>
-        {/* <div className={classNames(styles.summary, styles.section)}>
-          <h3 className={styles["section__title"]}>Project summary</h3>
+        {/* <div className={classNames(styles.summary, styles.card)}>
+          <h3 className={styles["card__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
             <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -63,7 +63,7 @@ const RareBeef = (): ReactElement => {
             <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -74,7 +74,7 @@ const RareBeef = (): ReactElement => {
             <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -82,24 +82,24 @@ const RareBeef = (): ReactElement => {
             </p>
           </div>
         </div>
-        <div className={classNames(styles.skills, styles.section)}>
-          <h3 className={styles["section__title"]}>Skills</h3>
+        <div className={classNames(styles.skills, styles.card)}>
+          <h3 className={styles["card__title"]}>Skills</h3>
           <ul
             className={classNames(
               styles["skill-icons"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             <Skill skill="Blender" />
             <Skill skill="Three.js" />
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.section)}>
-          <h3 className={styles["section__title"]}>Links</h3>
+        <div className={classNames(styles.links, styles.card)}>
+          <h3 className={styles["card__title"]}>Links</h3>
           <div
             className={classNames(
               styles["links-wrapper"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             <Button
@@ -109,9 +109,9 @@ const RareBeef = (): ReactElement => {
             />
           </div>
         </div> */}
-        <div className={classNames(styles.donwload, styles.section)}>
-          <h3 className={styles["section__title"]}>Download wallpaper</h3>
-          <div className={styles["section__content"]}>
+        <div className={classNames(styles.donwload, styles.card)}>
+          <h3 className={styles["card__title"]}>Download wallpaper</h3>
+          <div className={styles["card__content"]}>
             <Button
               text="Google drive (7.2MB)"
               href="https://drive.google.com/file/d/1sfBqd8BRLTbYAK3rcXpflO4fBj0hIRj5/view?usp=sharing"

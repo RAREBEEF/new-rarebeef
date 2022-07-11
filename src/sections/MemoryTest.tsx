@@ -18,13 +18,13 @@ const MemoryTest = (): ReactElement => {
       />
       <main className={styles.content}>
         <MemoryTestApp />
-        <div className={classNames(styles.summary, styles.section)}>
-          <h3 className={styles["section__title"]}>Project summary</h3>
+        <div className={classNames(styles.summary, styles.card)}>
+          <h3 className={styles["card__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
             <h4 className={styles["summary__sub-title"]}>프로젝트 이름</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -35,7 +35,7 @@ const MemoryTest = (): ReactElement => {
             <h4 className={styles["summary__sub-title"]}>프로젝트 기간</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -46,7 +46,7 @@ const MemoryTest = (): ReactElement => {
             <h4 className={styles["summary__sub-title"]}>개발 인원</h4>
             <p
               className={classNames(
-                styles["section__content"],
+                styles["card__content"],
                 styles["summary__text"]
               )}
             >
@@ -54,12 +54,12 @@ const MemoryTest = (): ReactElement => {
             </p>
           </div>
         </div>
-        <div className={classNames(styles.description, styles.section)}>
-          <h3 className={styles["section__title"]}>Description</h3>
+        <div className={classNames(styles.description, styles.card)}>
+          <h3 className={styles["card__title"]}>Description</h3>
           <p
             className={classNames(
               styles["description__text"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             {
@@ -68,12 +68,12 @@ const MemoryTest = (): ReactElement => {
           </p>
         </div>
 
-        <div className={classNames(styles.skills, styles.section)}>
-          <h3 className={styles["section__title"]}>Skills</h3>
+        <div className={classNames(styles.skills, styles.card)}>
+          <h3 className={styles["card__title"]}>Skills</h3>
           <ul
             className={classNames(
               styles["skill-icons"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             <Skill skill="HTML" />
@@ -82,12 +82,12 @@ const MemoryTest = (): ReactElement => {
             <Skill skill="Sass" />
           </ul>
         </div>
-        <div className={classNames(styles.links, styles.section)}>
-          <h3 className={styles["section__title"]}>Links</h3>
+        <div className={classNames(styles.links, styles.card)}>
+          <h3 className={styles["card__title"]}>Links</h3>
           <div
             className={classNames(
               styles["links-wrapper"],
-              styles["section__content"]
+              styles["card__content"]
             )}
           >
             <Button
