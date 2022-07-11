@@ -56,7 +56,7 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
   };
 
   return (
-    <group ref={beefRef} dispose={null} scale={1} position={[0.2, 0, 0]}>
+    <group ref={beefRef} dispose={null} scale={1} position={[0.2, 0, 0.3]}>
       <mesh
         onClick={onBeefClick}
         onPointerEnter={onPointerEnter}

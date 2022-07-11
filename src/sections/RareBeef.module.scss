@@ -1,13 +1,19 @@
 @import "../components/Section.module.scss";
 
 .container {
-  height: 1000vh;
+  height: 700vh;
   display: block;
 }
 .content {
   overflow: hidden;
   position: sticky;
   top: 0;
+}
+
+.canvas {
+  height: 100vh !important;
+  width: 100vw !important;
+  min-width: 230px !important;
 }
 
 .main-text {
@@ -41,13 +47,8 @@
   }
 }
 
-.canvas {
-  height: 100vh !important;
-  width: 100vw !important;
-  min-width: 230px !important;
-}
 .header-group {
-  transform: translateX(17vw);
+  transform: translateX(13vw);
   width: 50vw;
   height: 100vh;
   position: absolute;
@@ -56,19 +57,19 @@
   flex-direction: column;
   justify-content: center;
   gap: 5vh;
-
+  pointer-events: none;
   .header {
     opacity: 0;
     transition: opacity 0.2s;
     font: {
-      size: 7vmin;
+      size: 7vmax;
       weight: 700;
     }
     &:nth-child(1) {
-      transform: translateX(5vmin);
+      transform: translateX(6.25vmin);
     }
     &:nth-child(3) {
-      transform: translateX(3.75vmin);
+      transform: translateX(5vmin);
     }
     &.show {
       opacity: 1;
