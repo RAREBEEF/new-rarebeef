@@ -13,6 +13,18 @@ const HomeHelmet = () => {
           name="keyword"
           content="portfolio front-end front-end web development rarebeef 소고기는레어 프론트엔드 포트폴리오 웹개발"
         />
+        <meta property="og:title" content="RAREBEEF's Portfolio" />
+        <meta
+          property="og:description"
+          content="RAREBEEF의 프론트엔드 포트폴리오를 확인해 보세요."
+        />
+        <meta property="og:url" content="https://rarebeef.co.kr" />
+        <meta property="twitter:url" content="https://rarebeef.co.kr" />
+        <meta property="twitter:title" content="RAREBEEF's Portfolio" />
+        <meta
+          property="twitter:description"
+          content="RAREBEEF의 프론트엔드 포트폴리오를 확인해 보세요."
+        />
       </Helmet>
     </HelmetProvider>
   );

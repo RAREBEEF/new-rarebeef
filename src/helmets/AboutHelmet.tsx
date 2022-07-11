@@ -13,6 +13,18 @@ const AboutHelmet = () => {
           name="keyword"
           content="portfolio front-end front-end web development rarebeef 소고기는레어 프론트엔드 포트폴리오 웹개발 profile about"
         />
+        <meta property="og:title" content="About RAREBEEF" />
+        <meta
+          property="og:description"
+          content="주니어 프론트엔드 개발자 RAREBEEF에 대해 알아보세요."
+        />
+        <meta property="og:url" content="https://rarebeef.co.kr/about" />
+        <meta property="twitter:url" content="https://rarebeef.co.kr/about" />
+        <meta property="twitter:title" content="About RAREBEEF" />
+        <meta
+          property="twitter:description"
+          content="주니어 프론트엔드 개발자 RAREBEEF에 대해 알아보세요."
+        />
       </Helmet>
     </HelmetProvider>
   );

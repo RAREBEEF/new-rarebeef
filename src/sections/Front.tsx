@@ -9,18 +9,18 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
   const clipPathRef = useRef<any>(null);
   const fakeSubTitleRef = useRef<any>(null);
   const realSubTitleRef = useRef<any>(null);
+  const fakeTitleRef = useRef<any>(null);
   const realTitleRef = useRef<any>(null);
-  const realLogoRef = useRef<any>(null);
 
   useEffect(() => {
     const windowScrollListner = () => {
       if (
         !clipPathRef.current ||
         !fakeSubTitleRef.current ||
+        !fakeTitleRef.current ||
         !realSubTitleRef.current ||
-        !realLogoRef.current ||
         !realTitleRef.current ||
-        window.scrollY / (window.innerHeight * 2) > 1.5
+        window.scrollY / (window.innerHeight * 1) >= 1.3
       ) {
         return;
       }
@@ -38,16 +38,16 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       }
 
       gsap.to(fakeSubTitleRef.current, 0.3, {
-        transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
+        transform: `translateY(${15 + scrollDegree * 0.15}vmin)`,
+      });
+      gsap.to(fakeTitleRef.current, 0.3, {
+        transform: `translateY(${-15 - scrollDegree * 0.15}vmin)`,
       });
       gsap.to(realSubTitleRef.current, 0.3, {
-        transform: `translateY(${20 + scrollDegree * 0.2}vmin)`,
-      });
-      gsap.to(realLogoRef.current, 0.3, {
         transform: `translateY(${15 + scrollDegree * 0.15}vmin)`,
       });
       gsap.to(realTitleRef.current, 0.3, {
-        transform: `translateY(${5 + scrollDegree * 0.05}vmin)`,
+        transform: `translateY(${-15 - scrollDegree * 0.15}vmin)`,
       });
     };
 
@@ -66,12 +66,18 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
           <h1
             ref={fakeSubTitleRef}
             className={styles["sub-title"]}
-            style={{ transform: `translateY(20vmin)` }}
+            style={{ transform: `translateY(15vmin)` }}
           >
             RAREBEEF's
           </h1>
           <img className={classNames(styles.logo)} src={logo} alt="RARE BEEF" />
-          <h1 className={styles.title}>Portfolio</h1>
+          <h1
+            ref={fakeTitleRef}
+            className={styles.title}
+            style={{ transform: `translateY(-15vmin)` }}
+          >
+            Portfolio
+          </h1>
         </div>
         <hgroup
           ref={clipPathRef}
@@ -81,12 +87,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
           <h1 ref={realSubTitleRef} className={styles["sub-title"]}>
             RAREBEEF's
           </h1>
-          <img
-            ref={realLogoRef}
-            className={styles.logo}
-            src={logo}
-            alt="RARE BEEF"
-          />
+          <img className={styles.logo} src={logo} alt="RARE BEEF" />
           <h1 ref={realTitleRef} className={styles.title}>
             Portfolio
           </h1>
