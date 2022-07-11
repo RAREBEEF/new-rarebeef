@@ -45,17 +45,17 @@ const RareBeef = (): ReactElement => {
         </p>
         <hgroup className={styles["header-group"]}>
           <h1
-            className={classNames(styles["header"], text === 4 && styles.show)}
+            className={classNames(styles["header"], text >= 4 && styles.show)}
           >
             THE
           </h1>
           <h1
-            className={classNames(styles["header"], text === 4 && styles.show)}
+            className={classNames(styles["header"], text >= 5 && styles.show)}
           >
             RARE
           </h1>
           <h1
-            className={classNames(styles["header"], text === 4 && styles.show)}
+            className={classNames(styles["header"], text >= 6 && styles.show)}
           >
             BEEF
           </h1>
