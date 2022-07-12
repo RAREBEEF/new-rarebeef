@@ -20,7 +20,7 @@ type GLTFResult = GLTF & {
 const PlateModel: React.FC<PlateModelPropType> = ({ plateRef }) => {
   const { nodes, materials } = useGLTF("models/plate.glb") as GLTFResult;
   return (
-    <group ref={plateRef} dispose={null} scale={1} position={[-0.2, -0.45, 0]}>
+    <group ref={plateRef} dispose={null} scale={0.9} position={[-0.2, -0.45, 0]}>
       <mesh
         geometry={nodes.실린더002.geometry}
         material={materials["매테리얼.003"]}

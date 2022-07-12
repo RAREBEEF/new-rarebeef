@@ -3,6 +3,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { BeefModelPropType } from "../types";
+import angleToRadians from "../tools/angleToRadians";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -54,9 +55,14 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
 
     bodyEl.style.cursor = "default";
   };
-
   return (
-    <group ref={beefRef} dispose={null} scale={1} position={[0.2, 0, 0.3]}>
+    <group
+      ref={beefRef}
+      dispose={null}
+      scale={0.95}
+      position={[0.05, 0, 0.3]}
+      rotation={[angleToRadians(-90), 0, angleToRadians(5)]}
+    >
       <mesh
         onClick={onBeefClick}
         onPointerEnter={onPointerEnter}
@@ -74,7 +80,6 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
         position={[-0.35, 0.04, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[11.58, 1, 14.34]}
-        castShadow
       />
       <mesh
         geometry={nodes.무늬1001.geometry}
@@ -82,7 +87,6 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
         position={[-1.24, 0.47, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[11.58, 1, 14.34]}
-        castShadow
       />
       <mesh
         geometry={nodes.무늬2001.geometry}
@@ -90,7 +94,6 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
         position={[1.36, -0.38, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[11.58, 1, 14.34]}
-        castShadow
       />
       <mesh
         geometry={nodes.무늬3001.geometry}
@@ -98,7 +101,6 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
         position={[0.03, -0.23, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[11.58, 1, 14.34]}
-        castShadow
       />
       <mesh
         geometry={nodes.테두리002.geometry}
@@ -106,7 +108,6 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
         position={[-0.35, 0.04, 0]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[11.58, 1, 14.34]}
-        castShadow
       />
     </group>
   );
