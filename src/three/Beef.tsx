@@ -45,11 +45,11 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       if (
         !sectionRef.current ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 7 -
+          (window.innerHeight * 5 -
             sectionRef.current.childNodes[1].clientHeight) >=
           0 ||
         sectionRef.current.getBoundingClientRect().top /
-          (window.innerHeight * 7 -
+          (window.innerHeight * 5 -
             sectionRef.current.childNodes[1].clientHeight) <=
           -2
       ) {
@@ -62,18 +62,22 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       const light = lightRef.current;
       const group = groupRef.current;
 
-      // (뷰포트 상단 기준 section top의 y 위치) / (700vh - sticy요소(content) 높이)
+      // (뷰포트 상단 기준 section top의 y 위치) / (500vh - sticy요소(content) 높이)
       // fixed 시작 시점이 0,
       // fixed가 해제될 때 100이 된다.
+      // 추가로 0.1을 더해 실제 스크롤보다 애니메이션 발동을 0.1 만큼 앞당겨서
+      // 스크롤 마지막 0.1 만큼은 애니메이션 없이 스크롤만 작동
       let scrollDegree =
         (setcion.getBoundingClientRect().top /
-          (window.innerHeight * 7 - setcion.childNodes[1].clientHeight)) *
-        -1;
+          (window.innerHeight * 5 - setcion.childNodes[1].clientHeight)) *
+          -1 +
+        0.1;
 
       if (
         (scrollDegree >= 0 && scrollDegree < 0.15) ||
         (scrollDegree >= 0.3 && scrollDegree < 0.45) ||
-        (scrollDegree >= 0.6 && scrollDegree < 0.75)
+        (scrollDegree >= 0.6 && scrollDegree < 0.75) ||
+        (scrollDegree >= 9 && scrollDegree < 0.95)
       ) {
         setText(0);
       } else if (scrollDegree >= 0.15 && scrollDegree < 0.3) {
@@ -82,15 +86,11 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         setText(2);
       } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
         setText(3);
-      } else if (scrollDegree >= 0.9 && scrollDegree < 0.93) {
+      } else if (scrollDegree >= 0.95 && scrollDegree < 1) {
         setText(4);
-      } else if (scrollDegree >= 0.93 && scrollDegree < 0.96) {
-        setText(5);
-      } else if (scrollDegree >= 0.96 && scrollDegree < 1) {
-        setText(6);
       } else if (scrollDegree >= 1) {
-        setText(6);
-        gsap.to(group.position, 0.3, {
+        setText(4);
+        gsap.to(group.position, 0.2, {
           x: 3,
           y: 0,
           z: 0,
@@ -101,17 +101,23 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
         scrollDegree *= 5;
 
-        gsap.to(control.object.position, 0.3, {
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+          ease: "linear",
+        });
+        gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10,
           z: 20 - 5 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(beef.position, 0.3, {
+        gsap.to(beef.position, 0.2, {
           y: 30,
           ease: "linear",
         });
-        gsap.to(light.position, 0.3, {
+        gsap.to(light.position, 0.2, {
           x: 0,
           y: 10,
           z: -4,
@@ -120,17 +126,23 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
         scrollDegree = (scrollDegree - 0.2) * 5;
 
-        gsap.to(control.object.position, 0.3, {
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+          ease: "linear",
+        });
+        gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10,
           z: 15 - 5 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(beef.position, 0.3, {
+        gsap.to(beef.position, 0.2, {
           y: 30 - 20 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(light.position, 0.3, {
+        gsap.to(light.position, 0.2, {
           x: 0,
           y: 10,
           z: -4,
@@ -139,17 +151,23 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
         scrollDegree = (scrollDegree - 0.4) * 5;
 
-        gsap.to(control.object.position, 0.3, {
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+          ease: "linear",
+        });
+        gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10 - 2 * scrollDegree,
           z: 10 - 5 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(beef.position, 0.3, {
+        gsap.to(beef.position, 0.2, {
           y: 10 - 5 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(light.position, 0.3, {
+        gsap.to(light.position, 0.2, {
           x: 0,
           y: 10,
           z: -4,
@@ -158,23 +176,23 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
         scrollDegree = (scrollDegree - 0.6) * 5;
 
-        gsap.to(group.position, 0.3, {
+        gsap.to(group.position, 0.2, {
           x: 0,
           y: 0,
           z: 0,
           ease: "linear",
         });
-        gsap.to(control.object.position, 0.3, {
+        gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 8 - 3 * scrollDegree,
           z: 5 - 5 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(beef.position, 0.3, {
+        gsap.to(beef.position, 0.2, {
           y: 5 - 5 * scrollDegree,
           ease: "linear",
         });
-        gsap.to(light.position, 0.3, {
+        gsap.to(light.position, 0.2, {
           x: 0,
           y: 10,
           z: -4 - 3 * scrollDegree,
@@ -183,23 +201,23 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.8 && scrollDegree <= 1) {
         scrollDegree = (scrollDegree - 0.8) * 5;
 
-        gsap.to(group.position, 0.3, {
+        gsap.to(group.position, 0.2, {
           x: 0 + 3 * scrollDegree,
           y: 0,
           z: 0,
           ease: "linear",
         });
-        gsap.to(control.object.position, 0.3, {
+        gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 5,
           z: 0,
           ease: "linear",
         });
-        gsap.to(beef.position, 0.3, {
+        gsap.to(beef.position, 0.2, {
           y: 0,
           ease: "linear",
         });
-        gsap.to(light.position, 0.3, {
+        gsap.to(light.position, 0.2, {
           x: 0,
           y: 10,
           z: -7,

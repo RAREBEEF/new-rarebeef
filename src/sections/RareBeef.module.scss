@@ -1,7 +1,7 @@
 @import "../components/Section.module.scss";
 
 .container {
-  height: 700vh;
+  height: 500vh;
   display: block;
 }
 .content {
@@ -60,16 +60,20 @@
   pointer-events: none;
   .header {
     opacity: 0;
-    transition: opacity 0.2s;
     font: {
       size: 7vmax;
       weight: 700;
     }
     &:nth-child(1) {
       transform: translateX(6.25vmin);
+      transition: opacity 0.2s;
+    }
+    &:nth-child(2) {
+      transition: opacity 0.4s;
     }
     &:nth-child(3) {
       transform: translateX(5vmin);
+      transition: opacity 0.6s;
     }
     &.show {
       opacity: 1;
