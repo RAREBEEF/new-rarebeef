@@ -67,51 +67,31 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
       if (scrollDegree >= 0.15 && scrollDegree < 0.3) {
         setText(1);
-        gsap.to(group.position, 1.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-        });
       } else if (scrollDegree >= 0.45 && scrollDegree < 0.6) {
         setText(2);
-        gsap.to(group.position, 1.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-        });
       } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
         setText(3);
-        gsap.to(group.position, 1.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-        });
       } else if (scrollDegree >= 0.95 && scrollDegree < 1) {
         setText(4);
-        gsap.to(group.position, 1.2, {
-          x: 3.2,
-          y: 0,
-          z: 0,
-        });
       } else if (scrollDegree >= 1) {
         setText(4);
-        gsap.to(group.position, 1.2, {
+        gsap.to(group.position, 0.2, {
           x: 3.2,
           y: 0,
           z: 0,
         });
       } else {
         setText(0);
-        gsap.to(group.position, 1.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-        });
       }
 
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
         scrollDegree *= 5;
 
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10,
@@ -119,12 +99,17 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
           ease: "linear",
         });
         gsap.to(beef.position, 0.2, {
-          y: 30,
+          y: 30 - 10 * scrollDegree,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
         scrollDegree = (scrollDegree - 0.2) * 5;
 
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10,
@@ -132,12 +117,17 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
           ease: "linear",
         });
         gsap.to(beef.position, 0.2, {
-          y: 30 - 20 * scrollDegree,
+          y: 20 - 10 * scrollDegree,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
         scrollDegree = (scrollDegree - 0.4) * 5;
 
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10 - 2 * scrollDegree,
@@ -151,27 +141,37 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
         scrollDegree = (scrollDegree - 0.6) * 5;
 
+        gsap.to(group.position, 0.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
-          y: 8 - 2 * scrollDegree,
-          z: 5 - 2.5 * scrollDegree,
+          y: 8 - 4 * scrollDegree,
+          z: 5 - 5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(beef.position, 0.2, {
-          y: 5 - 2.5 * scrollDegree,
+          y: 5 - 5 * scrollDegree,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.8 && scrollDegree <= 1) {
         scrollDegree = (scrollDegree - 0.8) * 5;
 
+        gsap.to(group.position, 0.2, {
+          x: 0 + 3.2 * scrollDegree,
+          y: 0,
+          z: 0,
+        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
-          y: 6 - 2 * scrollDegree,
-          z: 2.5 - 2.5 * scrollDegree,
+          y: 4,
+          z: 0,
           ease: "linear",
         });
         gsap.to(beef.position, 0.2, {
-          y: 2.5 - 2.5 * scrollDegree,
+          y: 0,
           ease: "linear",
         });
       }
@@ -204,7 +204,7 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
           <BeefModel beefRef={beefRef} />
           <PlateModel plateRef={plateRef} />
           <spotLight
-            args={["#fff", 0.5, 15, angleToRadians(50), 0, 0]}
+            args={["#fff", 0.5, 15, angleToRadians(140), 0, 0]}
             position={[0, 10, 3]}
             ref={lightRef}
             castShadow
