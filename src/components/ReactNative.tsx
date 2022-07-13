@@ -1,23 +1,31 @@
-import React, { ReactElement } from "react";
-import Header from "../components/Header";
-import styles from "./MemoryTest.module.scss";
+import React, { ReactElement, Suspense, useRef } from "react";
+import Header from "./Header";
+import styles from "./ReactNative.module.scss";
+import { Canvas } from "@react-three/fiber";
 import classNames from "classnames";
-import Skill from "../components/Skill";
-import Button from "../components/Button";
-import MemoryTestApp from "../components/MemoryTestApp";
 import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
+import Skill from "./Skill";
+import Button from "./Button";
+import Loading from "./Loading";
+import Phones from "../scenes/Phones";
 
-const MemoryTest = (): ReactElement => {
+const ReactNative = (): ReactElement => {
+  const sectionRef = useRef<any>(null);
+
   return (
-    <section className={classNames(styles.container, styles.MemoryTest)}>
+    <section className={styles.container} ref={sectionRef}>
       <Header
-        title={["Memory", "Test"]}
-        subTitle={["Mini game"]}
-        classes={["MemoryTest"]}
+        title={["ToDo", "&", "Weather", "App"]}
+        subTitle={["with", "React", "Native"]}
+        classes={["ReactNative"]}
       />
       <main className={styles.content}>
-        <MemoryTestApp />
+        <Suspense fallback={<Loading />}>
+          <Canvas className={styles.canvas} dpr={[1.2, 1.5]}>
+            <Phones sectionRef={sectionRef} />
+          </Canvas>
+        </Suspense>
         <div className={classNames(styles.summary, styles.card)}>
           <h3 className={styles["card__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
@@ -28,7 +36,7 @@ const MemoryTest = (): ReactElement => {
                 styles["summary__text"]
               )}
             >
-              Memory test
+              ToDo & Wheater
             </p>
           </div>
           <div className={styles["summary-wrapper"]}>
@@ -39,7 +47,7 @@ const MemoryTest = (): ReactElement => {
                 styles["summary__text"]
               )}
             >
-              2022.06.04 ~ 06.07
+              2022.05.30 ~ 06.03
             </p>
           </div>
           <div className={styles["summary-wrapper"]}>
@@ -63,11 +71,10 @@ const MemoryTest = (): ReactElement => {
             )}
           >
             {
-              "브라우저에서 플레이 가능한 간단한 미니게임입니다.\n표시되는 블록을 외우고 모두 클릭하면 되는 간단한 규칙을 갖고 있습니다. 총 50 라운드까지 준비되어 있으며 라운드를 거듭할수록 외워야 할 블록의 개수가 늘어나고 특정 라운드에 도달하면 전체 블록의 수가 늘어나는 등 난이도가 증가하도록 만들었습니다."
+              "ToDo와 날씨 모바일 애플리케이션입니다.\nReact Native와 Expo를 사용해 프로젝트를 진행하였습니다. ToDo 앱에는 Drag & Drop, Progress bar 등의 기능을 구현하였고 날씨 앱에는 geoLocation, weather api 등의 기능을 구현하였습니다. 앱을 배포하지 않았기에 3D 모델과 Three.js로 앱의 구동 모습을 대신 표현해 보았습니다."
             }
           </p>
         </div>
-
         <div className={classNames(styles.skills, styles.card)}>
           <h3 className={styles["card__title"]}>Skills</h3>
           <ul
@@ -76,10 +83,10 @@ const MemoryTest = (): ReactElement => {
               styles["card__content"]
             )}
           >
-            <Skill skill="HTML" />
-            <Skill skill="TypeScript" />
-            <Skill skill="React" />
-            <Skill skill="Sass" />
+            <Skill skill="JavaScript" />
+            <Skill skill="React Native" />
+            <Skill skill="Blender" />
+            <Skill skill="Three.js" />
           </ul>
         </div>
         <div className={classNames(styles.links, styles.card)}>
@@ -92,12 +99,12 @@ const MemoryTest = (): ReactElement => {
           >
             <Button
               icon={githubIcon}
-              href="https://github.com/RAREBEEF/memory-test"
+              href="https://github.com/RAREBEEF/Todo-app"
               classes={["Home__project-link"]}
             />
             <Button
               icon={velogIcon}
-              href="https://velog.io/@drrobot409/React-%EA%B8%B0%EC%96%B5%EB%A0%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84"
+              href="https://velog.io/@drrobot409/React-Native-Expo-ToDo%EC%95%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0"
               classes={["Home__project-link"]}
             />
           </div>
@@ -107,4 +114,4 @@ const MemoryTest = (): ReactElement => {
   );
 };
 
-export default MemoryTest;
+export default ReactNative;

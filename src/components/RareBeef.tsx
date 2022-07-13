@@ -4,7 +4,7 @@ import styles from "./RareBeef.module.scss";
 import { Canvas } from "@react-three/fiber";
 import classNames from "classnames";
 import Loading from "../components/Loading";
-import Beef from "../three/Beef";
+import Beef from "../scenes/Beef";
 
 const RareBeef = (): ReactElement => {
   const sectionRef = useRef<any>(null);
@@ -18,13 +18,11 @@ const RareBeef = (): ReactElement => {
         classes={["RareBeef"]}
       />
       <main className={styles.content}>
-        <div className={styles["canvas-wrapper"]}>
-          <Suspense fallback={<Loading />}>
-            <Canvas className={styles.canvas} shadows dpr={[1, 1.2]}>
-              <Beef sectionRef={sectionRef} setText={setText} />
-            </Canvas>
-          </Suspense>
-        </div>
+        <Suspense fallback={<Loading />}>
+          <Canvas className={styles.canvas} shadows dpr={[1, 1.2]}>
+            <Beef sectionRef={sectionRef} setText={setText} />
+          </Canvas>
+        </Suspense>
         <p
           className={classNames(styles["main-text"], text === 1 && styles.show)}
         >
