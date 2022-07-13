@@ -25,36 +25,36 @@ type GLTFResult = GLTF & {
 const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
   const { nodes, materials } = useGLTF("/models/beef.glb") as GLTFResult;
 
-  const onBeefClick = () => {
-    const win = window.open(
-      "https://drive.google.com/file/d/1sfBqd8BRLTbYAK3rcXpflO4fBj0hIRj5/view?usp=sharing",
-      "_blank"
-    );
+  // const onBeefClick = () => {
+  //   const win = window.open(
+  //     "https://drive.google.com/file/d/1sfBqd8BRLTbYAK3rcXpflO4fBj0hIRj5/view?usp=sharing",
+  //     "_blank"
+  //   );
 
-    if (!win) {
-      return;
-    }
+  //   if (!win) {
+  //     return;
+  //   }
 
-    win.focus();
-  };
-  const onPointerEnter = () => {
-    const bodyEl = document.querySelector("body");
+  //   win.focus();
+  // };
+  // const onPointerEnter = () => {
+  //   const bodyEl = document.querySelector("body");
 
-    if (!bodyEl) {
-      return;
-    }
+  //   if (!bodyEl) {
+  //     return;
+  //   }
 
-    bodyEl.style.cursor = "pointer";
-  };
-  const onPointerLeave = () => {
-    const bodyEl = document.querySelector("body");
+  //   bodyEl.style.cursor = "pointer";
+  // };
+  // const onPointerLeave = () => {
+  //   const bodyEl = document.querySelector("body");
 
-    if (!bodyEl) {
-      return;
-    }
+  //   if (!bodyEl) {
+  //     return;
+  //   }
 
-    bodyEl.style.cursor = "default";
-  };
+  //   bodyEl.style.cursor = "default";
+  // };
   return (
     <group
       ref={beefRef}
@@ -64,9 +64,9 @@ const BeefModel: React.FC<BeefModelPropType> = ({ beefRef }) => {
       rotation={[angleToRadians(-90), 0, angleToRadians(5)]}
     >
       <mesh
-        onClick={onBeefClick}
-        onPointerEnter={onPointerEnter}
-        onPointerLeave={onPointerLeave}
+        // onClick={onBeefClick}
+        // onPointerEnter={onPointerEnter}
+        // onPointerLeave={onPointerLeave}
         geometry={nodes.겉면001.geometry}
         material={materials.겉면}
         position={[-0.35, 0.05, 0]}

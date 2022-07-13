@@ -1,5 +1,6 @@
 //
 // Props
+
 //
 export interface BeefModelPropType {
   beefRef: any;
@@ -21,7 +22,8 @@ export interface sectionDataType {
     title: Array<string>;
     subTitle: Array<string>;
   };
-  imgs: Array<string>;
+  imgs?: Array<string>;
+  app?: any;
   summary: { name: string; date: string; headCount: number };
   description: string;
   skills: Array<skillType>;

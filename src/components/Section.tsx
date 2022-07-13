@@ -16,6 +16,10 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
   const screenshotsRef = useRef<any>(null);
 
   const swiperGeneroator = (): Array<any> => {
+    if (!data.imgs) {
+      return [];
+    }
+
     const swiperReturn: Array<any> = [];
 
     data.imgs.forEach((img, i) => {
@@ -57,6 +61,10 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
   };
 
   useEffect(() => {
+    if (!data.imgs) {
+      return;
+    }
+
     const windowScrollListner = () => {
       if (!screenshotsRef.current) {
         return;
@@ -83,7 +91,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
     return () => {
       window.removeEventListener("scroll", windowScrollListner);
     };
-  }, []);
+  }, [data.imgs]);
 
   return (
     <section
@@ -98,50 +106,49 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
         classes={data.name}
       />
       <main className={styles.content}>
-        <div className={styles.screenshots} ref={screenshotsRef}>
-          <Swiper
-            color="black"
-            className={styles["swiper__container"]}
-            modules={[Navigation, Pagination, EffectCoverflow, Pagination]}
-            navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
-            pagination={{
-              clickable: true,
-              type: "bullets",
-            }}
-            slidesPerView={1}
-            effect="coverflow"
-            coverflowEffect={{
-              slideShadows: false,
-            }}
-            spaceBetween={20}
-            grabCursor
-            loop={true}
-          >
-            <div className={styles["swiper__navigation-wrapper"]}>
-              <div className={styles["swiper__navigation"]}>
-                <img
-                  className={classNames(styles["swiper__arrow"], "nav--prev")}
-                  src={arrow}
-                  alt="Previous screenshot"
-                />
+        {data.imgs && (
+          <div className={styles.screenshots} ref={screenshotsRef}>
+            <Swiper
+              color="black"
+              className={styles["swiper__container"]}
+              modules={[Navigation, Pagination, EffectCoverflow, Pagination]}
+              navigation={{ nextEl: ".nav--next", prevEl: ".nav--prev" }}
+              pagination={{
+                clickable: true,
+                type: "bullets",
+              }}
+              slidesPerView={1}
+              effect="coverflow"
+              coverflowEffect={{
+                slideShadows: false,
+              }}
+              spaceBetween={20}
+              grabCursor
+              loop={true}
+            >
+              <div className={styles["swiper__navigation-wrapper"]}>
+                <div className={styles["swiper__navigation"]}>
+                  <img
+                    className={classNames(styles["swiper__arrow"], "nav--prev")}
+                    src={arrow}
+                    alt="Previous screenshot"
+                  />
+                </div>
+                <div className={styles["swiper__navigation"]}>
+                  <img
+                    className={classNames(styles["swiper__arrow"], "nav--next")}
+                    src={arrow}
+                    alt="Next screenshot"
+                  />
+                </div>
               </div>
-              <div className={styles["swiper__navigation"]}>
-                <img
-                  className={classNames(styles["swiper__arrow"], "nav--next")}
-                  src={arrow}
-                  alt="Next screenshot"
-                />
-              </div>
-            </div>
-            {swiperGeneroator()}
-          </Swiper>
-        </div>
+              {swiperGeneroator()}
+            </Swiper>
+          </div>
+        )}
+        {data.app && <data.app />}
         <div
-          className={classNames(
-            styles.summary,
-            styles.card,
-            "scroll-fade-in"
-          )}
+          className={classNames(styles.summary, styles.card, "scroll-fade-in")}
         >
           <h3 className={styles["card__title"]}>Project summary</h3>
           <div className={styles["summary-wrapper"]}>
@@ -196,11 +203,7 @@ const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
           </p>
         </div>
         <div
-          className={classNames(
-            styles.skills,
-            styles.card,
-            "scroll-fade-in"
-          )}
+          className={classNames(styles.skills, styles.card, "scroll-fade-in")}
         >
           <h3 className={styles["card__title"]}>Skills</h3>
           <ul
