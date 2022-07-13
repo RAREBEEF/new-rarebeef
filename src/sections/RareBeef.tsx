@@ -20,7 +20,7 @@ const RareBeef = (): ReactElement => {
       <main className={styles.content}>
         <div className={styles["canvas-wrapper"]}>
           <Suspense fallback={<Loading />}>
-            <Canvas className={styles.canvas} shadows>
+            <Canvas className={styles.canvas} shadows /* dpr={[0.5, 1]} */>
               <Beef sectionRef={sectionRef} setText={setText} />
             </Canvas>
           </Suspense>

@@ -67,33 +67,51 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
       if (scrollDegree >= 0.15 && scrollDegree < 0.3) {
         setText(1);
-      } else if (scrollDegree >= 0.45 && scrollDegree < 0.6) {
-        setText(2);
-      } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
-        setText(3);
-      } else if (scrollDegree >= 0.95 && scrollDegree < 1) {
-        setText(4);
-      } else if (scrollDegree >= 1) {
-        setText(4);
-        gsap.to(group.position, 0.2, {
-          x: 3,
+        gsap.to(group.position, 1.2, {
+          x: 0,
           y: 0,
           z: 0,
-          ease: "linear",
+        });
+      } else if (scrollDegree >= 0.45 && scrollDegree < 0.6) {
+        setText(2);
+        gsap.to(group.position, 1.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
+      } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
+        setText(3);
+        gsap.to(group.position, 1.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
+      } else if (scrollDegree >= 0.95 && scrollDegree < 1) {
+        setText(4);
+        gsap.to(group.position, 1.2, {
+          x: 3.2,
+          y: 0,
+          z: 0,
+        });
+      } else if (scrollDegree >= 1) {
+        setText(4);
+        gsap.to(group.position, 1.2, {
+          x: 3.2,
+          y: 0,
+          z: 0,
         });
       } else {
         setText(0);
+        gsap.to(group.position, 1.2, {
+          x: 0,
+          y: 0,
+          z: 0,
+        });
       }
 
       if (scrollDegree >= 0 && scrollDegree < 0.2) {
         scrollDegree *= 5;
 
-        gsap.to(group.position, 0.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-          ease: "linear",
-        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10,
@@ -107,12 +125,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
         scrollDegree = (scrollDegree - 0.2) * 5;
 
-        gsap.to(group.position, 0.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-          ease: "linear",
-        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10,
@@ -126,12 +138,6 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
         scrollDegree = (scrollDegree - 0.4) * 5;
 
-        gsap.to(group.position, 0.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-          ease: "linear",
-        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
           y: 10 - 2 * scrollDegree,
@@ -145,39 +151,27 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
         scrollDegree = (scrollDegree - 0.6) * 5;
 
-        gsap.to(group.position, 0.2, {
-          x: 0,
-          y: 0,
-          z: 0,
-          ease: "linear",
-        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
-          y: 8 - 4 * scrollDegree,
-          z: 5 - 5 * scrollDegree,
+          y: 8 - 2 * scrollDegree,
+          z: 5 - 2.5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(beef.position, 0.2, {
-          y: 5 - 5 * scrollDegree,
+          y: 5 - 2.5 * scrollDegree,
           ease: "linear",
         });
       } else if (scrollDegree >= 0.8 && scrollDegree <= 1) {
         scrollDegree = (scrollDegree - 0.8) * 5;
 
-        gsap.to(group.position, 0.2, {
-          x: 0 + 3 * scrollDegree,
-          y: 0,
-          z: 0,
-          ease: "linear",
-        });
         gsap.to(control.object.position, 0.2, {
           x: 0,
-          y: 4,
-          z: 0,
+          y: 6 - 2 * scrollDegree,
+          z: 2.5 - 2.5 * scrollDegree,
           ease: "linear",
         });
         gsap.to(beef.position, 0.2, {
-          y: 0,
+          y: 2.5 - 2.5 * scrollDegree,
           ease: "linear",
         });
       }
