@@ -203,14 +203,14 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         <BeefModel beefRef={beefRef} />
         <PlateModel plateRef={plateRef} />
         <spotLight
-          args={["#fff", 0.5, 15, angleToRadians(140), 0, 0]}
+          args={["#fff", 1, 15, angleToRadians(140), 0, 0]}
           position={[0, 10, 3]}
           ref={lightRef}
           castShadow
         />
       </group>
       <OrbitControls ref={controlRef} />
-      <ambientLight args={["#fff", 0.4]} />
+      <ambientLight args={["#fff", 0.2]} />
     </group>
   );
 };

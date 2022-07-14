@@ -1,4 +1,4 @@
-@import "./profile&contact.module.scss";
+@import "./about&contact.module.scss";
 
 .container {
   .content {
@@ -21,6 +21,10 @@
         margin: {
           left: 10px;
           bottom: 10px;
+        }
+
+        &.skills__front-end {
+          justify-content: space-around;
         }
       }
     }

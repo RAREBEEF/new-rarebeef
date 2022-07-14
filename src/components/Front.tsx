@@ -14,40 +14,46 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
 
   useEffect(() => {
     const windowScrollListner = () => {
+      // (Y스크롤 / (continaer 요소 높이(200vh) - sticky 요소 높이(100vh))) * 100
+      // === Y스크롤 / 100vh * 100
+      let scrollDegree = (window.scrollY / window.innerHeight) * 100;
+
       if (
         !clipPathRef.current ||
         !fakeSubTitleRef.current ||
         !fakeTitleRef.current ||
         !realSubTitleRef.current ||
         !realTitleRef.current ||
-        window.scrollY / (window.innerHeight * 1) >= 1.3
+        scrollDegree >= 130
       ) {
         return;
       }
 
-      // Y스크롤 / (continaer 요소 높이(200vh) - sticky 요소 높이(100vh))
-      // = Y스크롤 / 100vh
-      let scrollDegree = (window.scrollY / window.innerHeight) * -100;
+      const clipPath = clipPathRef.current;
+      const fakeSubTitle = fakeSubTitleRef.current;
+      const fakeTitle = fakeTitleRef.current;
+      const realSubTitle = realSubTitleRef.current;
+      const realTitle = realTitleRef.current;
 
-      if (scrollDegree <= -100) {
-        clipPathRef.current.style.clipPath = "inset(-100% 0px 0px)";
+      if (scrollDegree >= 100) {
+        clipPath.style.clipPath = "inset(-100% 0px 0px)";
       } else {
-        gsap.to(clipPathRef.current, 0.1, {
-          clipPath: `inset(${100 + scrollDegree}% 0px 0px)`,
+        gsap.to(clipPath, 0.1, {
+          clipPath: `inset(${100 - scrollDegree}% 0px 0px)`,
         });
       }
 
-      gsap.to(fakeSubTitleRef.current, 0.3, {
-        transform: `translateY(${15 + scrollDegree * 0.15}vmin)`,
+      gsap.to(fakeSubTitle, 0.3, {
+        transform: `translateY(${15 - scrollDegree * 0.15}vmin)`,
       });
-      gsap.to(fakeTitleRef.current, 0.3, {
-        transform: `translateY(${-15 - scrollDegree * 0.15}vmin)`,
+      gsap.to(fakeTitle, 0.3, {
+        transform: `translateY(${-15 + scrollDegree * 0.15}vmin)`,
       });
-      gsap.to(realSubTitleRef.current, 0.3, {
-        transform: `translateY(${15 + scrollDegree * 0.15}vmin)`,
+      gsap.to(realSubTitle, 0.3, {
+        transform: `translateY(${15 - scrollDegree * 0.15}vmin)`,
       });
-      gsap.to(realTitleRef.current, 0.3, {
-        transform: `translateY(${-15 - scrollDegree * 0.15}vmin)`,
+      gsap.to(realTitle, 0.3, {
+        transform: `translateY(${-15 + scrollDegree * 0.15}vmin)`,
       });
     };
 

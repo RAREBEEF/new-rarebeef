@@ -1,4 +1,4 @@
-import styles from "./Profile.module.scss";
+import styles from "./About.module.scss";
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import Header from "../components/Header";
@@ -32,13 +32,13 @@ const About: React.FC<ProfilePropType> = () => {
         <section className={styles.section} id="name">
           <h4 className={styles.header}>Name</h4>
           <span className={styles.text}>
-            소고기는레어&nbsp;&nbsp;(본명 : 송의영)
+            소고기는레어 (본명 : 송의영)
           </span>
         </section>
         <section className={styles.section} id="birth-date">
           <h4 className={styles.header}>Birth date</h4>
           <span className={styles.text}>
-            1998년 10월 6일&nbsp;&nbsp;({age}살)
+            1998년 10월 6일 ({age}살)
           </span>
         </section>
         <section className={styles.section}>
