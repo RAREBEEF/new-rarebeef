@@ -9,6 +9,7 @@ import {
   doc as d,
   deleteDoc as dD,
 } from "firebase/firestore";
+import { getAuth as gA, signInAnonymously as sIA } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -36,3 +37,7 @@ export const orderBy = oB;
 export const doc = d;
 
 export const deleteDoc = dD;
+
+export const getAuth = gA;
+
+export const signInAnonymously = sIA;

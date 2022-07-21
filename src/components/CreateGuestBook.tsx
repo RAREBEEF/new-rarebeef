@@ -9,6 +9,7 @@ const CreateGuestBook = () => {
   const [content, setContent] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [pw, setPw] = useState<string>("");
+  const [uploading, setUploading] = useState<boolean>(false);
 
   const onTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setContent(e.target.value);
@@ -27,33 +28,40 @@ const CreateGuestBook = () => {
   ): Promise<void> => {
     e.preventDefault();
 
-    if (content === "" || name === "" || pw === "") {
+    if (content === "" || name === "" || pw === "" || uploading) {
       return;
     }
 
-    try {
-      const {
-        data: { ip },
-      } = await axios.get("https://api.ipify.org?format=json");
+    setUploading(true);
 
-      await FB.addDoc(FB.collection(FB.db, "GuestBook"), {
-        name,
-        pw,
-        content,
-        createdAt: new Date().getTime(),
-        ip: ip || "unknown",
-        displayIp: ip.replace(/\.[0-9]{1,}\.[0-9]{1,}$/i, "") || "unknown",
+    const auth = FB.getAuth();
+
+    FB.signInAnonymously(auth)
+      .then(async () => {
+        const {
+          data: { ip },
+        } = await axios.get("https://api.ipify.org?format=json");
+
+        await FB.addDoc(FB.collection(FB.db, "GuestBook"), {
+          name,
+          pw,
+          content,
+          createdAt: new Date().getTime(),
+          ip: ip || "unknown",
+          displayIp: ip.replace(/\.[0-9]{1,}\.[0-9]{1,}$/i, "") || "unknown",
+        });
+      })
+      .catch((error) => {
+        window.alert(
+          `방명록 업로드에 실패하였습니다.\n다음에 다시 시도해 주세요.`
+        );
+      })
+      .finally(() => {
+        setContent("");
+        setName("");
+        setPw("");
+        setUploading(false);
       });
-
-      setContent("");
-      setName("");
-      setPw("");
-    } catch (error) {
-      console.error(error);
-      window.alert(
-        `방명록 업로드에 실패하였습니다.\n다음에 다시 시도해 주세요.`
-      );
-    }
   };
 
   return (
