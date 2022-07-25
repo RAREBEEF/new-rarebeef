@@ -13,7 +13,7 @@ import "swiper/scss/effect-coverflow";
 import { SectionPropType } from "../types";
 
 const Section: React.FC<SectionPropType> = ({ data }): ReactElement => {
-  const screenshotsRef = useRef<any>(null);
+  const screenshotsRef = useRef<HTMLDivElement>(null);
 
   const swiperGeneroator = (): Array<any> => {
     if (!data.imgs) {

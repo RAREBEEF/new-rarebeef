@@ -18,7 +18,7 @@ import Illustrator from "../images/skills/ai-brands.svg";
 
 const Skill: React.FC<SkillPropType> = ({ skill }) => {
   const [showInfoWindow, setShowInfoWindow] = useState<boolean>(false);
-  const infoWindowRef = useRef<any>(null);
+  const infoWindowRef = useRef<HTMLDivElement>(null);
 
   const srcs = {
     "Three.js": Three,
@@ -52,6 +52,10 @@ const Skill: React.FC<SkillPropType> = ({ skill }) => {
     setShowInfoWindow(true);
 
     const currentRef = infoWindowRef.current;
+
+    if (!currentRef) {
+      return;
+    }
 
     const x = e.clientX;
     const y = e.clientY;

@@ -6,11 +6,11 @@ import classNames from "classnames";
 import gsap from "gsap";
 
 const Front: React.FC<FrontPropType> = (): ReactElement => {
-  const clipPathRef = useRef<any>(null);
-  const fakeSubTitleRef = useRef<any>(null);
-  const realSubTitleRef = useRef<any>(null);
-  const fakeTitleRef = useRef<any>(null);
-  const realTitleRef = useRef<any>(null);
+  const clipPathRef = useRef<HTMLHeadingElement>(null);
+  const fakeSubTitleRef = useRef<HTMLHeadingElement>(null);
+  const realSubTitleRef = useRef<HTMLHeadingElement>(null);
+  const fakeTitleRef = useRef<HTMLHeadingElement>(null);
+  const realTitleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const windowScrollListner = () => {

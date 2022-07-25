@@ -11,7 +11,7 @@ import Loading from "./Loading";
 import Phones from "../scenes/Phones";
 
 const ReactNative = (): ReactElement => {
-  const sectionRef = useRef<any>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <section className={styles.container} ref={sectionRef}>

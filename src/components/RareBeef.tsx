@@ -7,7 +7,7 @@ import Loading from "../components/Loading";
 import Beef from "../scenes/Beef";
 
 const RareBeef = (): ReactElement => {
-  const sectionRef = useRef<any>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [text, setText] = useState<number>(0);
 
   return (

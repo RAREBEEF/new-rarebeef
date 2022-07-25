@@ -15,7 +15,7 @@ import clock from "../sections/clock";
 import HomeHelmet from "../helmets/HomeHelmet";
 
 const Home: React.FC<HomePropType> = () => {
-  const HomeRef = useRef<any>(null);
+  const HomeRef = useRef<HTMLDivElement>(null);
 
   return (
     <div ref={HomeRef} className={classNames(styles.container)}>
