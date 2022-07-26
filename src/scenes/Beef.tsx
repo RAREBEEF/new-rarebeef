@@ -53,7 +53,7 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
 
       let scrollProgress = calcScroll(5);
 
-      if (scrollProgress <= 0.1 || scrollProgress >= 1.9) {
+      if (scrollProgress <= 0 || scrollProgress >= 1.9) {
         return;
       }
 
