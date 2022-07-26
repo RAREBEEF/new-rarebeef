@@ -13,6 +13,7 @@ import memoryTest from "../sections/memoryTest";
 import simpleMemo from "../sections/simpleMemo";
 import clock from "../sections/clock";
 import HomeHelmet from "../helmets/HomeHelmet";
+import Footer from "../components/Footer";
 
 const Home: React.FC<HomePropType> = () => {
   const HomeRef = useRef<HTMLDivElement>(null);
@@ -24,15 +25,13 @@ const Home: React.FC<HomePropType> = () => {
       <div className={styles.contour} />
       <RareBeef />
       <Section data={paletteVault} />
-      <Section data={placeReview} />
       <ReactNative />
-      <Section data={metaBeef} />
+      <Section data={placeReview} />
       <Section data={memoryTest} />
-      <Section data={simpleMemo} />
+      <Section data={metaBeef} />
       <Section data={clock} />
-      <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
-      </footer>
+      <Section data={simpleMemo} />
+      <Footer />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
     const windowScrollListner = () => {
       // (Y스크롤 / (continaer 요소 높이(200vh) - sticky 요소 높이(100vh))) * 100
       // === Y스크롤 / 100vh * 100
-      let scrollDegree = (window.scrollY / window.innerHeight) * 100;
+      let scrollProgress = (window.scrollY / window.innerHeight) * 100;
 
       if (
         !clipPathRef.current ||
@@ -24,7 +24,7 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
         !fakeTitleRef.current ||
         !realSubTitleRef.current ||
         !realTitleRef.current ||
-        scrollDegree >= 130
+        scrollProgress >= 130
       ) {
         return;
       }
@@ -35,25 +35,25 @@ const Front: React.FC<FrontPropType> = (): ReactElement => {
       const realSubTitle = realSubTitleRef.current;
       const realTitle = realTitleRef.current;
 
-      if (scrollDegree >= 100) {
+      if (scrollProgress >= 100) {
         clipPath.style.clipPath = "inset(-100% 0px 0px)";
       } else {
         gsap.to(clipPath, 0.1, {
-          clipPath: `inset(${100 - scrollDegree}% 0px 0px)`,
+          clipPath: `inset(${100 - scrollProgress}% 0px 0px)`,
         });
       }
 
       gsap.to(fakeSubTitle, 0.3, {
-        transform: `translateY(${15 - scrollDegree * 0.15}vmin)`,
+        transform: `translateY(${15 - scrollProgress * 0.15}vmin)`,
       });
       gsap.to(fakeTitle, 0.3, {
-        transform: `translateY(${-15 + scrollDegree * 0.15}vmin)`,
+        transform: `translateY(${-15 + scrollProgress * 0.15}vmin)`,
       });
       gsap.to(realSubTitle, 0.3, {
-        transform: `translateY(${15 - scrollDegree * 0.15}vmin)`,
+        transform: `translateY(${15 - scrollProgress * 0.15}vmin)`,
       });
       gsap.to(realTitle, 0.3, {
-        transform: `translateY(${-15 + scrollDegree * 0.15}vmin)`,
+        transform: `translateY(${-15 + scrollProgress * 0.15}vmin)`,
       });
     };
 

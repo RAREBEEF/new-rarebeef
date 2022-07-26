@@ -8,6 +8,7 @@ import writeIcon from "../images/icons/paper-plane-thin.svg";
 import styles from "./Contact.module.scss";
 import { ContactPropType } from "../types";
 import ContactHelmet from "../helmets/ContactHelmet";
+import Footer from "../components/Footer";
 
 const Contact: React.FC<ContactPropType> = () => {
   const [copyAlert, setCopyAlert] = useState<string>("");
@@ -54,7 +55,7 @@ const Contact: React.FC<ContactPropType> = () => {
           <div className={styles["btn-group"]}>
             <Button
               href="https://github.com/RAREBEEF"
-              text="https://github.com/RAREBEEF"
+              text="github.com/RAREBEEF"
             />
           </div>
         </section>
@@ -63,7 +64,7 @@ const Contact: React.FC<ContactPropType> = () => {
           <div className={styles["btn-group"]}>
             <Button
               href="https://velog.io/@drrobot409"
-              text="https://velog.io/@drrobot409"
+              text="velog.io/@drrobot409"
             />
           </div>
         </section>
@@ -72,9 +73,7 @@ const Contact: React.FC<ContactPropType> = () => {
           <GuestBookWrapper />
         </section>
       </div>
-      <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
-      </footer>
+      <Footer />
     </div>
   );
 };

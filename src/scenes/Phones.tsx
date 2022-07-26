@@ -5,8 +5,10 @@ import ToDoModel from "../models/ToDoModel";
 import WeatherModel from "../models/WeatherModel";
 import { PhonesPropType } from "../types";
 import gsap from "gsap";
+import useCalcScroll from "../hooks/useCalcScroll";
 
 const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
+  const calcScroll = useCalcScroll(sectionRef);
   const [scale, setScale] = useState<number>(
     ((window.innerWidth - 300) / 1200) * 0.3 + 0.7
   );
@@ -35,62 +37,56 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
       }
 
       const controlPos = controlRef.current.object.position;
-      const setcion = sectionRef.current;
-      // (뷰포트 상단 기준 section top의 y 위치) / (800vh - sticy요소(content) 높이)
-      // fixed 시작 시점이 0,
-      // fixed가 해제될 때 100이 된다.
-      let scrollDegree =
-        (setcion.getBoundingClientRect().top /
-          (window.innerHeight * 8 - setcion.childNodes[1].clientHeight)) *
-        -1;
 
-      if (scrollDegree <= 0 || scrollDegree >= 1.5) {
+      let scrollProgress = calcScroll(8);
+
+      if (scrollProgress <= 0 || scrollProgress >= 1.5) {
         return;
       }
 
-      if (scrollDegree >= 0 && scrollDegree < 0.2) {
-        scrollDegree *= 5;
+      if (scrollProgress >= 0 && scrollProgress < 0.2) {
+        scrollProgress *= 5;
 
         gsap.to(controlPos, 0.3, {
-          x: -5 + 5 * scrollDegree,
+          x: -5 + 5 * scrollProgress,
           y: -1,
-          z: 0 + 3 * scrollDegree,
+          z: 0 + 3 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
-        scrollDegree = (scrollDegree - 0.2) * 5;
+      } else if (scrollProgress >= 0.2 && scrollProgress < 0.4) {
+        scrollProgress = (scrollProgress - 0.2) * 5;
 
         gsap.to(controlPos, 0.3, {
-          x: 0 + 5 * scrollDegree,
+          x: 0 + 5 * scrollProgress,
           y: -1,
-          z: 3 - 3 * scrollDegree,
+          z: 3 - 3 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
-        scrollDegree = (scrollDegree - 0.4) * 5;
+      } else if (scrollProgress >= 0.4 && scrollProgress < 0.6) {
+        scrollProgress = (scrollProgress - 0.4) * 5;
 
         gsap.to(controlPos, 0.3, {
-          x: 5 - 5 * scrollDegree,
+          x: 5 - 5 * scrollProgress,
           y: -1,
-          z: 0 - 1 * scrollDegree,
+          z: 0 - 1 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
-        scrollDegree = (scrollDegree - 0.6) * 5;
+      } else if (scrollProgress >= 0.6 && scrollProgress < 0.8) {
+        scrollProgress = (scrollProgress - 0.6) * 5;
 
         gsap.to(controlPos, 0.3, {
           x: 0,
-          y: -1 - 5.5 * scrollDegree,
+          y: -1 - 5.5 * scrollProgress,
           z: -1,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.8 && scrollDegree <= 1.05) {
-        scrollDegree = (scrollDegree - 0.8) * 5;
+      } else if (scrollProgress >= 0.8 && scrollProgress <= 1.05) {
+        scrollProgress = (scrollProgress - 0.8) * 5;
 
         gsap.to(controlPos, 0.3, {
-          x: 0 - 5 * scrollDegree,
-          y: -6.5 + 6 * scrollDegree,
-          z: -1 + 6 * scrollDegree,
+          x: 0 - 5 * scrollProgress,
+          y: -6.5 + 6 * scrollProgress,
+          z: -1 + 6 * scrollProgress,
           ease: "linear",
         });
       }
@@ -114,7 +110,7 @@ const Phones: React.FC<PhonesPropType> = ({ sectionRef }) => {
       window.removeEventListener("scroll", windowScrollListner);
       window.removeEventListener("resize", windowResizeListner);
     };
-  }, [sectionRef]);
+  }, [calcScroll, sectionRef]);
 
   return (
     <>

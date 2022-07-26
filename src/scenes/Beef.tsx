@@ -5,8 +5,10 @@ import { BeefPropType } from "../types";
 import gsap from "gsap";
 import angleToRadians from "../tools/angleToRadians";
 import PlateModel from "../models/PlateModel";
+import useCalcScroll from "../hooks/useCalcScroll";
 
 const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
+  const calcScroll = useCalcScroll(sectionRef);
   const [scale, setScale] = useState<number>(
     ((window.innerWidth - 300) / 1200) * 0.3 + 0.7
   );
@@ -45,35 +47,25 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         return;
       }
 
-      const setcion = sectionRef.current;
       const controlPos = controlRef.current.object.position;
       const beefPos = beefRef.current.position;
       const groupPos = groupRef.current.position;
 
-      let scrollDegree =
-        (setcion.getBoundingClientRect().top /
-          (window.innerHeight * 5 - setcion.childNodes[1].clientHeight)) *
-          -1 +
-        0.1;
+      let scrollProgress = calcScroll(5);
 
-      if (scrollDegree <= 0.1 || scrollDegree >= 1.9) {
+      if (scrollProgress <= 0.1 || scrollProgress >= 1.9) {
         return;
       }
 
-      // (뷰포트 상단 기준 section top의 y 위치) / (500vh - sticy요소(content) 높이)
-      // fixed 시작 시점이 0,
-      // fixed가 해제될 때 100이 된다.
-      // 추가로 0.1을 더해 실제 스크롤보다 애니메이션 발동을 0.1 만큼 앞당겨서 스크롤 마지막 0.1 만큼은 애니메이션 없이 스크롤만 동작
-
-      if (scrollDegree >= 0.15 && scrollDegree < 0.3) {
+      if (scrollProgress >= 0.15 && scrollProgress < 0.3) {
         setText(1);
-      } else if (scrollDegree >= 0.45 && scrollDegree < 0.6) {
+      } else if (scrollProgress >= 0.45 && scrollProgress < 0.6) {
         setText(2);
-      } else if (scrollDegree >= 0.75 && scrollDegree < 0.9) {
+      } else if (scrollProgress >= 0.75 && scrollProgress < 0.9) {
         setText(3);
-      } else if (scrollDegree >= 0.95 && scrollDegree < 1) {
+      } else if (scrollProgress >= 0.95 && scrollProgress < 1) {
         setText(4);
-      } else if (scrollDegree >= 1) {
+      } else if (scrollProgress >= 1) {
         setText(4);
         gsap.to(groupPos, 0.2, {
           x: 3.2,
@@ -84,8 +76,8 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         setText(0);
       }
 
-      if (scrollDegree >= 0 && scrollDegree < 0.2) {
-        scrollDegree *= 5;
+      if (scrollProgress >= 0 && scrollProgress < 0.2) {
+        scrollProgress *= 5;
 
         gsap.to(groupPos, 0.2, {
           x: 0,
@@ -95,15 +87,15 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         gsap.to(controlPos, 0.2, {
           x: 0,
           y: 10,
-          z: 20 - 5 * scrollDegree,
+          z: 20 - 5 * scrollProgress,
           ease: "linear",
         });
         gsap.to(beefPos, 0.2, {
-          y: 30 - 10 * scrollDegree,
+          y: 30 - 10 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.2 && scrollDegree < 0.4) {
-        scrollDegree = (scrollDegree - 0.2) * 5;
+      } else if (scrollProgress >= 0.2 && scrollProgress < 0.4) {
+        scrollProgress = (scrollProgress - 0.2) * 5;
 
         gsap.to(groupPos, 0.2, {
           x: 0,
@@ -113,15 +105,15 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         gsap.to(controlPos, 0.2, {
           x: 0,
           y: 10,
-          z: 15 - 5 * scrollDegree,
+          z: 15 - 5 * scrollProgress,
           ease: "linear",
         });
         gsap.to(beefPos, 0.2, {
-          y: 20 - 10 * scrollDegree,
+          y: 20 - 10 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.4 && scrollDegree < 0.6) {
-        scrollDegree = (scrollDegree - 0.4) * 5;
+      } else if (scrollProgress >= 0.4 && scrollProgress < 0.6) {
+        scrollProgress = (scrollProgress - 0.4) * 5;
 
         gsap.to(groupPos, 0.2, {
           x: 0,
@@ -130,16 +122,16 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         });
         gsap.to(controlPos, 0.2, {
           x: 0,
-          y: 10 - 2 * scrollDegree,
-          z: 10 - 5 * scrollDegree,
+          y: 10 - 2 * scrollProgress,
+          z: 10 - 5 * scrollProgress,
           ease: "linear",
         });
         gsap.to(beefPos, 0.2, {
-          y: 10 - 5 * scrollDegree,
+          y: 10 - 5 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.6 && scrollDegree < 0.8) {
-        scrollDegree = (scrollDegree - 0.6) * 5;
+      } else if (scrollProgress >= 0.6 && scrollProgress < 0.8) {
+        scrollProgress = (scrollProgress - 0.6) * 5;
 
         gsap.to(groupPos, 0.2, {
           x: 0,
@@ -148,19 +140,19 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
         });
         gsap.to(controlPos, 0.2, {
           x: 0,
-          y: 8 - 4 * scrollDegree,
-          z: 5 - 5 * scrollDegree,
+          y: 8 - 4 * scrollProgress,
+          z: 5 - 5 * scrollProgress,
           ease: "linear",
         });
         gsap.to(beefPos, 0.2, {
-          y: 5 - 5 * scrollDegree,
+          y: 5 - 5 * scrollProgress,
           ease: "linear",
         });
-      } else if (scrollDegree >= 0.8 && scrollDegree <= 1) {
-        scrollDegree = (scrollDegree - 0.8) * 5;
+      } else if (scrollProgress >= 0.8 && scrollProgress <= 1) {
+        scrollProgress = (scrollProgress - 0.8) * 5;
 
         gsap.to(groupPos, 0.2, {
-          x: 0 + 3.2 * scrollDegree,
+          x: 0 + 3.2 * scrollProgress,
           y: 0,
           z: 0,
         });
@@ -195,7 +187,7 @@ const Beef: React.FC<BeefPropType> = ({ sectionRef, setText }) => {
       window.removeEventListener("scroll", windowScrollListner);
       window.removeEventListener("resize", windowResizeListner);
     };
-  }, [sectionRef, setText]);
+  }, [calcScroll, sectionRef, setText]);
 
   return (
     <group scale={scale}>

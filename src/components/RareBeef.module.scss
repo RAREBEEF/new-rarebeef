@@ -15,6 +15,7 @@
   height: 100vh !important;
   width: 100vw !important;
   min-width: 230px !important;
+  pointer-events: none;
 }
 
 .main-text {
@@ -32,15 +33,15 @@
   width: 100%;
   min-width: 230px !important;
   word-break: keep-all;
-  text-shadow: 0px 0px 5px lightgray;
-  line-height: 30px;
+  text-shadow: 0px 0px 10px white;
+  line-height: 40px;
   font: {
     size: 18px;
     weight: 700;
   }
   padding: {
-    left: 5vw;
-    right: 5vw;
+    left: 20vw;
+    right: 20vw;
   }
   &.show {
     opacity: 1;

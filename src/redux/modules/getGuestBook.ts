@@ -42,7 +42,7 @@ const getGuestBookFail = (error: any): getGuestBookFailType => {
 // 썽크
 //
 export const getGuestBookThunk = (): Function => {
-  return async (dispatch: React.Dispatch<any>) => {
+  return (dispatch: React.Dispatch<any>) => {
     try {
       dispatch(getGuestBookStart());
 

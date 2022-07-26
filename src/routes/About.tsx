@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import { ProfilePropType } from "../types";
 import Skill from "../components/Skill";
 import AboutHelmet from "../helmets/AboutHelmet";
+import Footer from "../components/Footer";
 
 const About: React.FC<ProfilePropType> = () => {
   const [age, setAge] = useState<number>(0);
@@ -32,13 +33,13 @@ const About: React.FC<ProfilePropType> = () => {
         <section className={styles.section} id="name">
           <h4 className={styles.header}>Name</h4>
           <span className={styles.text}>
-            소고기는레어 (본명 : 송의영)
+            소고기는레어 <span>(본명 : 송의영)</span>
           </span>
         </section>
         <section className={styles.section} id="birth-date">
           <h4 className={styles.header}>Birth date</h4>
           <span className={styles.text}>
-            1998년 10월 6일 ({age}살)
+            1998년 10월 6일<span>({age}살)</span>
           </span>
         </section>
         <section className={styles.section}>
@@ -75,14 +76,12 @@ const About: React.FC<ProfilePropType> = () => {
               1. React VR
             </li>
             <li id={"second-plan"} className={styles["sub-header"]}>
-              2. Progressive Web App
+              2. PWA
             </li>
           </ol>
         </section>
       </div>
-      <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()}. RAREBEEF All Rights Reserved.
-      </footer>
+      <Footer />
     </div>
   );
 };

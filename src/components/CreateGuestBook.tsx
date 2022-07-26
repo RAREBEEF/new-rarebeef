@@ -4,24 +4,17 @@ import * as FB from "../fb";
 import Button from "./Button";
 import classNames from "classnames";
 import axios from "axios";
+import useInput from "../hooks/useInput";
 
 const CreateGuestBook = () => {
-  const [content, setContent] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [pw, setPw] = useState<string>("");
+  const {
+    value: content,
+    onChange: onContentChange,
+    setValue: setContent,
+  } = useInput();
+  const { value: name, onChange: onNameChange, setValue: setName } = useInput();
+  const { value: pw, onChange: onPwChange, setValue: setPw } = useInput();
   const [uploading, setUploading] = useState<boolean>(false);
-
-  const onTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    setContent(e.target.value);
-  };
-
-  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setName(e.target.value);
-  };
-
-  const onPwChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setPw(e.target.value);
-  };
 
   const onUpload = async (
     e: React.FormEvent<HTMLFormElement>
@@ -103,7 +96,7 @@ const CreateGuestBook = () => {
           <textarea
             className={styles["input--content"]}
             value={content}
-            onChange={onTextChange}
+            onChange={onContentChange}
             placeholder="내용 (1~50 글자)"
             minLength={1}
             maxLength={50}

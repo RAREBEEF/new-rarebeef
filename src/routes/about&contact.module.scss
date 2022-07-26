@@ -18,6 +18,7 @@
     align-self: center;
     width: 80vw;
     max-width: 800px;
+    min-width: 230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,10 +27,7 @@
     padding: {
       top: 50px;
     }
-    margin: {
-      left: 40px;
-      right: 60px;
-    }
+    margin: auto;
   }
 
   .title {
@@ -63,23 +61,18 @@
     }
 
     .text {
-      margin: {
-        left: 10px;
-      }
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      // margin: {
+      //   left: 10px;
+      // }
     }
 
     &.plan {
       margin: {
         top: -20px;
       }
-    }
-  }
-
-  .footer {
-    height: 30px;
-    text-align: center;
-    margin: {
-      top: 50px;
     }
   }
 }
