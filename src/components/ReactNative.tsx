@@ -22,7 +22,7 @@ const ReactNative = (): ReactElement => {
       />
       <main className={styles.content}>
         <Suspense fallback={<Loading />}>
-          <Canvas className={styles.canvas} dpr={[1.2, 1.5]}>
+          <Canvas className={styles.canvas} dpr={[1, 1.2]}>
             <Phones sectionRef={sectionRef} />
           </Canvas>
         </Suspense>
