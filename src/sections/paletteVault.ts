@@ -1,4 +1,5 @@
 import githubIcon from "../images/icons/github-square-brands.svg";
+import velogIcon from "../images/icons/velog-square.svg";
 import logo from "../images/logos/palette-vault-icon.png";
 import img1 from "../images/screenshots/palette-vault.png";
 import img2 from "../images/screenshots/palette-vault-new.png";
@@ -23,6 +24,10 @@ const data: sectionDataType = {
   skills: ["HTML", "TypeScript", "React", "Redux", "Sass", "Firebase"],
   links: [
     { icon: githubIcon, href: "https://github.com/RAREBEEF/palette-vault" },
+    {
+      icon: velogIcon,
+      href: "https://velog.io/@drrobot409/React-Ts-Firebase-%EC%83%89%EC%83%81-%EC%A0%80%EC%9E%A5%EC%86%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+    },
     { icon: logo, href: "https://palettevault.netlify.app" },
   ],
 };
