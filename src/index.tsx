@@ -5,6 +5,9 @@ import "./index.scss";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+serviceWorkerRegistration.register();
 
 const rootEl = document.getElementById("root");
 const root = ReactDOM.createRoot(rootEl as HTMLElement);
