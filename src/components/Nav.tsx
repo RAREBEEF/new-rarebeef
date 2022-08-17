@@ -16,6 +16,17 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      // Update UI notify the user they can install the PWA
+      // Optionally, send analytics event that PWA install promo was shown.
+      console.log(e);
+    });
+  }, []);
+
+  useEffect(() => {
     if (
       location.pathname !== "/" &&
       location.pathname !== "/contact" &&
