@@ -23,6 +23,7 @@ const Nav: React.FC<NavPropType> = (): ReactElement => {
       // Update UI notify the user they can install the PWA
       // Optionally, send analytics event that PWA install promo was shown.
       console.log(e);
+      console.log("beforeinstallprompt");
     });
   }, []);
 
