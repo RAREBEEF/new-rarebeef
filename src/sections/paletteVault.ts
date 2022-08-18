@@ -11,7 +11,7 @@ const data: sectionDataType = {
   name: ["PaletteVault"],
   header: {
     title: ["Palette", "Vault"],
-    subTitle: ["Save", "your", "palettes"],
+    subTitle: ["Progressive", "Web", "App"],
   },
   imgs: [img1, img2, img3, img4],
   summary: {
@@ -20,7 +20,7 @@ const data: sectionDataType = {
     headCount: 1,
   },
   description:
-    "나만의 팔레트를 저장할 수 있는 색상 저장소입니다.\n팔레트는 Firebase에 업로드되며 데이터의 양이 많아질 것에 대비해 쿼리 커서를 이용하여 필요에 따라 조금씩 끊어서 불러올 수 있도록 하였습니다. PWA를 목표로 개발을 진행하였으며 PWA에 대한 학습이 진행됨에 따라 업데이트를 해나갈 예정입니다.",
+    "나만의 팔레트를 저장할 수 있는 색상 저장소입니다.\n팔레트는 Firebase에 업로드되며 데이터의 양이 많아질 것에 대비해 쿼리 커서를 이용하여 필요에 따라 조금씩 끊어서 불러올 수 있도록 하였습니다. PWA를 목표로 개발을 진행하였으며 PWA에 대한 학습이 진행됨에 따라 차츰 업데이트 해나갈 예정입니다.",
   skills: ["HTML", "TypeScript", "React", "Redux", "Sass", "Firebase"],
   links: [
     { icon: githubIcon, href: "https://github.com/RAREBEEF/palette-vault" },
