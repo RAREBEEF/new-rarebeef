@@ -3,9 +3,9 @@ import velogIcon from "../images/icons/velog-square.svg";
 import logo from "../images/logos/palette-vault-icon.png";
 import img1 from "../images/screenshots/palette-vault.png";
 import img2 from "../images/screenshots/palette-vault-pwa.png";
-import img3 from "../images/screenshots/palette-vault-empty.png";
-import img4 from "../images/screenshots/palette-vault-new.png";
-import img5 from "../images/screenshots/palette-vault-responsive.png";
+import img3 from "../images/screenshots/palette-vault-pwa2.png";
+import img4 from "../images/screenshots/palette-vault-empty.png";
+import img5 from "../images/screenshots/palette-vault-new.png";
 import { sectionDataType } from "../types";
 
 const data: sectionDataType = {
