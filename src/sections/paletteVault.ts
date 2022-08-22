@@ -2,9 +2,10 @@ import githubIcon from "../images/icons/github-square-brands.svg";
 import velogIcon from "../images/icons/velog-square.svg";
 import logo from "../images/logos/palette-vault-icon.png";
 import img1 from "../images/screenshots/palette-vault.png";
-import img2 from "../images/screenshots/palette-vault-new.png";
+import img2 from "../images/screenshots/palette-vault-pwa.png";
 import img3 from "../images/screenshots/palette-vault-empty.png";
-import img4 from "../images/screenshots/palette-vault-responsive.png";
+import img4 from "../images/screenshots/palette-vault-new.png";
+import img5 from "../images/screenshots/palette-vault-responsive.png";
 import { sectionDataType } from "../types";
 
 const data: sectionDataType = {
@@ -13,7 +14,7 @@ const data: sectionDataType = {
     title: ["Palette", "Vault"],
     subTitle: ["Progressive", "Web", "App"],
   },
-  imgs: [img1, img2, img3, img4],
+  imgs: [img1, img2, img3, img4, img5],
   summary: {
     name: "Palette Vault",
     date: "2022.07.18 ~ 2022.07.25",
