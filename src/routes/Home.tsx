@@ -5,6 +5,7 @@ import { HomePropType } from "../types";
 import Section from "../components/Section";
 import Front from "../components/Front";
 import paletteVault from "../sections/paletteVault";
+import dailiary from "../sections/dailiary";
 import RareBeef from "../components/RareBeef";
 import placeReview from "../sections/placeReview";
 import ReactNative from "../components/ReactNative";
@@ -24,6 +25,7 @@ const Home: React.FC<HomePropType> = () => {
       <Front />
       <div className={styles.contour} />
       <RareBeef />
+      <Section data={dailiary} />
       <Section data={paletteVault} />
       <ReactNative />
       <Section data={placeReview} />

@@ -53,6 +53,7 @@ const About: React.FC<ProfilePropType> = () => {
                 <Skill skill="JavaScript" />
                 <Skill skill="TypeScript" />
                 <Skill skill="React" />
+                <Skill skill="Next" />
                 <Skill skill="Sass" />
                 <Skill skill="Redux" />
                 <Skill skill="Three.js" />

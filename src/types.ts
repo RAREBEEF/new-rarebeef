@@ -87,6 +87,7 @@ export type skillType =
   | "JavaScript"
   | "TypeScript"
   | "React"
+  | "Next"
   | "React Native"
   | "Sass"
   | "Redux"
